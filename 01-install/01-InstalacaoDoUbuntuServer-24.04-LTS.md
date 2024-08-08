@@ -26,16 +26,16 @@ Link da vídeo aula:
 
 #01_ Primeira etapa: Download da ISO do Ubuntu Server 24.04.x LTS
 ```bash
-A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/<br>
-B) Versão do download Ubuntu Server: ubuntu-24.04-live-server-amd64.iso (Link atualizado em 23/04/2024)<br>
-C) Arquitetura do Ubuntu Server: AMD64 (64-bit)<br>
+A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
+B) Versão do download Ubuntu Server: ubuntu-24.04-live-server-amd64.iso (Link atualizado em 23/04/2024)
+C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
 #02_ Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX<br>
 ```bash
-A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
-B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
+A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
+B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
 C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
