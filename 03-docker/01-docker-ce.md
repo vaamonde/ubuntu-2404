@@ -202,8 +202,7 @@ docker run hello-world
 docker search ubuntu
 
 #iniciando o container do Ubuntu Bash do Docker-CE
-#opções do comando docker: search (Search the Docker Hub for images), run (Run a command in 
-#a new container), -i (interactive), -t (tty)
+#opções do comando docker: run (Run a command in a new container), -i (interactive), -t (tty)
 docker run -it ubuntu bash
 
 #executar os comandos básicos de Linux dentro do container Ubuntu Bash
@@ -239,7 +238,7 @@ docker system prune
 docker rmi hello-world:latest
 docker rmi ubuntu:latest
 
-#listando as imagens do Docker-Ce localmente
+#listando as imagens do Docker-CE localmente
 #opção do comando docker: images (List images container on system)
 docker images
 ```
