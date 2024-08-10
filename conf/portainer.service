@@ -1,0 +1,27 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 10/08/2024
+# Data de atualização: 10/08/2024
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 25.04.x LTS x64
+# Testado e homologado para a versão do Docker-CE 27.x 
+# Testado e homologado para a versão do Portainer v2.20.x
+
+[Unit]
+Description=Portainer container
+After=docker.service
+Wants=network-online.target docker.socket
+Requires=docker.socket
+ 
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a portainer
+ExecStop=/usr/bin/docker stop -t 10 portainer
+ 
+[Install]
+WantedBy=multi-user.target

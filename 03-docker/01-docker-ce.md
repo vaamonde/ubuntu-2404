@@ -6,8 +6,8 @@
 #Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica<br>
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
-Data de criação: 10/08/2024<br>
-Data de atualização: 10/08/2024<br>
+#Data de criação: 10/08/2024<br>
+#Data de atualização: 10/08/2024<br>
 Versão: 0.01<br>
 Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
@@ -59,8 +59,8 @@ Link da vídeo aula:
 ```bash
 #instalação das dependências básicas do Docker CE
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install vim git python3 apt-transport-https ca-certificates curl \
-software-properties-common gnupg-agent
+sudo apt install vim git python3 python3-pip apt-transport-https ca-certificates curl \
+software-properties-common linux-image-generic linux-image-extra-virtual
 ```
 
 #02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<br>
@@ -99,7 +99,7 @@ sudo apt update
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install --install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin \
-docker-compose-plugin
+docker-compose-plugin cgroup-lite
 ```
 
 #06_ Instalação do Docker Compose no Ubuntu Server<br>
@@ -213,6 +213,9 @@ ifconfig
 ping 172.17.0.1
 ping 8.8.8.8
 traceroute 8.8.8.8
+
+#OBSERVAÇÃO IMPORTANTE: quando você utiliza o comando: exit o Container em Docker e desligado
+#(stopping), caso você queira sair do Container sem desligar pressione: Ctrl + P ou Ctrl + Q.
 exit
 ```
 
