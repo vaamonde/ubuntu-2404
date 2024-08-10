@@ -28,8 +28,8 @@ LINK DO SELO:
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
-#02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<
-#03_ Adicionando o Repositório do Docker-CE no Ubuntu Server<
+#02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<br>
+#03_ Adicionando o Repositório do Docker-CE no Ubuntu Server<br>
 #04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server<br>
 #05_ Instalando o Docker-CE e suas Dependências no Ubuntu Server<br>
 #06_ Instalação do Docker Compose no Ubuntu Server<br>
