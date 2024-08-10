@@ -42,6 +42,10 @@ Link da vídeo aula:
 
 #01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 ```bash
+#instalando o editor de Texto Vim, Git e o Python3
+sudo apt update
+sudo apt install vim git python3
+
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
 INSERT
@@ -74,7 +78,7 @@ ESC SHIFT : x <Enter>
 ```bash
 #atualizando as lista do sources.list e instalando os pacotes e ferramentas de rede
 sudo apt update
-sudo apt install bridge-utils ifenslave net-tools
+sudo apt install bridge-utils ifenslave net-tools lshw iputils-ping
 ```
 
 #04_ Verificando informações do Hardware de Rede no Ubuntu Server<br>
@@ -121,10 +125,10 @@ ls -lh /etc/netplan/
 
 #fazendo o backup do arquivo de configuração original do Netplan
 #opção do comando cp: -v (verbose)
-sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
+sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
 #editando o arquivo de configuração do Netplan
-sudo vim /etc/netplan/00-installer-config.yaml
+sudo vim /etc/netplan/50-cloud-init.yaml
 INSERT
 ```
 ```yaml
@@ -134,34 +138,34 @@ network:
   ethernets:
     #configuração da Interface Física (Nome Lógico comando lshw)
     enp0s3:
-    #desabilitando o suporte ao DHCP Client
-    dhcp4: false
-    #desativando o suporte ao IPv6
-    #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
-    #na sua rede o recurso do IPv6
-    link-local: []
-    #alterar o endereço IPv4 para o seu cenário
-    #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
-    addresses: [172.16.1.20/24]
-    #alterar o gateway padrão para o seu cenário
-    #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
-    #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
-    #gateway4: 172.16.1.254
-    routes:
-      #configuração da rota padrão (cuidado com o traço antes do to)
-      - to: default
-        #configuração do endereço IPv4 do Gateway
-        via: 172.16.1.254
-    #configuração dos servidores de DNS Preferencial e Alternativo
-    nameservers:
-      #alterar os servidores DNS para o seu cenário
-      #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
-      #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou 
-      #somente o endereço do Servidor de DNS Local d Rede.
-      addresses: [8.8.8.8, 8.8.4.4]
-      #alterar a pesquisa de domínio para o seu cenário
-      #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
-      search: [pti.intra]
+      #desabilitando o suporte ao DHCP Client
+      dhcp4: false
+      #desativando o suporte ao IPv6
+      #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
+      #na sua rede o recurso do IPv6
+      link-local: []
+      #alterar o endereço IPv4 para o seu cenário
+      #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
+      addresses: [172.16.1.20/24]
+      #alterar o gateway padrão para o seu cenário
+      #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
+      #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
+      #gateway4: 172.16.1.254
+      routes:
+        #configuração da rota padrão (cuidado com o traço antes do to)
+        - to: default
+          #configuração do endereço IPv4 do Gateway
+          via: 172.16.1.254
+      #configuração dos servidores de DNS Preferencial e Alternativo
+      nameservers:
+        #alterar os servidores DNS para o seu cenário
+        #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
+        #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou 
+        #somente o endereço do Servidor de DNS Local d Rede.
+        addresses: [8.8.8.8, 8.8.4.4]
+        #alterar a pesquisa de domínio para o seu cenário
+        #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
+        search: [pti.intra]
   #fim do bloco de configuração do protocolo Ethernet versão 2
   version: 2
 ```

@@ -40,6 +40,9 @@ sudo locale -a
 #representar qualquer caractere no conjunto Unicode, o que inclui praticamente todos 
 #os caracteres de todas as línguas do mundo.
 
+#instalando o suporte ao Locales
+sudo apt install locales
+
 #gerando a localidade do Português do Brasil
 sudo locale-gen pt_BR.UTF-8
 

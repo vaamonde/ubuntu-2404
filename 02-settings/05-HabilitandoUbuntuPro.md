@@ -84,6 +84,10 @@ Acesse o site: https://ubuntu.com/pro/dashboard
 #OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
 #>= a versão 27.13.x
 
+#instalando o Ubuntu Pro Client
+sudo apt update
+sudo apt install ubuntu-advantage-tools
+
 #verificando a versão do cliente do Ubuntu Pro Client
 sudo pro --version
 ```
