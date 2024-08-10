@@ -83,8 +83,8 @@ cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null
 #opção do redirecionador >: Redireciona a saída padrão (STDOUT)
 #opção do redirecionador 2>&1: Conecta a saída de erro na saída padrão
 #opção da contra barra (\): criar uma quebra de linha no terminal
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu \
-noble stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" \ 
+| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server<br>
