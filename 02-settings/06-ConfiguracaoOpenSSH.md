@@ -6,10 +6,10 @@
 #Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica<br>
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
-Data de criação: 08/08/2024<br>
-Data de atualização: 08/08/2024<br>
-Versão: 0.01<br>
-Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
+#Data de criação: 08/08/2024<br>
+#Data de atualização: 08/08/2024<br>
+#Versão: 0.01<br>
+3Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 

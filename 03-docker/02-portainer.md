@@ -6,10 +6,10 @@
 #Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica<br>
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
-Data de criação: 10/08/2024<br>
-Data de atualização: 10/08/2024<br>
-Versão: 0.01<br>
-Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
+#Data de criação: 10/08/2024<br>
+#Data de atualização: 10/08/2024<br>
+#Versão: 0.01<br>
+#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
@@ -58,10 +58,10 @@ docker volume ls
 #criação do container do Portainer.io utilizando o volume criado
 #opção do comando docker: run (Run a command in a new container), --name (container name)
 #-d (Run container in background and print container ID), -p (Publish a container’s port(s) 
-#to the host), -v (Bind mount a volume), portainer/portainer (container imagem)
+#to the host), -v (Bind mount a volume), portainer/portainer-ce:latest (container imagem)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock \
--v portainer_data:/data portainer/portainer
+-v portainer_data:/data portainer/portainer-ce:latest
 ```
 
 #03_ Verificando o Status do Container do Portainer.io no Docker-CE<br>
@@ -87,12 +87,54 @@ docker ps
 sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```
 
-#05_ Criando o arquivo de Serviço do Portainer.io no Docker-CE<br>
+#05_ Criando o arquivo de Serviço do Portainer.io no Ubuntu Server<br>
 ```bash
 #baixado o arquivo de serviço do Portainer.io do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/systemd/system/portainer.service 
+sudo wget -v -O /etc/systemd/system/portainer.service https://raw.githubusercontent.com/vaamonde/ubuntu-2404/main/conf/portainer.service
 ```
+
+#06_ Habilitando o Serviço do Portainer.io no Ubuntu Server<br>
+```bash
+#habilitando o serviço do Portainer.io
+sudo systemctl daemon-reload
+sudo systemctl enable portainer
+sudo systemctl stop portainer
+sudo systemctl start portainer
+```
+
+#07_ Verificando o Serviço e Versão do Portainer.io no Ubuntu Server<br>
+```bash
+#verificando o serviço do Apache Tomcat Server
+sudo systemctl status portainer
+sudo systemctl restart portainer
+sudo systemctl stop portainer
+sudo systemctl start portainer
+
+#analisando os Log's e mensagens de erro do Servidor do Portainer.io
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu portainer
+```
+
+#08_ Acessando e configurando o Portainer.io via navegador<br>
+```bash
+#utilizar os navegadores para testar o acesso ao Portainer.io 
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
+
+#Informações que serão solicitadas na configuração via Web do Portainer.io
+Please create the initial administrator user.
+  Username: vaamonde
+  Password: vaamonde@2024
+  Confirm password: vaamonde@2024
+  (ON) Allow collection of anonymous statistics. You can find more information about this in our privacy policy.
+<Create User>
+
+#configurações iniciais do Portainer.io
+Quick Setup
+  Environment Wizard
+    <Get Started>
+```
+
 ========================================DESAFIOS=========================================
 
 **#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.

@@ -8,8 +8,8 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
 #Data de atualização: 10/08/2024<br>
-Versão: 0.01<br>
-Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
+#Versão: 0.01<br>
+#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
