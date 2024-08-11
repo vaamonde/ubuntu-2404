@@ -24,8 +24,8 @@ Conteúdo estudado nessa instalação:<br>
 #01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
 #02_ Criação da Máquina Virtual no Oracle VirtualBOX<br>
 #03_ Configurações da Máquina Virtual UbuntuWebserver<br>
-#04_ Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
-#05_ Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+#04_ Iniciando a Instalação do Ubuntu Server 24.04.x LTS (localizar a ISO)<br>
+#05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
 #06_ Acessando o Ubuntu Server pela primeira vez<br>
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Instalação Ubuntu Server")
@@ -110,7 +110,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <OK>
 ```
 
-#04_ Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
+#04_ Iniciando a Instalação do Ubuntu Server 24.04.x LTS (localizar a ISO)<br>
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -123,7 +123,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Montar e Tentar Novo Boot>
 ```
 
-#05_ Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+#05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
 ```bash
 A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
