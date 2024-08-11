@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 08/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,15 +18,30 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
+Conteúdo estudado nessa configuração:<br>
+#01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
+#02_ Atualizando o Sistema Operacional Ubuntu Server<br>
+#03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
+#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
+#05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
+#06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
+#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
+#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
+#09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+
 Site Oficial do Ubuntu Pro: https://ubuntu.com/pro<br>
 Site Oficial dos Procedimentos do Ubuntu Pro: https://ubuntu.com/pro/tutorial<br>
 Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
-[![Ubuntu Pro Free](http://img.youtube.com/vi//0.jpg)]( "Ubuntu Pro Free")
+O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
-Link da vídeo aula: 
+OBSERVAÇÃO IMPORTANTE: O VÍDEO DE HABILITAR O UBUNTU PRO NO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, AS CONFIGURAÇÕES É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO POIS ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.
+
+[![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 #01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
 ```bash

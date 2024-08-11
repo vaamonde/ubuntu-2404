@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 08/08/2024<br>
-Data de atualização: 08/08/2024<br>
-Versão: 0.01<br>
+Data de atualização: 11/08/2024<br>
+Versão: 0.02<br>
 Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -20,11 +20,19 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
+Conteúdo estudado nessa instalação:<br>
+#01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
+#02_ Criação da Máquina Virtual no Oracle VirtualBOX<br>
+#03_ Configurações da Máquina Virtual UbuntuWebserver<br>
+#04_ Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
+#05_ Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+#06_ Acessando o Ubuntu Server pela primeira vez<br>
+
 [![Instalação Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Instalação Ubuntu Server")
 
 Link da vídeo aula: 
 
-#01_ Primeira etapa: Download da ISO do Ubuntu Server 24.04.x LTS
+#01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
 ```bash
 A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
 B) Versão do download Ubuntu Server: ubuntu-24.04-live-server-amd64.iso (Link atualizado em 23/04/2024)
@@ -32,7 +40,7 @@ C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
-#02_ Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX<br>
+#02_ Criação da Máquina Virtual no Oracle VirtualBOX<br>
 ```bash
 A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
@@ -68,7 +76,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Finalizar>
 ```
 
-#03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
+#03_ Configurações da Máquina Virtual UbuntuWebserver<br>
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -102,7 +110,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <OK>
 ```
 
-#04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
+#04_ Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -115,7 +123,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Montar e Tentar Novo Boot>
 ```
 
-#05 Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+#05_ Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 ```bash
 A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
@@ -204,7 +212,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 <Enter>
 ```
 
-#06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez<br>
+#06_ Acessando o Ubuntu Server pela primeira vez<br>
 ```bash
 #AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.

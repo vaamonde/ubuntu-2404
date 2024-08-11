@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 08/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,27 +18,29 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você<br>
-simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada<br> 
-uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda<br> 
-a configuração necessária para a ferramenta de renderização escolhida.
+Conteúdo estudado nessa configuração:<br>
+#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
+#02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
+#03_ Instalando os principais software de rede no Ubuntu Server<br>
+#04_ Verificando informações do Hardware de Rede no Ubuntu Server<br>
+#05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
+#06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
+#07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
+#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
-Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome<br> 
-de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de<br> 
-nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
+Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
-FQDN, algumas vezes denominado nome de domínio absoluto, é um nome de domínio que<br> 
-especifica sua localização exata na árvore hierárquica do Domain Name System. Ele<br> 
-especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo<br> 
-nível e um domínio de nível superior.
+Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name).
 
-Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos<br> 
-servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo<br> 
-localizado em /etc/hosts
+FQDN, algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
 
-[![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Endereço IPv4 Ubuntu Server")
+Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
 
-Link da vídeo aula: 
+OBSERVAÇÃO IMPORTANTE: O VÍDEO DAS CONFIGURAÇÕES DA PLACA DE REDE DO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, AS CONFIGURAÇÕES É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO POIS ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.
+
+[![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
 #01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 ```bash
@@ -112,7 +114,8 @@ sudo resolvectl
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
-#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS
+#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS no
+#Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml
 
 #OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
 #de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 

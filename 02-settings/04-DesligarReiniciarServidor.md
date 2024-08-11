@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 08/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,9 +18,18 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-[![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Desligar e Reiniciar Ubuntu Server")
+Conteúdo estudado nesse procedimento:<br>
+#01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
+#02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server<br>
+#03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
+#04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
+#05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
 
-Link da vídeo aula: 
+OBSERVAÇÃO IMPORTANTE: O VÍDEO DESLIGAR E REINICIAR DO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, AS FORMAS DE DESLIGAR E REINICIAR É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO POIS ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.
+
+[![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi/NbA-k5-iLWA/0.jpg)](https://www.youtube.com/watch?v=NbA-k5-iLWA "Desligar e Reiniciar Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
 #01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
 ```bash

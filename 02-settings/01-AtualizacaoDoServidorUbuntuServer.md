@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 08/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,13 +18,23 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-Apt-Get ou Apt A ferramenta de pacote avançada, é uma interface de usuário de software<br>
-livre que funciona com bibliotecas centrais para lidar com a instalação e remoção de<br>
-software no Debian e em distribuições Linux baseadas nele.
+Conteúdo estudado nessa atualização:<br>
+#01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
+#02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
+#03_ Atualizando todos os software no Ubuntu Server<br>
+#04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server<br>
+#05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server<br>
+#06_ Removendo pacotes desnecessários no Ubuntu Server<br>
+#07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
+#08_ Limpando o cache local do sources.list no Ubuntu Server<br>
 
-[![Atualização Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Atualização Ubuntu Server")
+Apt-Get ou Apt A ferramenta de pacote avançada, é uma interface de usuário de software livre que funciona com bibliotecas centrais para lidar com a instalação e remoção de software no Debian e em distribuições Linux baseadas nele.
 
-Link da vídeo aula: 
+OBSERVAÇÃO IMPORTANTE: O VÍDEO DAS ATUALIZAÇÕES DO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, O PROCEDIMENTO DE ATUALIZAR É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO POIS ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.
+
+[![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
 
 #01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
 ```bash
