@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 10/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,7 +18,7 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -46,10 +46,7 @@ Conteúdo estudado nesse desafio:<br>
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como<br>
-serviço que usam virtualização de nível de sistema operacional para entregar software em<br>
-pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus<br>
-próprios softwares, bibliotecas e arquivos de configuração
+O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
 [![Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Docker-CE")
 
@@ -71,20 +68,16 @@ wget -q https://download.docker.com/linux/ubuntu/gpg
 
 #convertendo a Chave GPG do Docker-CE
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção do redirecionador >: Redireciona a saída padrão (STDOUT)
-#opção do redirecionador 2>&1: Conecta a saída de erro na saída padrão
-cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null 2>&1
+cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg
 ```
 
 #03_ Adicionando o Repositório do Docker-CE no Ubuntu Server<br>
 ```bash
 #adicionando o repositório do Docker-CE
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção do redirecionador >: Redireciona a saída padrão (STDOUT)
-#opção do redirecionador 2>&1: Conecta a saída de erro na saída padrão
 #opção da contra barra (\): criar uma quebra de linha no terminal
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" \ 
-| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+| sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server<br>
@@ -177,8 +170,13 @@ exit
 #OBSERVAÇÃO IMPORTANTE: DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É
 #MAIS NECESSÁRIO ADICIONAR O COMANDO: SUDO ANTES DO COMANDO: DOCKER.
 
-#verificando informações detalhadas do Docker CE
+#verificando informações detalhadas do Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/info/
 docker info
+
+#verificando informações detalhadas do Sistema do Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/info/
 docker system info
 ```
 
@@ -187,10 +185,12 @@ docker system info
 #pesquisando o container de Hello World do Docker-CE
 #opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 docker search hello-world
 
 #iniciando o container de Hello World do Docker-CE
 #opção do comando docker: run (Run a command in a new container)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 docker run hello-world
 ```
 
@@ -199,10 +199,12 @@ docker run hello-world
 #pesquisando o container do Ubuntu do Docker-CE
 #opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 docker search ubuntu
 
 #iniciando o container do Ubuntu Bash do Docker-CE
 #opções do comando docker: run (Run a command in a new container), -i (interactive), -t (tty)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 docker run -it ubuntu bash
 
 #executar os comandos básicos de Linux dentro do container Ubuntu Bash
@@ -223,10 +225,12 @@ exit
 ```bash
 #listando as imagens de containers no Docker-CE
 #opção do comando docker: images (List images container on system)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 docker images
 
 #listando os container em execução no Docker-CE
 #opção do comando docker: ps (List containers)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 docker ps
 ```
 
@@ -234,25 +238,24 @@ docker ps
 ```bash
 #limpando todos os objetos do Docker-CE (Containers, Imagens, Volumes, Redes)
 #opção do comando docker: system (manager docker), prune (Remove unused data)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/prune/
 docker system prune
 
 #removendo as imagens do Docker-CE localmente
 #opção do comando docker: rmi (Remove one or more images)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 docker rmi hello-world:latest
 docker rmi ubuntu:latest
 
 #listando as imagens do Docker-CE localmente
 #opção do comando docker: images (List images container on system)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 docker images
 ```
-
-========================================DESAFIOS=========================================
-
-**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
-
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 10/08/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 11/08/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -18,7 +18,7 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Portainer.io realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Portainer.io realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -27,7 +27,14 @@ LINK DO SELO:
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioportainer #desafioportainerio
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
+#01_ Criando o Volume do Portainer.io no Docker-CE<br>
+#02_ Criando o Container do Portainer.io no Docker-CE<br>
+#03_ Verificando o Status do Container do Portainer.io no Docker-CE<br
+#04_ Verificando a Porta de Conexão do Portainer.io no Docker-CE<br>
+#05_ Criando o arquivo de Serviço do Portainer.io no Ubuntu Server<br>
+#06_ Habilitando o Serviço do Portainer.io no Ubuntu Server<br>
+#07_ Verificando o Serviço e Versão do Portainer.io no Ubuntu Server<br>
+#08_ Acessando e configurando o Portainer.io via navegador<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -46,10 +53,12 @@ Link da vídeo aula:
 #criação do volume do Portainer.io
 #opção do comando docker: volume create (Creates a new volume that containers can 
 #consume and store data in)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
 docker volume create portainer_data
 
 #listando o volume criado
 #opção do comando docker: volume ls (List all the volumes known to Docker)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
 docker volume ls
 ```
 
@@ -60,6 +69,7 @@ docker volume ls
 #-d (Run container in background and print container ID), -p (Publish a container’s port(s) 
 #to the host), -v (Bind mount a volume), portainer/portainer-ce:latest (container imagem)
 #opção da contra barra (\): criar uma quebra de linha no terminal
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data portainer/portainer-ce:latest
 ```
@@ -68,10 +78,12 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 ```bash
 #listando as imagens de containers no Docker-CE
 #opção do comando docker: images (List images container on system)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 docker images
 
 #listando os container em execução no Docker-CE
 #opção do comando docker: ps (List containers)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 docker ps
 ```
 
@@ -134,17 +146,12 @@ Quick Setup
   Environment Wizard
     <Get Started>
 ```
-
-========================================DESAFIOS=========================================
-
-**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
-
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Portainer.io realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: 
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioportainer #desafioportainerio
