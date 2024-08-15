@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 11/08/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -54,7 +54,7 @@ INSERT
 	
 	#alterar o nome de domínio FQDN na linha 1
 	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-	wsvaamonde.pti.intra
+	ctnvaamonde.pti.intra
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -68,9 +68,9 @@ INSERT
 	
 	#adicionar o nome de domínio e apelido nas linhas 2 e 3
 	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-	127.0.0.1    localhost.pti.intra    localhost
-	127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
-	172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+	127.0.0.1    localhost.pti.intra     localhost
+	127.0.1.1    ctnvaamonde.pti.intra   ctnvaamonde
+	172.16.1.30  ctnvaamonde.pti.intra   ctnvaamonde
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -149,7 +149,7 @@ network:
       link-local: []
       #alterar o endereço IPv4 para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
-      addresses: [172.16.1.20/24]
+      addresses: [172.16.1.30/24]
       #alterar o gateway padrão para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
       #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
@@ -218,10 +218,10 @@ sudo hostname -i
 #fácil administrar e configurar os principais serviços de rede de forma remota.
 
 #testando a conexão com o Ubuntu Server
-ping 172.16.1.20
+ping 172.16.1.30
 
 #acessando remotamente o Ubuntu Server
-ssh vaamonde@172.16.1.20
+ssh vaamonde@172.16.1.30
 
 #confirmando a troca das chaves públicas e do fingerprint do SSH
 Yes <Enter>
