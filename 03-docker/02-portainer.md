@@ -85,6 +85,11 @@ docker images
 #opção do comando docker: ps (List containers)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 docker ps
+
+#listando o container do Portainer no Docker-CE
+#opção do comando docker: ps (List containers), -q (quiet), -f (filter), name= (filter container name)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+docker ps -q -f name=portainer
 ```
 
 #04_ Verificando a Porta de Conexão do Portainer.io no Docker-CE<br>
@@ -136,8 +141,8 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
 #Informações que serão solicitadas na configuração via Web do Portainer.io
 Please create the initial administrator user.
   Username: vaamonde
-  Password: vaamonde@2024
-  Confirm password: vaamonde@2024
+  Password: Vaamonde@2024
+  Confirm password: Vaamonde@2024
   (ON) Allow collection of anonymous statistics. You can find more information about this in our privacy policy.
 <Create User>
 
