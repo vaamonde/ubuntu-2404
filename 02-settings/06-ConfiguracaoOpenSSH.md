@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 08/09/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -135,10 +135,10 @@ sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 
 #atualizando o arquivo de configuração do OpenSSH Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
+sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2404/main/conf/sshd_config
 
 #atualizando arquivo de configuração do Banner do Ubuntu Server do Github
-sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
+sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2404/main/conf/issue.net
 
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
