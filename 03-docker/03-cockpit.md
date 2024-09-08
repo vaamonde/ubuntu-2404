@@ -18,16 +18,21 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO COCKPIT SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Cockpit realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO COCKPIT SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Cockpit e Podman realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: 
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiocockpit #desafiocockpitproject
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiocockpit #desafiopodman
 
 Conteúdo estudado nesse desafio:<br>
-#01_
+#01_ Instalação do Cockpit e Podman no Ubuntu Server 24.04<br>
+#02_ Habilitando os Serviços do Cockpit e do Podman<br>
+#03_ Verificando o Serviço e Versão do Cockpit<br>
+#04_ Verificando o Serviço e Versão do Podman<br>
+#05_ Verificando a Porta de Conexão do Cockpit<br>
+#06_ Acessando e configurando o Cockpit e Podman via navegador<br>
 
 Site Oficial do Cockpit: https://cockpit-project.org/<br>
 Site Oficial do Cockpit Application: https://cockpit-project.org/applications<br>
@@ -41,19 +46,19 @@ O QUE É E PARA QUE SERVER O PODMAN: Podman (o POD MANager) é uma ferramenta pa
 
 Link da vídeo aula: 
 
-#01_ Instalação do Cockpit no Ubuntu Server 24.04<br>
+#01_ Instalação do Cockpit e Podman no Ubuntu Server 24.04<br>
 ```bash
 #instalando o Cockpit no Ubuntu Server
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-sudo apt install --install-recommends cockpit
+sudo apt install --install-recommends cockpit cockpit-podman podman
 ```
 
-#02_ Habilitando o Serviço do Cockpit<br>
+#02_ Habilitando os Serviços do Cockpit e do Podman<br>
 ```bash
-#habilitando o serviço do Cockpit
+#habilitando os serviços do Cockpit e do Podman
 sudo systemctl daemon-reload
-sudo systemctl enable cockpit
-sudo systemctl restart cockpit
+sudo systemctl enable cockpit podman
+sudo systemctl restart cockpit podman
 ```
 
 #03_ Verificando o Serviço e Versão do Cockpit<br>
@@ -71,10 +76,28 @@ sudo journalctl -xeu cockpit
 
 #verificando a versão do Cockpit
 #opção do comando cockpit: -v (version)
-sudo grafana-server -v
+sudo cockpit -v
 ```
 
-#04_ Verificando a Porta de Conexão do Cockpit<br>
+#04_ Verificando o Serviço e Versão do Podman<br>
+```bash
+#verificando o serviço do Podman
+sudo systemctl status podman
+sudo systemctl restart podman
+sudo systemctl stop podman
+sudo systemctl start podman
+
+#analisando os Log's e mensagens de erro do Podman
+#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -t podman
+sudo journalctl -xeu podman
+
+#verificando a versão do Podman
+#opção do comando podman: -v (version)
+sudo podman -v
+```
+
+#05_ Verificando a Porta de Conexão do Cockpit<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -86,28 +109,35 @@ sudo grafana-server -v
 sudo lsof -nP -iTCP:'9090' -sTCP:LISTEN
 ```
 
-#05_ Acessando e configurando o Cockpit via navegador<br>
+#06_ Acessando e configurando o Cockpit e Podman via navegador<br>
 ```bash
 #utilizar os navegadores para testar o acesso ao Cockpit 
-firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9090
+firefox ou google chrome: https://endereço_ipv4_ubuntuserver:9090
 
 #Informações que serão solicitadas na configuração via Web do Cockpit
-Please create the initial administrator user.
+Ubuntu Server.
+  Username: vaamonde
+  Password: pti@2018
+  Other options
+    
+<Log in>
 
-<Create User>
-```
+#configurações básicas do Cockpit
+Overview
+  <Turn on administrative access>
 
-#06_ Adicionando o Módulo do Podman no Cockpit
-```bash
-
+#configurações básicas do Podman
+Podman containers
+  Imagens
+  Container
 ```
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Portainer.io realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO COCKPIT SE VOCÊ CONSEGUIU FAZER O IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Cockpit e Podman realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: 
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioportainer #desafioportainerio
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiocockpit #desafiopodman
