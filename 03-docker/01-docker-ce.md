@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 08/09/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 09/09/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -63,7 +63,7 @@ Link da vídeo aula:
 #instalação das dependências básicas do Docker CE
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install vim git python3 python3-pip apt-transport-https ca-certificates curl \
-software-properties-common linux-image-generic linux-image-extra-virtual
+software-properties-common linux-image-generic linux-image-extra-virtual lsof
 ```
 
 #02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<br>
@@ -73,8 +73,9 @@ software-properties-common linux-image-generic linux-image-extra-virtual
 wget -q https://download.docker.com/linux/ubuntu/gpg
 
 #convertendo a Chave GPG do Docker-CE
-#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
+cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null
 ```
 
 #03_ Adicionando o Repositório do Docker-CE no Ubuntu Server<br>
@@ -82,8 +83,7 @@ cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg
 #adicionando o repositório do Docker-CE
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção da contra barra (\): criar uma quebra de linha no terminal
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" \ 
-| sudo tee /etc/apt/sources.list.d/docker.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server<br>
@@ -223,7 +223,8 @@ ping 8.8.8.8
 traceroute 8.8.8.8
 
 #OBSERVAÇÃO IMPORTANTE: quando você utiliza o comando: exit o Container em Docker e desligado
-#(stopping), caso você queira sair do Container sem desligar pressione: Ctrl + P ou Ctrl + Q.
+#(stopping), caso você queira sair do Container sem desligar pressione: Ctrl + P ou Ctrl + Q
+#ou a tecla de atalho: Ctrl + D que faz a função do comando: exit.
 exit
 ```
 
@@ -247,6 +248,7 @@ docker ps
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/prune/
 docker system prune
+  Are you sure you want to continue? [y/N]y
 
 #removendo as imagens do Docker-CE localmente
 #opção do comando docker: rmi (Remove one or more images)

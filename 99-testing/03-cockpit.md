@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/09/2024<br>
-#Data de atualização: 08/09/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 09/09/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -53,7 +53,7 @@ Link da vídeo aula:
 sudo apt install --install-recommends cockpit cockpit-podman podman
 ```
 
-#02_ Habilitando os Serviços do Cockpit e do Podman<br>
+#02_ Habilitando os Serviços do Cockpit e do Podman no Ubuntu Server 24.04<br>
 ```bash
 #habilitando os serviços do Cockpit e do Podman
 sudo systemctl daemon-reload
@@ -61,7 +61,7 @@ sudo systemctl enable cockpit podman
 sudo systemctl restart cockpit podman
 ```
 
-#03_ Verificando o Serviço e Versão do Cockpit<br>
+#03_ Verificando o Serviço e Versão do Cockpit no Ubuntu Server 24.04<br>
 ```bash
 #verificando o serviço do Cockpit
 sudo systemctl status cockpit
@@ -75,11 +75,12 @@ sudo journalctl -t cockpit
 sudo journalctl -xeu cockpit
 
 #verificando a versão do Cockpit
-#opção do comando cockpit: -v (version)
-sudo cockpit -v
+#opção do comando grep: -i (ignore-case)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo apt list --installed | grep -i cockpit 
 ```
 
-#04_ Verificando o Serviço e Versão do Podman<br>
+#04_ Verificando o Serviço e Versão do Podman no Ubuntu Server 24.04<br>
 ```bash
 #verificando o serviço do Podman
 sudo systemctl status podman
@@ -97,7 +98,7 @@ sudo journalctl -xeu podman
 sudo podman -v
 ```
 
-#05_ Verificando a Porta de Conexão do Cockpit<br>
+#05_ Verificando a Porta de Conexão do Cockpit no Ubuntu Server 24.04<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -109,7 +110,19 @@ sudo podman -v
 sudo lsof -nP -iTCP:'9090' -sTCP:LISTEN
 ```
 
-#06_ Acessando e configurando o Cockpit e Podman via navegador<br>
+#06_ Interface e Endereçamento IPv4 padrão do Podman no Ubuntu Server 24.04<br>
+```bash
+#verificando a interface e endereço IPv4 do Podman
+sudo ifconfig podman0
+  podman0: 10.88.0.1/16 (255.255.0.0)
+```
+
+#07_ Localização dos diretórios principais do Cockpit no Ubuntu Server 24.04<br>
+```bash
+/etc/cockpit/*   <-- Diretório dos arquivos de Configuração do serviço do Cockpit
+```
+
+#08_ Acessando e configurando o Cockpit e Podman via navegador<br>
 ```bash
 #utilizar os navegadores para testar o acesso ao Cockpit 
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:9090
@@ -128,6 +141,7 @@ Overview
 
 #configurações básicas do Podman
 Podman containers
+  User Podman service is also available: <Start>
   Imagens
   Container
 ```

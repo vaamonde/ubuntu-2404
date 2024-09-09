@@ -170,7 +170,7 @@ INSERT
 
 	#alterar a linha 5: Servidor e Admin
 	#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
-	Servidor: wsvaamonde - Admin: Robson Vaamonde
+	Servidor: ctnvaamonde - Admin: Robson Vaamonde
 
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
