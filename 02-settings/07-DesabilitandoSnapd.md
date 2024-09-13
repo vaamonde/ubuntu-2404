@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 09/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 13/09/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -36,10 +36,11 @@ Snapcraft é uma ferramenta de linha de comando poderosa e fácil de usar para c
 
 Link da vídeo aula: 
 
-#01_ Listando as aplicativos rodando no SNAP do Ubuntu Server<br>
+#01_ Listando os aplicativos rodando no SNAP do Ubuntu Server<br>
 ```bash
- #listando os aplicativos rodando no Snap
- snap list
+#listando os aplicativos rodando no Snap
+#opção do comando snap: list (List installed snaps)
+snap list
 ```
 
 #02_ Parando e desabilitando o serviço do SNAP do Ubuntu Server<br>
@@ -53,20 +54,22 @@ sudo systemctl stop snapd
 #desabilitando o serviço do SNAP
 sudo systemctl disable snapd
 
-#desativando o serviço para não ser iniciado
+#desativando o serviço para não ser iniciado sem querer
 sudo systemctl mask snapd
 ```
 
-#03_ Desinstalando o Serviço do SNAP do Ubuntu Server<br>
+#03_ Desinstalando o Serviço do SNAP no Ubuntu Server<br>
 ```bash
 #removendo o pacote do SNAP
+#opção do comando apt: purge (remove and purge package)
 sudo apt purge snapd
 
-#marcando o pacote do SNAP como hold (retido)
+#marcando o pacote do SNAP como hold (retido/antigo)
+#opção do comando apt-mark: hold (security package install)
 sudo apt-mark hold snapd
 ```
 
-#04_ Prevenção contra instalação do SNAP do Ubuntu Server<br>
+#04_ Prevenção contra instalação do SNAP no Ubuntu Server<br>
 ```bash
 #criando o arquivo de preferencia do SNAP
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
