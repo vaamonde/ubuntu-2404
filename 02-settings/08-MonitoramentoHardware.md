@@ -296,6 +296,7 @@ sudo btop
 #519283 2837821
 #
 #opção do comando grep: -i (ignore case sensitive)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/diskstats | grep -i sda
 
 #verificando as informações de ponto de montagem do arquivo mounts
@@ -313,6 +314,7 @@ sudo cat /proc/diskstats | grep -i sda
 #/dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
 #
 #opção do comando grep: -i (ignore case sensitive)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/mounts | grep -i /dev/mapper/
 
 #verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
