@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
 #Data de atualização: 14/09/2024<br>
-#Versão: 0.02<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -62,6 +62,23 @@ sudo cat /etc/lsb-release
 #03_ Verificando a versão do Kernel e Uptime no Ubuntu Server<br>
 ```bash
 #verificando a versão do Kernel com o comando uname
+#Entendendo os valores do Kernel com o comando uname
+#
+#Linux: Este é o nome do sistema operacional, que é o Linux, wsvaamonde.pti.intra: Este é o 
+#hostname da máquina, 5.15.0-119-generic Este é o número da versão do kernel Linux que está 
+#rodando no sistema (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: 
+#Número de patch, 119: Número da build específica para essa versão do kernel, generic: 
+#Indica que este é o kernel genérico do Ubuntu), #129-Ubuntu: Esse número indica o número da 
+#compilação do kernel, SMP: Isso significa Symmetric Multiprocessing, o que indica que o kernel 
+#foi compilado para suportar múltiplos processadores, Fri Aug 2 19:25:20 UTC 2024: Esta é a 
+#data e hora em que o kernel foi compilado, x86_64 x86_64 x86_64: Isso representa a arquitetura 
+#da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 
+#mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware 
+#que o kernel está usando), GNU/Linux: Indica que você está usando o sistema operacional GNU/Linux
+#
+# Linux wsvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 
+# x86_64 x86_64 GNU/Linux
+#
 #opção do comando uname: -a (all)
 sudo uname -a
 
@@ -88,7 +105,8 @@ sudo cat /proc/cpuinfo
 #1 running: Número de processos que estão atualmente em execução (rodando), 167 sleeping: Número
 #de processos que estão no estado de espera ("dormindo"), 0 stopped: Número de processos que 
 #foram interrompidos (suspensos), 0 zombie: Número de processos zumbis.
-#Tasks: 168 total,   1 running, 167 sleeping,   0 stopped,   0 zombie
+#
+# Tasks: 168 total,   1 running, 167 sleeping,   0 stopped,   0 zombie
 #
 #analisando a porcentagem carga da CPU: 8,9 us (user space): Percentual de tempo que a CPU está
 #gastando executando processos de usuários, 4,3 sy (system): Percentual de tempo gasto com 
@@ -99,7 +117,8 @@ sudo cat /proc/cpuinfo
 #interrupts): Percentual de tempo gasto com interrupções de software, 0,0 st (steal): Percentual 
 #de tempo que a CPU virtual (em ambientes virtualizados) estava aguardando porque a CPU física 
 #estava sendo usada por outra máquina virtual
-#%Cpu(s): 18,9 us,  4,3 sy,  1,2 ni, 74,7 id,  0,3 wa,  0,0 hi,  0,5 si,  0,0 st
+#
+# %Cpu(s): 18,9 us,  4,3 sy,  1,2 ni, 74,7 id,  0,3 wa,  0,0 hi,  0,5 si,  0,0 st
 sudo top
 
 #analisando o desempenho do processador com o comando htop
@@ -108,35 +127,42 @@ sudo top
 #analisando as tarefas do servidor: Tasks: 72: O número de processos ativos no sistema, 500 thr: 
 #O número total de threads que estão em execução, 1 running: O número de processos ou threads que 
 #estão atualmente sendo executados pela CPU
-#Tasks: 72, 500 thr; 1 running
+#
+# Tasks: 72, 500 thr; 1 running
 #
 #analisando a média de carga da CPU: 0.22: A carga média nos últimos 1 minuto, 0.41: A carga média 
 #nos últimos 5 minutos, 0.65: A carga média nos últimos 15 minutos.
-#Load average: 0.22 0.41 0.65
+#
+# Load average: 0.22 0.41 0.65
 #
 #analisando a entrada e saída de disco: Disk IO: 5.2%: A porcentagem de utilização do disco no momento, 
 #indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial 
 #máximo, read: OK: Indica que a leitura do disco está funcionando dentro de parâmetros normais, write: 
 #140K: A quantidade de dados sendo gravados no disco por segundo.
-#Disk IO: 5.2% read: OK write: 140K
+#
+# Disk IO: 5.2% read: OK write: 140K
 #
 #analisando o consumo de banda da rede: rx: 1KiB/s: A taxa de recebimento de dados pela interface de rede, 
 #no caso 1 kilobyte por segundo, tx: 4KiB/s: A taxa de envio de dados pela interface de rede, no caso 4 
 #kilobytes por segundo, (41/40 packets): O número de pacotes recebidos/enviados pela rede. Aqui você recebeu
 #41 pacotes e enviou 40 pacotes.
-#Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+#
+# Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
 #
 #analisando as métricas PSI (Pressure Stall Information) de CPU: Os valores 10.6%, 9.29%, 9.25% indicam a 
 #pressão sobre a CPU nos últimos 1, 5, e 15 minutos
-#PSI some CPU: 10.6% 9.29% 9.25%
+#
+# PSI some CPU: 10.6% 9.29% 9.25%
 #
 #analisando as métricas PSI (Pressure Stall Information) de bloqueio de I/O: Os valores 1.25%, 1.24%, 1.32%
 #representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos
-#PSI full IO: 1.25% 1.24% 1.32%
+#
+# PSI full IO: 1.25% 1.24% 1.32%
 #
 #analisando as métricas PSI (Pressure Stall Information) de memória: Os valores 0.00% indicam que não houve
 #pressão de memória nos últimos 1, 5, e 15 minutos
-#PSI full memory 0.00% 0.00% 0.00%
+#
+# PSI full memory 0.00% 0.00% 0.00%
 
 #personalizando o comando htop: F2 (Setup)
 sudo htop
@@ -167,7 +193,8 @@ sudo htop
 #tempo em que a CPU está ociosa, wa (wait): Percentual de tempo que a CPU está ociosa, mas aguardando 
 #a finalização de operações de I/O (input/output), st (steal time): Percentual de tempo "roubado" pela 
 #CPU em um ambiente virtualizado
-#r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+#
+# r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
 #
 #opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
 sudo vmstat -a -t -w
@@ -185,7 +212,8 @@ sudo vmstat -a -t -w
 #uma máquina virtual, %gnice: Percentual de tempo gasto em processos de máquina virtual com 
 #prioridade ajustada, %idle: Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo 
 #ou esperando por operações de I/O.
-#11:23:50     CPU   %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+#
+# 11:23:50     CPU   %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
 #
 #opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
 sudo mpstat -P ALL
@@ -199,7 +227,8 @@ sudo mpstat -P ALL
 #kernel , %iowait: Percentual de tempo que a CPU passou ociosa, mas aguardando a conclusão de 
 #operações de I/O, %steal: Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais 
 #em um ambiente virtualizado, %idle: Percentual de tempo que a CPU passou completamente ociosa
-#avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
+#
+# avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
 #
 #tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, kB_read/s: 
 #Taxa de leitura em KB por segundo, kB_wrtn/s: Taxa de gravação em KB por segundo, kB_dscd/s: Taxa de
@@ -207,7 +236,8 @@ sudo mpstat -P ALL
 #armazenamento desde o início da medição, kB_wrtn: Quantidade total de dados gravados no dispositivo 
 #de armazenamento desde o início da medição, kB_dscd: Quantidade total de dados descartados desde o 
 #início da medição, Device: Nome do dispositivo de armazenamento.
-#tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
+#
+# tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
 #
 #opção do comando iostat: -h (human)
 sudo iostat -h
@@ -243,7 +273,8 @@ sudo cat /proc/meminfo
 #entre vários processos, buff/cache: Exibe a quantidade de memória que está sendo usada pelo sistema 
 #para buffers e cache, available: Quantidade de memória que está disponível para ser usada por novos 
 #processos, levando em consideração a memória que pode ser liberada de buffers e cache.
-#total   used   free   shared   buff/cache   available
+#
+# total   used   free   shared   buff/cache   available
 #
 #opções do comando free: -h (human), -m (megabyte), -t (total)
 sudo free -h -m -t
@@ -292,8 +323,8 @@ sudo btop
 #writes_merged sectors_written time_writing in_flight time_io time_weighted_io discards_completed
 #discards_merged sectors_discarded time_discarding flush_requests flush_time
 #
-#8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 
-#519283 2837821
+# 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 
+# 519283 2837821
 #
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
@@ -311,7 +342,8 @@ sudo cat /proc/diskstats | grep -i sda
 #fazer backups) não vai considerar esse sistema de arquivos para backup, 0: O segundo 0 refere-se ao 
 #campo de fsck order. Um valor de 0 indica que o utilitário fsck (que verifica e repara sistemas de 
 #arquivos) não será executado automaticamente durante a inicialização para este sistema de arquivos.
-#/dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
+#
+# /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
 #
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
@@ -327,7 +359,8 @@ sudo cat /proc/mounts | grep -i /dev/mapper/
 #setor de início (Start) do setor de fim (End), Size: Este campo exibe o tamanho total da 
 #partição em uma unidade de medida legível, Type: Este campo indica o tipo de partição ou o 
 #sistema de arquivos associado à partição. 
-#Device   Start   End   Sectors   Size   Type
+#
+# Device   Start   End   Sectors   Size   Type
 #
 #opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
 sudo fdisk -l /dev/sda
@@ -340,7 +373,8 @@ sudo fdisk -l /dev/sda
 #em uso no sistema de arquivos, Avail: Quantidade de espaço disponível para ser usada, Use%:
 #Percentual de uso do sistema de arquivos, Mounted on: Indica o ponto de montagem onde o 
 #sistema de arquivos está acessível no sistema.
-#Filesystem    Size   Used   Avail   Use%   Mounted on
+#
+# Filesystem    Size   Used   Avail   Use%   Mounted on
 #
 #opção do comando df: -h (human)
 sudo df -h

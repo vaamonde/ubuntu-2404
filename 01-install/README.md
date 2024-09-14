@@ -42,4 +42,4 @@ Conteúdo estudado nessa instalação:<br>
 
 Link da vídeo aula: 
 
-Link da documentação: 
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/01-install/01-InstalacaoDoUbuntuServer-24.04-LTS.md
