@@ -10,6 +10,7 @@
 #Data de atualização: 09/09/2024<br>
 #Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
+#Testado e homologado no Docker-CE (Community Edition) 24.x
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
