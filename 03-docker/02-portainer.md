@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 09/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 16/09/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 #Testado e homologado no Docker-CE (Community Edition) 24.x
 #Testado e homologado no Portainer-CE (Community Edition) 2.x
@@ -101,20 +101,24 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 
 #04_ Verificando o Status do Container do Portainer.io CE no Docker-CE<br>
 ```bash
-#listando as imagens de containers no Docker-CE
+#listando todas as imagens de containers no Docker-CE
 #opção do comando docker: images (List images container on system)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 docker images
 
-#listando os container em execução no Docker-CE
-#opção do comando docker: ps (List containers)
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
-docker ps
+#listando todos os containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
 
-#listando o container do Portainer.io CE no Docker-CE
-#opção do comando docker: ps (List containers), -q (quiet), -f (filter), name= (filter container name)
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
-docker ps -q -f name=portainer
+#filtrando o container do Portainer.io CE no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls//
+#opção do comando docker: container (Manage containers), ls (List containers), -q (quiet), -f (filter), 
+#name= (filter container name)
+docker container ls -q -f name=portainer
 ```
 
 #05_ Verificando a Porta de Conexão do Portainer.io no Docker-CE<br>

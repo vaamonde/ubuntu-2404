@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 09/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 16/09/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 #Testado e homologado no Docker-CE (Community Edition) 24.x
 
@@ -210,9 +210,12 @@ docker run hello-world
 docker search ubuntu
 
 #iniciando o container do Ubuntu Bash do Docker-CE
-#opções do comando docker: run (Run a command in a new container), -i (interactive), -t (tty)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
-docker run -it ubuntu bash
+#opção do comando docker: container (Manage containers), run (Create and run a new container 
+#from an image), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate 
+#a pseudo-TTY), ubuntu (imagem docker hub), bash (command bash/shell terminal)
+docker container run -it ubuntu bash
 
 #executar os comandos básicos de Linux dentro do container Ubuntu Bash
 cat /etc/os-release
@@ -237,9 +240,11 @@ exit
 docker images
 
 #listando os container em execução no Docker-CE
-#opção do comando docker: ps (List containers)
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
-docker ps
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
 ```
 
 #15_ Limpando todas as Imagens, Containers, Volumes e Redes no Docker-CE<br>
@@ -252,10 +257,12 @@ docker system prune
   Are you sure you want to continue? [y/N]y
 
 #removendo as imagens do Docker-CE localmente
-#opção do comando docker: rmi (Remove one or more images)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
-docker rmi hello-world:latest
-docker rmi ubuntu:latest
+#opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
+#ubuntu (imagem docker)
+docker image rm hello-world:latest
+docker image rm ubuntu:latest
 
 #listando as imagens do Docker-CE localmente
 #opção do comando docker: images (List images container on system)
