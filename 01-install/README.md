@@ -17,13 +17,13 @@ Linkedin Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 
 <div align="center">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/vaamonde/ubuntu-2204?style=plastic">
-<a href="https://github.com/vaamonde/ubuntu-2204/stargazers"><img src="https://img.shields.io/github/stars/vaamonde/ubuntu-2204" alt="Stars Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2204/network/members"><img src="https://img.shields.io/github/forks/vaamonde/ubuntu-2204" alt="Forks Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2204/pulls"><img src="https://img.shields.io/github/issues-pr/vaamonde/ubuntu-2204" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2204/issues"><img src="https://img.shields.io/github/issues/vaamonde/ubuntu-2204" alt="Issues Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2204/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vaamonde/ubuntu-2204?color=2b9348"></a>
-<a href="https://github.com/vaamonde/ubuntu-2204/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2204?color=2b9348" alt="License Badge"/></a>
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/vaamonde/ubuntu-2404?style=plastic">
+<a href="https://github.com/vaamonde/ubuntu-2404/stargazers"><img src="https://img.shields.io/github/stars/vaamonde/ubuntu-2404" alt="Stars Badge"/></a>
+<a href="https://github.com/vaamonde/ubuntu-2404/network/members"><img src="https://img.shields.io/github/forks/vaamonde/ubuntu-2404" alt="Forks Badge"/></a>
+<a href="https://github.com/vaamonde/ubuntu-2404/pulls"><img src="https://img.shields.io/github/issues-pr/vaamonde/ubuntu-2404" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/vaamonde/ubuntu-2404/issues"><img src="https://img.shields.io/github/issues/vaamonde/ubuntu-2404" alt="Issues Badge"/></a>
+<a href="https://github.com/vaamonde/ubuntu-2404/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vaamonde/ubuntu-2404?color=2b9348"></a>
+<a href="https://github.com/vaamonde/ubuntu-2404/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2404?color=2b9348" alt="License Badge"/></a>
 </div>
 
 ## **🤩🤩 Instalação do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX Projeto Bora para Prática 🤩🤩**
