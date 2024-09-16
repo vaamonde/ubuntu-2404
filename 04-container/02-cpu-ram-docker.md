@@ -104,7 +104,7 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
 #opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
-#and error streams to a running container), happy_carver 1851e38b8e18 (Container Names or Container ID)
+#and error streams to a running container), apache2 (Container Names or Container ID)
 docker container attach apache2
 
 #verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
@@ -117,7 +117,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
 #opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
-#and error streams to a running container), happy_carver 1851e38b8e18 (Container Names or Container ID)
+#and error streams to a running container), mysql (Container Names or Container ID)
 docker container attach mysql
 
 #verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
@@ -129,11 +129,11 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 
 #04_ Parando (Stop) e Inspecionando (Inspect) o Container (Container) do Ubuntu no Docker-CE<br>
 ```bash
-#parando o container do Ubuntu no Docker-CE
+#parando os containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/stop/
 #opção do comando docker: container (Manage containers), stop (Stop one or more running containers),
-#happy_carver 1851e38b8e18 (Container Names or Container ID)
+#apache2 mysql (Container Names or Container ID)
 docker container stop apache2 mysql
 
 #"Memory": 0: Indica o limite máximo de memória que o container pode usar. O valor 0 significa 
@@ -150,7 +150,7 @@ docker container stop apache2 mysql
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
 #opção do comando docker: container (Manage containers), inspect (Display detailed information 
-#on one or more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
+#on one or more containers), apache2 mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
 docker container inspect apache2 | grep -i memory
@@ -172,7 +172,7 @@ docker container inspect mysql | grep -i memory
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
 #opção do comando docker: container (Manage containers), inspect (Display detailed information 
-#on one or more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
+#on one or more containers), apache2 mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
 docker container inspect apache2 | grep -i cpus
