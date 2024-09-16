@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 15/09/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 16/09/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 #Testado e homologado no Docker-CE (Community Edition) 24.x
 #Testado e homologado no Portainer-CE (Community Edition) 2.x
@@ -235,6 +235,14 @@ docker container ls -a
 #docker hub), happy_carver 1851e38b8e18 (Container Names or Container ID), /bin/hostname (Container
 #command)
 docker container exec -it 1851e38b8e18 /bin/hostname
+
+#executando comandos no container do Ubuntu remoto no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/exec/
+#opção do comando docker: container (Manage containers), exec (Execute a command in a running container), 
+#-e --env (Set environment variables), happy_carver 1851e38b8e18 (Container Names or Container ID), env
+#(Container command)
+docker container exec -e ROBSON=1 -e VAAMONDE=2 1851e38b8e18 env
 ```
 
 #06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
