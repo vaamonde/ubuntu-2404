@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 08/08/2024<br>
-Data de atualização: 11/08/2024<br>
-Versão: 0.02<br>
+Data de atualização: 18/09/2024<br>
+Versão: 0.03<br>
 Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -23,19 +23,19 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 Conteúdo estudado nessa instalação:<br>
 #01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
 #02_ Criação da Máquina Virtual no Oracle VirtualBOX<br>
-#03_ Configurações da Máquina Virtual UbuntuWebserver<br>
+#03_ Configurações da Máquina Virtual DockerUbuntu<br>
 #04_ Iniciando a Instalação do Ubuntu Server 24.04.x LTS (localizar a ISO)<br>
 #05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
 #06_ Acessando o Ubuntu Server pela primeira vez<br>
 
-[![Instalação Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Instalação Ubuntu Server")
+[![Instalação Ubuntu Server](http://img.youtube.com/vi/p4f6a_-yM_8/0.jpg)](https://www.youtube.com/watch?v=p4f6a_-yM_8 "Instalação Ubuntu Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=p4f6a_-yM_8
 
 #01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
 ```bash
 A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
-B) Versão do download Ubuntu Server: ubuntu-24.04-live-server-amd64.iso (Link atualizado em 23/04/2024)
+B) Versão do download Ubuntu Server: ubuntu-24.04.1-live-server-amd64.iso (Link atualizado em 27/08/2024)
 C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
@@ -52,8 +52,8 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Novo>
 
 02) Nome da Máquina Virtual e Sistema Operacional:
-	Nome: UbuntuWebserver (altere conforme a sua necessidade)
-	Pasta (F): #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
+	Nome: DockerUbuntu (altere conforme a sua necessidade)
+	Pasta (F): #PATH_PADRÃO\DockerUbuntu (altere conforme a sua necessidade)
 	Imagem ISO: <não selecionar>
 	Edição: (sem informação)
 	Tipo: Linux
@@ -76,11 +76,11 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Finalizar>
 ```
 
-#03_ Configurações da Máquina Virtual UbuntuWebserver<br>
+#03_ Configurações da Máquina Virtual DockerUbuntu<br>
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
-01) Selecionar a Máquina Virtual: UbuntuWebserver
+01) Selecionar a Máquina Virtual: DockerUbuntu
 <Configurações>
 
 02) Sistema
@@ -114,7 +114,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
-01. Selecionar a Máquina Virtual: UbuntuWebserver: 
+01. Selecionar a Máquina Virtual: DockerUbuntu: 
 <Iniciar>
 
 02. VirtualBOX VM	
@@ -187,7 +187,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 10) Profile setup
 	#OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
 	Your name: Seu Nome e Sobrenome <Tab>
-	Your servers name: wsvaamonde <Tab>
+	Your servers name: ctnvaamonde <Tab>
 	Pick a username: vaamonde <Tab>
 	Choose a passwords: pti@2018 <Tab>
 	Confirm your passwords: pti@2018
@@ -218,6 +218,6 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
 01) Tela de Login do Ubuntu Server
-	wsvaamonde login: vaamonde <Enter> (altere para o seu usuário)
+	ctnvaamonde login: vaamonde <Enter> (altere para o seu usuário)
 	Password: pti@2018 <Enter> (altere para o seu usuário)
 ```
