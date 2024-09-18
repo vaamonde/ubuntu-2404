@@ -26,7 +26,7 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2404/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2404?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 24.04.x LTS Noble Numbat, todo o procedimento de instalação e configuração dos principais serviços de redes serão executados de forma manual, seguindo as boas práticas de implementação para serviços Localhost, Intranet, Extranet ou para Internet Cloud, esse curso será a base para o próximo utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) com futura integração com os conceitos de CI/CD ("integração contínua" e "entrega contínua") migrando toda essa estrutura On-Premises (Servidores Locais) para Cloud (Nuvem) ou construído uma Base Sólida em Container (Docker) e automatizando a criação das VM's com o Vagrant (HashiCorp) e Ansible (Red Hat) numa etapa futura.
+Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 24.04.x LTS Noble Numbat, todo o procedimento de instalação e configuração dos principais serviços de redes serão executados de forma de container, seguindo as boas práticas de implementação para serviços Localhost, Intranet, Extranet ou para Internet Cloud, esse curso será a base para utilizamos os conceitos de DevOps (“desenvolvimento” e “operação”) com integração com os conceitos de CI/CD ("integração contínua" e "entrega contínua") migrando toda essa estrutura On-Premises (Servidores Locais) para Containers e depois Cloud (Nuvem) ou construído uma Base Sólida em Container (Docker) e automatizando a criação das VM's com o Vagrant (HashiCorp) e Ansible (Red Hat) numa etapa futura.
 
 Ubuntu: é um sistema operacional de código aberto, construído a partir do núcleo Linux, baseado no Debian. Esta distribuição Linux é desenvolvida pela Canonical Ltd.
 
@@ -235,7 +235,7 @@ Conteúdo estudado nessa configuração:<br>
 #03_ Desinstalando o Serviço do SNAP do Ubuntu Server<br>
 #04_ Prevenção contra instalação do SNAP do Ubuntu Server<br>
 
-[![SNAPd](http://img.youtube.com/vi//0.jpg)]( "SNAPd")
+[![Desabilitar o SNAPd](http://img.youtube.com/vi//0.jpg)]( "Desabilitar o SNAPd")
 
 Link da vídeo aula: 
 
@@ -310,3 +310,43 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: 
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-docker/02-portainer.md
+
+# QUARTA ETAPA: COMANDO BÁSICOS DO DOCKER-CE E PORTAINER
+
+## **🤩🤩 Comandos Básicos Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para pesquisar, criar, iniciar, parar e remover Containers e Imagens no Docker-CE, que é bases para entender como funcionar o Docker e os Container na prática.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Utilizando os comandos Básico de Pesquisa (Search) Docker-CE e Docker-HUB<br>
+#02_ Utilizando os comandos Básicos de Containers (Container) e Imagens (Images) no Docker-CE<br>
+#03_ Utilizando os comandos Básicos de Containers (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+#04_ Utilizando os comandos Básicos de Containers (Container) e Conectar (Attach) no Docker-CE<br>
+#05_ Executando (Exec) comandos Remotos no Containers (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
+#07_ Verificando as Estáticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) os Containers (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando (Prune) os Containers (Container) no Docker-CE<br>
+#09_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+
+[![Básico Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Básico Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/01-basic-docker.md
+
+## **🤩🤩 Comandos Básicos CPU e RAM do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de CPU e RAM do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, iniciar, conectar, parar e atualizar as informações dos Container no Docker-CE referente a Processadores (CPU) e Memória RAM.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Criando (Create) os Containers (Container) do Ubuntu (Image) no Docker-CE<br>
+#02_ Iniciando (Start) os Containers (Container) do Ubuntu no Docker-CE<br>
+#03_ Conectando (Attach) nos Containers (Container) do Ubuntu no Docker-CE<br> 
+#04_ Parando (Stop) e Inspecionando (Inspect) o Container (Container) do Ubuntu no Docker-CE<br>
+#05_ Atualizando (Update) as Configurações de RAM e CPU dos (Container) do Ubuntu no Docker-CE<br
+
+[![CPU e RAM Docker-CE](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/02-cpu-ram-docker.md
