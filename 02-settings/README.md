@@ -166,9 +166,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Ri-_KMM361o
 
 Link da documentação: https://github.com/vaamonde/ca-certificates/blob/main/01-ca/01-openssh.md
 
-## **🤩🤩 Desabilitando o SNAPd no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Desabilitando o SNAPd e Cloud-Init no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de desabilitar e remover o SNAPd no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para remover o bloquear a instalação acidental do SNAPd.
+Vídeo de desabilitar e remover o SNAPd e Cloud-Init no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para remover o bloquear a instalação acidental do SNAPd e do Cloud-Init, recursos esses que não será utilizado nesse curso e que consome recursos desnecessário do servidor.
 
 Conteúdo estudado nessa configuração:<br>
 #01_ Listando as aplicativos rodando no SNAP do Ubuntu Server<br>
@@ -176,11 +176,11 @@ Conteúdo estudado nessa configuração:<br>
 #03_ Desinstalando o Serviço do SNAP do Ubuntu Server<br>
 #04_ Prevenção contra instalação do SNAP do Ubuntu Server<br>
 
-[![SNAPd](http://img.youtube.com/vi//0.jpg)]( "SNAPd")
+[![SNAPd e Cloud-Init](http://img.youtube.com/vi//0.jpg)]( "SNAPd e Cloud-Init")
 
 Link da vídeo aula: 
 
-Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/07-DesabilitandoSnapd.md
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/07-DesabilitandoSnapdCloud-Init.md
 
 ## **🤩🤩 Monitorando o Desempenho do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
