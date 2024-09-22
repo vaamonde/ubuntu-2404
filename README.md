@@ -263,7 +263,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-set
 
 # TERCEIRA ETAPA: INSTALAÇÃO E CONFIGURAÇÃO DO DOCKER-CE E PORTAINER
 
-## **🤩🤩 Instalação e Configuração do Docker-CE do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Instalação e Configuração do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de instalação e configuração do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Containers Docker-CE (Community Edition) em nosso servidor para criar os primeiros cenários de containers e micro-serviços.
 
@@ -290,7 +290,7 @@ Link da vídeo aula:
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-docker/01-docker-ce.md
 
-## **🤩🤩 Instalação do Portainer.io no Docker-CE do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Instalação do Portainer.io no Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de instalação do Portainer.io no Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o gerenciador de containers Portainer.io no Docker-CE com objetivo de gerenciar todos os containers criados via linha de comando ou pelo ambiente gráfico.
 
@@ -313,7 +313,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-doc
 
 # QUARTA ETAPA: COMANDO BÁSICOS DO DOCKER-CE E PORTAINER
 
-## **🤩🤩 Comandos Básicos Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Comandos Básicos do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de comandos básicos do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para pesquisar, criar, iniciar, parar e remover Containers e Imagens no Docker-CE, que é bases para entender como funcionar o Docker e os Container na prática.
 
@@ -334,7 +334,7 @@ Link da vídeo aula:
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/01-basic-docker.md
 
-## **🤩🤩 Comandos Básicos CPU e RAM do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Comandos Básicos de CPU e RAM do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de comandos básicos de CPU e RAM do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, iniciar, conectar, parar e atualizar as informações dos Container no Docker-CE referente a Processadores (CPU) e Memória RAM.
 
