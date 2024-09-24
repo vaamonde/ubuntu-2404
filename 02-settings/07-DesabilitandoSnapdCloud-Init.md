@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 22/09/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 24/09/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -19,13 +19,14 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa configuração:<br>
-#01_ Listando as aplicativos rodando no SNAP do Ubuntu Server<br>
-#02_ Parando e desabilitando o serviço do SNAP do Ubuntu Server<br>
-#03_ Desinstalando o Serviço do SNAP do Ubuntu Server<br>
-#04_ Prevenção contra instalação do SNAP do Ubuntu Server<br>
-#05_ Parando e desabilitando o serviço do Cloud-Init do Ubuntu Server<br>
-#06_ Desinstalando o Serviço do Cloud-Init no Ubuntu Server<br>
-#07_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
+#01_ Listando os aplicativos rodando no SNAPd no Ubuntu Server<br>
+#02_ Removendo os aplicativos rodando no SNAPd no Ubuntu Server<br>
+#03_ Parando e desabilitando o serviço do SNAPd no Ubuntu Server<br>
+#04_ Prevenção contra instalação e inicialização do SNAPd no Ubuntu Server<br>
+#05_ Parando e desabilitando o serviço do Cloud-Init no Ubuntu Server<br>
+#06_ Prevenção contra instalação e inicialização do Cloud-Init no Ubuntu Server<br>
+#07_ Verificando os Status de Serviços Rodando no Ubuntu Server<br>
+#08_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
 
 Site Oficial do Snap: https://ubuntu.com/core/services/guide/snaps-intro<br>
 Site Oficial do Snapcraft: https://snapcraft.io/docs/installing-snap-on-ubuntu<br>
@@ -42,90 +43,152 @@ Cloud-init é o método de multidistribuição padrão da indústria para inicia
 
 Link da vídeo aula: 
 
-#01_ Listando os aplicativos rodando no SNAP do Ubuntu Server<br>
+#01_ Listando os aplicativos rodando no SNAPd no Ubuntu Server<br>
 ```bash
 #listando os aplicativos rodando no Snap
-#opção do comando snap: list (List installed snaps)
-snap list
+#opção do comando snap: list (List installed snaps), --all (Show all revisions)
+sudo snap list --all
 ```
 
-#02_ Parando e desabilitando o serviço do SNAP do Ubuntu Server<br>
+#02_ Removendo os aplicativos rodando no SNAPd no Ubuntu Server<br>
 ```bash
-#listando o status de serviço do SNAP
-sudo systemctl status snapd
+#OBSERVAÇÃO IMPORTANTE: quando você habilita o recurso do Ubuntu Pro automaticamente e
+#habilitado o recurso do Livepatch no SNAP, quando você remover o Livepatch do SNAP ele
+#será desativado automaticamente do Ubuntu Pro.
 
-#parando o serviço do SNAP
-sudo systemctl stop snapd
+#listando todos os recursos habilitados do Ubuntu Pro
+#opção do comando pro: status (Report current status), --all (beta and unavailable services) 
+sudo pro status --all
 
-#desabilitando o serviço do SNAP
-sudo systemctl disable snapd
+#listando todos os aplicativos rodando no SNAPd
+#opção do comando snap: list (List installed snaps), --all (Show all revisions)
+sudo snap list --all
 
-#desativando o serviço para não ser iniciado sem querer
-sudo systemctl mask snapd
+#removendo todos os aplicativos (manualmente) rodando no SNAPd
+#opção do comando snap: remove (Remove snaps from the system)
+sudo snap remove canonical-livepatch
+sudo snap remove core22
+sudo snap remove snapd
+
+#listando todos os aplicativos rodando no SNAPd
+#opção do comando snap: list (List installed snaps), --all (Show all revisions
+sudo snap list --all
+
+#listando todos os recursos habilitados do Ubuntu Pro
+#opção do comando pro: status (Report current status), --all (beta and unavailable services)
+sudo pro status --all
 ```
 
-#03_ Desinstalando o Serviço do SNAP no Ubuntu Server<br>
+#03_ Parando e desabilitando o serviço do SNAPd no Ubuntu Server<br>
 ```bash
-#removendo o pacote do SNAP
-#opção do comando apt: purge (remove and purge package)
-sudo apt purge snapd
+#listando o status dos serviços do SNAPd
+#opção do comando systemctl: status (Show terse runtime status information about one or 
+#more units)
+sudo systemctl status snapd.service snapd.socket snapd.seeded.service
+
+#parando os serviços do SNAPd
+#opção do comando systemctl: stop (Stop (deactivate) one or more units specified on the 
+#command line)
+sudo systemctl stop snapd.service snapd.socket snapd.seeded.service
+
+#desabilitando os serviços do SNAPd
+#opção do comando systemctl: disable (Disables one or more units)
+sudo systemctl disable snapd.service snapd.socket snapd.seeded.service
+
+#desativando os serviços do SNAPd para não ser iniciado sem querer
+#opção do comando systemctl: mask (Mask one or more units)
+sudo systemctl mask snapd.service snapd.socket snapd.seeded.service
+```
+
+#04_ Prevenção contra instalação e inicialização do SNAPd no Ubuntu Server<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: NÃO É RECOMENDADO REMOVER O SNAPd DO UBUNTU SERVER, VÁRIOS SERVIÇOS
+#DEPENDE DELE PARA FUNCIONAR E VÁRIAS BIBLIOTECAS E DEPENDÊNCIAS COMO O NETPLAN.IO FAZ PARTE
+#DAS DEPENDÊNCIAS DO SNAPd REMOVENDO ELE OU PURGANDO PODE PREJUDICAR O SERVIDOR.
 
 #marcando o pacote do SNAP como hold (retido/antigo)
 #opção do comando apt-mark: hold (security package install)
 sudo apt-mark hold snapd
-```
 
-#04_ Prevenção contra instalação do SNAP no Ubuntu Server<br>
-```bash
-#criando o arquivo de preferencia do SNAP
+#criando o arquivo de preferencia do SNAPd
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 echo 'Package: snapd
 Pin: release a=*
 Pin-Priority: -10 ' | sudo tee /etc/apt/preferences.d/nosnap.pref > /dev/null
+
+#listando o conteúdo do arquivo de preferencia do SNAPd
+#opção do comando cat: -n (number line)
+sudo cat -n /etc/apt/preferences.d/nosnap.pref
 ```
 
-#05_ Parando e desabilitando o serviço do Cloud-Init do Ubuntu Server<br>
+#05_ Parando e desabilitando o serviço do Cloud-Init no Ubuntu Server<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: Por padrão no Ubuntu Server 24.04 Minimal o serviço do Ubuntu 
+#Cloud está parado (Stop/Dead).
+
 #verificando o Status de serviço do Cloud-Init
+#opção do comando systemctl: status (Show terse runtime status information about one or 
+#more units)
 sudo systemctl status cloud-init
 
 #parando o serviço do Cloud-Init
+#opção do comando systemctl: stop (Stop (deactivate) one or more units specified on the 
+#command line)
 sudo systemctl stop cloud-init
 
 #desabilitando o serviço do Cloud-Init
+#opção do comando systemctl: disable (Disables one or more units)
 sudo systemctl disable cloud-init
 
 #desativando o serviço para não ser iniciado sem querer
+#opção do comando systemctl: mask (Mask one or more units)
 sudo systemctl mask cloud-init
 ```
 
-#06_ Desinstalando o Serviço do Cloud-Init no Ubuntu Server<br>
+#06_ Prevenção contra instalação e inicialização do Cloud-Init no Ubuntu Server<br>
 ```bash
 #verificando o Status do Cloud-Init 
 sudo cloud-init status
 
-#verificando o arquivo para desabilitar o Cloud-Init 
+#verificando o arquivo para desabilitar o Cloud-Init
+#opções do comando ls: -l (use a long listing format), -h (human-readable)
 sudo ls -lh /etc/cloud/cloud-init.disabled
 
-#reconfigurando o Cloud-Init
-#sudo dpkg-reconfigure -fnoninteractive cloud-init
-
-#removendo o pacote do Cloud-Init
-#opção do comando apt: purge (remove and purge package)
-sudo apt purge cloud-init
+#OBSERVAÇÃO IMPORTANTE: NÃO É RECOMENDADO REMOVER O CLOUD DO UBUNTU SERVER, VÁRIOS SERVIÇOS
+#DEPENDE DELE PARA FUNCIONAR E VÁRIAS BIBLIOTECAS E DEPENDÊNCIAS COMO O NETPLAN.IO FAZ PARTE
+#DAS DEPENDÊNCIAS DO CLOUD REMOVENDO ELE OU PURGANDO PODE PREJUDICAR O SERVIDOR.
 
 #marcando o pacote do Cloud-Init como hold (retido/antigo)
 #opção do comando apt-mark: hold (security package install)
 sudo apt-mark hold cloud-init
 
-#removendo os diretórios do Cloud-Init
-#opções do comando rm: -r (recursive), -f (force), -v (verbose)
-sudo rm -rfv /etc/cloud/ 
-sudo rm -rfv /var/lib/cloud/
+#criando o arquivo de preferencia do Cloud
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
+echo 'Package: cloud-init
+Pin: release a=*
+Pin-Priority: -10 ' | sudo tee /etc/apt/preferences.d/nocloud.pref > /dev/null
+
+#listando o conteúdo do arquivo de preferencia do Cloud
+#opção do comando cat: -n (number line)
+sudo cat -n /etc/apt/preferences.d/nocloud.pref
 ```
 
-#07_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
+#07_ Verificando os Status de Serviços Rodando no Ubuntu Server<br>
+```bash
+#verificando todos os serviços rodando no servidor com o Service
+#opção do comando service: --status-all ( runs all init scripts, in alphabetical order)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo service --status-all | grep "+"
+
+#verificando todos os serviços rodando no servidor com o Systemctl
+#opções do comando systemctl: list-units (List units that systemd currently has in memory), 
+#--state (additionally filtered), running (running services in system)
+sudo systemctl list-units --state running
+```
+
+#08_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
 ```bash
 #reiniciando o ubuntu server
 sudo reboot

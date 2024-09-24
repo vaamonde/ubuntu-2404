@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 14/09/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 24/09/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -22,10 +22,10 @@ Conteúdo estudado nessa configuração:<br>
 #01_ Instalando os aplicativos de monitoramento no Ubuntu Server<br>
 #02_ Verificando a versão do Ubuntu Server<br>
 #03_ Verificando a versão do Kernel e Uptime no Ubuntu Server<br>
-#04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) Ubuntu Server<br>
-#05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) Ubuntu Server<br>
-#06_ Verificando o Desempenho Disco HD (Hard-Disk) Ubuntu Server<br>
-#07_ Verificando o Desempenho Rede (Network) Ubuntu Server<br>
+#04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server<br>
+#05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server<br>
+#06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
+#07_ Verificando o Desempenho de Rede (Network) no Ubuntu Server<br>
 #08_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
 O Ubuntu Server é uma versão do sistema operacional Ubuntu, especificamente desenvolvida para servidores. Enquanto o Ubuntu Desktop é voltado para usuários finais com uma interface gráfica amigável, o Ubuntu Server é otimizado para desempenho e eficiência em ambientes de servidores, geralmente sem uma interface gráfica (GUI) por padrão. Isso permite que ele seja mais leve e utilize menos recursos, o que é ideal para servidores que precisam ser rápidos, estáveis e capazes de gerenciar grandes volumes de trabalho.
@@ -93,7 +93,7 @@ sudo cat /proc/version
 sudo uptime -s
 ```
 
-#04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) Ubuntu Server<br>
+#04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server<br>
 ```bash
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
@@ -259,7 +259,7 @@ sudo btop
    Tecla: - (menos) diminuir o tempo de atualização em ms
 ```
 
-#05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) Ubuntu Server<br>
+#05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server<br>
 ```bash
 #verificando as informações de memória do arquivo meminfo
 sudo cat /proc/meminfo
@@ -296,7 +296,7 @@ sudo sar -h -r 1 5
 sudo btop
 ```
 
-#06_ Verificando o Desempenho Disco HD (Hard-Disk) Ubuntu Server<br>
+#06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
 ```bash
 #verificando as informações de estáticas de disco do arquivo diskstats
 #Entendendo os valores de métricas do arquivo diskstats
@@ -395,7 +395,7 @@ sudo iotop -o
 sudo dstat -d --disk-util --disk-tps
 ```
 
-#07_ Verificando o Desempenho Rede (Network) Ubuntu Server<br>
+#07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server<br>
 ```bash
 #verificando as informações de estáticas de rede do arquivo net/dev
 sudo cat /proc/net/dev
