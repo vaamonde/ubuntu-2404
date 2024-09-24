@@ -39,9 +39,9 @@ Snapcraft é uma ferramenta de linha de comando poderosa e fácil de usar para c
 
 Cloud-init é o método de multidistribuição padrão da indústria para inicialização de instância de nuvem multiplataforma. Ele é suportado por todos os principais provedores de nuvem pública, sistemas de provisionamento para infraestrutura de nuvem privada e instalações bare-metal.
 
-[![SNAP e Cloud-Initi](http://img.youtube.com/vi//0.jpg)]( "SNAP e Cloud-Init")
+[![SNAPd e Cloud-Init](http://img.youtube.com/vi/dWoiPeTGFFE/0.jpg)](https://www.youtube.com/watch?v=dWoiPeTGFFE "SNAPd e Cloud-Init")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=dWoiPeTGFFE
 
 #01_ Listando os aplicativos rodando no SNAPd no Ubuntu Server<br>
 ```bash
@@ -127,6 +127,10 @@ sudo cat -n /etc/apt/preferences.d/nosnap.pref
 #OBSERVAÇÃO IMPORTANTE: Por padrão no Ubuntu Server 24.04 Minimal o serviço do Ubuntu 
 #Cloud está parado (Stop/Dead).
 
+#verificando o Status do Cloud-Init
+#opção do comando cloud-init: status (Report cloud-init status or wait on completion)
+sudo cloud-init status
+
 #verificando o Status de serviço do Cloud-Init
 #opção do comando systemctl: status (Show terse runtime status information about one or 
 #more units)
@@ -148,7 +152,8 @@ sudo systemctl mask cloud-init
 
 #06_ Prevenção contra instalação e inicialização do Cloud-Init no Ubuntu Server<br>
 ```bash
-#verificando o Status do Cloud-Init 
+#verificando o Status do Cloud-Init
+#opção do comando cloud-init: status (Report cloud-init status or wait on completion)
 sudo cloud-init status
 
 #verificando o arquivo para desabilitar o Cloud-Init

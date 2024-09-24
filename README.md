@@ -85,6 +85,22 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/01-ins
 
 # SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER 24.04
 
+## **🖥️ Configurações BÁSICAS do Ubuntu Server 24.04.x LTS (Noble Numbat) Essentials ANTES DE CONTINUAR O CURSO 🤩🤩**
+
+Vídeo de configurações básicas do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX antes de continuar o curso, nesse vídeo você vai aprender todos os procedimentos básicos para deixar o nosso servidor configurado de forma correta antes de iniciar a implementação do Docker e Portainer.
+
+Seguir os próximos vídeos de:<br>
+01 - Atualização do Ubuntu Server<br>
+02 - Configuração do Hostname, Hosts e Placa de Rede<br>
+03 - Configuração do Locale, Timezone e NTP<br>
+04 - Desligar e Reiniciar o Servidor<br>
+05 - Habilitando o Ubuntu Pro<br>
+06 - Configuração do OpenSSH Server<br>
+
+[![Configuração Básica](http://img.youtube.com/vi/dQJhDoCQgNI/0.jpg)](https://www.youtube.com/watch?v=dQJhDoCQgNI "Configuração Básica")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=dQJhDoCQgNI
+
 ## **🤩🤩 Atualização do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de atualização do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
@@ -230,10 +246,14 @@ Link da documentação: https://github.com/vaamonde/ca-certificates/blob/main/01
 Vídeo de desabilitar e remover o SNAPd e Cloud-Init no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para remover o bloquear a instalação acidental do SNAPd e do Cloud-Init, recursos esses que não será utilizado nesse curso e que consome recursos desnecessário do servidor.
 
 Conteúdo estudado nessa configuração:<br>
-#01_ Listando as aplicativos rodando no SNAP do Ubuntu Server<br>
-#02_ Parando e desabilitando o serviço do SNAP do Ubuntu Server<br>
-#03_ Desinstalando o Serviço do SNAP do Ubuntu Server<br>
-#04_ Prevenção contra instalação do SNAP do Ubuntu Server<br>
+#01_ Listando os aplicativos rodando no SNAPd no Ubuntu Server<br>
+#02_ Removendo os aplicativos rodando no SNAPd no Ubuntu Server<br>
+#03_ Parando e desabilitando o serviço do SNAPd no Ubuntu Server<br>
+#04_ Prevenção contra instalação e inicialização do SNAPd no Ubuntu Server<br>
+#05_ Parando e desabilitando o serviço do Cloud-Init no Ubuntu Server<br>
+#06_ Prevenção contra instalação e inicialização do Cloud-Init no Ubuntu Server<br>
+#07_ Verificando os Status de Serviços Rodando no Ubuntu Server<br>
+#08_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
 
 [![SNAPd e Cloud-Init](http://img.youtube.com/vi//0.jpg)]( "SNAPd e Cloud-Init")
 
