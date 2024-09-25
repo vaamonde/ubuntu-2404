@@ -208,9 +208,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=dWoiPeTGFFE
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/07-DesabilitandoSnapdCloud-Init.md
 
-## **🖥️ Monitorando o Desempenho do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🖥️ Monitoramento do Desempenho de Hardware do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de monitoramento do desempenho no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para monitorar o desempenho de Processador CPU, Memória RAM, Hard Disk HD e Rede Network utilizando comandos simples sem a necessidade de instalação de sistemas de monitoramento complexo.
+
+O Kernel é o núcleo central de um sistema operacional. Ele atua como uma ponte entre o hardware do computador e o software, gerenciando os recursos do sistema e permitindo que os programas de software interajam com o hardware de forma eficiente e segura.
+
+A CPU (Central Processing Unit), também conhecida como processador, é o componente principal de um computador responsável por executar instruções e processar dados. É frequentemente descrita como o "cérebro" do computador, pois é onde a maioria das operações de cálculo e lógica são realizadas.
+
+A RAM (Random Access Memory), ou Memória de Acesso Aleatório, é um tipo de memória volátil usada em computadores e outros dispositivos eletrônicos para armazenar dados temporariamente enquanto estão sendo processados. Diferente do armazenamento permanente, como discos rígidos ou SSDs, a RAM é muito mais rápida, mas só mantém os dados enquanto o dispositivo está ligado.
+
+HD, sigla para "Hard Disk" ou "Hard Disk Drive" (Disco Rígido em português), é um dispositivo de armazenamento de dados usado em computadores e outros dispositivos eletrônicos. Ele armazena permanentemente os dados, mesmo quando o computador está desligado. O HD é um dos métodos mais tradicionais de armazenamento, sendo usado para guardar sistemas operacionais, aplicativos, documentos, fotos, vídeos, e qualquer outro tipo de dado digital.
+
+Uma Interface de Rede é um componente de hardware ou software que conecta um dispositivo, como um computador, servidor, ou roteador, a uma rede, permitindo que ele se comunique e troque dados com outros dispositivos na mesma rede ou em redes externas. A interface de rede é essencial para o funcionamento de redes de computadores, permitindo a transferência de dados entre dispositivos conectados.
 
 Conteúdo estudado nessa configuração:<br>
 #01_ Instalando os aplicativos de monitoramento no Ubuntu Server<br>
@@ -222,8 +232,8 @@ Conteúdo estudado nessa configuração:<br>
 #07_ Verificando o Desempenho Rede (Network) Ubuntu Server<br>
 #08_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
-[![Monitoramento](http://img.youtube.com/vi//0.jpg)]( "Monitoramento")
+[![Monitoramento](http://img.youtube.com/vi/fstVt6vOrYc/0.jpg)](https://www.youtube.com/watch?v=fstVt6vOrYc "Monitoramento")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/08-MonitoramentoHardware.md

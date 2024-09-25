@@ -40,14 +40,14 @@ HD, sigla para "Hard Disk" ou "Hard Disk Drive" (Disco Rígido em português), �
 
 Uma Interface de Rede é um componente de hardware ou software que conecta um dispositivo, como um computador, servidor, ou roteador, a uma rede, permitindo que ele se comunique e troque dados com outros dispositivos na mesma rede ou em redes externas. A interface de rede é essencial para o funcionamento de redes de computadores, permitindo a transferência de dados entre dispositivos conectados.
 
-[![Monitoramento](http://img.youtube.com/vi//0.jpg)]( "Monitoramento")
+[![Monitoramento](http://img.youtube.com/vi/fstVt6vOrYc/0.jpg)](https://www.youtube.com/watch?v=fstVt6vOrYc "Monitoramento")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc 
 
 #01_ Instalando os aplicativos de monitoramento no Ubuntu Server<br>
 ```bash
 #instalação dos aplicativos básicos de monitoramento de hardware
-sudo apt install sysstat nmon btop iotop dstat atop nload iftop bmon stress-ng s-tui
+sudo apt install sysstat nmon btop htop iotop dstat atop nload iftop bmon ethtool stress-ng s-tui
 ```
 
 #02_ Verificando a versão do Ubuntu Server<br>
@@ -91,9 +91,19 @@ sudo hostnamectl
 #verificando a versão do Kernel do arquivo version
 sudo cat /proc/version
 
+#Entendendo os valores de métricas do comando uptime
+#
+A) 13:22:55: Hora atual do sistema,
+B) up 3 days, 23:53: O sistema está em funcionamento há 3 dias e 23 horas e 53 minutos, 
+   ou seja, o tempo de atividade desde o último boot,
+C) 1 user: Indica que há um usuário logado no sistema no momento,
+D) load average: 1,92, 2,05, 2,06: Refere-se à "carga média" do sistema nos últimos 1, 5 
+   e 15 minutos, respectivamente.
+
 #verificando o tempo de atividade do servidor com o comando uptime
 #opção do coma ndo uptime: -s (system up since)
 sudo uptime -s
+sudo uptime
 ```
 
 #04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server<br>
@@ -124,7 +134,25 @@ H) 0,0 st (steal): Percentual de tempo que a CPU virtual (em ambientes virtualiz
 #
 #%Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
 
-#analisando o desempenho do processador com o comando top
+A) PID: Identificador do processo (Process ID),
+B: user: Nome do usuário que iniciou o processo. Indica a quem pertence o processo,
+C) PR: Prioridade do processo. Processos com prioridade mais baixa (valores mais altos) são 
+   executados com menor frequência em relação a processos com prioridade mais alta.
+D) NI: Valor de "nice" do processo. O valor "nice" determina a prioridade de execução do processo,
+E) VIRT: Memória virtual total utilizada pelo processo, incluindo toda a memória que o processo 
+   pode acessar (inclui a memória que pode não estar fisicamente presente),
+F) RES: Memória residente. É a quantidade de memória física (RAM) que o processo está usando no 
+   momento. Esta é a parte da memória que está realmente alocada e em uso,
+G) SHR: Memória compartilhada. Indica a quantidade de memória que é compartilhada entre processos.
+H) S: Estado do processo. Os estados comuns incluem: R: Executando (running), S: Dormindo (sleeping)
+   Z: Zumbi (zombie) e T: Parado (stopped),
+I) %CPU: Porcentagem da CPU que o processo está utilizando no momento. Isso mostra quão ativo o 
+    processo está em termos de uso da CPU.
+J) %MEM: Porcentagem da memória física total que o processo está utilizando,
+K) TIME+: Tempo total de CPU utilizado pelo processo desde que foi iniciado,
+L) COMAND: Nome do comando ou do processo que está sendo executado.
+
+#analisando o desempenho do processador com o comando top (PARA SAIR: q (quit))
 sudo top
 
 #Entendendo os valores de métricas do comando htop
@@ -182,6 +210,7 @@ sudo htop
       PSI some CPU <Enter>
       PSI full IO <Enter>
       PSI full memory <Enter>
+  F10 (Quit)
 
 #Entendendo os valores de métricas do comando vmstat
 #
@@ -276,16 +305,63 @@ sudo iostat -h
 sudo nmon
    Tecla: c (CPU) utilização da CPU em 
    Tecla: C (CPU) utilização da CPU em visão ampla
-   Tecla: M (Memory) utilização da Memória RAM e SWAP
+   Tecla: m (Memory) utilização da Memória RAM 
+   Tecla: v (Virtual memory) utilização da Memória SWAP
    Tecla: d (Disk) utilização do Hard Disk
    Tecla: n (Network) utilização da Rede
    Tecla: t (TOP) Processos que estão TOP
+   Tecla: q (quit) Para sair do Nmon
 
 #analisando o desempenho do processador com o comando btop
 #personalizando o comando btop:
 sudo btop
    Tecla: n (network) mudança de Placa de Rede
-   Tecla: - (menos) diminuir o tempo de atualização em ms
+   Tecla: - (menos) diminuir o tempo de atualização em ms (100ms)
+   Tecla: q (quit) para sair
+
+#OBSERVAÇÃO IMPORTANTE NÃO FOI MOSTRADO NO VÍDEO O COMANDO: atop SEGUE AS SUAS MÉTRICAS
+
+#Entendendo os valores de métricas do comando atop
+#
+A) sys 8h51m: Tempo total gasto pelo sistema em modo kernel (modo de sistema ou "system mode")
+   nas últimas 8 horas e 51 minutos,
+B) user 14h41m: Tempo total gasto pela CPU executando processos de modo usuário (user mode) nas 
+   últimas 14 horas e 41 minutos,
+C) proc 317: Número total de processos criados e ativos durante o intervalo de monitoramento,
+D) trun 2: Número de processos em execução ativa (running) no momento da amostra,
+E) tslpi 1089: Número de processos que estão dormindo (sleeping) de forma ininterrupta,
+F) tslpu 1: Número de processos que estão dormindo de forma interrompível,
+G) zombie 0: Número de processos em estado zumbi,
+H) clones 917e3: Número de processos clonados (geralmente subprocessos ou threads) no sistema, 
+   desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones.
+I) exit 1: Número de processos que saíram ou terminaram durante o período de monitoramento.
+#
+#PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
+
+A) PID: Identificador do processo (Process ID),
+B) SYSCPU: Quantidade de tempo de CPU usada pelo processo no modo kernel (system CPU time),
+C) USRCPU: Quantidade de tempo de CPU usada pelo processo no modo usuário (user CPU time),
+D) VGROW: Crescimento no uso de memória virtual (virtual memory growth),
+E) RGROW: Crescimento no uso de memória residente (resident memory growth),
+F) RUID: ID do usuário real (Real User ID),
+G) EUID: ID do usuário efetivo (Effective User ID),
+H) ST: Estado do processo (State). Representa o estado atual do processo, por exemplo:
+   R: Em execução (Running), S: Dormindo (Sleeping), D: Em espera ininterrupta (Waiting 
+   for I/O), Z: Zumbi (Zombie) e T: Parado (Stopped),
+I) EXC: Número de trocas de contexto (Context Switches),
+J) THR: Número de threads que o processo possui,
+K) S: Estado geral de uso da CPU do processo,
+   R: Em execução (Running), S: Dormindo (Sleeping) e Outros estados indicam diferentes 
+   condições do processo.
+L) CPUNR: O número da CPU em que o processo está sendo executado,
+M) CPU: Percentual de uso da CPU pelo processo,
+N) CMD: O nome do comando ou programa associado ao processo,
+O) 1/6: O índice da página exibida (como 1/6).X
+#
+#PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
+
+#analisando o desempenho do processador com o comando atop (PARA SAIR: q (quit))
+sudo atop
 ```
 
 #05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server<br>
@@ -439,18 +515,37 @@ sudo fdisk -l /dev/sda
 
 #Entendendo os valores de métricas do comando df
 #
-A) Filesystem: Esta coluna mostra o nome do sistema de arquivos ou a partição, 
-B) Size: Mostra o tamanho total da partição ou do sistema de arquivos, 
-C) Used: Quantidade de espaço que já está em uso no sistema de arquivos, 
-D) Avail: Quantidade de espaço disponível para ser usada, 
-E) Use%: Percentual de uso do sistema de arquivos, 
-F) Mounted on: Indica o ponto de montagem onde o sistema de arquivos está acessível no sistema.
+A) Filesystem: Refere-se ao nome ou caminho do sistema de arquivos ou dispositivo de armazenamento,
+B) Size: Exibe o tamanho total da partição ou do sistema de arquivos, ou seja, a capacidade total 
+   disponível para armazenar dados,
+C) Used: Indica a quantidade de espaço em disco que já está ocupada por dados,
+D) Available: Mostra o espaço livre disponível na partição ou sistema de arquivos, ou seja, quanto
+   ainda pode ser utilizado para armazenar novos dados.
+E) Use%: Representa a porcentagem do espaço total que está atualmente em uso. É uma boa métrica para
+   verificar o quanto de um sistema de arquivos está ocupado.
+F) Mounted on: Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos 
+   está acessível no sistema. Exemplo: /, /home, /mnt.
 #
 #Filesystem   Size   Used   Avail   Use%   Mounted on
 
 #verificando o uso do disco com o comando df
 #opção do comando df: -h (human)
 sudo df -h
+
+#Entendendo os valores de métricas do comando iostat
+#
+A) tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, 
+B) kB_read/s: Taxa de leitura em KB por segundo, 
+C) kB_wrtn/s: Taxa de gravação em KB por segundo,
+D)  kB_dscd/s: Taxa de descarte de dados em KB por segundo, 
+E) kB_read: Quantidade total de dados lidos do dispositivo de armazenamento desde o início
+   da medição, 
+F) kB_wrtn: Quantidade total de dados gravados no dispositivo de armazenamento desde o início
+   da medição, 
+G) kB_dscd: Quantidade total de dados descartados desde o início da medição, 
+H) Device: Nome do dispositivo de armazenamento.
+#
+#tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
 
 #analisando o desempenho do disco com o comando iostat
 #opção do comando iostat: -h (human)
@@ -495,16 +590,16 @@ B) loop, nvme, sda, etc.: Esses são os dispositivos de disco individuais monito
      loop: Dispositivos de loopback (normalmente usados para montar arquivos de imagem).
      nvme: Discos NVMe (de alta performance).
      sda: Um dos discos de bloco padrão (SATA ou SCSI).
-C) util:util:util:...: Utilização de disco por dispositivo, em termos percentuais.
+C) util: Utilização de disco por dispositivo, em termos percentuais.
 D) read writ: Número de transações por segundo (TPS), ou seja, o número de operações de leitura 
    (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a 
    quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para 
    cada dispositivo de disco.
 #
-#-dsk/total- loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-nvme-sda- -dsk/total-
-#read  writ|util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util|#read #writ
+#-dsk/total- -loop-nvme-sda- -dsk/total-
+#read  writ | util | #read #writ
 
-#analisando o desempenho do disco com o comando dstat
+#analisando o desempenho do disco com o comando dstat (PARA SAIR: Ctrl+C (quit))
 #opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
 #requests were issued to the device), --disk-tps (number of transfers per second that were
 #issued to the device)
@@ -513,6 +608,23 @@ sudo dstat -d --disk-util --disk-tps
 
 #07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server<br>
 ```bash
+#Entendendo os valores de métricas do do arquivo dev
+#
+A) Interfaces: Interfaces e Rede Física ou lógica do servidor,
+B) Receive and TransmitL Informação de Recebimento e Transmissão da dados na rede,
+C) bytes: O número total de bytes recebidos pela interface.
+D) packets: O número total de pacotes recebidos pela interface.
+E) errs: O número de erros ocorridos ao receber pacotes,
+F) drop: O número de pacotes descartados (drop) durante a recepção,
+G) fifo: O número de erros FIFO (First In, First Out) ao receber pacotes, geralmente relacionados
+   a congestionamento de buffer,
+H) frame: O número de erros de enquadramento (frame errors), que ocorrem quando o quadro de dados
+   de um pacote está corrompido,
+I) compressed: O número de pacotes recebidos que estavam comprimidos,
+J) multicast: O número de pacotes multicast recebidos. 
+#
+#Interface | bytes   packets   errs   drop   fifo   frame   compressed   multicast
+
 #verificando as informações de estáticas de rede do arquivo net/dev
 sudo cat /proc/net/dev
 
@@ -522,11 +634,22 @@ sudo mii-tool enp0s3
 #analisando o desempenho de rede com o comando ethtool
 sudo ethtool enp0s3
 
+#Entendendo os valores de métricas do do arquivo nload
+#
+A) Incoming and Outgoing: Entrada e Saída de dados da Placa de Rede,
+B) Curr (Current): A taxa de transferência atual de dados em kilobits por segundo (kbit/s)
+   ou megabits por segundo (Mbit/s).
+C) Avg (Average): A taxa de transferência média de dados,
+D) Min (Minimum): A taxa de transferência mínima registrada desde o início do monitoramento,
+E) Max (Maximum): A taxa de transferência máxima registrada desde o início do monitoramento,
+F) Ttl (Total): O total de dados transferidos (enviados e recebidos) desde o monitoramento.
+
 #analisando o desempenho de rede com o comando nload
 #personalizando o comando nload:
 sudo nload
-   F2
+  F2
      Show multiple devices: [X] (Utilizar o TAB para marcar)
+  q (quit)
 
 #analisando o desempenho de rede com o comando iftop
 #personalizando o comando iftop:
@@ -536,12 +659,14 @@ sudo iftop
    S: habilitar a porta de origem
    D: habilitar a porta de destino
    T: habilitar o totalizador
+   q: sair (quit)
 
 #analisando o desempenho de rede com o comando bmon
 #personalizando o comando bmon
 sudo bmon
    d: habilitar detalhes de estáticas da placa de rede
    i: habilitar informações adicionais da placa de rede
+   q: sair (quit)
 ```
 
 #08_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
@@ -549,12 +674,15 @@ sudo bmon
 #utilizando o software btop para o monitoramento
 sudo btop
 
+Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/manpages/xenial/man1/stress-ng.1.html
+Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1
+
 #estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
 #opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
 #removing temporary files.), --io (start N workers continuously calling sync(2) to 
 #commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
-#for at least T seconds)
+#munmap(2) and writing to the allocated memory.), --cpu (tart N processes computing 
+#sqrt((double)rand())), --timeout (run each stress test for at least T seconds)
 sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
 
 #fazendo uma busca no disk utilizando o comando find
