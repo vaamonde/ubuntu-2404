@@ -63,7 +63,7 @@ sudo cat /etc/lsb-release
 ```bash
 
 #Entendendo os valores do Kernel com o comando uname
-
+#
 A) Linux: Este é o nome do sistema operacional, que é o Linux, 
 B) ctnvaamonde.pti.intra: Este é o hostname da máquina, 
 C) 5.15.0-119-generic Este é o número da versão do kernel Linux que está rodando no sistema 
@@ -78,9 +78,8 @@ G) x86_64 x86_64 x86_64: Isso representa a arquitetura da CPU e do sistema (O pr
    indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O 
    terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando), 
 H) GNU/Linux: Indica que você está usando o sistema operacional GNU/Linux
-
-# Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 
-# x86_64 x86_64 GNU/Linux
+#
+#Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
 #verificando a versão do Kernel com o comando uname
 #opção do comando uname: -a (all)
@@ -110,7 +109,7 @@ C) 167 sleeping: Número de processos que estão no estado de espera ("dormindo"
 D) 0 stopped: Número de processos que foram interrompidos (suspensos), 
 E) 0 zombie: Número de processos zumbis.
 #
-# Tasks: 168 total,   1 running, 167 sleeping,   0 stopped,   0 zombie
+#Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
 #
 A) %CPU(s): 18,9 us (user space): Percentual de tempo que a CPU está gastando executando 
     processos de usuários, 
@@ -123,7 +122,7 @@ G) 0,5 si (software interrupts): Percentual de tempo gasto com interrupções de
 H) 0,0 st (steal): Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava
    aguardando porque a CPU física estava sendo usada por outra máquina virtual.
 #
-# %Cpu(s): 18,9 us,  4,3 sy,  1,2 ni, 74,7 id,  0,3 wa,  0,0 hi,  0,5 si,  0,0 st
+#%Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
 
 #analisando o desempenho do processador com o comando top
 sudo top
@@ -134,43 +133,43 @@ A) 72: O número de processos ativos no sistema,
 B) 500 thr: O número total de threads que estão em execução, 
 C) 1 running: O número de processos ou threads que estão atualmente sendo executados pela CPU
 #
-# Tasks: 72, 500 thr; 1 running
-
+#Tasks: 72, 500 thr; 1 running
+#
 A) Load average: 0.22: A carga média nos últimos 1 minuto, 
 B) 0.41: A carga média nos últimos 5 minutos, 
 C) 0.65: A carga média nos últimos 15 minutos.
 #
-# Load average: 0.22 0.41 0.65
-
+#Load average: 0.22 0.41 0.65
+#
 A) Disk IO: 5.2%: A porcentagem de utilização do disco no momento, indicando quanta capacidade
    de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, 
 B) read: OK: Indica que a leitura do disco está funcionando dentro de parâmetros normais, 
 C) write: 140K: A quantidade de dados sendo gravados no disco por segundo.
 #
-# Disk IO: 5.2% read: OK write: 140K
-
+#Disk IO: 5.2% read: OK write: 140K
+#
 A) Network rx: 1KiB/s: A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte
    por segundo, 
 B) tx: 4KiB/s: A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, 
 C) (41/40 packets): O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes 
    e enviou 40 pacotes.
 #
-# Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
-
+#Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+#
 A) PSI (Pressure Stall Information) some CPU: Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre
    a CPU nos últimos 1, 5, e 15 minutos
 #
-# PSI some CPU: 10.6% 9.29% 9.25%
-
+#PSI some CPU: 10.6% 9.29% 9.25%
+#
 A) PSI (Pressure Stall Information) full I/O: Os valores 1.25%, 1.24%, 1.32% representam a pressão 
    sobre o sistema de I/O nos últimos 1, 5, e 15 minutos
 #
-# PSI full IO: 1.25% 1.24% 1.32%
-
+#PSI full IO: 1.25% 1.24% 1.32%
+#
 A) PSI (Pressure Stall Information) full memory: Os valores 0.00% indicam que não houve pressão de 
    memória nos últimos 1, 5, e 15 minutos
 #
-# PSI full memory 0.00% 0.00% 0.00%
+#PSI full memory 0.00% 0.00% 0.00%
 
 #analisando o desempenho do processador com o comando htop
 #personalizando o comando htop: F2 (Setup)
@@ -185,7 +184,7 @@ sudo htop
       PSI full memory <Enter>
 
 #Entendendo os valores de métricas do comando vmstat
-
+#
 A) r (run queue): Número de processos prontos para execução, 
 B) b (blocked processes): Número de processos bloqueados, ou seja, aguardando a finalização
    de operações de I/O, 
@@ -210,14 +209,14 @@ P) wa (wait): Percentual de tempo que a CPU está ociosa, mas aguardando a final
    operações de I/O (input/output), 
 Q) st (steal time): Percentual de tempo "roubado" pela CPU em um ambiente virtualizado
 #
-# r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+#r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
 
 #analisando o desempenho do processador com o comando vmstat
 #opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
 sudo vmstat -a -t -w
 
 #Entendendo os valores de métricas do comando mpstat
-
+#
 A) 11:23:50: Hora da análise do desempenho dos processadores,
 B) CPU: Lista de todos os processadores disponíveis no servidor,
 C) %usr: Percentual de tempo gasto pela CPU em modo usuário, 
@@ -234,14 +233,14 @@ K) %gnice: Percentual de tempo gasto em processos de máquina virtual com  prior
 L) %idle: Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando
    por operações de I/O.
 #
-# 11:23:50     CPU   %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+#11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
 
 #analisando o desempenho do processador com o comando mpstat
 #opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
 sudo mpstat -P ALL
 
 #Entendendo os valores de métricas do comando iostat
-
+#
 A) avg-cpu: visão geral da utilização da CPU;
 B) %user: Percentual de tempo que a CPU passou executando processos de usuários, 
 C) %nice: Percentual de tempo que a CPU passou executando processos de usuários que foram 
@@ -253,8 +252,8 @@ F) %steal: Percentual de tempo que foi "roubado" da CPU por outras máquinas vir
    ambiente virtualizado, 
 G) %idle: Percentual de tempo que a CPU passou completamente ociosa
 #
-# avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
-
+#avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
+#
 A) tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, 
 B) kB_read/s: Taxa de leitura em KB por segundo, 
 C) kB_wrtn/s: Taxa de gravação em KB por segundo,
@@ -266,7 +265,7 @@ F) kB_wrtn: Quantidade total de dados gravados no dispositivo de armazenamento d
 G) kB_dscd: Quantidade total de dados descartados desde o início da medição, 
 H) Device: Nome do dispositivo de armazenamento.
 #
-# tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
+#tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
 
 #analisando o desempenho do processador com o comando iostat
 #opção do comando iostat: -h (human)
@@ -305,7 +304,7 @@ E) buff/cache: Exibe a quantidade de memória que está sendo usada pelo sistema
 F) available: Quantidade de memória que está disponível para ser usada por novos processos, 
    levando em consideração a memória que pode ser liberada de buffers e cache.
 #
-# total   used   free   shared   buff/cache   available
+#total   used   free   shared   buff/cache   available
 
 #analisando o desempenho da memória com o comando free
 #opções do comando free: -h (human), -m (megabyte), -t (total)
@@ -392,8 +391,7 @@ R) 0: (time discarding) Tempo total (em milissegundos) gasto em operações de d
 S) 519283: (flush requests) Número total de solicitações de flush, 
 T) 2837821: (flush time) Tempo total (em milissegundos) gasto com solicitações de flush.
 #
-# 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 
-# 519283 2837821
+#8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 519283 2837821
 
 #verificando as informações de estáticas de disco do arquivo diskstats
 #opção do comando grep: -i (ignore case sensitive)
@@ -416,7 +414,7 @@ G) 0: O segundo 0 refere-se ao campo de fsck order. Um valor de 0 indica que o u
    (que verifica e repara sistemas de arquivos) não será executado automaticamente durante a 
    inicialização para este sistema de arquivos.
 #
-# /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
+#/dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
 
 #verificando as informações de ponto de montagem do arquivo mounts
 #opção do comando grep: -i (ignore case sensitive)
@@ -433,7 +431,7 @@ D) Sectors: Indica a quantidade total de setores que a partição ocupa. Esse va
 E) Size: Este campo exibe o tamanho total da partição em uma unidade de medida legível, 
 F) Type: Este campo indica o tipo de partição ou o sistema de arquivos associado à partição. 
 #
-# Device   Start   End   Sectors   Size   Type
+#Device   Start   End   Sectors   Size   Type
 
 #verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
 #opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
@@ -448,7 +446,7 @@ D) Avail: Quantidade de espaço disponível para ser usada,
 E) Use%: Percentual de uso do sistema de arquivos, 
 F) Mounted on: Indica o ponto de montagem onde o sistema de arquivos está acessível no sistema.
 #
-# Filesystem   Size   Used   Avail   Use%   Mounted on
+#Filesystem   Size   Used   Avail   Use%   Mounted on
 
 #verificando o uso do disco com o comando df
 #opção do comando df: -h (human)
@@ -458,10 +456,53 @@ sudo df -h
 #opção do comando iostat: -h (human)
 sudo iostat -h
 
+#Entendendo os valores de métricas do comando iotop
+#
+A) Total DISK READ: Leitura total de disco desde que o iotop começou a ser executado.
+B) Total DISK WRITE: Escrita total de disco desde que o iotop começou a ser executado.
+C) Current DISK READ: Leitura de disco atual, medida no instante em que o iotop foi atualizado 
+   pela última vez.
+D) Current DISK WRITE: Escrita de disco atual, medida no instante em que o iotop foi atualizado
+   pela última vez.
+#
+#Total DISK READ: 0.00 B/s | Total DISK WRITE: 0.00 B/s | Current DISK READ:  0.00 B/s | Current DISK WRITE: 0.00B/s
+#
+A) TID: Thread ID (ou Task ID): Identifica cada processo ou thread com um ID único,
+B) PRIO: Prioridade do processo: Define a prioridade do processo em relação aos outros. 
+C) USER: O nome de usuário que iniciou o processo — Mostra qual usuário (ou grupo de usuários)
+   está executando o processo ou a thread,
+D) DISK READ: Quantidade de leitura de disco realizada pelo processo, medida em KB/s ou MB/s,
+E) DISK WRITE: Quantidade de escrita de disco realizada pelo processo, medida em KB/s ou MB/s,
+F) SWAPIN: Percentual de tempo que o processo passa trocando (swap) dados entre a memória RAM
+   e o espaço de swap do disco,
+G) IO>: IO wait time — Percentual do tempo que o processo está gastando esperando por operações
+   de entrada/saída (I/O) de disco para serem concluídas,
+H) COMMAND: O nome do comando/processo que está sendo monitorado.
+#
+#TID   PRIO   USER   DISK READ   DISK WRITE   SWAPIN   IO>   COMMAND
+
 #analisando o desempenho do disco com o comando iotop
 #opção do comando iotop: -o (only)
 sudo iotop -o
    a: (accumulate) totalizar por processo
+   q: quit
+
+#Entendendo os valores de métricas do comando dstat
+#
+A) -dsk/total-: Esta linha mostra as métricas de leitura e escrita de disco agregadas para
+B) loop, nvme, sda, etc.: Esses são os dispositivos de disco individuais monitorados pelo 
+   dstat. Dependendo do sistema, pode haver dispositivos como:
+     loop: Dispositivos de loopback (normalmente usados para montar arquivos de imagem).
+     nvme: Discos NVMe (de alta performance).
+     sda: Um dos discos de bloco padrão (SATA ou SCSI).
+C) util:util:util:...: Utilização de disco por dispositivo, em termos percentuais.
+D) read writ: Número de transações por segundo (TPS), ou seja, o número de operações de leitura 
+   (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a 
+   quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para 
+   cada dispositivo de disco.
+#
+#-dsk/total- loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-loop-nvme-sda- -dsk/total-
+#read  writ|util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util:util|#read #writ
 
 #analisando o desempenho do disco com o comando dstat
 #opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
