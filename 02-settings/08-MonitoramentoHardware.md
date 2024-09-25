@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 24/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 25/09/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -61,24 +61,28 @@ sudo cat /etc/lsb-release
 
 #03_ Verificando a versão do Kernel e Uptime no Ubuntu Server<br>
 ```bash
-#verificando a versão do Kernel com o comando uname
+
 #Entendendo os valores do Kernel com o comando uname
-#
-#Linux: Este é o nome do sistema operacional, que é o Linux, wsvaamonde.pti.intra: Este é o 
-#hostname da máquina, 5.15.0-119-generic Este é o número da versão do kernel Linux que está 
-#rodando no sistema (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: 
-#Número de patch, 119: Número da build específica para essa versão do kernel, generic: 
-#Indica que este é o kernel genérico do Ubuntu), #129-Ubuntu: Esse número indica o número da 
-#compilação do kernel, SMP: Isso significa Symmetric Multiprocessing, o que indica que o kernel 
-#foi compilado para suportar múltiplos processadores, Fri Aug 2 19:25:20 UTC 2024: Esta é a 
-#data e hora em que o kernel foi compilado, x86_64 x86_64 x86_64: Isso representa a arquitetura 
-#da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 
-#mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware 
-#que o kernel está usando), GNU/Linux: Indica que você está usando o sistema operacional GNU/Linux
-#
-# Linux wsvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 
+
+A) Linux: Este é o nome do sistema operacional, que é o Linux, 
+B) ctnvaamonde.pti.intra: Este é o hostname da máquina, 
+C) 5.15.0-119-generic Este é o número da versão do kernel Linux que está rodando no sistema 
+   (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: Número de patch, 119: 
+   Número da build específica para essa versão do kernel, generic: Indica que este é o kernel 
+   genérico do Ubuntu), 
+D) 129-Ubuntu: Esse número indica o número da compilação do kernel, 
+E) SMP: Isso significa Symmetric Multiprocessing, o que indica que o kernel foi compilado para 
+   suportar múltiplos processadores, 
+F) Fri Aug 2 19:25:20 UTC 2024: Esta é a data e hora em que o kernel foi compilado, 
+G) x86_64 x86_64 x86_64: Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 
+   indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O 
+   terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando), 
+H) GNU/Linux: Indica que você está usando o sistema operacional GNU/Linux
+
+# Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 
 # x86_64 x86_64 GNU/Linux
-#
+
+#verificando a versão do Kernel com o comando uname
 #opção do comando uname: -a (all)
 sudo uname -a
 
@@ -98,72 +102,77 @@ sudo uptime -s
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
 
-#analisando o desempenho do processador com o comando top
 #Entendendo os valores de métricas do comando top
 #
-#analisando as tarefas do servidor na opção: 168 total: O número total de processos no sistema
-#1 running: Número de processos que estão atualmente em execução (rodando), 167 sleeping: Número
-#de processos que estão no estado de espera ("dormindo"), 0 stopped: Número de processos que 
-#foram interrompidos (suspensos), 0 zombie: Número de processos zumbis.
+A) Tasks: 168 total: O número total de processos no sistema,
+B) 1 running: Número de processos que estão atualmente em execução (rodando), 
+C) 167 sleeping: Número de processos que estão no estado de espera ("dormindo"), 
+D) 0 stopped: Número de processos que foram interrompidos (suspensos), 
+E) 0 zombie: Número de processos zumbis.
 #
 # Tasks: 168 total,   1 running, 167 sleeping,   0 stopped,   0 zombie
 #
-#analisando a porcentagem carga da CPU: 8,9 us (user space): Percentual de tempo que a CPU está
-#gastando executando processos de usuários, 4,3 sy (system): Percentual de tempo gasto com 
-#processos do sistema, 1,2 ni (nice): Percentual de tempo gasto em processos de usuários que 
-#foram "reniceados", 74,7 id (idle): Percentual de tempo que a CPU está ociosa, 0,3 wa (iowait): 
-#Percentual de tempo que a CPU está aguardando por operações de entrada/saída (I/O), 0,0 hi 
-#(hardware interrupts): Percentual de tempo gasto com interrupções de hardware, 0,5 si (software 
-#interrupts): Percentual de tempo gasto com interrupções de software, 0,0 st (steal): Percentual 
-#de tempo que a CPU virtual (em ambientes virtualizados) estava aguardando porque a CPU física 
-#estava sendo usada por outra máquina virtual
+A) %CPU(s): 18,9 us (user space): Percentual de tempo que a CPU está gastando executando 
+    processos de usuários, 
+B) 4,3 sy (system): Percentual de tempo gasto com processos do sistema, 
+C) 1,2 ni (nice): Percentual de tempo gasto em processos de usuários que foram "reniceados", 
+D) 74,7 id (idle): Percentual de tempo que a CPU está ociosa, 
+E) 0,3 wa (iowait): Percentual de tempo que a CPU está aguardando por operações de entrada/saída (I/O), 
+F) 0,0 hi (hardware interrupts): Percentual de tempo gasto com interrupções de hardware, 
+G) 0,5 si (software interrupts): Percentual de tempo gasto com interrupções de software, 
+H) 0,0 st (steal): Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava
+   aguardando porque a CPU física estava sendo usada por outra máquina virtual.
 #
 # %Cpu(s): 18,9 us,  4,3 sy,  1,2 ni, 74,7 id,  0,3 wa,  0,0 hi,  0,5 si,  0,0 st
+
+#analisando o desempenho do processador com o comando top
 sudo top
 
-#analisando o desempenho do processador com o comando htop
 #Entendendo os valores de métricas do comando htop
 #
-#analisando as tarefas do servidor: Tasks: 72: O número de processos ativos no sistema, 500 thr: 
-#O número total de threads que estão em execução, 1 running: O número de processos ou threads que 
-#estão atualmente sendo executados pela CPU
+A) 72: O número de processos ativos no sistema, 
+B) 500 thr: O número total de threads que estão em execução, 
+C) 1 running: O número de processos ou threads que estão atualmente sendo executados pela CPU
 #
 # Tasks: 72, 500 thr; 1 running
-#
-#analisando a média de carga da CPU: 0.22: A carga média nos últimos 1 minuto, 0.41: A carga média 
-#nos últimos 5 minutos, 0.65: A carga média nos últimos 15 minutos.
+
+A) Load average: 0.22: A carga média nos últimos 1 minuto, 
+B) 0.41: A carga média nos últimos 5 minutos, 
+C) 0.65: A carga média nos últimos 15 minutos.
 #
 # Load average: 0.22 0.41 0.65
-#
-#analisando a entrada e saída de disco: Disk IO: 5.2%: A porcentagem de utilização do disco no momento, 
-#indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial 
-#máximo, read: OK: Indica que a leitura do disco está funcionando dentro de parâmetros normais, write: 
-#140K: A quantidade de dados sendo gravados no disco por segundo.
+
+A) Disk IO: 5.2%: A porcentagem de utilização do disco no momento, indicando quanta capacidade
+   de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, 
+B) read: OK: Indica que a leitura do disco está funcionando dentro de parâmetros normais, 
+C) write: 140K: A quantidade de dados sendo gravados no disco por segundo.
 #
 # Disk IO: 5.2% read: OK write: 140K
-#
-#analisando o consumo de banda da rede: rx: 1KiB/s: A taxa de recebimento de dados pela interface de rede, 
-#no caso 1 kilobyte por segundo, tx: 4KiB/s: A taxa de envio de dados pela interface de rede, no caso 4 
-#kilobytes por segundo, (41/40 packets): O número de pacotes recebidos/enviados pela rede. Aqui você recebeu
-#41 pacotes e enviou 40 pacotes.
+
+A) Network rx: 1KiB/s: A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte
+   por segundo, 
+B) tx: 4KiB/s: A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, 
+C) (41/40 packets): O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes 
+   e enviou 40 pacotes.
 #
 # Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
-#
-#analisando as métricas PSI (Pressure Stall Information) de CPU: Os valores 10.6%, 9.29%, 9.25% indicam a 
-#pressão sobre a CPU nos últimos 1, 5, e 15 minutos
+
+A) PSI (Pressure Stall Information) some CPU: Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre
+   a CPU nos últimos 1, 5, e 15 minutos
 #
 # PSI some CPU: 10.6% 9.29% 9.25%
-#
-#analisando as métricas PSI (Pressure Stall Information) de bloqueio de I/O: Os valores 1.25%, 1.24%, 1.32%
-#representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos
+
+A) PSI (Pressure Stall Information) full I/O: Os valores 1.25%, 1.24%, 1.32% representam a pressão 
+   sobre o sistema de I/O nos últimos 1, 5, e 15 minutos
 #
 # PSI full IO: 1.25% 1.24% 1.32%
-#
-#analisando as métricas PSI (Pressure Stall Information) de memória: Os valores 0.00% indicam que não houve
-#pressão de memória nos últimos 1, 5, e 15 minutos
+
+A) PSI (Pressure Stall Information) full memory: Os valores 0.00% indicam que não houve pressão de 
+   memória nos últimos 1, 5, e 15 minutos
 #
 # PSI full memory 0.00% 0.00% 0.00%
 
+#analisando o desempenho do processador com o comando htop
 #personalizando o comando htop: F2 (Setup)
 sudo htop
   F2 (Setup)
@@ -175,70 +184,91 @@ sudo htop
       PSI full IO <Enter>
       PSI full memory <Enter>
 
-#analisando o desempenho do processador com o comando vmstat
 #Entendendo os valores de métricas do comando vmstat
-#
-#r (run queue): Número de processos prontos para execução, b (blocked processes): Número de 
-#processos bloqueados, ou seja, aguardando a finalização de operações de I/O, swpd (swap used): 
-#Quantidade de memória swap utilizada, free (free memory): Quantidade de memória RAM livre, 
-#inact (inactive memory): Quantidade de memória classificada como inativa, active (active memory): 
-#Quantidade de memória ativa em uso, si (swap in): Quantidade de dados (em KB) que estão sendo 
-#movidos da área de swap para a memória RAM por segundo, so (swap out): Quantidade de dados (em KB) 
-#que estão sendo movidos da memória RAM para a área de swap por segundo, bi (blocks in): Quantidade 
-#de dados (em blocos) lidos do disco (ou dispositivos de I/O) por segundo, bo (blocks out): 
-#Quantidade de dados (em blocos) gravados no disco (ou dispositivos de I/O) por segundo, in (interrupts): 
-#Número de interrupções por segundo que o sistema está lidando, cs (context switches): Número de trocas
-#de contexto por segundo, us (user): Percentual de tempo gasto pela CPU executando processos em modo 
-#usuário , sy (system): Percentual de tempo gasto pela CPU em modo kernel, id (idle): Percentual de 
-#tempo em que a CPU está ociosa, wa (wait): Percentual de tempo que a CPU está ociosa, mas aguardando 
-#a finalização de operações de I/O (input/output), st (steal time): Percentual de tempo "roubado" pela 
-#CPU em um ambiente virtualizado
+
+A) r (run queue): Número de processos prontos para execução, 
+B) b (blocked processes): Número de processos bloqueados, ou seja, aguardando a finalização
+   de operações de I/O, 
+C) swpd (swap used): Quantidade de memória swap utilizada, 
+D) free (free memory): Quantidade de memória RAM livre,
+E) inact (inactive memory): Quantidade de memória classificada como inativa, 
+F) active (active memory): Quantidade de memória ativa em uso, 
+G) si (swap in): Quantidade de dados (em KB) que estão sendo movidos da área de swap para a 
+   memória RAM por segundo, 
+H) so (swap out): Quantidade de dados (em KB) que estão sendo movidos da memória RAM para a 
+   área de swap por segundo, 
+I) bi (blocks in): Quantidade de dados (em blocos) lidos do disco (ou dispositivos de I/O) 
+   por segundo, 
+J) bo (blocks out): Quantidade de dados (em blocos) gravados no disco (ou dispositivos de I/O) 
+   por segundo, 
+K) in (interrupts): Número de interrupções por segundo que o sistema está lidando, 
+L) cs (context switches): Número de trocas de contexto por segundo, 
+M) us (user): Percentual de tempo gasto pela CPU executando processos em modo usuário , 
+N) sy (system): Percentual de tempo gasto pela CPU em modo kernel, 
+O) id (idle): Percentual de tempo em que a CPU está ociosa, 
+P) wa (wait): Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de 
+   operações de I/O (input/output), 
+Q) st (steal time): Percentual de tempo "roubado" pela CPU em um ambiente virtualizado
 #
 # r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
-#
+
+#analisando o desempenho do processador com o comando vmstat
 #opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
 sudo vmstat -a -t -w
 
-#analisando o desempenho do processador com o comando mpstat
 #Entendendo os valores de métricas do comando mpstat
-#
-#%usr: Percentual de tempo gasto pela CPU em modo usuário, %nice: Percentual de tempo que a CPU 
-#passa executando processos que foram "envelhecidos" ou "reniceados" com uma prioridade mais baixa
-#%sys: Percentual de tempo que a CPU gasta executando tarefas no modo kernel, %iowait: Percentual
-#de tempo que a CPU passa ociosa esperando operações de I/O, %irq: Percentual de tempo que a CPU 
-#gasta lidando com interrupções de hardware, %soft: Percentual de tempo que a CPU passa lidando 
-#com interrupções de software, %steal: Percentual de tempo que a CPU foi "roubada" para executar 
-#outras tarefas em um ambiente virtualizado, %guest: Percentual de tempo que a CPU passa rodando 
-#uma máquina virtual, %gnice: Percentual de tempo gasto em processos de máquina virtual com 
-#prioridade ajustada, %idle: Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo 
-#ou esperando por operações de I/O.
+
+A) 11:23:50: Hora da análise do desempenho dos processadores,
+B) CPU: Lista de todos os processadores disponíveis no servidor,
+C) %usr: Percentual de tempo gasto pela CPU em modo usuário, 
+D) %nice: Percentual de tempo que a CPU passa executando processos que foram "envelhecidos"
+   ou "reniceados" com uma prioridade mais baixa 
+E) %sys: Percentual de tempo que a CPU gasta executando tarefas no modo kernel, 
+F) %iowait: Percentual de tempo que a CPU passa ociosa esperando operações de I/O, 
+G) %irq: Percentual de tempo que a CPU gasta lidando com interrupções de hardware, 
+H) %soft: Percentual de tempo que a CPU passa lidando com interrupções de software, 
+I) %steal: Percentual de tempo que a CPU foi "roubada" para executar outras tarefas em um 
+   ambiente virtualizado, 
+J) %guest: Percentual de tempo que a CPU passa rodando uma máquina virtual, 
+K) %gnice: Percentual de tempo gasto em processos de máquina virtual com  prioridade ajustada, 
+L) %idle: Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando
+   por operações de I/O.
 #
 # 11:23:50     CPU   %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
-#
+
+#analisando o desempenho do processador com o comando mpstat
 #opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
 sudo mpstat -P ALL
 
-#analisando o desempenho do processador com o comando iostat
 #Entendendo os valores de métricas do comando iostat
-#
-#%user: Percentual de tempo que a CPU passou executando processos de usuários, %nice: Percentual
-#de tempo que a CPU passou executando processos de usuários que foram atribuídos a uma prioridade 
-#mais baixa , %system: Percentual de tempo que a CPU passou executando processos do sistema ou do 
-#kernel , %iowait: Percentual de tempo que a CPU passou ociosa, mas aguardando a conclusão de 
-#operações de I/O, %steal: Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais 
-#em um ambiente virtualizado, %idle: Percentual de tempo que a CPU passou completamente ociosa
+
+A) avg-cpu: visão geral da utilização da CPU;
+B) %user: Percentual de tempo que a CPU passou executando processos de usuários, 
+C) %nice: Percentual de tempo que a CPU passou executando processos de usuários que foram 
+   atribuídos a uma prioridade mais baixa, 
+D) %system: Percentual de tempo que a CPU passou executando processos do sistema ou do kernel, 
+E) %iowait: Percentual de tempo que a CPU passou ociosa, mas aguardando a conclusão de operações
+   de I/O, 
+F) %steal: Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais em um 
+   ambiente virtualizado, 
+G) %idle: Percentual de tempo que a CPU passou completamente ociosa
 #
 # avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
-#
-#tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, kB_read/s: 
-#Taxa de leitura em KB por segundo, kB_wrtn/s: Taxa de gravação em KB por segundo, kB_dscd/s: Taxa de
-#descarte de dados em KB por segundo, kB_read: Quantidade total de dados lidos do dispositivo de 
-#armazenamento desde o início da medição, kB_wrtn: Quantidade total de dados gravados no dispositivo 
-#de armazenamento desde o início da medição, kB_dscd: Quantidade total de dados descartados desde o 
-#início da medição, Device: Nome do dispositivo de armazenamento.
+
+A) tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, 
+B) kB_read/s: Taxa de leitura em KB por segundo, 
+C) kB_wrtn/s: Taxa de gravação em KB por segundo,
+D)  kB_dscd/s: Taxa de descarte de dados em KB por segundo, 
+E) kB_read: Quantidade total de dados lidos do dispositivo de armazenamento desde o início
+   da medição, 
+F) kB_wrtn: Quantidade total de dados gravados no dispositivo de armazenamento desde o início
+   da medição, 
+G) kB_dscd: Quantidade total de dados descartados desde o início da medição, 
+H) Device: Nome do dispositivo de armazenamento.
 #
 # tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
-#
+
+#analisando o desempenho do processador com o comando iostat
 #opção do comando iostat: -h (human)
 sudo iostat -h
 
@@ -264,18 +294,20 @@ sudo btop
 #verificando as informações de memória do arquivo meminfo
 sudo cat /proc/meminfo
 
-#analisando o desempenho da memória com o comando free
 #Entendendo os valores de métricas do comando free
 #
-#total: Esta coluna mostra a quantidade total de memória disponível no sistema, used: Exibe a 
-#quantidade de memória que está sendo efetivamente usada no momento, free: Mostra a quantidade 
-#de memória que está completamente livre, shared: Quantidade de memória que está sendo compartilhada 
-#entre vários processos, buff/cache: Exibe a quantidade de memória que está sendo usada pelo sistema 
-#para buffers e cache, available: Quantidade de memória que está disponível para ser usada por novos 
-#processos, levando em consideração a memória que pode ser liberada de buffers e cache.
+A) total: Esta coluna mostra a quantidade total de memória disponível no sistema, 
+B) used: Exibe a quantidade de memória que está sendo efetivamente usada no momento, 
+C) free: Mostra a quantidade de memória que está completamente livre, 
+D) shared: Quantidade de memória que está sendo compartilhada entre vários processos, 
+E) buff/cache: Exibe a quantidade de memória que está sendo usada pelo sistema para 
+   buffers e cache, 
+F) available: Quantidade de memória que está disponível para ser usada por novos processos, 
+   levando em consideração a memória que pode ser liberada de buffers e cache.
 #
 # total   used   free   shared   buff/cache   available
-#
+
+#analisando o desempenho da memória com o comando free
 #opções do comando free: -h (human), -m (megabyte), -t (total)
 sudo free -h -m -t
 
@@ -288,6 +320,42 @@ sudo top
 #analisando o desempenho da memória com o comando htop
 sudo htop
 
+#Entendendo os valores de métricas do comando sar
+#
+A) Linux 5.15.0-119-generic: Esta é a versão do kernel Linux que o sistema está rodando.
+B) ctnvaamonde: Este é o nome do host ou o nome da máquina.
+C) 25/09/2024: Data em que o comando foi executado, indicando quando as estatísticas foram coletadas.
+D) x86_64: Isso indica a arquitetura da CPU, que é de 64 bits (x86_64), comum em CPUs modernas.
+E) (8 CPU): Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos,
+   como no caso de processadores com Hyper-Threading).
+#
+#Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
+
+#Entendendo os valores de métricas do comando sar
+#
+A) 09:55:21: O horário em que a amostra foi coletada.
+B) kbmemfree: Quantidade de memória livre disponível (em kilobytes).
+C) kbavail: Quantidade de memória disponível para novos processos, levando em consideração
+   a memória usada pelo cache e buffers, que pode ser rapidamente liberada.
+D) kbmemused: Quantidade de memória atualmente em uso (em kilobytes), calculada como a diferença
+   entre a memória total e a memória livre.
+E) %memused: Percentual da memória RAM total que está em uso.
+F) kbbuffers: Quantidade de memória usada por buffers de sistema (em kilobytes), que geralmente
+   é usada para armazenar dados que estão sendo transferidos entre dispositivos.
+G) kbcached: Quantidade de memória usada para armazenar dados em cache (em kilobytes), que são dados
+   frequentemente acessados para melhorar o desempenho.
+H) kbcommit: Quantidade de memória comprometida para ser usada no futuro, incluindo a memória virtual
+que pode estar alocada mas ainda não usada.
+I) %commit: Percentual da memória RAM total que está comprometida para ser usada no futuro (pode 
+   incluir a memória swap).
+I) kbactive: Quantidade de memória ativa que está sendo usada recentemente por processos (em kilobytes).
+J) kbinact: Quantidade de memória inativa que foi usada recentemente e está pronta para ser movida 
+   para o swap ou liberada, se necessário (em kilobytes).
+K) kbdirty: Quantidade de memória que contém dados que foram modificados mas ainda não foram gravados
+   em disco (em kilobytes).
+#
+# 09:55:21   kbmemfree   kbavail   kbmemused   %memused   kbbuffers   kbcached   kbcommit   %commit   kbactive   kbinact   kbdirty
+
 #analisando o desempenho da memória com o comando sar
 #opções do comando sar: -h (human), -r (Report memory utilization statistics), 1 (one second), 5 (five lines)
 sudo sar -h -r 1 5
@@ -298,84 +366,91 @@ sudo btop
 
 #06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
 ```bash
-#verificando as informações de estáticas de disco do arquivo diskstats
 #Entendendo os valores de métricas do arquivo diskstats
 #
-#8: (major number) Número major que identifica o driver do dispositivo de bloco, 0: (minor number)
-#Número minor que identifica o dispositivo específico, sda: (device name) Nome do dispositivo, 
-#366584: (reads completed) Número total de operações de leitura completadas com sucesso, 41475: 
-#(reads merged) Número de operações de leitura que foram mescladas em uma única operação, 22505582: 
-#(sectors read) Número total de setores lidos. Um setor geralmente tem 512 bytes, mas isso pode variar
-#693820: (time reading) Tempo total (em milissegundos) que o disco gastou lendo dados, 1594861: 
-#(writes completed) Número total de operações de escrita completadas com sucesso, 1615195: (writes 
-#merged) Número de operações de escrita que foram mescladas, 35142920: (sectors written) Número total 
-#de setores escritos no disco, 3921960: (time writing) Tempo total (em milissegundos) que o disco gastou
-#escrevendo dados, 0: (in flight) Número de operações de I/O em andamento no momento, 4599484: (time 
-#spent doing I/Os) Tempo total (em milissegundos) que o sistema passou realizando operações de I/O,
-#7453602: (weighted time spent doing I/Os) Tempo ponderado (em milissegundos) que as operações de I/O 
-#levaram para serem processadas, 0: (discards completed) Número total de operações de descarte de blocos 
-#0: (discards merged) Número de operações de descarte mescladas, 0: (sectors discarded) Número total de 
-#setores descartados, 0: (time discarding) Tempo total (em milissegundos) gasto em operações de descarte 
-#de blocos, 519283: (flush requests) Número total de solicitações de flush, 2837821: (flush time) Tempo 
-#total (em milissegundos) gasto com solicitações de flush.
-#
-#major minor device_name reads_completed reads_merged sectors_read time_reading writes_completed
-#writes_merged sectors_written time_writing in_flight time_io time_weighted_io discards_completed
-#discards_merged sectors_discarded time_discarding flush_requests flush_time
+A) 8: (major number) Número major que identifica o driver do dispositivo de bloco, 
+B) 0: (minor number) Número minor que identifica o dispositivo específico, 
+C) sda: (device name) Nome do dispositivo, 
+D) 366584: (reads completed) Número total de operações de leitura completadas com sucesso, 
+E) 41475: (reads merged) Número de operações de leitura que foram mescladas em uma única operação, 
+F) 22505582: (sectors read) Número total de setores lidos. Um setor geralmente tem 512 bytes, 
+   mas isso pode variar,
+G) 693820: (time reading) Tempo total (em milissegundos) que o disco gastou lendo dados, 
+H) 1594861: (writes completed) Número total de operações de escrita completadas com sucesso, 
+I) 1615195: (writes merged) Número de operações de escrita que foram mescladas, 
+J) 35142920: (sectors written) Número total de setores escritos no disco, 
+K) 3921960: (time writing) Tempo total (em milissegundos) que o disco gastou escrevendo dados, 
+L) 0: (in flight) Número de operações de I/O em andamento no momento, 
+M) 4599484: (time spent doing I/Os) Tempo total (em milissegundos) que o sistema passou realizando
+   operações de I/O,
+N) 7453602: (weighted time spent doing I/Os) Tempo ponderado (em milissegundos) que as operações
+   de I/O levaram para serem processadas, 
+O) 0: (discards completed) Número total de operações de descarte de blocosM
+P) 0: (discards merged) Número de operações de descarte mescladas, 
+Q) 0: (sectors discarded) Número total de setores descartados, 
+R) 0: (time discarding) Tempo total (em milissegundos) gasto em operações de descarte de blocos, 
+S) 519283: (flush requests) Número total de solicitações de flush, 
+T) 2837821: (flush time) Tempo total (em milissegundos) gasto com solicitações de flush.
 #
 # 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 
 # 519283 2837821
-#
+
+#verificando as informações de estáticas de disco do arquivo diskstats
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/diskstats | grep -i sda
 
-#verificando as informações de ponto de montagem do arquivo mounts
 #Entendendo os valores de métricas do arquivo mounts
 #
-#/dev/mapper/ubuntu--vg-ubuntu--lv: Este é o dispositivo de bloco onde o sistema de arquivos está 
-#armazenado, /: Este campo indica o ponto de montagem do volume lógico, que, no caso, é a raiz (/) 
-#do sistema de arquivos, ext4: Este é o tipo de sistema de arquivos utilizado no volume lógico, rw:
-#Esta opção indica que o sistema de arquivos está montado como read-write, relatime: Relatime (Relative 
-#Access Time) é uma opção de montagem que otimiza a atualização do tempo de acesso aos arquivos, 0: 
-#O primeiro 0 refere-se ao campo de dump. Um valor de 0 significa que o comando dump (utilizado para 
-#fazer backups) não vai considerar esse sistema de arquivos para backup, 0: O segundo 0 refere-se ao 
-#campo de fsck order. Um valor de 0 indica que o utilitário fsck (que verifica e repara sistemas de 
-#arquivos) não será executado automaticamente durante a inicialização para este sistema de arquivos.
+A) /dev/mapper/ubuntu--vg-ubuntu--lv: Este é o dispositivo de bloco onde o sistema de arquivos
+   está armazenado, 
+B) /: Este campo indica o ponto de montagem do volume lógico, que, no caso, é a raiz (/) do 
+   sistema de arquivos, 
+C) ext4: Este é o tipo de sistema de arquivos utilizado no volume lógico, 
+D) rw: Esta opção indica que o sistema de arquivos está montado como read-write, 
+E) relatime: Relatime (Relative Access Time) é uma opção de montagem que otimiza a atualização
+   do tempo de acesso aos arquivos, 
+F) 0: O primeiro 0 refere-se ao campo de dump. Um valor de 0 significa que o comando dump 
+   (utilizado para fazer backups) não vai considerar esse sistema de arquivos para backup, 
+G) 0: O segundo 0 refere-se ao campo de fsck order. Um valor de 0 indica que o utilitário fsck 
+   (que verifica e repara sistemas de arquivos) não será executado automaticamente durante a 
+   inicialização para este sistema de arquivos.
 #
 # /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
-#
+
+#verificando as informações de ponto de montagem do arquivo mounts
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/mounts | grep -i /dev/mapper/
 
-#verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
 #Entendendo os valores de métricas do comando fdisk
 #
-#Device: Este campo mostra o nome do dispositivo de bloco ou partição, Start: Indica o setor 
-#de início da partição. No disco, o armazenamento é dividido em setores, End: Indica o setor 
-#final da partição, ou seja, o número do último setor em que a partição termina, Sectors: 
-#Indica a quantidade total de setores que a partição ocupa. Esse valor é obtido subtraindo o 
-#setor de início (Start) do setor de fim (End), Size: Este campo exibe o tamanho total da 
-#partição em uma unidade de medida legível, Type: Este campo indica o tipo de partição ou o 
-#sistema de arquivos associado à partição. 
+A) Device: Este campo mostra o nome do dispositivo de bloco ou partição, 
+B) Start: Indica o setor de início da partição. No disco, o armazenamento é dividido em setores, 
+C) End: Indica o setor final da partição, ou seja, o número do último setor em que a partição termina, 
+D) Sectors: Indica a quantidade total de setores que a partição ocupa. Esse valor é obtido subtraindo
+   o setor de início (Start) do setor de fim (End), 
+E) Size: Este campo exibe o tamanho total da partição em uma unidade de medida legível, 
+F) Type: Este campo indica o tipo de partição ou o sistema de arquivos associado à partição. 
 #
 # Device   Start   End   Sectors   Size   Type
-#
+
+#verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
 #opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
 sudo fdisk -l /dev/sda
 
-#verificando o uso do disco com o comando df
 #Entendendo os valores de métricas do comando df
 #
-#Filesystem: Esta coluna mostra o nome do sistema de arquivos ou a partição, Size: Mostra o 
-#tamanho total da partição ou do sistema de arquivos, Used: Quantidade de espaço que já está 
-#em uso no sistema de arquivos, Avail: Quantidade de espaço disponível para ser usada, Use%:
-#Percentual de uso do sistema de arquivos, Mounted on: Indica o ponto de montagem onde o 
-#sistema de arquivos está acessível no sistema.
+A) Filesystem: Esta coluna mostra o nome do sistema de arquivos ou a partição, 
+B) Size: Mostra o tamanho total da partição ou do sistema de arquivos, 
+C) Used: Quantidade de espaço que já está em uso no sistema de arquivos, 
+D) Avail: Quantidade de espaço disponível para ser usada, 
+E) Use%: Percentual de uso do sistema de arquivos, 
+F) Mounted on: Indica o ponto de montagem onde o sistema de arquivos está acessível no sistema.
 #
-# Filesystem    Size   Used   Avail   Use%   Mounted on
-#
+# Filesystem   Size   Used   Avail   Use%   Mounted on
+
+#verificando o uso do disco com o comando df
 #opção do comando df: -h (human)
 sudo df -h
 
