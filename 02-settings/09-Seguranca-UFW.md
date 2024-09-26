@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/09/2024<br>
-#Data de atualização: 25/09/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -19,17 +19,20 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
-#02_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
-#03_ Verificando o Serviço do UFW no Ubuntu Server<br>
-#04_ Configurando as Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) e Saída (OUTGOING) do UFW no Ubuntu Server<br>
-#05_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
-#06_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
-#07_ Liberando (ALLOW) as Saídas (OUTGOING) dos Protocolos Básicos no UFW do Ubuntu Server<br>
-#08_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
-#09_ Limitando (LIMIT) e Logando Tudo (LOG-ALL) a Conexão de Entrada (INCOMING) do Protocolo SSH do UFW no Ubuntu Server<br>
-#10_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
-#11_ Testando novamente a conexão com o OpenSSH e Certificado no Ubuntu Server<br>
+#01_ Instalando o Firewall UFW (Uncomplicated Firewall) no Ubuntu Server<br>
+#02_ Instalando o Rsyslog (Syslog/Logs) no Ubuntu Server<br>
+#03_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
+#04_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
+#05_ Verificando o Serviço do UFW no Ubuntu Server<br>
+#06_ Configurando as Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) e Saída (OUTGOING) do UFW no Ubuntu Server<br>
+#07_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
+#08_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
+#09_ Liberando (ALLOW) as Saídas (OUTGOING) dos Protocolos Básicos no UFW do Ubuntu Server<br>
+#10_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
+#11_ Limitando (LIMIT) e Logando Tudo (LOG-ALL) a Conexão de Entrada (INCOMING) do Protocolo SSH do UFW no Ubuntu Server<br>
+#12_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
+#13_ Testando novamente a conexão com o OpenSSH no Ubuntu Server<br>
+#14_ Utilizando o comando LNAV (Logfile Navigator) no Ubuntu Server<br>
 
 Site Oficial Wiki do Ubuntu UFW: https://help.ubuntu.com/community/UFWbr<br>
 Site Oficial do Descomplicando o Ubuntu UFW: https://wiki.ubuntu.com/UncomplicatedFirewall<br>
@@ -56,7 +59,48 @@ Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
 Link da vídeo aula: 
 
-#01_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
+#01_ Instalando o Firewall UFW (Uncomplicated Firewall) no Ubuntu Server<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: COMO ESTAMOS UTILIZANDO A VERSÃO DO UBUNTU SERVER 24.04.X LTS NO
+#MODO MINIMIZADO (MINIMAL) O UFW (E O IPTABLES) NÃO VEM INSTALADO POR PADRÃO.
+
+#atualizando as lista do Apt
+sudo apt update
+
+#instalando o UFW no Ubuntu Server
+sudo apt install ufw
+```
+
+#02_ Instalando o Rsyslog (Syslog/Logs) no Ubuntu Server<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: COMO ESTAMOS UTILIZANDO A VERSÃO DO UBUNTU SERVER 24.04.X LTS NO
+#MODO MINIMIZADO (MINIMAL) O RSYSLOG (SYSLOG/LOGS) NÃO VEM INSTALADO POR PADRÃO, NESSE
+#CENÁRIO A COMUNIDADE RECOMENDA UTILIZADO O COMANDO: journalctl MAIS PARA ESSE CURSO EU
+#RECOMENDO A SUA INSTALAÇÃO.
+
+#atualizando as lista do Apt
+sudo apt update
+
+#instalando o Rsyslog no Ubuntu Server
+sudo apt install rsyslog lnav
+
+#habilitando o serviço do Rsyslog no Ubuntu Server
+sudo systemctl daemon-reload
+sudo systemctl enable rsyslog
+sudo systemctl start rsyslog
+
+#verificando o serviço do Rsyslog no Ubuntu Server
+sudo systemctl status rsyslog
+sudo systemctl restart rsyslog
+sudo systemctl stop rsyslog
+sudo systemctl start rsyslog
+
+#analisando os Log's e mensagens de erro do Rsyslog no Ubuntu Server
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu rsyslog
+```
+
+#03_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
 ```bash
 #Verificando a versão do UFW
 sudo ufw version
@@ -65,7 +109,7 @@ sudo ufw version
 sudo ufw status
 ```
 
-#02_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
+#04_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
 ```bash
 #Habilitando e iniciando o Firewall UFW
 sudo ufw enable
@@ -74,9 +118,12 @@ sudo ufw enable
 
 #Verificando o status do UFW (Status padrão após habilitar o UFW: active - ativo/ativado)
 sudo ufw status verbose
+
+#Reiniciando o Serviço do UFW
+sudo systemctl restart ufw
 ```
 
-#03_ Verificando o Serviço do UFW no Ubuntu Server<br>
+#05_ Verificando o Serviço do UFW no Ubuntu Server<br>
 ```bash
 #Verificando o serviço do UFW
 sudo systemctl status ufw
@@ -89,7 +136,7 @@ sudo systemctl start ufw
 sudo journalctl -xeu ufw
 ```
 
-#04_ Configurando as Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) e Saída (OUTGOING) do UFW no Ubuntu Server<br>
+#06_ Configurando as Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) e Saída (OUTGOING) do UFW no Ubuntu Server<br>
 ```bash
 #Configurando a Regra Padrão de Bloqueio de Entrada
 sudo ufw default deny incoming
@@ -105,7 +152,7 @@ sudo ufw default deny outgoing
 sudo ufw status verbose
 ```
 
-#05_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
+#07_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
 ```bash
 #Configurando o Nível de Log de Baixo (LOW) para Médio (MEDIUM)
 sudo ufw logging medium
@@ -115,7 +162,7 @@ sudo ufw logging medium
 sudo ufw status verbose
 ```
 
-#06_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
+#08_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
 ```bash
 #Liberando (ALLOW) a Entrada (IN) da Interface (ON) Loopback (LO)
 sudo ufw allow in on lo
@@ -127,7 +174,7 @@ sudo ufw allow out on lo
 sudo ufw status verbose
 ```
 
-#07_ Liberando (ALLOW) as Saídas (OUTGOING) dos Protocolos Básicos no UFW do Ubuntu Server<br>
+#09_ Liberando (ALLOW) as Saídas (OUTGOING) dos Protocolos Básicos no UFW do Ubuntu Server<br>
 ```bash
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
@@ -145,7 +192,7 @@ sudo ufw allow out 123/udp comment 'Liberando a saida para sincronismo do NTP'
 sudo ufw status verbose
 ```
 
-#08_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
+#10_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
 ```bash
 #Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
 sudo vim /etc/ufw/before.rules
@@ -176,22 +223,16 @@ ping google.com
 sudo apt update
 ```
 
-#09_ Limitando (LIMIT) e Logando Tudo (LOG-ALL) a Conexão de Entrada (INCOMING) do Protocolo SSH do UFW no Ubuntu Server<br>
+#11_ Limitando (LIMIT) e Logando Tudo (LOG-ALL) a Conexão de Entrada (INCOMING) do Protocolo SSH do UFW no Ubuntu Server<br>
 ```bash
 #Limitando (LIMIT) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do OpenSSH Server na porta (PORT) 22 via protocolo TCP (PROTO TCP)
 sudo ufw limit log-all from 172.16.1.0/24 to 172.16.1.30 port 22 proto tcp comment 'Limitando a sub-rede para acessar o OpenSSH Server'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
 sudo ufw status verbose
-
-#Verificando o arquivo de Log do UFW
-#opção do comando cat: -n (numeric)
-#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-#opção do comando grep: -i (ignore-case)
-sudo cat -n /var/log/ufw.log | grep -i dpt=22
 ```
 
-#10_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
+#12_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
 ```bash
 #editando o arquivo de configuração do TCPWrappers Hosts.Deny
 sudo vim /etc/hosts.deny
@@ -219,7 +260,7 @@ INSERT
 ESC SHIFT :x <Enter>
 ```
 
-#11_ Testando novamente a conexão com o OpenSSH e Certificado no Ubuntu Server<br>
+#13_ Testando novamente a conexão com o OpenSSH no Ubuntu Server<br>
 ```bash
 Linux
   Terminal: Ctrl + Alt + T
@@ -235,4 +276,23 @@ sudo cat -n /var/log/syslog | grep ssh
 sudo cat -n /var/log/hosts-deny.log
 sudo cat -n /var/log/hosts-allow.log
 sudo cat -n /var/log/ufw.log | grep -i dpt=22
+```
+
+#14_ Utilizando o comando LNAV (Logfile Navigator) no Ubuntu Server<br>
+```bash
+Documentação Oficial do Logfile Navigator: https://docs.lnav.org/en/latest/index.html
+
+#Principais teclas de atalho do comando lnav
+A) Ctrl-u ou Ctrl-d: Role para cima e para baixo uma página de cada vez.
+B) g (minúsculo): Vá para o início do arquivo de log.
+C) G (maiúsculo): Vá para o final do arquivo de log.
+D) q (minúsculo): Sair do Logfile Navigator (Quit).
+E) e (minúsculo) ou E (maiúsculo): Encontrando erros nos arquivos.
+
+#verificando os Log's de acesso remoto do servidor Ubuntu com o comando lnav
+sudo lnav /var/log/auth.log
+sudo lnav /var/log/syslog
+sudo lnav /var/log/hosts-deny.log
+sudo lnav /var/log/hosts-allow.log
+sudo lnav /var/log/ufw.log
 ```
