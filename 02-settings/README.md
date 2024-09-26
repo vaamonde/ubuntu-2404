@@ -237,3 +237,40 @@ Conteúdo estudado nessa configuração:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/08-MonitoramentoHardware.md
+
+## **🖥️ Habilitando a Segurança do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de segurança no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos habilitar e configurar o sistema de firewall UFW (Uncomplicated Firewall) em nosso servidor, criar as regras básicas de liberação de conexão externos e permitir somente de forma limitada e logada todo o acesso remoto via protocolo SSH em nosso servidor.
+
+Uncomplicated Firewall é uma firewall desenhado para ser de fácil utilização. Utiliza uma interface de linha de comandos simple e de fácil entendimento, e usa o iptables como base para a sua configuração. 
+
+O iptables é um programa escrito em C, utilizado como ferramenta para configurar as regras do protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando vários módulos e o framework do kernel Linux (versão 2.3.15 ou posteiro).
+
+O netfilter é um módulo que fornece ao sistema operacional Linux as funções de firewall, NAT e log dos dados que trafegam na rede de computadores. iptables é o nome da ferramenta do espaço do usuário que permite a criação de regras de firewall e NATs.
+
+O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
+
+TCP Wrapper é um sistema de rede ACL baseado em host, usado para filtrar acesso à rede a servidores de protocolo de Internet em sistemas operacionais do tipo Unix, como Linux ou BSD.
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
+#02_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
+#03_ Verificando o Serviço do UFW no Ubuntu Server<br>
+#04_ Configurando as Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) e Saída (OUTGOING) do UFW no Ubuntu Server<br>
+#05_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
+#06_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
+#07_ Liberando (ALLOW) as Saídas (OUTGOING) dos Protocolos Básicos no UFW do Ubuntu Server<br>
+#08_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
+#09_ Limitando (LIMIT) e Logando Tudo (LOG-ALL) a Conexão de Entrada (INCOMING) do Protocolo SSH do UFW no Ubuntu Server<br>
+#10_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
+#11_ Testando novamente a conexão com o OpenSSH e Certificado no Ubuntu Server<br>
+
+[![Segurança UFW](http://img.youtube.com/vi//0.jpg)]( "Segurança UFW")
+
+Link da vídeo aula: 
+
+Link da documentação: 
+
+[![Firewall UFW](http://img.youtube.com/vi/PuahiojOEGA/0.jpg)](https://www.youtube.com/watch?v=PuahiojOEGA "Firewall UFW")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
