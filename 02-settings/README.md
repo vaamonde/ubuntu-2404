@@ -269,7 +269,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Link da vídeo aula: 
 
-Link da documentação: 
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/09-Seguranca-UFW.md
 
 [![Firewall UFW](http://img.youtube.com/vi/PuahiojOEGA/0.jpg)](https://www.youtube.com/watch?v=PuahiojOEGA "Firewall UFW")
 
