@@ -25,7 +25,7 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTA
 
 LINK DO SELO: 
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2404 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
@@ -55,9 +55,9 @@ O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta pa
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-[![Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Docker-CE")
+[![Instalação do Docker-CE](http://img.youtube.com/vi/M_Dazb75OTc/0.jpg)](https://www.youtube.com/watch?v=M_Dazb75OTc "Instalação do Docker-CE")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 
 #01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
 ```bash
@@ -109,9 +109,9 @@ docker-compose-plugin cgroup-lite
 #baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo.
 
 #baixando o Docker Compose do Projeto do Github
-#opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 08/09/2024)
+#opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 27/09/2024)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-linux-x86_64 \
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.29.7/docker-compose-linux-x86_64 \
 -o /usr/bin/docker-compose
 
 #alterando as permissões do Binário do Docker Compose	
@@ -256,6 +256,13 @@ docker container ls -a
 docker system prune
   Are you sure you want to continue? [y/N]y
 
+#listando os container em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
 #removendo as imagens do Docker-CE localmente
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
@@ -277,4 +284,4 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTA
 
 LINK DO SELO: 
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2404 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce

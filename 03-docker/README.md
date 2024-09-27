@@ -26,9 +26,15 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2404/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2404?color=2b9348" alt="License Badge"/></a>
 </div>
 
-## **🤩🤩 Instalação e Configuração do Docker-CE do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Instalação e Configuração do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de instalação e configuração do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Containers Docker-CE (Community Edition) em nosso servidor para criar os primeiros cenários de containers e micro-serviços.
+Vídeo de instalação e configuração do Docker-CE (Container Engine - Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Containers Docker-CE (Container Engine - Community Edition) em nosso servidor para criar os primeiros cenários de containers e micro-serviços.
+
+O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
+O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta para executar aplicativos de vários contêineres no Docker definidos usando o formato de arquivo Compose. Um arquivo Compose é usado para definir como um ou mais contêineres que compõem seu aplicativo são configurados. Depois de ter um arquivo Compose, você pode criar e iniciar seu aplicativo com um único comando: docker compose up.
+
+O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>

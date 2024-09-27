@@ -47,6 +47,8 @@ O netfilter é um módulo que fornece ao sistema operacional Linux as funções 
 
 O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
 
+O rsyslog é uma ferramenta de software de código aberto amplamente utilizada em sistemas Unix e similares para o gerenciamento e a transferência de mensagens de log. Ele é uma implementação avançada do protocolo syslog original, oferecendo funcionalidades aprimoradas que atendem às necessidades modernas de monitoramento e análise de logs em ambientes de TI complexos.
+
 TCP Wrapper é um sistema de rede ACL baseado em host, usado para filtrar acesso à rede a servidores de protocolo de Internet em sistemas operacionais do tipo Unix, como Linux ou BSD.
 
 **OBSERVAÇÃO IMPORTANTE: O VÍDEO DE SEGURANÇA DE FIREWALL DO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, O PROCEDIMENTO DE SEGURANÇA É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.**
@@ -55,9 +57,9 @@ TCP Wrapper é um sistema de rede ACL baseado em host, usado para filtrar acesso
 
 Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
-[![Segurança UFW](http://img.youtube.com/vi//0.jpg)]( "Segurança UFW")
+[![Segurança UFW](http://img.youtube.com/vi/130Xdztvm0I/0.jpg)](https://www.youtube.com/watch?v=130Xdztvm0I "Segurança UFW")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=130Xdztvm0I
 
 #01_ Instalando o Firewall UFW (Uncomplicated Firewall) no Ubuntu Server<br>
 ```bash
@@ -238,10 +240,9 @@ sudo ufw status verbose
 sudo vim /etc/hosts.deny
 INSERT
 
-    # alterar as informações na linha 17
-    # mais informações veja o arquivo Hosts.Deny no Github:
-    # opção do comando date: -u (universal)
-    ALL: ALL: spawn /bin/echo "$(date -u) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-deny.log
+# alterar as informações na linha 17
+# mais informações veja o arquivo Hosts.Deny no Github:
+ALL: ALL: spawn /bin/echo "$(date) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-deny.log
 
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
@@ -250,11 +251,10 @@ ESC SHIFT :x <Enter>
 sudo vim /etc/hosts.allow
 INSERT
 
-    # alterar as informações na linha 10
-    # OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
-    # mais informações veja o arquivo Hosts.Allow no Github:
-    # opção do comando date: -u (universal)
-    sshd: 172.16.1.0/24: spawn /bin/echo "$(date -u) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-allow.log
+# alterar as informações na linha 10
+# OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
+# mais informações veja o arquivo Hosts.Allow no Github:
+sshd: 172.16.1.0/24: spawn /bin/echo "$(date) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-allow.log
 
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>

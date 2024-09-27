@@ -303,6 +303,8 @@ O netfilter é um módulo que fornece ao sistema operacional Linux as funções 
 
 O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
 
+O rsyslog é uma ferramenta de software de código aberto amplamente utilizada em sistemas Unix e similares para o gerenciamento e a transferência de mensagens de log. Ele é uma implementação avançada do protocolo syslog original, oferecendo funcionalidades aprimoradas que atendem às necessidades modernas de monitoramento e análise de logs em ambientes de TI complexos.
+
 TCP Wrapper é um sistema de rede ACL baseado em host, usado para filtrar acesso à rede a servidores de protocolo de Internet em sistemas operacionais do tipo Unix, como Linux ou BSD.
 
 Conteúdo estudado nessa implementação:<br>
@@ -318,9 +320,9 @@ Conteúdo estudado nessa implementação:<br>
 #10_ Melhorando a Segurança e Logs Detalhados do TCPWrappers no Ubuntu Server<br>
 #11_ Testando novamente a conexão com o OpenSSH e Certificado no Ubuntu Server<br>
 
-[![Segurança UFW](http://img.youtube.com/vi//0.jpg)]( "Segurança UFW")
+[![Segurança UFW](http://img.youtube.com/vi/130Xdztvm0I/0.jpg)](https://www.youtube.com/watch?v=130Xdztvm0I "Segurança UFW")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=130Xdztvm0I
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/09-Seguranca-UFW.md
 
