@@ -53,9 +53,9 @@ Conteúdo estudado nesse desafio:<br>
 #14_ Verificando as Imagens dos Containers no Docker-CE<br>
 #15_ Limpando todas as Imagens, Containers, Volumes e Redes no Docker-CE<br>
 
-[![Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Docker-CE")
+[![Instalação do Docker-CE](http://img.youtube.com/vi/M_Dazb75OTc/0.jpg)](https://www.youtube.com/watch?v=M_Dazb75OTc "Instalação do Docker-CE")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-docker/01-docker-ce.md
 
