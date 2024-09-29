@@ -23,7 +23,7 @@ OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZE
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/tree/main/selos/01-docker.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/01-docker.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2404 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce
 

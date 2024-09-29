@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 16/09/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 29/09/2024<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 #Testado e homologado no Docker-CE (Community Edition) 24.x
 #Testado e homologado no Portainer-CE (Community Edition) 2.x
@@ -24,7 +24,7 @@ OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZE
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: 
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/02-portainer.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioportainer #desafioportainerio
 
