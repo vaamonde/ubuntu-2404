@@ -37,7 +37,8 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Criando o arquivo de Serviço do Portainer.io CE no Ubuntu Server<br>
 #07_ Habilitando o Serviço do Portainer.io no Ubuntu Server<br>
 #08_ Verificando o Serviço e Versão do Portainer.io no Ubuntu Server<br>
-#09_ Acessando e configurando o Portainer.io via navegador<br>
+#09_ Liberando a Conexão de Entrada da Porta do Portainer no UFW do Ubuntu Server<br>
+#10_ Acessando e configurando o Portainer.io via navegador<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -162,7 +163,16 @@ sudo systemctl start portainer
 sudo journalctl -xeu portainer
 ```
 
-#09_ Acessando e configurando o Portainer.io via navegador<br>
+#09_ Liberando a Conexão de Entrada da Porta do Portainer no UFW do Ubuntu Server<br>
+```bash
+#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do Portainer na porta (PORT) 9000 via protocolo TCP (PROTO TCP)
+sudo ufw limit log-all from 172.16.1.0/24 to 172.16.1.30 port 9000 proto tcp comment 'Liberando a sub-rede para acessar o Portainer'
+
+#Verificando as Regras Detalhadas padrão do UFW em modo Verboso
+sudo ufw status verbose
+```
+
+#10_ Acessando e configurando o Portainer.io via navegador<br>
 ```bash
 #utilizar os navegadores para testar o acesso ao Portainer.io 
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
