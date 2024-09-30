@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 16/09/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 30/09/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 #Testado e homologado no Docker-CE (Community Edition) 24.x
 #Testado e homologado no Portainer-CE (Community Edition) 2.x
@@ -121,13 +121,13 @@ docker image ls
 
 #verificando os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers)
 docker container ls
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE:https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -162,7 +162,7 @@ exit
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -183,7 +183,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -199,7 +199,7 @@ docker container run -d -it ubuntu
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -219,7 +219,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -341,7 +341,7 @@ docker container inspect 1851e38b8e18
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
@@ -372,13 +372,74 @@ docker container prune
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
 ```
 
-#09_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Container no Docker-CE<br>
+```bash
+#pesquisando imagens de containers do Debian no Docker HUB
+#opção do comando docker: search (Search the Docker Hub for images)
+#link de consulta do Docker Hub: https://hub.docker.com/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+docker search debian
+
+#criando um novo container Debian mais sem executar
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
+docker container create debian
+
+#listando as imagens de container localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#opção do comando docker: images (List all imagens docker)
+docker images
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
+#executando o container do Debian em modo Interativo no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
+#opção do comando docker: container (Manage containers), run (Create and run a new container 
+#from an image), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate 
+#a pseudo-TTY) debian (imagem docker hub)
+docker container run -it debian
+
+#verificando a versão do Debian rodando o container
+cat /etc/os-release
+
+#saindo do container e finalizando a sua execução
+exit
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
+#renomeando o container do Debian no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rename/
+#opção do comando docker: container (Manage containers), rename (renames a container),
+#hopeful_shaw (old name), vaamonde (new name)
+docker container rename hopeful_shaw vaamonde
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+```
+
+#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
 ```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -396,33 +457,36 @@ docker images
 #COMMENT....: Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, 
 #             a menos que tenha sido explicitamente preenchida durante o processo de build da imagem.
 
-#verificando o histórico da imagem do Ubuntu localmente no Docker-CE
+#verificando o histórico da imagem do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
 #opção do comando docker: images (List all imagens docker), history (Show the history of an image)
 #ubuntu (imagem docker)
 docker image history ubuntu
+docker image history debian
 
-#inspecionando a imagem do Ubuntu localmente no Docker-CE
+#inspecionando a imagem do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/inspect/
 #opção do comando docker: images (List all imagens docker), inspect (Display detailed information 
 #on one or more images, ubuntu (imagem docker)
 docker image inspect ubuntu
+docker image inspect debian
 
-#removendo a imagem do Ubuntu localmente no Docker-CE
+#removendo as imagems do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
 #ubuntu (imagem docker)
 docker image rm ubuntu
+docker image rm debian
 ```
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Debian`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#10_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#11_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Rocky`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#11_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 
