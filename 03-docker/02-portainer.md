@@ -7,11 +7,11 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 29/09/2024<br>
+#Data de atualização: 30/09/2024<br>
 #Versão: 0.06<br>
-#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
-#Testado e homologado no Docker-CE (Community Edition) 24.x
-#Testado e homologado no Portainer-CE (Community Edition) 2.x
+#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
+#Testado e homologado no Docker-CE (Community Edition) 24.x<br>
+#Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
@@ -52,8 +52,6 @@ O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta pa
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
-
 O QUE É E PARA QUE SERVER O PORTAINER.IO: Portainer Community Edition (CE) é a nossa base. Com mais de meio milhão de usuários regulares, o CE é um poderoso conjunto de ferramentas de código aberto que permite criar e gerenciar facilmente contêineres no Docker, Docker Swarm, Kubernetes e Azure ACI.
 
 [![Portainer](http://img.youtube.com/vi//0.jpg)]( "Portainer")
@@ -63,39 +61,45 @@ Link da vídeo aula:
 #01_ Pesquisando o Container do Portainer.io CE no Docker Hub<br>
 ```bash
 #pesquisando o container do Portainer-io CE no Docker Hub
-#opção do comando docker: search (Search the Docker Hub for images)
-#link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#link de consulta do Docker Hub: https://hub.docker.com/
+#opção do comando docker: search (Search the Docker Hub for images)
 docker search portainer/portainer-ce:latest
 ```
 
 #02_ Criando o Volume do Portainer.io CE no Docker-CE<br>
 ```bash
 #criação do volume do Portainer.io CE
-#opção do comando docker: volume create (Creates a new volume that containers can 
-#consume and store data in)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
+#opção do comando docker: volume (Manage volumes), create (Creates a new volume that 
+#containers can consume and store data in)
 docker volume create portainer_data
 
 #listando o volume criado do Portainer.io CE
-#opção do comando docker: volume ls (List all the volumes known to Docker)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#opção do comando docker: volume (Manage volumes), ls (List all the volumes known to Docker)
 docker volume ls
 
 #inspecionando o volume criado do Portainer.io CE
-#opção do comando docker: volume inspect (Display detailed information on one or more volumes)
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
+#opção do comando docker: volume (Manage volumes), inspect (Display detailed information on 
+#one or more volumes)
 docker volume inspect portainer_data
 ```
 
 #03_ Criando o Container do Portainer.io CE e utilizando o Volume criado no Docker-CE<br>
 ```bash
 #criação do container do Portainer.io CE utilizando o volume criado
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: run (Run a command in a new container), --name (container name)
 #-d (Run container in background and print container ID), -p (Publish a container’s port(s) 
-#to the host), -v (Bind mount a volume), portainer/portainer-ce:latest (container imagem)
+#to the host), -v (socket Docker do host), -v (Bind mount a volume), portainer/portainer-ce:latest
+#(container imagem)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data portainer/portainer-ce:latest
 ```
@@ -103,22 +107,22 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 #04_ Verificando o Status do Container do Portainer.io CE no Docker-CE<br>
 ```bash
 #listando todas as imagens de containers no Docker-CE
-#opção do comando docker: images (List images container on system)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#opção do comando docker: images (List images container on system)
 docker images
 
 #listando todos os containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
-#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
-#images (default hides intermediate images))
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all 
+#(Show all images (default hides intermediate images))
 docker container ls -a
 
 #filtrando o container do Portainer.io CE no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls//
-#opção do comando docker: container (Manage containers), ls (List containers), -q (quiet), -f (filter), 
-#name= (filter container name)
+#opção do comando docker: container (Manage containers), ls (List containers), -q (quiet), 
+#-f (filter), name= (filter container name)
 docker container ls -q -f name=portainer
 ```
 
@@ -197,6 +201,6 @@ OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PORTAINER SE VOCÊ CONSEGUIU FAZE
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: 
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/02-portainer.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioportainer #desafioportainerio

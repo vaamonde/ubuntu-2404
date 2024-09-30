@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 16/09/2024<br>
-#Versão: 0.05<br>
-#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
-#Testado e homologado no Docker-CE (Community Edition) 24.x
+#Data de atualização: 30/09/2024<br>
+#Versão: 0.06<br>
+#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
+#Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
@@ -190,23 +190,23 @@ docker system info
 #12_ Iniciando um Container de Teste do Docker-CE<br>
 ```bash
 #pesquisando o container de Hello World do Docker-CE
-#opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#opção do comando docker: search (Search the Docker Hub for images)
 docker search hello-world
 
 #iniciando o container de Hello World do Docker-CE
-#opção do comando docker: run (Run a command in a new container)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
+#opção do comando docker: run (Run a command in a new container)
 docker run hello-world
 ```
 
 #13_ Iniciando um Container de Teste do Ubuntu Bash no Docker-CE<br>
 ```bash
 #pesquisando o container do Ubuntu do Docker-CE
-#opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#opção do comando docker: search (Search the Docker Hub for images)
 docker search ubuntu
 
 #iniciando o container do Ubuntu Bash do Docker-CE
@@ -235,8 +235,8 @@ exit
 #14_ Verificando as Imagens dos Containers no Docker-CE<br>
 ```bash
 #listando as imagens de containers no Docker-CE
-#opção do comando docker: images (List images container on system)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#opção do comando docker: images (List images container on system)
 docker images
 
 #listando os container em execução no Docker-CE
@@ -250,9 +250,9 @@ docker container ls -a
 #15_ Limpando todas as Imagens, Containers, Volumes e Redes no Docker-CE<br>
 ```bash
 #limpando todos os objetos do Docker-CE (Containers, Imagens, Volumes, Redes)
-#opção do comando docker: system (manager docker), prune (Remove unused data)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/prune/
+#opção do comando docker: system (manager docker), prune (Remove unused data)
 docker system prune
   Are you sure you want to continue? [y/N]y
 
@@ -272,10 +272,11 @@ docker image rm hello-world:latest
 docker image rm ubuntu:latest
 
 #listando as imagens do Docker-CE localmente
-#opção do comando docker: images (List images container on system)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#opção do comando docker: images (List images container on system)
 docker images
 ```
+
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática

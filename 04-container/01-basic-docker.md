@@ -9,9 +9,9 @@
 #Data de criação: 14/09/2024<br>
 #Data de atualização: 30/09/2024<br>
 #Versão: 0.04<br>
-#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
-#Testado e homologado no Docker-CE (Community Edition) 24.x
-#Testado e homologado no Portainer-CE (Community Edition) 2.x
+#Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
+#Testado e homologado no Docker-CE (Community Edition) 24.x<br>
+#Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
