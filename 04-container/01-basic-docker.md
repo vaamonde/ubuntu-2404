@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 30/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 01/10/2024<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -29,15 +29,16 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/03-basic-d
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiobasicdocker
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Utilizando os comandos Básico de Pesquisa (Search) Docker-CE e Docker-HUB<br>
-#02_ Utilizando os comandos Básicos de Containers (Container) e Imagens (Images) no Docker-CE<br>
-#03_ Utilizando os comandos Básicos de Containers (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
-#04_ Utilizando os comandos Básicos de Containers (Container) e Conectar (Attach) no Docker-CE<br>
-#05_ Executando (Exec) comandos Remotos no Containers (Container) no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
-#07_ Verificando as Estáticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) os Containers (Container) no Docker-CE<br>
-#08_ Removendo (RM) e Limpando (Prune) os Containers (Container) no Docker-CE<br>
-#09_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+#02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
+#03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+#04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
+#05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
+#07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
+#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
+#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -46,20 +47,18 @@ Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
 O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta para executar aplicativos de vários contêineres no Docker definidos usando o formato de arquivo Compose. Um arquivo Compose é usado para definir como um ou mais contêineres que compõem seu aplicativo são configurados. Depois de ter um arquivo Compose, você pode criar e iniciar seu aplicativo com um único comando: docker compose up.
-
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
 [![Basic Docker](http://img.youtube.com/vi//0.jpg)]( "Basic Docker")
 
 Link da vídeo aula: 
 
-#01_ Utilizando os comandos Básico de Pesquisa (Search) Docker-CE e Docker-HUB<br>
+#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
 ```bash
 #pesquisando imagens de containers do Ubuntu no Docker HUB
-#opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#opção do comando docker: search (Search the Docker Hub for images)
 docker search ubuntu
 
 #pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10
@@ -80,7 +79,7 @@ docker search ubuntu --filter=stars=10 --filter=is-official=true
 docker search ubuntu --filter=stars=10 --filter=is-official=true --no-trunc
 ```
 
-#02_ Utilizando os comandos Básicos de Containers (Container) e Imagens (Images) no Docker-CE<br>
+#02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
 ```bash
 #executando o container do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -133,7 +132,7 @@ docker container ls
 docker container ls -a
 ```
 
-#03_ Utilizando os comandos Básicos de Containers (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+#03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
 ```bash
 #executando o container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -179,7 +178,7 @@ docker container run -it ubuntu
 cat /etc/os-release
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
-Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
+Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -205,14 +204,14 @@ docker container run -d -it ubuntu
 docker container ls -a
 ```
 
-#04_ Utilizando os comandos Básicos de Containers (Container) e Conectar (Attach) no Docker-CE<br>
+#04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
 ```bash
 #executando o container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
 #opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
 #and error streams to a running container), happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container attach 1851e38b8e18
+docker container attach [CONTAINER ID ou NAME]
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
@@ -225,7 +224,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 docker container ls -a
 ```
 
-#05_ Executando (Exec) comandos Remotos no Containers (Container) no Docker-CE<br>
+#05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
 ```bash
 #executando comandos no container do Ubuntu remoto no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -234,7 +233,7 @@ docker container ls -a
 #-i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), ubuntu (imagem
 #docker hub), happy_carver 1851e38b8e18 (Container Names or Container ID), /bin/hostname (Container
 #command)
-docker container exec -it 1851e38b8e18 /bin/hostname
+docker container exec -it [CONTAINER ID ou NAME] /bin/hostname
 
 #executando comandos no container do Ubuntu remoto no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -242,48 +241,48 @@ docker container exec -it 1851e38b8e18 /bin/hostname
 #opção do comando docker: container (Manage containers), exec (Execute a command in a running container), 
 #-e --env (Set environment variables), happy_carver 1851e38b8e18 (Container Names or Container ID), env
 #(Container command)
-docker container exec -e ROBSON=1 -e VAAMONDE=2 1851e38b8e18 env
+docker container exec -e ROBSON=1 -e VAAMONDE=2 [CONTAINER ID ou NAME] env
 ```
 
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
 ```bash
 #parando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/stop/
 #opção do comando docker: container (Manage containers), stop (Stop one or more running containers),
 #happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container stop 1851e38b8e18
+docker container stop [CONTAINER ID ou NAME]
 
 #iniciando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/start/
 #opção do comando docker: container (Manage containers), start (Start one or more stopped containers),
 #happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container start 1851e38b8e18
+docker container start [CONTAINER ID ou NAME]
 
 #reiniciando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/restart/
 #opção do comando docker: container (Manage containers), restart (Restart one or more containers), 
 #happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container restart 1851e38b8e18
+docker container restart [CONTAINER ID ou NAME]
 
 #pausando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/pause/
 #opção do comando docker: container (Manage containers), pause (Pause all processes within one or more 
 #containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container pause 1851e38b8e18
+docker container pause [CONTAINER ID ou NAME]
 
 #despausando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/unpause/
 #opção do comando docker: container (Manage containers), unpause (Unpause all processes within one or 
 #more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container unpause 1851e38b8e18
+docker container unpause [CONTAINER ID ou NAME]
 ```
 
-#07_ Verificando as Estáticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) os Containers (Container) no Docker-CE<br>
+#07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
 ```bash
 #informações que são mostradas na saída do comando: docker container stats
 #CONTAINER ID...: Identificação única do container em execução;
@@ -296,13 +295,13 @@ docker container unpause 1851e38b8e18
 #BLOCK I/O......: Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);
 #PIDS...........: Número de processos (PIDs) em execução dentro do container.
 
-#verificando as estáticas do container do Ubuntu no Docker-CE
+#verificando as estatísticas do container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/stats/
 #opção do comando docker: container (Manage containers), stats (Display a live stream of container(s) 
 #resource usage statistics), happy_carver 1851e38b8e18 (Container Names or Container ID)
 #OBSERVAÇÃO IMPORTANTE: para sair das estáticas do container pressione: Ctrl+C
-docker container stats 1851e38b8e18
+docker container stats [CONTAINER ID ou NAME]
 
 #informações que são mostradas na saída do comando: docker top
 #UID...: Identificador do usuário (User ID) que está executando o processo no container;
@@ -319,7 +318,7 @@ docker container stats 1851e38b8e18
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/top/
 #opção do comando docker: container (Manage containers), top (Display the running processes of a 
 #container), happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container top 1851e38b8e18
+docker container top [CONTAINER ID ou NAME]
 
 #verificando os logs do container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -327,17 +326,17 @@ docker container top 1851e38b8e18
 #opção do comando docker: container (Manage containers), logs (Fetch the logs of a container), 
 #happy_carver 1851e38b8e18 (Container Names or Container ID)
 #OBSERVAÇÃO IMPORTANTE: para sair dos Logs do container pressione: Ctrl+C
-docker container logs 1851e38b8e18
+docker container logs [CONTAINER ID ou NAME]
 
 #inspecionando o conteúdo do container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
 #opção do comando docker: container (Manage containers), inspect (Display detailed information 
 #on one or more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container inspect 1851e38b8e18
+docker container inspect [CONTAINER ID ou NAME]
 ```
 
-#08_ Removendo (RM) e Limpando (Prune) os Containers (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -351,7 +350,7 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
 #opção do comando docker: container (Manage containers), rm (Remove one or more containers),
 #happy_carver 1851e38b8e18 (Container Names or Container ID)
-docker container rm 1851e38b8e18
+docker container rm [CONTAINER ID ou NAME]
 
 #removendo forçado o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -359,7 +358,7 @@ docker container rm 1851e38b8e18
 #opção do comando docker: container (Manage containers), rm (Remove one or more containers),
 #-f --force (Force the removal of a running container (uses SIGKILL)), happy_carver 1851e38b8e18 
 #(Container Names or Container ID)
-docker container rm -f 1851e38b8e18
+docker container rm -f [CONTAINER ID ou NAME]
 
 #limpando todos os containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -378,12 +377,12 @@ docker container prune
 docker container ls -a
 ```
 
-#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Container no Docker-CE<br>
+#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
 ```bash
 #pesquisando imagens de containers do Debian no Docker HUB
-#opção do comando docker: search (Search the Docker Hub for images)
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#opção do comando docker: search (Search the Docker Hub for images)
 docker search debian
 
 #criando um novo container Debian mais sem executar
@@ -429,7 +428,7 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rename/
 #opção do comando docker: container (Manage containers), rename (renames a container),
 #hopeful_shaw (old name), vaamonde (new name)
-docker container rename hopeful_shaw vaamonde
+docker container rename [CONTAINER ID ou NAME] vaamonde
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -439,7 +438,7 @@ docker container rename hopeful_shaw vaamonde
 docker container ls -a
 ```
 
-#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 ```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
