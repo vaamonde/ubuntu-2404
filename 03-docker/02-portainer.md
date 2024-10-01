@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 30/09/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 01/10/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -63,7 +63,9 @@ Link da vídeo aula:
 #pesquisando o container do Portainer-io CE no Docker Hub
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 #link de consulta do Docker Hub: https://hub.docker.com/
-#opção do comando docker: search (Search the Docker Hub for images)
+#opção do comando docker: search (Search the Docker Hub for images), portainer/portainer-ce:latest
+#(Refers to the Community Edition (CE) version of Portainer, :latest: Indicates that the latest 
+#available version of the image will be used)
 docker search portainer/portainer-ce:latest
 ```
 
@@ -73,7 +75,7 @@ docker search portainer/portainer-ce:latest
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
 #opção do comando docker: volume (Manage volumes), create (Creates a new volume that 
-#containers can consume and store data in)
+#containers can consume and store data in), portainer_data (Volume Name)
 docker volume create portainer_data
 
 #listando o volume criado do Portainer.io CE
@@ -86,7 +88,7 @@ docker volume ls
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
 #opção do comando docker: volume (Manage volumes), inspect (Display detailed information on 
-#one or more volumes)
+#one or more volumes), portainer_data (Volume Name)
 docker volume inspect portainer_data
 ```
 
