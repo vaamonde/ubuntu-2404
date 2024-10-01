@@ -105,6 +105,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=dQJhDoCQgNI
 
 Vídeo de atualização do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
 
+Apt-Get ou Apt A ferramenta de pacote avançada, é uma interface de usuário de software livre que funciona com bibliotecas centrais para lidar com a instalação e remoção de software no Debian e em distribuições Linux baseadas nele.
+
 Conteúdo estudado nessa atualização:<br>
 #01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
 #02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
@@ -127,6 +129,14 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-set
 
 Vídeo de configuração da Placa de Rede do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar o Hostname (Novo do Servidor), FQDN (Nome Totalmente Qualificado), tabela de Hosts (Computadores) e configurar a Placa de Rede de modo Estático no Servidor Ubuntu Server e fazer todos os testes de rede antes de iniciar a instalação dos serviços.
 
+Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
+
+Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name).
+
+FQDN, algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
+
+Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
+
 Conteúdo estudado nessa configuração:<br>
 #01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 #02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
@@ -148,6 +158,14 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-set
 ## **🤩🤩 Configurando a Data e Hora do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de configuração da Data e Hora do Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar a localidade (Locale), Zona de Horário (Timezone), Sincronismo de Data Hora com o Protocolo NTP (Network Time Protocol) e configurações manuais de Data, Hora e sincronismo com o Hardware.
+
+Locale é uma combinação de geografia, idioma e cultura. Para entender Localidade, considere a diferença entre os Estados Unidos e o Reino Unido. Ambos compartilham um idioma comum, mas usam unidades de medida completamente diferentes. Os Estados Unidos usam o idioma inglês, mas usam milhas, graus Fahrenheit e galões, enquanto o Reino Unido usa quilômetros, graus Celsius e litros.
+
+Timezone ou fuso horário é uma área que observa um tempo padrão uniforme para propósitos legais, comerciais e sociais. Os fusos horários tendem a seguir os limites entre países e suas subdivisões em vez de seguir estritamente a longitude, porque é conveniente para áreas em comunicação frequente manter o mesmo horário.
+
+O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+
+O NTP.br tem por objetivo oferecer condições para que os servidores da Internet no Brasil estejam sincronizados com a Horal Legal Brasileira. Para isso foi firmado um acordo entre o Observatório Nacional (ON) e o NIC.br.
 
 Conteúdo estudado nessa configuração:<br>
 #01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server<br>
@@ -190,6 +208,8 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-set
 
 Vídeo de configuração da Licença do Ubuntu Pro Free no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para habilitar o suporte ao Ubuntu Pro Free no Ubuntu Server, esse recurso permiti manter o nosso servidor sempre atualizado com os novos patch's de segurança e garante o suporte até 10 anos de uso da plataforma para Canonical.
 
+O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
+
 Conteúdo estudado nessa configuração:<br>
 #01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
 #02_ Atualizando o Sistema Operacional Ubuntu Server<br>
@@ -212,6 +232,8 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-set
 ## **🤩🤩 Configuração do OpenSSH Server no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de configuração do OpenSSH Server no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar o acesso remoto no nosso servidor de forma segura e customizada.
+
+OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
 
 Conteúdo estudado nessa configuração:<br>
 #01_ Instalado o OpenSSH no Ubuntu Server;<br>
@@ -245,6 +267,12 @@ Link da documentação: https://github.com/vaamonde/ca-certificates/blob/main/01
 
 Vídeo de desabilitar e remover o SNAPd e Cloud-Init no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para remover o bloquear a instalação acidental do SNAPd e do Cloud-Init, recursos esses que não será utilizado nesse curso e que consome recursos desnecessário do servidor.
 
+Snap foi criado pela Canonical, o formato de empacotamento de arquivos Snap vem instalado no Ubuntu desde a versão 18.04. Ele isola aplicativos do restante do sistema, uma vantagem em segurança, e tem alguns programas exclusivos, mas vários outros sistemas não são nativamente compatíveis, demandando passos extra para isso.
+
+Snapcraft é uma ferramenta de linha de comando poderosa e fácil de usar para criar snaps. Ele ajuda você a: construir e publicar seus snaps na loja Snap. use canais, trilhas e ramificações para controlar com precisão atualizações e lançamentos.
+
+Cloud-init é o método de multidistribuição padrão da indústria para inicialização de instância de nuvem multiplataforma. Ele é suportado por todos os principais provedores de nuvem pública, sistemas de provisionamento para infraestrutura de nuvem privada e instalações bare-metal.
+
 Conteúdo estudado nessa configuração:<br>
 #01_ Listando os aplicativos rodando no SNAPd no Ubuntu Server<br>
 #02_ Removendo os aplicativos rodando no SNAPd no Ubuntu Server<br>
@@ -255,9 +283,9 @@ Conteúdo estudado nessa configuração:<br>
 #07_ Verificando os Status de Serviços Rodando no Ubuntu Server<br>
 #08_ Reiniciando o Ubuntu Server para Aplicar as mudanças<br>
 
-[![SNAPd e Cloud-Init](http://img.youtube.com/vi//0.jpg)]( "SNAPd e Cloud-Init")
+[![SNAPd e Cloud-Init](http://img.youtube.com/vi/dWoiPeTGFFE/0.jpg)](https://www.youtube.com/watch?v=dWoiPeTGFFE "SNAPd e Cloud-Init")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=dWoiPeTGFFE
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/02-settings/07-DesabilitandoSnapdCloud-Init.md
 
@@ -334,7 +362,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
 ## **🤩🤩 Instalação e Configuração do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de instalação e configuração do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Containers Docker-CE (Community Edition) em nosso servidor para criar os primeiros cenários de containers e micro-serviços.
+Vídeo de instalação e configuração do Docker-CE (Container Engine - Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Containers Docker-CE (Container Engine - Community Edition) em nosso servidor para criar os primeiros cenários de containers e micro-serviços.
+
+O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
+O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta para executar aplicativos de vários contêineres no Docker definidos usando o formato de arquivo Compose. Um arquivo Compose é usado para definir como um ou mais contêineres que compõem seu aplicativo são configurados. Depois de ter um arquivo Compose, você pode criar e iniciar seu aplicativo com um único comando: docker compose up.
+
+O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
@@ -359,24 +393,27 @@ Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-docker/01-docker-ce.md
 
-## **🤩🤩 Instalação do Portainer.io no Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Instalação e Configuração do Portainer-CE no Docker-CE do Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de instalação do Portainer.io no Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o gerenciador de containers Portainer.io no Docker-CE com objetivo de gerenciar todos os containers criados via linha de comando ou pelo ambiente gráfico.
+Vídeo de instalação e configuração do Portainer.io (Community Edition) no Ubuntu Server 24.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Gerenciamento de Containers Portainer.io (Community Edition) em nosso servidor para criar e gerenciar os containers e micro-serviços de forma fácil.
+
+O QUE É E PARA QUE SERVER O PORTAINER.IO: Portainer Community Edition (CE) é a nossa base. Com mais de meio milhão de usuários regulares, o CE é um poderoso conjunto de ferramentas de código aberto que permite criar e gerenciar facilmente contêineres no Docker, Docker Swarm, Kubernetes e Azure ACI.
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Pesquisando o Container do Portainer.io CE no Docker Hub<br>
-#02_ Criando o Volume do Portainer.io CE no Docker-CE<br
+#02_ Criando o Volume do Portainer.io CE no Docker-CE<br>
 #03_ Criando o Container do Portainer.io CE e utilizando o Volume criado no Docker-CE<br>
 #04_ Verificando o Status do Container do Portainer.io CE no Docker-CE<br>
 #05_ Verificando a Porta de Conexão do Portainer.io no Docker-CE<br>
 #06_ Criando o arquivo de Serviço do Portainer.io CE no Ubuntu Server<br>
 #07_ Habilitando o Serviço do Portainer.io no Ubuntu Server<br>
 #08_ Verificando o Serviço e Versão do Portainer.io no Ubuntu Server<br>
-#09_ Acessando e configurando o Portainer.io via navegador<br>
+#09_ Liberando a Conexão de Entrada da Porta do Portainer no UFW do Ubuntu Server<br>
+#10_ Acessando e configurando o Portainer.io via navegador<br>
 
-[![Portainer](http://img.youtube.com/vi//0.jpg)]( "Portainer")
+[![Instalação do Portainer-CE](http://img.youtube.com/vi/xe_ZZ_hrudw/0.jpg)](https://www.youtube.com/watch?v=xe_ZZ_hrudw "Instalação do Portainer-CE")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=xe_ZZ_hrudw
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-docker/02-portainer.md
 
@@ -387,15 +424,16 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/03-doc
 Vídeo de comandos básicos do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para pesquisar, criar, iniciar, parar e remover Containers e Imagens no Docker-CE, que é bases para entender como funcionar o Docker e os Container na prática.
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Utilizando os comandos Básico de Pesquisa (Search) Docker-CE e Docker-HUB<br>
-#02_ Utilizando os comandos Básicos de Containers (Container) e Imagens (Images) no Docker-CE<br>
-#03_ Utilizando os comandos Básicos de Containers (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
-#04_ Utilizando os comandos Básicos de Containers (Container) e Conectar (Attach) no Docker-CE<br>
-#05_ Executando (Exec) comandos Remotos no Containers (Container) no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
-#07_ Verificando as Estáticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) os Containers (Container) no Docker-CE<br>
-#08_ Removendo (RM) e Limpando (Prune) os Containers (Container) no Docker-CE<br>
-#09_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+#02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
+#03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+#04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
+#05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
+#07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
+#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
+#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 
 [![Básico Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Básico Docker-CE")
 
@@ -408,11 +446,13 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-con
 Vídeo de comandos básicos de CPU e RAM do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, iniciar, conectar, parar e atualizar as informações dos Container no Docker-CE referente a Processadores (CPU) e Memória RAM.
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Criando (Create) os Containers (Container) do Ubuntu (Image) no Docker-CE<br>
-#02_ Iniciando (Start) os Containers (Container) do Ubuntu no Docker-CE<br>
-#03_ Conectando (Attach) nos Containers (Container) do Ubuntu no Docker-CE<br> 
-#04_ Parando (Stop) e Inspecionando (Inspect) o Container (Container) do Ubuntu no Docker-CE<br>
-#05_ Atualizando (Update) as Configurações de RAM e CPU dos (Container) do Ubuntu no Docker-CE<br
+#01_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#02_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#03_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#04_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#05_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
+#07_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
 
 [![CPU e RAM Docker-CE](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Docker-CE")
 

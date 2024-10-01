@@ -107,7 +107,7 @@ docker images
 docker image ls
 
 #informações que são mostradas na saída do comando: docker container ls
-#CONTAINER ID.: dentificação única do container no docker;
+#CONTAINER ID..: dentificação única do container no docker;
 #IMAGE.........: imagem utilizada na execução do container no docker;
 #COMMAND.......: comando em execução da imagem do docker;
 #CREATED.......: quando a imagem foi criada no docker;

@@ -46,7 +46,7 @@ O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de pla
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-[![Basic Docker](http://img.youtube.com/vi//0.jpg)]( "Basic Docker")
+[![CPU e RAM Basic Docker](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Basic Docker")
 
 Link da vídeo aula: 
 

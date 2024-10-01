@@ -30,7 +30,7 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/02-portain
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Pesquisando o Container do Portainer.io CE no Docker Hub<br>
-#02_ Criando o Volume do Portainer.io CE no Docker-CE<br
+#02_ Criando o Volume do Portainer.io CE no Docker-CE<br>
 #03_ Criando o Container do Portainer.io CE e utilizando o Volume criado no Docker-CE<br>
 #04_ Verificando o Status do Container do Portainer.io CE no Docker-CE<br>
 #05_ Verificando a Porta de Conexão do Portainer.io no Docker-CE<br>
@@ -54,9 +54,9 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 O QUE É E PARA QUE SERVER O PORTAINER.IO: Portainer Community Edition (CE) é a nossa base. Com mais de meio milhão de usuários regulares, o CE é um poderoso conjunto de ferramentas de código aberto que permite criar e gerenciar facilmente contêineres no Docker, Docker Swarm, Kubernetes e Azure ACI.
 
-[![Portainer](http://img.youtube.com/vi//0.jpg)]( "Portainer")
+[![Portainer Install](http://img.youtube.com/vi/xe_ZZ_hrudw/0.jpg)](https://www.youtube.com/watch?v=xe_ZZ_hrudw "Portainer Isntall")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=xe_ZZ_hrudw
 
 #01_ Pesquisando o Container do Portainer.io CE no Docker Hub<br>
 ```bash
@@ -77,6 +77,10 @@ docker search portainer/portainer-ce:latest
 #opção do comando docker: volume (Manage volumes), create (Creates a new volume that 
 #containers can consume and store data in), portainer_data (Volume Name)
 docker volume create portainer_data
+
+#informações que são mostradas na saída do comando: docker volume
+#DRIVER......: local de armazenamento do volume;
+#VOLUME NAME.: nome do volume criado;
 
 #listando o volume criado do Portainer.io CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -108,10 +112,26 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 
 #04_ Verificando o Status do Container do Portainer.io CE no Docker-CE<br>
 ```bash
+#informações que são mostradas na saída do comando: docker images
+#REPOSITORY.: nome da imagem do docker;
+#TAG........: versão da imagem do docker;
+#IMAGE ID...: identificação da imagem do docker;
+#CREATED....: quando a imagem foi criada;
+#SIZE.......: tamanho da imagem do docker.
+
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #opção do comando docker: images (List images container on system)
 docker images
+
+#informações que são mostradas na saída do comando: docker container ls
+#CONTAINER ID..: dentificação única do container no docker;
+#IMAGE.........: imagem utilizada na execução do container no docker;
+#COMMAND.......: comando em execução da imagem do docker;
+#CREATED.......: quando a imagem foi criada no docker;
+#STATUS........: status atual da imagem no docker;
+#PORTS.........: porta do container e do host utilizada para se comunicar no docker;
+#NAMES.........: nome do container no docker.
 
 #listando todos os containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -171,7 +191,8 @@ sudo journalctl -xeu portainer
 
 #09_ Liberando a Conexão de Entrada da Porta do Portainer no UFW do Ubuntu Server<br>
 ```bash
-#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do Portainer na porta (PORT) 9000 via protocolo TCP (PROTO TCP)
+#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o 
+#servidor (TO) do Portainer na porta (PORT) 9000 via protocolo TCP (PROTO TCP)
 sudo ufw limit log-all from 172.16.1.0/24 to 172.16.1.30 port 9000 proto tcp comment 'Liberando a sub-rede para acessar o Portainer'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
@@ -180,6 +201,12 @@ sudo ufw status verbose
 
 #10_ Acessando e configurando o Portainer.io via navegador<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): SE VOCÊ DEMORAR MUITO PARA ACESSAR PELA
+#PRIMEIRA VEZ O PORTAINER O ERRO DE: Failure: Unable to resolve server settings and status, 
+#PARA RESOLVER ESSA ALHA VOCÊ PRECISAR REINICIAR O CONTAINER DO PORTAINER UTILIZANDO, POR 
+#EXEMPLO O COMANDO: sudo systemctl stop portainer E DEPOIS O COMANDO: sudo systemctl start 
+#portainer.
+
 #utilizar os navegadores para testar o acesso ao Portainer.io 
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
 
@@ -195,6 +222,12 @@ Please create the initial administrator user.
 Quick Setup
   Environment Wizard
     <Get Started>
+
+#acessando as configurações do Docker-CE do Portainer
+Home
+  Enviroments
+    Docker-CE (local)
+      Dashboard
 ```
 
 =========================================================================================
