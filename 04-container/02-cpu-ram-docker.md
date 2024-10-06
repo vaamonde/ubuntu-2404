@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 15/09/2024<br>
-#Data de atualização: 01/10/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 06/10/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -191,6 +191,8 @@ docker container inspect mysql | grep -i cpus
 #opção do comando docker: container (Manage containers), update (Update configuration of one or more 
 #containers), -m --memory (Memory limit), --memory-swap 1g (The amount of memory this container is 
 #allowed to swap to disk), nginx mysql (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando grep: -i (ignore-case)
 docker container update --memory 512m --memory-swap 1g nginx
 docker container update --memory 512m --memory-swap 1g mysql
 docker container inspect nginx mysql | grep -i memory
@@ -202,6 +204,8 @@ docker container inspect nginx mysql | grep -i memory
 #Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
 #opção do comando docker: container (Manage containers), update (Update configuration of one or more 
 #containers), --cpus (Number of CPUs), nginx mysql (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando grep: -i (ignore-case)
 docker container update --cpus=1 nginx
 docker container update --cpus=1 mysql
 docker container inspect nginx mysql | grep -i cpus
@@ -240,7 +244,7 @@ docker container update -memory 256m --cpu-share 512 mysql
 #opção do comando docker: container (Manage containers), inspect (Display detailed information 
 #on one or more containers), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção do comando grep: -i (ignore-case), -E (extended-regexp)
+#opção do comando grep: -i (ignore-case), -E (extended-regexp), | (Pipe) (OU de bit (OR))
 docker container inspect nginx | grep -i -E "memory|cpus"
 docker container inspect mysql | grep -i -E "memory|cpus"
 ```
@@ -265,22 +269,22 @@ docker container create --name mongodb --memory 512m --memory-swap 1g --cpus=1 -
 #images (default hides intermediate images))
 docker container ls -a
 
-#inspecionando as informações de RAM e CPU do container do Debian no Docker-CE
+#inspecionando as informações de RAM e CPU do container do MongoDB no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
 #Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
 #opção do comando docker: container (Manage containers), inspect (Display detailed information 
-#on one or more containers), debian (Container Names or Container ID)
+#on one or more containers), mongodb (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção do comando grep: -i (ignore-case), -E (extended-regexp)
-docker container inspect debian | grep -i -E "memory|cpus"
+#opção do comando grep: -i (ignore-case), -E (extended-regexp), | (Pipe) (OU de bit (OR))
+docker container inspect mongodb | grep -i -E "memory|cpus"
 ```
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#08_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#11_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#09_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 
