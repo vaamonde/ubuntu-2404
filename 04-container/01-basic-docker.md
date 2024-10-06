@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 01/10/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 06/10/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -29,12 +29,12 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/03-basic-d
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiobasicdocker
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+#01_ Utilizando o comando Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
 #02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
 #03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
 #04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
 #05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE<br>
 #07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
 #08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
 #09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
@@ -53,7 +53,7 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 Link da vídeo aula: 
 
-#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+#01_ Utilizando o comando Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
 ```bash
 #pesquisando imagens de containers do Ubuntu no Docker HUB
 #link de consulta do Docker Hub: https://hub.docker.com/
@@ -244,7 +244,7 @@ docker container exec -it [CONTAINER ID ou NAME] /bin/hostname
 docker container exec -e ROBSON=1 -e VAAMONDE=2 [CONTAINER ID ou NAME] env
 ```
 
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE<br>
 ```bash
 #parando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -280,6 +280,13 @@ docker container pause [CONTAINER ID ou NAME]
 #opção do comando docker: container (Manage containers), unpause (Unpause all processes within one or 
 #more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
 docker container unpause [CONTAINER ID ou NAME]
+
+#bloqueando o container do Ubuntu no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/wait/
+#opção do comando docker: container (Manage containers), wait (Block until one or more containers stop, 
+#then print their exit codes), happy_carver 1851e38b8e18 (Container Names or Container ID)
+docker container wait [CONTAINER ID ou NAME]
 ```
 
 #07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
@@ -365,6 +372,7 @@ docker container rm -f [CONTAINER ID ou NAME]
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/prune/
 #opção do comando docker: container (Manage containers), prune (Remove all stopped containers)
 #OBSERVAÇÃO IMPORTANTE: MUITO CUIDADO NA HORA DE USAR ESSA OPÇÃO EM SERVIDORES DE PRODUÇÃO
+#QUE ESTÁ RODANDO PRINCIPALMENTE O PORTAINER.
 docker container prune
   WARNING! This will remove all stopped containers.
   Are you sure you want to continue? [y/N] y

@@ -429,7 +429,7 @@ Conteúdo estudado nesse desafio:<br>
 #03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
 #04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
 #05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE<br>
 #07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
 #08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
 #09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>

@@ -31,15 +31,16 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 Vídeo de comandos básicos do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para pesquisar, criar, iniciar, parar e remover Containers e Imagens no Docker-CE, que é bases para entender como funcionar o Docker e os Container na prática.
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Utilizando os comandos Básico de Pesquisa (Search) Docker-CE e Docker-HUB<br>
-#02_ Utilizando os comandos Básicos de Containers (Container) e Imagens (Images) no Docker-CE<br>
-#03_ Utilizando os comandos Básicos de Containers (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
-#04_ Utilizando os comandos Básicos de Containers (Container) e Conectar (Attach) no Docker-CE<br>
-#05_ Executando (Exec) comandos Remotos no Containers (Container) no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Reiniciar (Restart) e Pausando (Pause) os Containers (Container) no Docker-CE<br>
-#07_ Verificando as Estáticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) os Containers (Container) no Docker-CE<br>
-#08_ Removendo (RM) e Limpando (Prune) os Containers (Container) no Docker-CE<br>
-#09_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (Rm) no Docker-CE<br>
+#01_ Utilizando os comandos Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+#02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
+#03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+#04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
+#05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE<br>
+#07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
+#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
+#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 
 [![Básico Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Básico Docker-CE")
 
