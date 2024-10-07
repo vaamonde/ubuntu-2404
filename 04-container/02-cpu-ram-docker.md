@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 15/09/2024<br>
-#Data de atualização: 06/10/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 07/10/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -29,13 +29,14 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/04-cpu-ram
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiocpuramdocker
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#02_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#03_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#04_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#05_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
-#07_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
+#01_ Verificando as Informações de Processador (CPU), de Memória (RAM), HD (Hard Disk), Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
+#02_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#03_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#04_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#05_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#07_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
+#08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -50,7 +51,31 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 Link da vídeo aula: 
 
-#01_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#01_ Verificando as Informações de Processador (CPU), de Memória (RAM), HD (Hard Disk), Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
+```bash
+#verificando as informações de Processador (CPU) do Ubuntu Server
+#opção do comando lshw: -class (Only show the given class of hardware)
+sudo lshw -class cpu
+
+#verificando as informações de Memória (RAM) do Ubuntu Server
+#opção do comando lshw: -class (Only show the given class of hardware)
+sudo lshw -class memory
+
+#verificando as informações de HD (Hard Disk) do Ubuntu Server
+#opção do comando lshw: -class (Only show the given class of hardware)
+sudo lshw -class disk
+
+#verificando as informações de Swap (Virtual Memory) do Ubuntu Server
+#opção do comando swapon: -s (summary)
+sudo swapon -s
+
+#verificando informações detalhadas do Sistema do Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/info/
+docker system info
+```
+
+#02_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 ```bash
 #criando o container do Ubuntu Nginx Server localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -81,7 +106,7 @@ docker images
 docker container ls -a
 ```
 
-#02_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#03_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 ```bash
 #iniciando os containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -98,7 +123,7 @@ docker container start nginx mysql
 docker container ls -a
 ```
 
-#03_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br> 
+#04_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br> 
 ```bash
 #conectando no container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -127,7 +152,7 @@ cat /etc/os-release
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
-#04_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#05_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 ```bash
 #parando os containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -164,6 +189,11 @@ docker container inspect mysql | grep -i memory
 #"NanoCpus"   : 0: Especifica a quantidade exata de CPU alocada para o container em nanossegundos 
 #                  por segundo (1 bilhão de nanossegundos = 1 segundo de CPU). 0 indica que não há 
 #                  uma limitação explícita de CPU.
+#"CpuPeriod"  : 0: Define o período do agendador CFS. O valor padrão é 100.000 microssegundos. Esta 
+#                  opção sempre vem em par com --cpu-quota.
+#"CpuQuota"   : 0: Define uma cota CFS para um contêiner, ou seja, o tempo antes de o contêiner ser 
+#                  limitado, por período do agendador CFS. Por exemplo, definir --cpu-period como 
+#                  100.000 e --cpu-quota como 150.000 é o mesmo que definir a opção --cpus como 1,5.
 #"CpusetCpus": "": Especifica quais CPUs o container pode usar. O valor vazio ("") significa que o 
 #                  container pode usar todas as CPUs disponíveis no sistema.
 #"CpusetMems": "": Indica quais nós de memória o container pode usar. Se vazio (""), significa que 
@@ -177,11 +207,11 @@ docker container inspect mysql | grep -i memory
 #on one or more containers), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
-docker container inspect nginx | grep -i cpus
-docker container inspect mysql | grep -i cpus
+docker container inspect nginx | grep -i cpu
+docker container inspect mysql | grep -i cpu
 ```
 
-#05_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 ```bash
 #alterando a quantidade de memória RAM dos containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -189,8 +219,8 @@ docker container inspect mysql | grep -i cpus
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
 #Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
 #opção do comando docker: container (Manage containers), update (Update configuration of one or more 
-#containers), -m --memory (Memory limit), --memory-swap 1g (The amount of memory this container is 
-#allowed to swap to disk), nginx mysql (Container Names or Container ID)
+#containers), -m --memory (Memory limit the suffix b, k, m, or g), --memory-swap 1g (The amount of 
+#memory this container is allowed to swap to disk), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
 docker container update --memory 512m --memory-swap 1g nginx
@@ -206,12 +236,12 @@ docker container inspect nginx mysql | grep -i memory
 #containers), --cpus (Number of CPUs), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
-docker container update --cpus=1 nginx
-docker container update --cpus=1 mysql
-docker container inspect nginx mysql | grep -i cpus
+docker container update --cpus 1 nginx
+docker container update --cpus 1 mysql
+docker container inspect nginx mysql | grep -i cpu
 ```
 
-#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
+#07_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
 ```bash
 #iniciando os containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -234,8 +264,8 @@ docker container ls -a
 #opção do comando docker: container (Manage containers), update (Update configuration of one or more 
 #containers), -m --memory (Memory limit), --cpu-share (Set this flag to a value greater or less than the 
 #default of 1024 to increase or reduce the container's weight) nginx mysql (Container Names or Container ID)
-docker container update -memory 256m --cpu-share 512 nginx
-docker container update -memory 256m --cpu-share 512 mysql
+docker container update --memory 256m --memory-reservation 128m --cpu-share 512 nginx
+docker container update --memory 256m --memory-reservation 128m --cpu-share 512 mysql
 
 #inspecionando as informações de RAM e CPU dos containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -245,11 +275,11 @@ docker container update -memory 256m --cpu-share 512 mysql
 #on one or more containers), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case), -E (extended-regexp), | (Pipe) (OU de bit (OR))
-docker container inspect nginx | grep -i -E "memory|cpus"
-docker container inspect mysql | grep -i -E "memory|cpus"
+docker container inspect nginx | grep -i -E "memory|cpu"
+docker container inspect mysql | grep -i -E "memory|cpu"
 ```
 
-#07_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
+#08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
 ```bash
 #criando um novo container Debian mais sem executar no modo interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -260,7 +290,7 @@ docker container inspect mysql | grep -i -E "memory|cpus"
 #of memory this container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-share (Set this 
 #flag to a value greater or less than the default of 1024 to increase or reduce the container's weight), 
 #debian (imagem docker hub).
-docker container create --name mongodb --memory 512m --memory-swap 1g --cpus=1 --cpu-share 1024 debian
+docker container create --name mongodb --memory 512m --memory-swap 1g --cpus 1 --cpu-share 1024 debian
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -277,14 +307,14 @@ docker container ls -a
 #on one or more containers), mongodb (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case), -E (extended-regexp), | (Pipe) (OU de bit (OR))
-docker container inspect mongodb | grep -i -E "memory|cpus"
+docker container inspect mongodb | grep -i -E "memory|cpu"
 ```
 
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#09_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 

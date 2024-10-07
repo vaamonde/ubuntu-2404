@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 30/09/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 07/10/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 
@@ -64,7 +64,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 #instalação das dependências básicas do Docker CE
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install vim git python3 python3-pip apt-transport-https ca-certificates curl \
-software-properties-common linux-image-generic linux-image-extra-virtual lsof
+software-properties-common linux-image-generic linux-image-extra-virtual lsof jq
 ```
 
 #02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<br>

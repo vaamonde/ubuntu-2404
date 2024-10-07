@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 06/10/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 07/10/2024<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -63,20 +63,28 @@ docker search ubuntu
 
 #pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
-#based on conditions provided)
-docker search ubuntu --filter=stars=10
+#based on conditions provided), stars (parameters and value used in the filter)
+docker search ubuntu --filter stars=10
 
 #pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10
 #e marcado como imagem do desenvolvedor oficial do Docker-HUB
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
-#based on conditions provided)
-docker search ubuntu --filter=stars=10 --filter=is-official=true
+#based on conditions provided), stars (parameters and value used in the filter), is-official
+#(parameters and value used in the filter)
+docker search ubuntu --filter stars=10 --filter is-official=true
 
 #pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10,
 #marcado como imagem do desenvolvedor oficial e não truncar a descrição da imagem
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
-#based on conditions provided), --no-trunc (Don't truncate output)
-docker search ubuntu --filter=stars=10 --filter=is-official=true --no-trunc
+#based on conditions provided), stars (parameters and value used in the filter), is-official
+#(parameters and value used in the filter), --no-trunc (Don't truncate output)
+docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
+
+#pesquisando todas as informações de NAME e TAG da imagem de container do Ubuntu via APIv2 do Docker-HUB
+#opções de comando curl: -L (location), -s (silent)
+#opção do comando jq: . (The simplest filter is ., which copies jq's input to its output unmodified)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/' | jq . | grep name
 ```
 
 #02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
@@ -85,7 +93,7 @@ docker search ubuntu --filter=stars=10 --filter=is-official=true --no-trunc
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
-#from an image), ubuntu (imagem docker hub)
+#from an image), ubuntu (imagem docker hub), :latest (latest image update)
 docker container run ubuntu
 
 #informações que são mostradas na saída do comando: docker images
@@ -187,7 +195,7 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 #images (default hides intermediate images))
 docker container ls -a
 
-#executando novamente o container do Ubuntu em Daemon/Background no Docker-CE
+#executando novamente o container do Ubuntu em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
@@ -491,9 +499,9 @@ docker image rm debian
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#11_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#11_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#12_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 
