@@ -82,9 +82,18 @@ docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
 
 #pesquisando todas as informações de NAME e TAG da imagem de container do Ubuntu via APIv2 do Docker-HUB
 #opções de comando curl: -L (location), -s (silent)
-#opção do comando jq: . (The simplest filter is ., which copies jq's input to its output unmodified)
-#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/' | jq . | grep name
+#opção do comando jq: .results[] (Accesses the results key in JSON and iterates over each element of the 
+#array that is within this key.), | select(.name != null) (Filters previously iterated objects, keeping 
+#only those where the name key is not null.), | {name} (Creates a new object containing only the name key
+#of the filtered object.)
+#OBSERVAÇÃO IMPORTANTE: Onde está escrito: ubuntu trocar para o nome da imagem que você está pesquisando
+curl -s https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/ | jq '.results[] | select(.name != null) | {name}'
+
+#utilizar os navegadores para verificar as informações de imagem do Ubuntu via APIv2 do Docker-HUB
+#OBSERVAÇÃO IMPORTANTE: Onde está escrito: ubuntu trocar para o nome da imagem que você está pesquisando
+firefox ou google chrome: https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/
+JSON
+  Filtrar JSON: name
 ```
 
 #02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>

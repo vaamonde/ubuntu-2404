@@ -53,13 +53,14 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-con
 Vídeo de comandos básicos de CPU e RAM do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, iniciar, conectar, parar e atualizar as informações dos Container no Docker-CE referente a Processadores (CPU) e Memória RAM.
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#02_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#03_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#04_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#05_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
-#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
-#07_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
+#01_ Verificando as Informações de Processador (CPU), de Memória (RAM), HD (Hard Disk), Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
+#02_ Criando (Create) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#03_ Iniciando (Start) os Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#04_ Conectando (Attach) nos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#05_ Parando (Stop) e Inspecionando (Inspect) o Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
+#07_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
+#08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
 
 [![CPU e RAM Docker-CE](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Docker-CE")
 
