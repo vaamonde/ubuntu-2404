@@ -87,6 +87,7 @@ docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
 #only those where the name key is not null.), | {name} (Creates a new object containing only the name key
 #of the filtered object.)
 #OBSERVAÇÃO IMPORTANTE: Onde está escrito: ubuntu trocar para o nome da imagem que você está pesquisando
+#Mais informações acesse a documentação oficial do jq: https://devdocs.io/jq/
 curl -s https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/ | jq '.results[] | select(.name != null) | {name}'
 
 #utilizar os navegadores para verificar as informações de imagem do Ubuntu via APIv2 do Docker-HUB
