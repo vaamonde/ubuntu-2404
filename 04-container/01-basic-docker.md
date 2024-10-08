@@ -49,9 +49,9 @@ O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de pla
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-[![Basic Docker](http://img.youtube.com/vi//0.jpg)]( "Basic Docker")
+[![Basic Docker](http://img.youtube.com/vi/438Swr41MLs/0.jpg)](https://www.youtube.com/watch?v=438Swr41MLs "Basic Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=438Swr41MLs
 
 #01_ Utilizando o comando Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
 ```bash
@@ -80,8 +80,14 @@ docker search ubuntu --filter stars=10 --filter is-official=true
 #(parameters and value used in the filter), --no-trunc (Don't truncate output)
 docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
 
+#OBSERVAÇÃO IMPORTANTE: O termo: latest geralmente se refere à versão mais recente de um 
+#software ou imagem de contêiner. É comum em sistemas de versionamento e ferramentas como
+#o Docker. No Docker, por exemplo, ao baixar uma imagem, se você não especificar uma tag, 
+#a tag latest é usada por padrão. Isso significa que você estará puxando a versão mais 
+#atualizada da imagem.
+
 #pesquisando todas as informações de NAME e TAG da imagem de container do Ubuntu via APIv2 do Docker-HUB
-#opções de comando curl: -L (location), -s (silent)
+#opções de comando curl: -s (silent)
 #opção do comando jq: .results[] (Accesses the results key in JSON and iterates over each element of the 
 #array that is within this key.), | select(.name != null) (Filters previously iterated objects, keeping 
 #only those where the name key is not null.), | {name} (Creates a new object containing only the name key
@@ -125,13 +131,19 @@ docker images
 docker image ls
 
 #informações que são mostradas na saída do comando: docker container ls
-#CONTAINER ID..: dentificação única do container no docker;
+#CONTAINER ID..: identificação única do container no docker;
 #IMAGE.........: imagem utilizada na execução do container no docker;
 #COMMAND.......: comando em execução da imagem do docker;
 #CREATED.......: quando a imagem foi criada no docker;
 #STATUS........: status atual da imagem no docker;
 #PORTS.........: porta do container e do host utilizada para se comunicar no docker;
 #NAMES.........: nome do container no docker.
+
+#informações dos status padrão dos container do Docker-CE
+#Up..... ...: O contêiner está em execução e funcionando normalmente.
+#Exited.....: O contêiner foi encerrado. 
+#Restarting.: O contêiner está em um ciclo de reinicialização.
+#Created....: O contêiner foi criado mais não foi executado ainda.
 
 #OBSERVAÇÃO IMPORTANTE: SE VOCÊ NÃO USAR A OPÇÃO: --name (QUE SERÁ VISTO EM BREVE NESSE CURSO), O
 #DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: modest_shaw, peaceful_tharp, etc.
@@ -165,6 +177,9 @@ cat /etc/os-release
 
 #verificando o endereço IPv4 configurado no Ubuntu rodando no container do Docker-CE
 cat /etc/hosts
+
+#verificando o Hostname configurado no Ubuntu rodando no container do Docker-CE
+cat /etc/hostname
 
 #atualizando as listas (sources.list) do apt do Ubuntu rodando no container do Docker-CE
 apt update
@@ -299,6 +314,10 @@ docker container pause [CONTAINER ID ou NAME]
 #more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
 docker container unpause [CONTAINER ID ou NAME]
 
+#OBSERVAÇÃO IMPORTANTE: NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O
+#CONTAINER, POIS O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS
+#DO PROBLEMA.
+
 #bloqueando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/wait/
@@ -325,7 +344,7 @@ docker container wait [CONTAINER ID ou NAME]
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/stats/
 #opção do comando docker: container (Manage containers), stats (Display a live stream of container(s) 
 #resource usage statistics), happy_carver 1851e38b8e18 (Container Names or Container ID)
-#OBSERVAÇÃO IMPORTANTE: para sair das estáticas do container pressione: Ctrl+C
+#OBSERVAÇÃO IMPORTANTE: para sair das estáticas do container pressione: Ctrl+C 03 (três) vezes.
 docker container stats [CONTAINER ID ou NAME]
 
 #informações que são mostradas na saída do comando: docker top
@@ -361,7 +380,7 @@ docker container logs [CONTAINER ID ou NAME]
 docker container inspect [CONTAINER ID ou NAME]
 ```
 
-#08_ Removendo (RM) e Limpando (Prune) os Contêiner (Container) no Docker-CE<br>
+#08_ Removendo (RM) e Limpando/Podar (Prune) os Contêiner (Container) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -509,9 +528,9 @@ docker image rm debian
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#11_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`AlmaLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seunome`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#12_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#12_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`RockyLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container run`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`seusobrenome`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 

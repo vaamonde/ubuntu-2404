@@ -435,9 +435,9 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
 #10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 
-[![Básico Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Básico Docker-CE")
+[![Basic Docker](http://img.youtube.com/vi/438Swr41MLs/0.jpg)](https://www.youtube.com/watch?v=438Swr41MLs "Basic Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=438Swr41MLs
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/01-basic-docker.md
 
