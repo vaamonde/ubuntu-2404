@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 15/09/2024<br>
 #Data de atualização: 07/10/2024<br>
-#Versão: 0.05<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -51,7 +51,7 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 Link da vídeo aula: 
 
-#01_ Verificando as Informações de Processador (CPU), de Memória (RAM), HD (Hard Disk), Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
+#01_ Verificando as Informações de Processador (CPU), Memória (RAM), HD (Hard Disk) e Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
 ```bash
 #verificando as informações de Processador (CPU) do Ubuntu Server
 #opção do comando lshw: -class (Only show the given class of hardware)
@@ -93,10 +93,11 @@ docker container create -it --name nginx ubuntu
 #mysql (Assign a name to the container), ubuntu (imagem docker hub).
 docker container create -it --name mysql ubuntu
 
-#listando todas as imagens de container localmente no Docker-CE
+#outra opção para listar todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
-#opção do comando docker: images (List all imagens docker)
-docker images
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
