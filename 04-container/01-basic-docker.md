@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 07/10/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 09/10/2024<br>
+#Versão: 0.09<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -145,6 +145,16 @@ docker image ls
 #Restarting.: O contêiner está em um ciclo de reinicialização.
 #Created....: O contêiner foi criado mais não foi executado ainda.
 
+#informações os códigos do status Exited dos container do Docker-CE
+#  0 - O contêiner finalizou sua execução com sucesso (sem erros).
+#  1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada.
+#137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória).
+#139 - O contêiner foi encerrado devido a um segmentation fault.
+#143 - O contêiner foi finalizado após receber um SIGTERM, comando: docker stop.
+#125 - Ocorreu um erro ao tentar iniciar o contêiner, comando: docker run.
+#126 - O contêiner tentou executar um comando, mas o comando não pôde ser invocado.
+#127 - O comando ou programa que o contêiner tentou executar não foi encontrado.
+
 #OBSERVAÇÃO IMPORTANTE: SE VOCÊ NÃO USAR A OPÇÃO: --name (QUE SERÁ VISTO EM BREVE NESSE CURSO), O
 #DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: modest_shaw, peaceful_tharp, etc.
 
@@ -273,7 +283,7 @@ docker container exec -it [CONTAINER ID ou NAME] /bin/hostname
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/exec/
 #opção do comando docker: container (Manage containers), exec (Execute a command in a running container), 
 #-e --env (Set environment variables), happy_carver 1851e38b8e18 (Container Names or Container ID), env
-#(Container command)
+#(Container command - run a program in a modified environment)
 docker container exec -e ROBSON=1 -e VAAMONDE=2 [CONTAINER ID ou NAME] env
 ```
 
@@ -315,8 +325,8 @@ docker container pause [CONTAINER ID ou NAME]
 docker container unpause [CONTAINER ID ou NAME]
 
 #OBSERVAÇÃO IMPORTANTE: NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O
-#CONTAINER, POIS O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS
-#DO PROBLEMA.
+#CONTAINER, O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS DO 
+#PROBLEMA.
 
 #bloqueando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -435,10 +445,11 @@ docker search debian
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
 docker container create debian
 
-#listando as imagens de container localmente no Docker-CE
+#outra opção para listar todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
-#opção do comando docker: images (List all imagens docker)
-docker images
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -485,10 +496,11 @@ docker container ls -a
 
 #10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
 ```bash
-#listando as imagens de container do Ubuntu localmente no Docker-CE
+#outra opção para listar todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
-#opção do comando docker: images (List all imagens docker)
-docker images
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
 
 #informações que são mostradas na saída do comando: docker image history
 #IMAGE......: Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa
