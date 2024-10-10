@@ -237,7 +237,7 @@ docker container inspect nginx mysql | grep -i memory
 #containers), --cpus (Number of CPUs), nginx mysql (Container Names or Container ID)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando grep: -i (ignore-case)
-docker container update --cpus 1 nginx
+docker container update --cpus 0.5 nginx
 docker container update --cpus 1 mysql
 docker container inspect nginx mysql | grep -i cpu
 ```
@@ -286,12 +286,13 @@ docker container inspect mysql | grep -i -E "memory|cpu"
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
 #Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
-#opção do comando docker: container (Manage containers), create (Create a new container), --name 
+#opção do comando docker: container (Manage containers), create (Create a new container), -i 
+#--interactive (Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name 
 #mongodb (Assign a name to the container), -m --memory (Memory limit), --memory-swap 1g (The amount 
-#of memory this container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-share (Set this 
+#of memory this container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-shares (Set this 
 #flag to a value greater or less than the default of 1024 to increase or reduce the container's weight), 
 #debian (imagem docker hub).
-docker container create --name mongodb --memory 512m --memory-swap 1g --cpus 1 --cpu-share 1024 debian
+docker container create -it --name mongodb --memory 512m --memory-swap 1g --cpus 1 --cpu-shares 1024 debian
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

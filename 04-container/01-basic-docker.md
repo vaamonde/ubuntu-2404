@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 09/10/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 10/10/2024<br>
+#Versão: 0.10<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -249,7 +249,7 @@ docker container ls -a
 
 #04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
 ```bash
-#executando o container do Ubuntu em modo Interativo no Docker-CE
+#conectando no container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
 #opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
@@ -440,7 +440,10 @@ docker container ls -a
 #opção do comando docker: search (Search the Docker Hub for images)
 docker search debian
 
-#criando um novo container Debian mais sem executar
+#criando um novo container do Debian mais sem executar sem o modo Interativo
+#OBSERVAÇÃO IMPORTANTE: NA CRIAÇÃO DE CONTAINER SE VOCÊ NÃO PASSAR AS OPÇÕES: -it NO MOMENTO
+#DE INICIAR O CONTAINER SERÁ APRESENTADO O ERRO DE: Exited (0), NESSE EXEMPLO ESTÁ SENDO FEITO
+#APENAS A CRIAÇÃO DO CONTAINER NÃO A SUA EXECUÇÃO.
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
 docker container create debian
