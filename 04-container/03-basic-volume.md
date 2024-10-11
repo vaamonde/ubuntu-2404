@@ -33,6 +33,8 @@ Conteúdo estudado nesse desafio:<br>
 #02_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) do Computador Local (Host) no Contêiner (Container) do TomCAT no Docker-CE<br>
 #03_ Conectando (Attach) e Verificando o Ponto de Montagem (Bind Mounts) no Contêiner (Container) do TomCAT no Docker-CE<br>
 #04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE<br>
+#05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
+#06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -88,7 +90,7 @@ docker container run -d -it --name tomcat --mount type=bind,src=/home/vaamonde/t
 #images (default hides intermediate images))
 docker container ls -a
 
-#informações que são mostradas na saída do comando: docker inspect
+#informações que são mostradas na saída do comando: docker container inspect
 #"Type": "bind" Especifica o tipo de montagem. No caso, o valor "bind" indica que essa é 
 #               uma montagem vinculada (bind mount)
 #"Source": "/home/vaamonde/tomcat" O caminho no host onde o diretório ou arquivo que está
@@ -235,10 +237,120 @@ touch teste.txt
 Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
 ```
 
-#05_ Criando (Create) Volumes (Volume) no Docker-CE<br>
+#05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
 ```bash
+#criando volume local no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+docker volume create vaamonde
 
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+docker volume ls
+
+#informações que são mostradas na saída do comando: docker volume inspect
+#"CreatedAt": "2024-10-11T09:41:05-03:00": Indica a data e hora em que o volume foi criado.
+#"Driver": "local": O driver define como o volume é gerenciado em /var/lib/docker/volumes/.
+#"Labels": null: Labels são metadados que podem ser atribuídos a um volume para facilitar
+#                sua categorização e organização.
+#"Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema
+#                                                        de arquivos do host onde os dados do
+#                                                        volume estão armazenados.
+#"Name": "vaamonde": O nome do volume.
+#"Options": null: Opções adicionais configuráveis para o volume.
+#"Scope": "local": O escopo do volume define onde ele pode ser usado,  o volume é acessível 
+#                  apenas pelo Docker local.
+
+#inspecionando o volume criado no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+docker volume inspect vaamonde
 ```
+
+#06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
+```bash
+#executando o container do Ubuntu em modo Daemon/Background no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/#mount
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: container (Manage containers), run (Create and run a new container 
+#from an image), -d --detach (Run container in background and print container ID)-i --interactive 
+#(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name (Assign a name 
+#to the container), --mount (Attach a filesystem mount to the container), type=volume (Specifies 
+#that the mount type is a Docker-managed volume.), source=vaamonde (The name of the volume to be 
+#mounted. If the volume already exists, it will be reused. If it doesn't exist, Docker will create 
+#that volume automatically.), destination=/var/vaamonde (Defines the path inside the container where 
+#the volume will be mounted), ubuntu (imagem docker hub)
+docker container run -d -it --name netdata --mount type=volume,source=vaamonde,destination=/var/vaamonde ubuntu
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
+#inspecionando as informações de montagem container do Netdata no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
+#Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
+#opção do comando docker: container (Manage containers), inspect (Display detailed information 
+#on one or more containers), netdata (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando grep: -i (ignore-case), -E (extended-regexp), | (Pipe) (OU de bit (OR))
+docker container inspect netdata | grep -i -E "source|destination"
+
+#inspecionando as informações de montagem container do Netdata no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
+#Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
+#opção do comando docker: container (Manage containers), inspect (Display detailed information 
+#on one or more containers), netdata (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando jq: .[]: Isso percorre cada container no resultado, mesmo que você tenha 
+#especificado um único container, o comando inspect retorna uma lista, .Mounts[]: Acessa todos 
+#os pontos de montagem (bind mounts, volumes, etc.) do container, select(.Type == "volume"): 
+#Filtra para exibir apenas as montagens do tipo volume.
+docker container inspect netdata | jq '.[] | .Mounts[] | select(.Type == "volume")'
+
+#conectando no container do Ubuntu em modo Interativo no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
+#opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
+#and error streams to a running container), netdata (Container Names or Container ID)
+docker container attach netdata
+
+#verificando os pontos de montagens na imagem do Ubuntu do container do Netdata
+#opção do comando df: -h (human-readable)
+df -h
+
+#listando o volume de dados do Netdata no Ubuntu Server
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh /var
+
+#acessando o volume de dados do Netdata e criando um arquivo de teste
+cd /var/vaamonde
+touch teste.txt
+
+#saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
+Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
+
+#OBSERVAÇÃO IMPORTANTE: MESMO QUE VOCÊ FAÇA PARTE DO GRUPO DO DOCKER NO UBUNTU SERVER, SOMENTE
+#O USUÁRIO ROOT TEM DIREITO DE LISTAR O CONTEÚDO DO DIRETÓRIO: /var/lib/docker/volumes/, PARA
+#VER OS CONTEÚDOS DE ARQUIVOS DOS VOLUMES PRECISAMOS SE LOGAR/MUDAR PARA O USUÁRIO ROOT.
+#opção do comando sudo: -i (login)
+sudo -i
+
+#listando o conteúdo do volume do container do Ubuntu
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh /var/lib/docker/volumes/vaamonde/_data/
+```
+
 ========================================DESAFIOS=========================================
 
 **#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).

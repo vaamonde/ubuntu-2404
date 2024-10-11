@@ -112,7 +112,7 @@ JSON
 #from an image), ubuntu (imagem docker hub), :latest (latest image update)
 docker container run ubuntu
 
-#informações que são mostradas na saída do comando: docker images
+#informações que são mostradas na saída do comando: docker image ls
 #REPOSITORY.: nome da imagem do docker;
 #TAG........: versão da imagem do docker;
 #IMAGE ID...: identificação da imagem do docker;
