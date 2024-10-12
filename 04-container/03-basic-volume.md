@@ -77,11 +77,11 @@ pwd tomcat/
 #(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name (Assign a name 
 #to the container), --mount (Attach a filesystem mount to the container), type=bind (bind mount 
 #in Docker is a way to mount a directory or file from the host filesystem directly to the container 
-#filesystem.), src=/home/vaamonde/tomcat (The source of the mount. For bind mounts, this is the 
-#path to the file or directory on the Docker daemon host. May be specified as source or src), dst 
+#filesystem.), source=/home/vaamonde/tomcat (The source of the mount. For bind mounts, this is the 
+#path to the file or directory on the Docker daemon host. May be specified as source or src), destination 
 #(The destination takes as its value the path where the file or directory is mounted in the container. 
 #May be specified as destination, dst, or target), ubuntu (imagem docker hub)
-docker container run -d -it --name tomcat --mount type=bind,src=/home/vaamonde/tomcat,dst=/tomcat ubuntu
+docker container run -d -it --name tomcat --mount type=bind,source=/home/vaamonde/tomcat,destination=/tomcat ubuntu
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -177,12 +177,12 @@ pwd zabbix/
 #(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name (Assign a name 
 #to the container), --mount (Attach a filesystem mount to the container), type=bind (bind mount 
 #in Docker is a way to mount a directory or file from the host filesystem directly to the container 
-#filesystem.), src=/home/vaamonde/zabbix (The source of the mount. For bind mounts, this is the 
-#path to the file or directory on the Docker daemon host. May be specified as source or src), dst 
+#filesystem.), source=/home/vaamonde/zabbix (The source of the mount. For bind mounts, this is the 
+#path to the file or directory on the Docker daemon host. May be specified as source or src), destination 
 #(The destination takes as its value the path where the file or directory is mounted in the container. 
 #May be specified as destination, dst, or target), readonly (This option makes the mounted directory
 #(/home/vaamonde/zabbix on the host) read-only in the container) ubuntu (imagem docker hub)
-docker container run -d -it --name zabbix --mount type=bind,src=/home/vaamonde/zabbix,dst=/zabbix,readonly ubuntu
+docker container run -d -it --name zabbix --mount type=bind,source=/home/vaamonde/zabbix,destination=/zabbix,readonly ubuntu
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -351,11 +351,19 @@ sudo -i
 ls -lh /var/lib/docker/volumes/vaamonde/_data/
 ```
 
+#07_ Criando (Create) Contêiner (Container) de Volume (Volume) de Apenas de Dados (Data-Only) no Docker-CE<br>
+```bash
+#criando um novo container do CentOS mais sem executar o modo Interativo
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
+docker container create --volume /data --name dbdados centos
+```
+
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Fedora`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql01`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`ArchLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql02`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 
