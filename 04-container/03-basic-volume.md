@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 10/10/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 12/10/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -349,14 +349,28 @@ sudo -i
 #listando o conteúdo do volume do container do Ubuntu
 #opção do comando ls: -l (long listing format), -h (human-readable)
 ls -lh /var/lib/docker/volumes/vaamonde/_data/
+exit
 ```
 
-#07_ Criando (Create) Contêiner (Container) de Volume (Volume) de Apenas de Dados (Data-Only) no Docker-CE<br>
+#07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
 ```bash
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
 docker container create --volume /data --name dbdados centos
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+docker volume ls
 ```
 
 ========================================DESAFIOS=========================================

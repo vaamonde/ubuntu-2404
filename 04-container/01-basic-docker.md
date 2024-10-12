@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 10/10/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 12/10/2024<br>
+#Versão: 0.11<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -48,6 +48,10 @@ Site Oficial do Docker Hub: https://hub.docker.com/<br>
 O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+
+O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+
+O QUE É E PARA QUE SERVER O CONTAINER DOCKER: O container Docker é uma instância executável e isolada de uma imagem Docker. Ele encapsula tudo o que é necessário para rodar uma aplicação: o código, as dependências, bibliotecas, variáveis de ambiente, e arquivos de configuração, tudo em um ambiente leve e isolado. Containers são o coração do Docker e a principal unidade de execução de aplicações.
 
 [![Basic Docker](http://img.youtube.com/vi/438Swr41MLs/0.jpg)](https://www.youtube.com/watch?v=438Swr41MLs "Basic Docker")
 
