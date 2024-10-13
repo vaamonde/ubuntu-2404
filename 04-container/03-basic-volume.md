@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 12/10/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 13/10/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -357,7 +357,7 @@ exit
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
-docker container create --volume /data --name dbdados centos
+docker container create --volume /data --name website centos
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -371,6 +371,26 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
 docker volume ls
+
+#executando o container do Ubuntu em modo Daemon/Background no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/#mount
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: container (Manage containers), run (Create and run a new container 
+#from an image), -d --detach (Run container in background and print container ID), -i --interactive 
+#(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), -p --publish (Publish a 
+#container's port(s) to the host), --name (Assign a name to the container), --volume-from (Mount 
+#volumes from the specified container(s)), ubuntu (imagem docker hub)
+docker container run -d -it --publish 8181:80 --name apache01 --volume-from website ubuntu
+docker container run -d -it --publish 8181:80 --name apache02 --volume-from website debian
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
 ```
 
 ========================================DESAFIOS=========================================
@@ -381,10 +401,10 @@ docker volume ls
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de CPU e RAM dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Volumes dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/04-cpu-ram-docker.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/05-volume-docker.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiocpuramdocker
