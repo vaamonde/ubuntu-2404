@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 13/10/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 14/10/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -35,6 +35,7 @@ Conteúdo estudado nesse desafio:<br>
 #04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE<br>
 #05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
 #06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
+#07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -357,7 +358,7 @@ exit
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
-docker container create --volume /data --name website centos
+docker container create --volume /data --name dbdados centos
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -372,6 +373,11 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
 docker volume ls
 
+#OBSERVAÇÃO IMPORTANTE: NO EXEMPLO ABAIXO SERÁ UTILIZADO UMA IMAGEM DE CONTAINER DO BANCO
+#DE DADOS POSTGRESQL DO REPOSITÓRIO DO KAMUI: https://hub.docker.com/u/kamui, PARA ESSE
+#CENÁRIO SERÁ NECESSÁRIO CONFIGURAR O MAPEAMENTO DAS PORTAS UTILIZADAS PELO POSTGRESQL QUE
+#SERÁ VISTO MAIS ADIANTE NESSE CURSO NAS AULAS DE REDE E MAPEAMENTO DE PORTAS.
+
 #executando o container do Ubuntu em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
@@ -381,9 +387,13 @@ docker volume ls
 #from an image), -d --detach (Run container in background and print container ID), -i --interactive 
 #(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), -p --publish (Publish a 
 #container's port(s) to the host), --name (Assign a name to the container), --volume-from (Mount 
-#volumes from the specified container(s)), ubuntu (imagem docker hub)
-docker container run -d -it --publish 8181:80 --name apache01 --volume-from website ubuntu
-docker container run -d -it --publish 8181:80 --name apache02 --volume-from website debian
+#volumes from the specified container(s)), -e --env (Set environment variables)) kamui/postgresql
+#(repository and imagem docker hub)
+docker container run -d -it --publish 5432:5432 --name pgsql01 --volume-from dbdados \
+-e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+
+docker container run -d -it --publish 5431:5432 --name pgsql02 --volume-from dbdados \
+-e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -391,6 +401,17 @@ docker container run -d -it --publish 8181:80 --name apache02 --volume-from webs
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
+```
+
+#08_ Removendo (RM) Volume (Volume), Contêiner (Container) e Imagens (Image) no Docker-CE<br>
+```bash
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
 ```
 
 ========================================DESAFIOS=========================================

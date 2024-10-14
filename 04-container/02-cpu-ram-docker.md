@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 15/09/2024<br>
-#Data de atualização: 07/10/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 14/10/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -37,6 +37,7 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 #07_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
 #08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
+#09_ Removendo (RM) os Contêiner (Container) e Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -312,11 +313,41 @@ docker container ls -a
 docker container inspect mongodb | grep -i -E "memory|cpu"
 ```
 
+#09_ Removendo (RM) os Contêiner (Container) e Imagens (Image) no Docker-CE<br>
+```bash
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
+#images (default hides intermediate images))
+docker container ls -a
+
+#removendo o container do Ubuntu e do Debian no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
+#opção do comando docker: container (Manage containers), rm (Remove one or more containers),
+#-f (Force the removal of a running container), nginx mysql mongodb (Container Names or ID)
+docker container rm -f nginx mysql mongodb
+
+#outra opção para listar todas as imagens de containers no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
+
+#removendo as imagens do Ubuntu e do Debian localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
+#opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
+#-f (Force removal of the image) ubuntu debian (imagem docker)
+docker image rm -f ubuntu debian
+```
+
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#10_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Alpine`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`apache2`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
 
-**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#11_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mariadb`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
 
 =========================================================================================
 

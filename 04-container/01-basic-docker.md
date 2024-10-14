@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 12/10/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 14/10/2024<br>
+#Versão: 0.12<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -149,7 +149,7 @@ docker image ls
 #Restarting.: O contêiner está em um ciclo de reinicialização.
 #Created....: O contêiner foi criado mais não foi executado ainda.
 
-#informações os códigos do status Exited dos container do Docker-CE
+#informações dos códigos do status Exited dos container do Docker-CE
 #  0 - O contêiner finalizou sua execução com sucesso (sem erros).
 #  1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada.
 #137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória).
@@ -520,7 +520,7 @@ docker image ls
 #COMMENT....: Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, 
 #             a menos que tenha sido explicitamente preenchida durante o processo de build da imagem.
 
-#verificando o histórico da imagem do Ubuntu e do Debian localmente no Docker-CE
+#verificando os históricos das imagens do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
 #opção do comando docker: images (List all imagens docker), history (Show the history of an image)
@@ -528,7 +528,7 @@ docker image ls
 docker image history ubuntu
 docker image history debian
 
-#inspecionando a imagem do Ubuntu e do Debian localmente no Docker-CE
+#inspecionando as imagens do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/inspect/
 #opção do comando docker: images (List all imagens docker), inspect (Display detailed information 
@@ -536,7 +536,7 @@ docker image history debian
 docker image inspect ubuntu
 docker image inspect debian
 
-#removendo as imagems do Ubuntu e do Debian localmente no Docker-CE
+#removendo as imagens do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
