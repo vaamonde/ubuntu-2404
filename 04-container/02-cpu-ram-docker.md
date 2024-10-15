@@ -270,8 +270,8 @@ docker container ls -a
 #opção do comando docker: container (Manage containers), update (Update configuration of one or more 
 #containers), -m --memory (Memory limit), --cpu-share (Set this flag to a value greater or less than the 
 #default of 1024 to increase or reduce the container's weight) nginx mysql (Container Names or Container ID)
-docker container update --memory 256m --memory-reservation 128m --cpu-share 512 nginx
-docker container update --memory 256m --memory-reservation 128m --cpu-share 512 mysql
+docker container update --memory 256m --memory-reservation 128m --cpu-shares 512 nginx
+docker container update --memory 256m --memory-reservation 128m --cpu-shares 512 mysql
 
 #inspecionando as informações de RAM e CPU dos containers do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

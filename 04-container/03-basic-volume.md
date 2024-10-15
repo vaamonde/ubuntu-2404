@@ -154,6 +154,10 @@ ls
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
+
+#listando o conteúdo do diretório de dados do TomCAT no Ubuntu Server
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh tomcat/
 ```
 
 #04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE<br>
@@ -361,6 +365,10 @@ exit
 
 #07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ FAZ A CRIAÇÃO DE UM CONTAINER INDICANDO QUAL SERÁ O VOLUME
+#A SER UTILIZADO, CASO O VOLUME NÃO EXISTA NO DOCKER ELE SERÁ CRIADO COM O NOME DE IDENTIFICAÇÃO
+#PADRÃO GERADO AUTOMATICAMENTE PELO DOCKER É NÃO PELO SEU NOME.
+
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
@@ -383,8 +391,21 @@ docker container ls -a
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
+#inspecionando as informações de montagem container do CentOS no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
+#Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
+#opção do comando docker: container (Manage containers), inspect (Display detailed information 
+#on one or more containers), dbdados (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando jq: .[]: Isso percorre cada container no resultado, mesmo que você tenha 
+#especificado um único container, o comando inspect retorna uma lista, .Mounts[]: Acessa todos 
+#os pontos de montagem (bind mounts, volumes, etc.) do container, select(.Type == "volume"): 
+#Filtra para exibir apenas as montagens do tipo volume.
+docker container inspect dbdados | jq '.[] | .Mounts[] | select(.Type == "volume")'
+
 #OBSERVAÇÃO IMPORTANTE: NO EXEMPLO ABAIXO SERÁ UTILIZADO UMA IMAGEM DE CONTAINER DO BANCO
-#DE DADOS POSTGRESQL DO REPOSITÓRIO DO KAMUI: https://hub.docker.com/u/kamui, PARA ESSE
+#DE DADOS POSTGRESQL DO REPOSITÓRIO DA CANONICAL: https://hub.docker.com/u/ubuntu, PARA ESSE
 #CENÁRIO SERÁ NECESSÁRIO CONFIGURAR O MAPEAMENTO DAS PORTAS UTILIZADAS PELO POSTGRESQL QUE
 #SERÁ VISTO MAIS ADIANTE NESSE CURSO NAS AULAS DE REDE E MAPEAMENTO DE PORTAS.
 
@@ -396,14 +417,14 @@ docker volume ls
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
 #from an image), -d --detach (Run container in background and print container ID), -i --interactive 
 #(Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), -p --publish (Publish a 
-#container's port(s) to the host), --name (Assign a name to the container), --volume-from (Mount 
-#volumes from the specified container(s)), -e --env (Set environment variables)) kamui/postgresql
+#container's port(s) to the host), --name (Assign a name to the container), --volumes-from (Mount 
+#volumes from the specified container(s)), -e --env (Set environment variables)) ubuntu/postgres
 #(repository and imagem docker hub)
-docker container run -d -it --publish 5432:5432 --name pgsql01 --volume-from dbdados \
--e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+docker container run -d -it --publish 5432:5432 --name pgsql01 --volumes-from dbdados -e POSTGRES_USER=docker \
+-e POSTGRES_PASSWORD=docker -e POSTGRES_DB=docker -e PGDATA=/data ubuntu/postgres
 
-docker container run -d -it --publish 5431:5432 --name pgsql02 --volume-from dbdados \
--e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+docker container run -d -it --publish 5431:5432 --name pgsql02 --volumes-from dbdados -e POSTGRES_USER=docker \
+-e POSTGRES_PASSWORD=docker -e POSTGRES_DB=docker -e PGDATA=/data ubuntu/postgres
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -411,9 +432,34 @@ docker container run -d -it --publish 5431:5432 --name pgsql02 --volume-from dbd
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
+
+#inspecionando as informações de montagem container do CentOS no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
+#Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
+#opção do comando docker: container (Manage containers), inspect (Display detailed information 
+#on one or more containers), pgsql01 e pgsql02 (Container Names or Container ID)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando jq: .[]: Isso percorre cada container no resultado, mesmo que você tenha 
+#especificado um único container, o comando inspect retorna uma lista, .Mounts[]: Acessa todos 
+#os pontos de montagem (bind mounts, volumes, etc.) do container, select(.Type == "volume"): 
+#Filtra para exibir apenas as montagens do tipo volume.
+docker container inspect pgsql01 | jq '.[] | .Mounts[] | select(.Type == "volume")'
+docker container inspect pgsql02 | jq '.[] | .Mounts[] | select(.Type == "volume")'
+
+#OBSERVAÇÃO IMPORTANTE: MESMO QUE VOCÊ FAÇA PARTE DO GRUPO DO DOCKER NO UBUNTU SERVER, SOMENTE
+#O USUÁRIO ROOT TEM DIREITO DE LISTAR O CONTEÚDO DO DIRETÓRIO: /var/lib/docker/volumes/, PARA
+#VER OS CONTEÚDOS DE ARQUIVOS DOS VOLUMES PRECISAMOS SE LOGAR/MUDAR PARA O USUÁRIO ROOT.
+#opção do comando sudo: -i (login)
+sudo -i
+
+#listando o conteúdo do volume do container do Ubuntu
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh /var/lib/docker/volumes/ID_DO_VOLUME_DBDADOS/_data/
+exit
 ```
 
-#08_ Removendo (RM) Volume (Volume), Contêiner (Container) e Imagens (Image) no Docker-CE<br>
+#08_ Removendo (RM) Volumes (Volume), Contêiners (Container) e Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -422,7 +468,7 @@ docker container ls -a
 #images (default hides intermediate images))
 docker container ls -a
 
-#removendo o container do Ubuntu, Debian e do CentOS no Docker-CE
+#removendo o container do Ubuntu e do CentOS no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
 #opção do comando docker: container (Manage containers), rm (Remove one or more containers),
@@ -441,7 +487,7 @@ docker volume ls
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/rm/
 #opção do comando docker: volume (Manage volumes), rm (Remove one or more volumes)
-docker volume rm vaamonde dbdados
+docker volume rm vaamonde IDS_DOS_VOLUMES
 
 #limpando todos os volumes no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -459,19 +505,21 @@ docker volume prune
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
 
-#removendo as imagens do Ubuntu, Debian e do CentOS localmente no Docker-CE
+#removendo as imagens do Ubuntu e do CentOS localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
-#-f (Force removal of the image) ubuntu debian centos kamui/postgresql (imagem docker)
-docker image rm -f ubuntu debian centos kamui/postgresql
+#-f (Force removal of the image) ubuntu centos ubuntu/postgres (imagem docker)
+docker image rm -f ubuntu centos ubuntu/postgres
 ```
 
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Fedora`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql01`__ (SEU PRIMEIRO NOME TUDO EM MINÚSCULO SEM ACENTO).
+**#09_ DESAFIO-01:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Fedora`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 06 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`glpi`__.
 
-**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`ArchLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 07 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql02`__ (SEU SOBRENOME TUDO EM MINÚSCULO SEM ACENTO).
+**#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`ArchLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 06 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`grafana`__.
+
+**#11_ DESAFIO-03:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Ubuntu/MySQL`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 07 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql01 e mysql02`__, pesquisar no link: https://hub.docker.com/r/ubuntu/mysql no campo: __`Parameters`__ as opções de: Usuário, Senha, Database e localização da Base de Dados, montar o mesmo caminho de: __`/data`__ nesses servidores: OBSERVAÇÃO: NESSE CENÁRIO NÃO É NECESSÁRIO MUDAR O CAMINHO PADRÃO DO BANCO DE DADOS DO MYSQL QUE É: /var/lib/mysql APENAS MONTAR O CAMINHO: /data NESSES SERVIDORES, DEPOIS NESSE CURSO SERÁ ESTUDADO COMO CRIAR OS ARQUIVOS DOCKER COMPOSE E DOCKER FILE PARA FACILITAR A CRIAÇÃO DOS CONTAINERS E MAPEAMENTO DE VOLUMES.
 
 =========================================================================================
 
