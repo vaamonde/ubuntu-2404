@@ -48,7 +48,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=438Swr41MLs
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/01-basic-docker.md
 
-## **🤩🤩 Comandos Básicos CPU e RAM do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Comandos Básicos de CPU e RAM do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de comandos básicos de CPU e RAM do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, iniciar, conectar, parar e atualizar as informações dos Container no Docker-CE referente a Processadores (CPU) e Memória RAM.
 
@@ -61,9 +61,43 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) do Ubuntu (Image) no Docker-CE<br>
 #07_ Atualizando (Update) as Configurações de RAM e CPU dos Contêiner (Container) em Execução (Run) no Docker-CE<br>
 #08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
+#09_ Removendo (RM) os Contêiner (Container) e Imagens (Image) no Docker-CE<br>
 
 [![CPU e RAM Docker-CE](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Docker-CE")
 
 Link da vídeo aula: 
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/02-cpu-ram-docker.md
+
+## **🤩🤩 Comandos Básicos de Volumes Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de Volumes do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, montar, conectar e integrar volumes de diretórios e arquivos nos Container do Docker-CE para facilitar o gerenciamento e centralização da informações.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Criando o Diretório de Dados do TomCAT no Ubuntu Server<br>
+#02_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) do Computador Local (Host) no Contêiner (Container) do TomCAT no Docker-CE<br>
+#03_ Conectando (Attach) e Verificando o Ponto de Montagem (Bind Mounts) no Contêiner (Container) do TomCAT no Docker-CE<br>
+#04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE<br>
+#05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
+#06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
+#07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
+#08_ Removendo (RM) Volume (Volume), Contêiner (Container) e Imagens (Image) no Docker-CE<br>
+
+[![Volumes Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Volumes Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/03-basic-volume.md
+
+## **🤩🤩 Comandos Básicos de Network Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de NEtwork do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, configurar, mapear redes e portas nos Container do Docker-CE para facilitar o gerenciamento e acesso remoto aos serviços.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ 
+
+[![Network Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Network Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/04-basic-network.md

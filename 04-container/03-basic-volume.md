@@ -36,6 +36,7 @@ Conteúdo estudado nesse desafio:<br>
 #05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
 #06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
 #07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
+#08_ Removendo (RM) Volume (Volume), Contêiner (Container) e Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
