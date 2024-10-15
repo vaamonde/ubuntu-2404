@@ -245,12 +245,15 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), create (Create a volume), vaamonde
+#(Volume name)
 docker volume create vaamonde
 
 #listando os volumes criados no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
 #informações que são mostradas na saída do comando: docker volume inspect
@@ -270,6 +273,8 @@ docker volume ls
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), inspect (Display detailed information on
+#one or more volumes), vaamonde (Volume name)
 docker volume inspect vaamonde
 ```
 
@@ -359,6 +364,9 @@ exit
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
+#opção do comando docker: container (Manage containers), create (Create a new container),
+#-v --volume (Bind mount a volume), /data (Initialize volumes), --name (Assign a name to
+#the container), dbdados (Container name), centos (Image Local or Docker Hub)
 docker container create --volume /data --name dbdados centos
 
 #verificando todos os status dos containers em execução no Docker-CE
@@ -372,6 +380,7 @@ docker container ls -a
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
 #OBSERVAÇÃO IMPORTANTE: NO EXEMPLO ABAIXO SERÁ UTILIZADO UMA IMAGEM DE CONTAINER DO BANCO
@@ -413,6 +422,49 @@ docker container ls -a
 #images (default hides intermediate images))
 docker container ls -a
 
+#removendo o container do Ubuntu, Debian e do CentOS no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
+#opção do comando docker: container (Manage containers), rm (Remove one or more containers),
+#-f (Force the removal of a running container), tomcat zabbix netdata dbdados pgsql01 pgsql02
+#(Container Names or ID)
+docker container rm -f tomcat zabbix netdata dbdados pgsql01 pgsql02
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
+docker volume ls
+
+#limpando todos os volumes no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/rm/
+#opção do comando docker: volume (Manage volumes), rm (Remove one or more volumes)
+docker volume rm vaamonde dbdados
+
+#limpando todos os volumes no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/prune/
+#opção do comando docker: volume (Manage volumes), prune (Remove unused local volumes)
+#OBSERVAÇÃO IMPORTANTE: MUITO CUIDADO NA HORA DE USAR ESSA OPÇÃO EM SERVIDORES DE PRODUÇÃO
+#QUE ESTÁ RODANDO PRINCIPALMENTE O PORTAINER.
+docker volume prune
+  WARNING! This will remove anonymous local volumes not used by at least one container.
+  Are you sure you want to continue? [y/N] y
+
+#listando todas as imagens de containers no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
+
+#removendo as imagens do Ubuntu, Debian e do CentOS localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
+#opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
+#-f (Force removal of the image) ubuntu debian centos kamui/postgresql (imagem docker)
+docker image rm -f ubuntu debian centos kamui/postgresql
 ```
 
 ========================================DESAFIOS=========================================

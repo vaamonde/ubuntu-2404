@@ -227,6 +227,8 @@ docker container inspect mysql | grep -i cpu
 #opção do comando grep: -i (ignore-case)
 docker container update --memory 512m --memory-swap 1g nginx
 docker container update --memory 512m --memory-swap 1g mysql
+
+#inspecionando simultaneamente os dois containers do Ubuntu referente a Memória RAM
 docker container inspect nginx mysql | grep -i memory
 
 #alterando a quantidade de processador CPU dos containers do Ubuntu no Docker-CE
@@ -240,6 +242,8 @@ docker container inspect nginx mysql | grep -i memory
 #opção do comando grep: -i (ignore-case)
 docker container update --cpus 0.5 nginx
 docker container update --cpus 1 mysql
+
+#inspecionando simultaneamente os dois containers do Ubuntu referente a CPU
 docker container inspect nginx mysql | grep -i cpu
 ```
 
