@@ -46,6 +46,33 @@ O QUE É E PARA QUE SERVER O NETWORK DO DOCKER: O Network no Docker refere-se ao
 
 Link da vídeo aula: 
 
+#09_ Verificando a Interface e Endereçamento IPv4 padrão do Docker-CE<br>
+```bash
+#verificando a interface e endereço IPv4 do Docker-CE
+sudo ifconfig docker0
+  docker0: 172.17.0.1/16 (255.255.0.0)
+```
+
+#criando volume local no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), create (Create a volume), website
+#(Volume name)
+docker volume create website
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
+docker volume ls
+
+docker container run -d -it --name website --mount type=volume,source=website,destination=/var/www/html --publish 8080:80 ubuntu/apache2 /bin/bash
+
+iptables -L -n
+iptables -L -n -t nat
+
 #01_ <br>
 ```bash
 
