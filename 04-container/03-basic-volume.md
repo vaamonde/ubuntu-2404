@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 14/10/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 16/10/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -519,7 +519,7 @@ docker image rm -f ubuntu centos ubuntu/postgres
 
 **#10_ DESAFIO-02:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`ArchLinux`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 06 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`grafana`__.
 
-**#11_ DESAFIO-03:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Ubuntu/MySQL`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 07 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`mysql01 e mysql02`__, pesquisar no link: https://hub.docker.com/r/ubuntu/mysql no campo: __`Parameters`__ as opções de: Usuário, Senha, Database e localização da Base de Dados, montar o mesmo caminho de: __`/data`__ nesses servidores: OBSERVAÇÃO: NESSE CENÁRIO NÃO É NECESSÁRIO MUDAR O CAMINHO PADRÃO DO BANCO DE DADOS DO MYSQL QUE É: /var/lib/mysql APENAS MONTAR O CAMINHO: /data NESSES SERVIDORES, DEPOIS NESSE CURSO SERÁ ESTUDADO COMO CRIAR OS ARQUIVOS DOCKER COMPOSE E DOCKER FILE PARA FACILITAR A CRIAÇÃO DOS CONTAINERS E MAPEAMENTO DE VOLUMES.
+**#11_ DESAFIO-03:** PESQUISAR NO DOCKER-HUB A IMAGEM DE CONTAINER DO: __`Ubuntu/MySQL`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 07 ATÉ 08 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM OS SEGUINTES NOMES: __`mysql01 e mysql02`__, PESQUISAR NO LINK: https://hub.docker.com/r/ubuntu/mysql NO CAMPO: __`Parameters`__ AS OPÇÕES DE: __`Usuário, Senha, Database e Localização da Base de Dados`__, MONTAR O MESMO CAMINHO DE: __`/data`__ NESSES SERVIDORES: **OBSERVAÇÃO**: NESSE CENÁRIO NÃO É NECESSÁRIO MUDAR O CAMINHO PADRÃO DO BANCO DE DADOS DO MYSQL QUE É: __`/var/lib/mysql`__ APENAS MONTAR O CAMINHO: __`/data`__ NESSES SERVIDORES, DEPOIS NESSE CURSO SERÁ ESTUDADO COMO CRIAR OS ARQUIVOS DO DOCKER COMPOSE E DOCKER FILE PARA FACILITAR A CRIAÇÃO DOS CONTAINERS E MAPEAMENTO DE VOLUMES.
 
 =========================================================================================
 
