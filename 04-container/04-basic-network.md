@@ -68,7 +68,7 @@ docker volume create website
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
-docker container run -d -it --name website --mount type=volume,source=website,destination=/var/www/html --publish 8080:80 ubuntu/apache2 /bin/bash
+docker container run -d -it --name website --volume website:/var/www/html --publish 8080:80 ubuntu/apache2 /bin/bash
 
 iptables -L -n
 iptables -L -n -t nat
