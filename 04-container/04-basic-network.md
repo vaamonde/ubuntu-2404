@@ -46,11 +46,19 @@ O QUE É E PARA QUE SERVER O NETWORK DO DOCKER: O Network no Docker refere-se ao
 
 Link da vídeo aula: 
 
-#09_ Verificando a Interface e Endereçamento IPv4 padrão do Docker-CE<br>
+#01_ Verificando a Interface e Endereçamento IPv4 padrão do Docker-CE<br>
 ```bash
 #verificando a interface e endereço IPv4 do Docker-CE
 sudo ifconfig docker0
   docker0: 172.17.0.1/16 (255.255.0.0)
+```
+
+#02_ Verificando as Redes criadas por padrão no Docker-CE<br>
+```bash
+#listando as redes padrão do Docker-CE 
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/ls/
+docker network ls
 ```
 
 #criando volume local no Docker-CE
