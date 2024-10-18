@@ -63,9 +63,9 @@ Conteúdo estudado nesse desafio:<br>
 #08_ Criando (Create) Contêiner (Container) com RAM e CPU Customizada no Docker-CE<br>
 #09_ Removendo (RM) os Contêiner (Container) e Imagens (Image) no Docker-CE<br>
 
-[![CPU e RAM Docker-CE](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Docker-CE")
+[![CPU e RAM Basic Docker](http://img.youtube.com/vi/88K9B41JkbQ/0.jpg)](https://www.youtube.com/watch?v=88K9B41JkbQ "CPU e RAM Basic Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=88K9B41JkbQ
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/02-cpu-ram-docker.md
 

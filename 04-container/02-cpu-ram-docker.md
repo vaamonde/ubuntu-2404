@@ -48,9 +48,9 @@ O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de pla
 
 O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-[![CPU e RAM Basic Docker](http://img.youtube.com/vi//0.jpg)]( "CPU e RAM Basic Docker")
+[![CPU e RAM Basic Docker](http://img.youtube.com/vi/88K9B41JkbQ/0.jpg)](https://www.youtube.com/watch?v=88K9B41JkbQ "CPU e RAM Basic Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=88K9B41JkbQ
 
 #01_ Verificando as Informações de Processador (CPU), Memória (RAM), HD (Hard Disk) e Swap (Virtual Memory) do Ubuntu Server e do Docker-CE<br>
 ```bash
