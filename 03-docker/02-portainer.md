@@ -203,9 +203,9 @@ sudo ufw status verbose
 ```bash
 #OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): SE VOCÊ DEMORAR MUITO PARA ACESSAR PELA
 #PRIMEIRA VEZ O PORTAINER O ERRO DE: Failure: Unable to resolve server settings and status, 
-#PARA RESOLVER ESSA ALHA VOCÊ PRECISAR REINICIAR O CONTAINER DO PORTAINER UTILIZANDO, POR 
-#EXEMPLO O COMANDO: sudo systemctl stop portainer E DEPOIS O COMANDO: sudo systemctl start 
-#portainer.
+#IRÁ APARECER NA TELA DO SEU NAVEGADOR, PARA RESOLVER ESSA ALHA VOCÊ PRECISAR REINICIAR O 
+#CONTAINER DO PORTAINER UTILIZANDO, POR EXEMPLO O COMANDO: sudo systemctl stop portainer E 
+#DEPOIS O COMANDO: sudo systemctl start portainer.
 
 #utilizar os navegadores para testar o acesso ao Portainer.io 
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
