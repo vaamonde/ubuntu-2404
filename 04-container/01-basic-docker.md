@@ -65,19 +65,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=438Swr41MLs
 #opção do comando docker: search (Search the Docker Hub for images)
 docker search ubuntu
 
-#pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10
+#pesquisando imagens de containers do Ubuntu com filtro de estrela igual ou superior a 10
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
 #based on conditions provided), stars (parameters and value used in the filter)
 docker search ubuntu --filter stars=10
 
-#pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10
+#pesquisando imagens de containers do Ubuntu com filtro de estrela igual ou superior a 10
 #e marcado como imagem do desenvolvedor oficial do Docker-HUB
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
 #based on conditions provided), stars (parameters and value used in the filter), is-official
 #(parameters and value used in the filter)
 docker search ubuntu --filter stars=10 --filter is-official=true
 
-#pesquisando imagens de containers do Ubuntu com filtro de estrela superior a 10,
+#pesquisando imagens de containers do Ubuntu com filtro de estrela igual ou superior a 10,
 #marcado como imagem do desenvolvedor oficial e não truncar a descrição da imagem
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
 #based on conditions provided), stars (parameters and value used in the filter), is-official
@@ -143,13 +143,13 @@ docker image ls
 #PORTS.........: porta do container e do host utilizada para se comunicar no docker;
 #NAMES.........: nome do container no docker.
 
-#informações dos status padrão dos container do Docker-CE
+#informações dos status padrão dos containers do Docker-CE
 #Up..... ...: O contêiner está em execução e funcionando normalmente.
 #Exited.....: O contêiner foi encerrado. 
 #Restarting.: O contêiner está em um ciclo de reinicialização.
 #Created....: O contêiner foi criado mais não foi executado ainda.
 
-#informações dos códigos do status Exited dos container do Docker-CE
+#informações dos códigos do status Exited dos containers do Docker-CE
 #  0 - O contêiner finalizou sua execução com sucesso (sem erros).
 #  1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada.
 #137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória).

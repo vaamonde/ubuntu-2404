@@ -126,16 +126,19 @@ docker network ls --filter name=dados
 #criando um novo container do Ubuntu mais sem iniciar
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
-
 #Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
 #opção do comando docker: container (Manage containers), create (Create a new container), -i 
 #--interactive (Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name 
-#mongodb (Assign a name to the container), -m --memory (Memory limit), --memory-swap 1g (The amount 
-#of memory this container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-shares (Set this 
-#flag to a value greater or less than the default of 1024 to increase or reduce the container's weight), 
-#ubunu (imagem docker hub).
-docker container create -it --name samba4 --memory 1g --memory-reservation 512m --memory-swap 1g --cpus 1 \
---cpu-shares 1024 --volume dados:/dados --network dados --publish 137:137 --publish 138:138 --publish 139:139 \ --publish 445:445 ubuntu
+#samba4 (Assign a name to the container), -m --memory (Memory limit), --memory-reservation 
+#(Allows you to specify a soft limit smaller than), --memory-swap 1g (The amount of memory this
+#container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-shares (Set this flag to
+#a value greater or less than the default of 1024 to increase or reduce the container's weight),
+#-v --volume (Bind mount a volume), --network (Connect a container to a network), -p --publish 
+#(Publish a container's port(s) to the host), ubuntu (imagem docker hub).
+#opção da contra barra (\): criar uma quebra de linha no terminal
+docker container create -it --name samba4 --memory 1g --memory-reservation 512m --memory-swap 1g \
+--cpus 1 --cpu-shares 1024 --volume dados:/dados --network dados --publish 137:137 --publish 138:138 \
+--publish 139:139 --publish 445:445 ubuntu
 
 #verificando o status do container SAMBA4 no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
