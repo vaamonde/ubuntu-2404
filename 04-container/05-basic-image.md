@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/10/2024<br>
 #Data de atualização: 21/10/2024<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -29,7 +29,13 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/07-image-d
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiocpuramdocker
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
+#02_ Baixando (Pull) Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
+#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+#05_ Criando (Create) o Contêiner (Container) de Dados com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -56,7 +62,7 @@ Link da vídeo aula:
 docker search ubuntu --filter is-official=true
 ```
 
-#02_ Baixando (Pull) Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
+#02_ Baixando (Pull) a Imagem (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
 ```bash
 #baixando a imagem do Ubuntu do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -77,6 +83,96 @@ docker image pull ubuntu:focal
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
+```
+
+#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+```bash
+#criando o volume de dados local no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), create (Create a volume), vaamonde
+#(Volume name)
+docker volume create dados
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes), --filter (Provide
+#filter values)
+docker volume ls --filter name=dados
+```
+
+#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+```bash
+#criando a rede de dados em modo Bridge no Docker-CE 
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/create/
+#Documentação do Docker-CE: https://docs.docker.com/engine/network/
+docker network create dados --driver bridge
+
+#listando as redes padrão do Docker-CE 
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/network/
+#opção do comando docker: network (Manage networks), ls (List networks), --filter (Provide
+#filter values)
+docker network ls --filter name=dados
+```
+
+#05_ Criando (Create) o Contêiner (Container) de Dados com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+```bash
+#criando um novo container do Ubuntu mais sem iniciar
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
+
+#Documentação do Docker-CE: https://docs.docker.com/engine/containers/resource_constraints/
+#opção do comando docker: container (Manage containers), create (Create a new container), -i 
+#--interactive (Keep STDIN open even if not attached), -t --tty (Allocate a pseudo-TTY), --name 
+#mongodb (Assign a name to the container), -m --memory (Memory limit), --memory-swap 1g (The amount 
+#of memory this container is allowed to swap to disk), --cpus (Number of CPUs), --cpu-shares (Set this 
+#flag to a value greater or less than the default of 1024 to increase or reduce the container's weight), 
+#ubunu (imagem docker hub).
+docker container create -it --name samba4 --memory 1g --memory-reservation 512m --memory-swap 1g --cpus 1 \
+--cpu-shares 1024 --volume dados:/dados --network dados --publish 137:137 --publish 138:138 --publish 139:139 \ --publish 445:445 ubuntu
+
+#verificando o status do container SAMBA4 no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
+#all images (default hides intermediate images), --filter (Provide filter values)
+docker container ls -a --filter name=samba4
+```
+
+#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+```bash
+#iniciando os containers do Ubuntu no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/start/
+#opção do comando docker: container (Manage containers), start (Start one or more stopped containers),
+#samba4 (Container Names or Container ID)
+docker container start samba4
+
+#conectando no container do Ubuntu em modo Interativo no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/attach/
+#opção do comando docker: container (Manage containers), attach (Attach local standard input, output, 
+#and error streams to a running container), samba4 (Container Names or Container ID)
+docker container attach samba4
+```
+
+#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+```bash
+#atualizando as lista do apt do Ubuntu
+apt update
+
+#instalando o SAMBA-4 Server no Ubuntu
+apt install samba samba-common samba-testsuite
+
+
+#saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
+Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
 
