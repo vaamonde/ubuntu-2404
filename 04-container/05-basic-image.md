@@ -175,6 +175,12 @@ apt install samba samba-common samba-testsuite
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
+```bash
+#EM DESENVOLVIMENTO
+docker container commit
+docker container cp
+docker image tag
+```
 
 ========================================DESAFIOS=========================================
 
