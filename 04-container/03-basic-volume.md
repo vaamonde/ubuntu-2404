@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 16/10/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 21/10/2024<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -461,11 +461,17 @@ exit
 
 #08_ Removendo (RM) Volumes (Volume), Contêiners (Container) e Imagens (Image) no Docker-CE<br>
 ```bash
+#verificando o uso do Disco das Imagens, Container e Volumes no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/df/
+#opção do comando docker: system (Manage Docker), df (Show docker disk usage)
+docker system df
+
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
-#images (default hides intermediate images))
+#images (default hides intermediate images)
 docker container ls -a
 
 #removendo o container do Ubuntu e do CentOS no Docker-CE
