@@ -384,7 +384,7 @@ docker container rm -f website01 website02
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
-#limpando todos os volumes no Docker-CE
+#limpando o volume do Website no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/rm/
 #opção do comando docker: volume (Manage volumes), rm (Remove one or more volumes), -f 
