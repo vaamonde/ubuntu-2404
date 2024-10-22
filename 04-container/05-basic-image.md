@@ -196,7 +196,8 @@ Esc d G
 
 #entrando no modo de edição do VIM
 INSERT
-
+```
+```bash
 #COPIAR E COLAR: a configuração o SAMBA-4 como Standalone Server e compartilhamento dos Dados
 [global]
   map to guest = Bad User
@@ -209,7 +210,8 @@ INSERT
   read only = no
   guest ok = yes
   guest only = yes
-
+```
+```bash
 #salvar e sair do arquivo
 Esc Shift : x <Enter>
 
@@ -242,8 +244,9 @@ Gerenciador de Arquivo (Nemo)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/commit/
 #opção do comando docker: container (Manage containers), commit (Create a new image from a 
-#container's changes), samba4 (Container ID ou Name), smb4:ver1 (Repository and Tag Image)
-docker container commit samba4 smb4:ver1
+#container's changes), -m --message (Commit message) samba4 (Container ID ou Name), smb4:ver1 
+#(Repository and Tag Image)
+docker container commit --message "Minha primeira imagem" samba4 smb4:ver1
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -304,7 +307,7 @@ docker container start samba4
 #and error streams to a running container), samba4 (Container Names or Container ID)
 docker container attach samba4
 
-#OBSERVAÇÃO IMPORTANTE: POR PADRÃO DOS SERVIÇOS INSTALAR NAS IMAGENS NÃO SÃO INICIADOS
+#OBSERVAÇÃO IMPORTANTE: POR PADRÃO OS SERVIÇOS INSTALADOS NAS IMAGENS NÃO SÃO INICIADOS
 #AUTOMATICAMENTE, SENDO NECESSÁRIO INICIAR MANUAL, PARA RESOLVER ESSE PROBLEMA UTILIZAMOS
 #OS RECURSOS DE: Dockerfile ou Docker Compose QUE SERÁ VISTO MAIS A FRENTE NESSE CURSO.
 
