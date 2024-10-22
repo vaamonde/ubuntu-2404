@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
 #Data de atualização: 22/10/2024<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -79,19 +79,24 @@ docker image ls
 
 #03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO
+#VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. PARA PROJETO
+#DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+
 #criando o diretório de teste do Dockerfile
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste
 
 #criando o arquivo do Dockerfile no diretório teste
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
+#Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
 vim teste/Dockerfile
 
 #entrando no modo de edição do VIM
 INSERT
 ```
 ```bash
-#COPIAR E COLAR: as configurações básica do Dockerfile
+#COPIAR E COLAR: as configurações básicas do Dockerfile
 
 #utilizar a Imagem do Debian para criar o container 
 #FROM (Create a new build stage from a base image)
@@ -108,6 +113,12 @@ Esc Shift : x <Enter>
 
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
+#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
+#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste UTILIZAR NO COMANDO DO
+#DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
+#PROJETO.
+
 #criando o container do Debian utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -122,6 +133,7 @@ docker build --tag vava:0.1 teste/
 #all images (default hides intermediate images)
 docker container ls -a
 ```
+
 
 ========================================DESAFIOS=========================================
 
