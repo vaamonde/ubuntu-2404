@@ -218,13 +218,12 @@ docker search ubuntu
 docker container run -it ubuntu bash
 
 #executar os comandos básicos de Linux dentro do container Ubuntu Bash
-cat /etc/os-release
-apt update
-apt install net-tools iputils-ping traceroute
-ifconfig
-ping 172.17.0.1
-ping 8.8.8.8
-traceroute 8.8.8.8
+cat /etc/os-release                             #verificação do Sistema Operacional 
+apt update                                      #atualizando as listas do apt
+apt install net-tools iputils-ping traceroute   #instalando os software básicos
+ifconfig                                        #verificando as informações de placa de rede
+ping 8.8.8.8                                    #pingando o endereço de DNS do Google
+traceroute 8.8.8.8                              #traçando a rota do endereço de DNS do Google
 
 #OBSERVAÇÃO IMPORTANTE: quando você utiliza o comando: exit o Container em Docker e desligado
 #(stopping), caso você queira sair do Container sem desligar pressione: Ctrl + P ou Ctrl + Q
