@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 21/10/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 24/10/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -49,9 +49,9 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 O QUE É E PARA QUE SERVER O VOLUME DO DOCKER: Volumes no Docker são uma das principais formas de persistir dados gerados e utilizados por contêineres. Eles permitem que os dados sejam armazenados fora do ciclo de vida dos contêineres, garantindo que informações importantes não sejam perdidas quando um contêiner é removido ou recriado.
 
-[![Volumes Docker](http://img.youtube.com/vi//0.jpg)]( "Volumes Docker")
+[![Volumes Docker](http://img.youtube.com/vi/dbOmIfI3n1s/0.jpg)](https://www.youtube.com/watch?v=dbOmIfI3n1s "Volumes Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=dbOmIfI3n1s
 
 #01_ Criando o Diretório de Dados do TomCAT no Ubuntu Server<br>
 ```bash
@@ -517,6 +517,10 @@ docker image ls
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
 #-f (Force removal of the image) ubuntu centos ubuntu/postgres (imagem docker)
 docker image rm -f ubuntu centos ubuntu/postgres
+
+#removendo os diretórios de dados localmente no Ubuntu Server
+#opções do comando rm: -R (recursive), -f (force), -v (verbose)
+sudo rm -Rfv tomcat/ zabbix/
 ```
 
 ========================================DESAFIOS=========================================

@@ -476,8 +476,8 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
 #08_ Removendo (RM) Volume (Volume), Contêiner (Container) e Imagens (Image) no Docker-CE<br>
 
-[![Volumes Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Volumes Docker-CE")
+[![Volumes Docker](http://img.youtube.com/vi/dbOmIfI3n1s/0.jpg)](https://www.youtube.com/watch?v=dbOmIfI3n1s "Volumes Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=dbOmIfI3n1s
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/03-basic-volume.md
