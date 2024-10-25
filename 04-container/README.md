@@ -91,13 +91,58 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-con
 
 ## **🤩🤩 Comandos Básicos de Network Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de comandos básicos de NEtwork do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, configurar, mapear redes e portas nos Container do Docker-CE para facilitar o gerenciamento e acesso remoto aos serviços.
+Vídeo de comandos básicos de Network do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, configurar, mapear redes e portas nos Container do Docker-CE para facilitar o gerenciamento e acesso remoto aos serviços.
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Docker-CE<br>
+#02_ Verificando as Redes criadas por padrão no Docker-CE<br>
+#03_ Criando (Create) Volumes (Volume) no Docker-CE<br>
+#04_ Criando (Create) Contêiner (Container) com o Volumes (Volume) e Publicando (Publish) a Porta (Port) do Apache2 no Docker-CE<br>
+#05_ Inspecionando (Inspect) o Contêiner (Container) da Imagem (Image) do Apache2 no Docker-CE<br>
+#06_ Verificando as Interfaces de Rede criadas pelo Docker-CE no Ubuntu Server<br>
+#07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE<br>
+#08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE<br>
+#09_ Criando (Create) Contêiner (Container) com o Volumes (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
 
 [![Network Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Network Docker-CE")
 
 Link da vídeo aula: 
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/04-basic-network.md
+
+## **🤩🤩 Comandos Básicos de Image Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de Image do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para consultar, baixar, gerenciar e construir imagens personalizadas de Container do Docker.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
+#02_ Baixando (Pull) Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
+#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+#05_ Criando (Create) o Contêiner (Container) de Dados com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+#08_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#09_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
+
+[![Image Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Image Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/05-basic-image.md
+
+## **🤩🤩 Criando arquivos Dockerfile do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de Dockerfile do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os conceitos básicas de criar um diretório de projeto e começar a trabalhar com o arquivo Dockerfile para criar imagens de Container personalizados.
+
+#01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
+#02_ Baixando (Pull) as Imagens (Image) do Debian para o Repositório Local do Docker-CE<br>
+#03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+
+[![Dockerfile Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker-CE")
+
+Link da vídeo aula: 
+
+Link da documentação:
