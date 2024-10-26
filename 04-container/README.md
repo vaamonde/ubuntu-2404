@@ -145,4 +145,4 @@ Vídeo de comandos básicos de Dockerfile do Docker-CE (Community Edition) no Ub
 
 Link da vídeo aula: 
 
-Link da documentação:
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/06-basic-dockerfile.md
