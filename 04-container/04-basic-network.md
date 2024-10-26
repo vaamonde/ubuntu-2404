@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 20/10/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 25/10/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -131,7 +131,9 @@ docker volume ls
 #website01 (Assign a name to the container), --volume (Bind mount a volume), -p --publish (Publish
 #a container's port(s) to the host), ubuntu/apache2 (repository and imagem docker hub), /bin/bash
 #(command bash/shell terminal)
-docker container run -d -it --name website01 --volume website:/var/www/html --publish 80:80 ubuntu/apache2 /bin/bash
+#opção da contra barra (\): criar uma quebra de linha no terminal
+docker container run -d -it --name website01 --volume website:/var/www/html --publish 80:80 \
+ubuntu/apache2 /bin/bash
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -312,7 +314,9 @@ docker network ls --filter name=vaamonde
 #website01 (Assign a name to the container), --network (Connect a container to a network) --volume 
 #(Bind mount a volume), -p --publish (Publish a container's port(s) to the host), ubuntu/nginx 
 #(repository and imagem docker hub), /bin/bash (command bash/shell terminal)
-docker container run -d -it --name website02 --volume website:/var/www/html --network vaamonde --publish 81:80 ubuntu/nginx /bin/bash
+#opção da contra barra (\): criar uma quebra de linha no terminal
+docker container run -d -it --name website02 --volume website:/var/www/html --network vaamonde \
+--publish 81:80 ubuntu/nginx /bin/bash
 
 #listando o container do Ubuntu NGINX em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/10/2024<br>
-#Data de atualização: 22/10/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 25/10/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -281,7 +281,8 @@ docker container rm -f samba4
 #-v --volume (Bind mount a volume), --network (Connect a container to a network), -p --publish 
 #(Publish a container's port(s) to the host), smb4:ver1 (imagem and tag local).
 #opção da contra barra (\): criar uma quebra de linha no terminal
-docker container create -it --name samba4 --memory 1g --memory-reservation 512m --memory-swap 1g --cpus 1 --cpu-shares 1024 --volume dados:/dados --network dados --publish 137-139:137-139 --publish 445:445 smb4:ver1
+docker container create -it --name samba4 --memory 1g --memory-reservation 512m --memory-swap 1g --cpus 1 \
+--cpu-shares 1024 --volume dados:/dados --network dados --publish 137-139:137-139 --publish 445:445 smb4:ver1
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
