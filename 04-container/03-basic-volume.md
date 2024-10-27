@@ -93,18 +93,20 @@ docker container run -d -it --name tomcat --mount type=bind,source=/home/vaamond
 docker container ls -a
 
 #informações que são mostradas na saída do comando: docker container inspect
-#"Type": "bind" Especifica o tipo de montagem. No caso, o valor "bind" indica que essa é 
-#               uma montagem vinculada (bind mount)
+#"Type": "bind"                    Especifica o tipo de montagem. No caso, o valor "bind" 
+#                                  indica que essa é uma montagem vinculada (bind mount)
 #"Source": "/home/vaamonde/tomcat" O caminho no host onde o diretório ou arquivo que está
-#                                   sendo montado reside. Neste exemplo, o diretório /home/
-#                                   vaamonde/tomcat no host está sendo montado no container.
-#"Destination": "/tomcat" O caminho dentro do container onde o diretório ou arquivo do host 
-#                         (Source) será montado.
-#"Mode": "" O modo de montagem define permissões e outras configurações, como leitura/escrita
-#           ou somente leitura.
-#"RW": "true" Indica se o ponto de montagem está configurado como leitura e escrita (read/write). 
-#"Propagation": "rprivate" O modo de propagação controla como as mudanças no filesystem (como 
-#                          novas montagens) são visíveis entre o host e o container, e vice-versa.
+#                                  sendo montado reside. Neste exemplo, o diretório /home/
+#                                  vaamonde/tomcat no host está sendo montado no container.
+#"Destination": "/tomcat"          O caminho dentro do container onde o diretório ou arquivo
+#                                  do host (Source) será montado.
+#"Mode": ""                        O modo de montagem define permissões e outras configurações, 
+#                                  como leitura/escrita ou somente leitura.
+#"RW": "true"                      Indica se o ponto de montagem está configurado como leitura 
+#                                  e escrita (read/write). 
+#"Propagation": "rprivate"         O modo de propagação controla como as mudanças no filesystem
+#                                  (como novas montagens) são visíveis entre o host e o container, 
+#                                  e vice-versa.
 
 #inspecionando as informações de montagem container do TomCAT no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -263,15 +265,15 @@ docker volume ls
 #informações que são mostradas na saída do comando: docker volume inspect
 #"CreatedAt": "2024-10-11T09:41:05-03:00": Indica a data e hora em que o volume foi criado.
 #"Driver": "local": O driver define como o volume é gerenciado em /var/lib/docker/volumes/.
-#"Labels": null: Labels são metadados que podem ser atribuídos a um volume para facilitar
-#                sua categorização e organização.
+#"Labels": null:    Labels são metadados que podem ser atribuídos a um volume para facilitar
+#                   sua categorização e organização.
 #"Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema
 #                                                        de arquivos do host onde os dados do
 #                                                        volume estão armazenados.
 #"Name": "vaamonde": O nome do volume.
-#"Options": null: Opções adicionais configuráveis para o volume.
-#"Scope": "local": O escopo do volume define onde ele pode ser usado,  o volume é acessível 
-#                  apenas pelo Docker local.
+#"Options": null:    Opções adicionais configuráveis para o volume.
+#"Scope": "local":   O escopo do volume define onde ele pode ser usado,  o volume é acessível 
+#                    apenas pelo Docker local.
 
 #inspecionando o volume criado no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/

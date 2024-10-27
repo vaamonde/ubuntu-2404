@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 25/10/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 27/10/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -422,6 +422,16 @@ docker network ls
 #opção do comando docker: network (Manage networks), rm Remove one or more networks), -f
 #--force (Do not error if the network does not exist), vaamonde (Network Name or ID)
 docker network rm -f vaamonde
+
+#limpando todas as redes no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/prune/
+#opção do comando docker: network (Manage network), prune (Remove all unused networks)
+#OBSERVAÇÃO IMPORTANTE: MUITO CUIDADO NA HORA DE USAR ESSA OPÇÃO EM SERVIDORES DE PRODUÇÃO
+#QUE ESTÁ RODANDO PRINCIPALMENTE O PORTAINER.
+docker network prune
+  WARNING! This will remove all custom networks not used by at least one container.
+  Are you sure you want to continue? [y/N] y
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
