@@ -9,6 +9,8 @@
 
 [Google](https://google.com/?target=_blank)
 
+[Google](https://google.com "Google" target="_blank")
+
 Robson Vaamonde<br>
 Procedimentos em TI: http://procedimentosemti.com.br<br>
 Bora para Prática: http://boraparapratica.com.br<br>
