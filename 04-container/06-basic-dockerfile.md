@@ -63,7 +63,7 @@ docker search debian --filter is-official=true
 
 #02_ Baixando (Pull) a Imagem (Image) do Debian para o Repositório Local do Docker-CE<br>
 ```bash
-#baixando a imagem do Debian (Noble - 24.04) do Docker-HUB
+#baixando a imagem do Debian do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/pull/
 #Link de consulta do Docker Hub: https://hub.docker.com/_/debian
@@ -83,14 +83,14 @@ docker image ls
 #VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. CADA PROJETO
 #DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
 
-#criando o diretório de teste do Dockerfile
+#criando o diretório de teste01 do Dockerfile
 #opção do comando mkdir: -v (verbose)
-mkdir -v teste
+mkdir -v teste01/
 
-#criando o arquivo do Dockerfile no diretório teste
+#criando o arquivo do Dockerfile no diretório teste01
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
-vim teste/Dockerfile
+vim teste01/Dockerfile
 
 #entrando no modo de edição do VIM
 INSERT
@@ -99,10 +99,12 @@ INSERT
 #COPIAR E COLAR: as configurações básicas do Dockerfile
 
 #utilizar a Imagem do Debian para criar o container 
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
 #FROM (Create a new build stage from a base image)
 FROM debian
 
 #utilizar o comando echo para imprimir na saída padrão a mensagem 
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
 #RUM (Execute build commands)
 RUN /bin/echo "Testando o Dockerfile no Debian"
 ```
@@ -115,16 +117,16 @@ Esc Shift : x <Enter>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
 #NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste UTILIZAR NO COMANDO DO
-#DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
+#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste01 UTILIZAR NO COMANDO 
+#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
 #PROJETO.
 
 #criando o container do Debian utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
-#optionally a tag in the name:tag format), teste (Directory path Dockerfile)
-docker build --tag vava:0.1 teste/
+#optionally a tag in the name:tag format), teste01 (Directory path Dockerfile)
+docker build --tag vava:0.1 teste01/
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -140,6 +142,63 @@ docker image ls
 docker container ls -a
 ```
 
+#03_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+```bash
+#criando o diretório de teste02 do Dockerfile
+#opção do comando mkdir: -v (verbose)
+mkdir -v teste02/
+
+#criando o arquivo do Dockerfile no diretório teste02
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
+#Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
+vim teste02/Dockerfile
+
+#entrando no modo de edição do VIM
+INSERT
+```
+```bash
+#COPIAR E COLAR: as configurações básicas do Dockerfile
+
+#utilizar a Imagem do Debian para criar o container 
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
+#FROM (Create a new build stage from a base image)
+FROM debian
+
+#utilizando os Rótulos (labels) para identificar a imagem
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#label
+#LABEL (Add metadata to an image)
+LABEL maintainer="Robson Vaamonde"
+LABEL version="0.2"
+LABEL description="Segundo projeto do Dockerfile"
+
+#utilizar o comando apt para atualizar a imagem
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
+#RUM (Execute build commands)
+#opção do comando apt: update (Resynchronize the package index files from their sources), 
+#upgrade (Install the newest versions of all packages currently installed on the system), 
+#-y (yes confirmation)
+#opção do operador lógico &&: E lógico (AND)
+RUN apt update && apt upgrade -y
+
+#instalando o NGINX para testar o Dockerfile
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
+#RUM (Execute build commands)
+#opção do comando apt: install (install is followed by one or more package names), -y 
+#(yes confirmation)
+RUN apt install nginx -y
+
+#expondo a porta de acesso ao NGINX no Dockerfile
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
+#EXPOSE (Describe which ports your application is listening on)
+EXPOSE 80/tcp
+
+#iniciando o NGINX na imagem do Dockerfile
+#Documentação do Docker-CE: 
+```
+```bash
+#salvar e sair do arquivo
+Esc Shift : x <Enter>
+```
 
 ========================================DESAFIOS=========================================
 
