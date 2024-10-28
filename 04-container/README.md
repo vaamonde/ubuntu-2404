@@ -5,11 +5,9 @@
 ## 💰 Link de doação do PagSeguro: https://pag.ae/bjlSJcH
 ## 💰 Link de doação do Paypal: https://www.paypal.com/donate/?hosted_button_id=EALLB7DQ3U6H2
 
-[Google](https://google.com" target="_blank)
+Click [here](https://www.geeksforgeeks.org/){:target="_blank"} 
+to visit GeeksForGeeks website.
 
-[Google](https://google.com/?target=_blank)
-
-[Google](https://google.com "Google" target="_blank")
 
 Robson Vaamonde<br>
 Procedimentos em TI: http://procedimentosemti.com.br<br>
