@@ -119,7 +119,7 @@ docker volume create website
 docker volume ls
 ```
 
-#04_ Criando (Create) Contêiner (Container) com o Volumes (Volume) e Publicando (Publish) a Porta (Port) do Apache2 no Docker-CE<br>
+#04_ Criando (Create) Contêiner (Container) com o Volume (Volume) e Publicando (Publish) a Porta (Port) do Apache2 no Docker-CE<br>
 ```bash
 #criando o container do Ubuntu Apache2 Server localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -302,7 +302,7 @@ docker network create vaamonde --driver bridge
 docker network ls --filter name=vaamonde
 ```
 
-#09_ Criando (Create) Contêiner (Container) com o Volumes (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
+#09_ Criando (Create) Contêiner (Container) com o Volume (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
 ```bash
 #criando o container do Ubuntu NGINX Server localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
