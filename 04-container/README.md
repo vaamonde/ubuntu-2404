@@ -5,10 +5,6 @@
 ## 💰 Link de doação do PagSeguro: https://pag.ae/bjlSJcH
 ## 💰 Link de doação do Paypal: https://www.paypal.com/donate/?hosted_button_id=EALLB7DQ3U6H2
 
-<p>Check out <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>.</p>
-
-[freeCodeCamp](https://www.freecodecamp.org/){:target="_blank"}
-
 [Google](https://google.com" target="_blank)
 
 Robson Vaamonde<br>
