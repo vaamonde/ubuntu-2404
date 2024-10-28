@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
-#Data de atualização: 22/10/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 28/10/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -33,6 +33,7 @@ Conteúdo estudado nesse desafio:<br>
 #02_ Baixando (Pull) as Imagens (Image) do Debian para o Repositório Local do Docker-CE<br>
 #03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -142,11 +143,14 @@ docker image ls
 docker container ls -a
 ```
 
-#03_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 ```bash
 #criando o diretório de teste02 do Dockerfile
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste02/
+
+#baixando uma página de teste do Github
+wget -O teste02/teste.html 
 
 #criando o arquivo do Dockerfile no diretório teste02
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -171,6 +175,13 @@ LABEL maintainer="Robson Vaamonde"
 LABEL version="0.2"
 LABEL description="Segundo projeto do Dockerfile"
 
+#criando argumentos da imagem padrão do NGINX quando utilizar o comando apt
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#arg
+#Documentação do Debconf: https://manpages.debian.org/jessie/debconf-doc/debconf.7.en.html
+#opção da variável DEBIAN_FRONTEND: noninteractive (This is the anti-frontend. It never 
+#interacts with you at all, and makes the default answers be used for all questions.)
+ARG DEBIAN_FRONTEND=noninteractive
+
 #utilizar o comando apt para atualizar a imagem
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
 #RUM (Execute build commands)
@@ -187,7 +198,21 @@ RUN apt update && apt upgrade -y
 #(yes confirmation)
 RUN apt install nginx -y
 
-COPY nginx.conf /etc/nginx/nginx.conf
+#copiar o arquivo de configuração do NGINX para o diretório padrão
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
+#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
+#COPY: (Copy files and directories)
+COPY teste02/nginx.conf /etc/nginx/nginx.conf
+
+#criando o diretório padrão de trabalho do NGINX
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#workdir
+#WORKDIR (Change working directory)
+WORKDIR /var/www/html/
+
+#criando o volume da imagem padrão do NGINX
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#volume
+#VOLUME (Create volume mounts)
+VOLUME /var/www/html/
 
 #expondo a porta de acesso ao NGINX no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
@@ -196,12 +221,44 @@ EXPOSE 80/tcp
 
 #iniciando o NGINX na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
+#Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #CMD (Specify default commands)
+#opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
+#become a daemon)
 CMD ["nginx", "-g", "daemon off;"]
 ```
 ```bash
 #salvar e sair do arquivo
 Esc Shift : x <Enter>
+```
+
+#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
+#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
+#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste01 UTILIZAR NO COMANDO 
+#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
+#PROJETO.
+
+#criando o container do Debian utilizando o Dockerfile
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
+#opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
+#optionally a tag in the name:tag format), teste01 (Directory path Dockerfile)
+docker build --tag vava:0.1 teste01/
+
+#listando todas as imagens de containers no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
+
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
+#all images (default hides intermediate images)
+docker container ls -a
 ```
 
 ========================================DESAFIOS=========================================
