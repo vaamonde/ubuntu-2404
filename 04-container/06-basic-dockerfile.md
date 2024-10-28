@@ -187,13 +187,17 @@ RUN apt update && apt upgrade -y
 #(yes confirmation)
 RUN apt install nginx -y
 
+COPY nginx.conf /etc/nginx/nginx.conf
+
 #expondo a porta de acesso ao NGINX no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
 #EXPOSE (Describe which ports your application is listening on)
 EXPOSE 80/tcp
 
 #iniciando o NGINX na imagem do Dockerfile
-#Documentação do Docker-CE: 
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
+#CMD (Specify default commands)
+CMD ["nginx", "-g", "daemon off;"]
 ```
 ```bash
 #salvar e sair do arquivo
