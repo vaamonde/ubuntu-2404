@@ -34,6 +34,7 @@ Conteúdo estudado nesse desafio:<br>
 #03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 #05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -149,8 +150,9 @@ docker container ls -a
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste02/
 
-#baixando uma página de teste do Github
-wget -O teste02/teste.html 
+#baixando uma página de teste em HTML do Github
+#opção do comando wget: -O (output-document file)
+wget -O teste02/teste.html https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/teste.html
 
 #criando o arquivo do Dockerfile no diretório teste02
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -232,20 +234,20 @@ CMD ["nginx", "-g", "daemon off;"]
 Esc Shift : x <Enter>
 ```
 
-#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
 #NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste01 UTILIZAR NO COMANDO 
+#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste02 UTILIZAR NO COMANDO 
 #DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
 #PROJETO.
 
-#criando o container do Debian utilizando o Dockerfile
+#criando o container do NGIX utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
-#optionally a tag in the name:tag format), teste01 (Directory path Dockerfile)
-docker build --tag vava:0.1 teste01/
+#optionally a tag in the name:tag format), teste02 (Directory path Dockerfile)
+docker build --tag nginx:0.1 teste02/
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
