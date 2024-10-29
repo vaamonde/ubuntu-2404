@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
-#Data de atualização: 28/10/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 29/10/2024<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -154,6 +154,10 @@ mkdir -v teste02/
 #opção do comando wget: -O (output-document file)
 wget -O teste02/teste.html https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/teste.html
 
+#baixando o arquivo de configuração básica do NGINX do Github
+#opção do comando wget: -O (output-document file)
+wget -O teste02/nginx.conf 
+
 #criando o arquivo do Dockerfile no diretório teste02
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
@@ -215,6 +219,12 @@ WORKDIR /var/www/html/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#volume
 #VOLUME (Create volume mounts)
 VOLUME /var/www/html/
+
+#copiar o arquivo de html padrão para o Document Root do NGINX
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
+#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
+#COPY: (Copy files and directories)
+COPY teste02/teste.html /var/www/html/
 
 #expondo a porta de acesso ao NGINX no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose

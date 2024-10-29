@@ -140,6 +140,8 @@ Vídeo de comandos básicos de Dockerfile do Docker-CE (Community Edition) no Ub
 #02_ Baixando (Pull) as Imagens (Image) do Debian para o Repositório Local do Docker-CE<br>
 #03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 
 [![Dockerfile Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker-CE")
 
