@@ -364,7 +364,7 @@ sudo ufw status verbose
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:81
 ```
 
-#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br><br>
+#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

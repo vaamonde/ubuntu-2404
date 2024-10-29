@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
 #Data de atualização: 29/10/2024<br>
-#Versão: 0.04<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -35,6 +35,9 @@ Conteúdo estudado nesse desafio:<br>
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 #05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
+#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
+#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -143,11 +146,11 @@ docker image ls
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste02/
 
-#baixando uma página de teste em HTML do Github
+#baixando uma página de teste Index em HTML do Github
 #opção do comando wget: -O (output-document file)
-wget -O teste02/teste.html https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/teste.html
+wget -O teste02/index.html https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/index.html
 
-#baixando o arquivo de configuração básica do NGINX do Github
+#baixando o arquivo de configuração básica do site padrão do NGINX do Github
 #opção do comando wget: -O (output-document file)
 wget -O teste02/default https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/default
 
@@ -195,9 +198,9 @@ RUN apt-get update && apt-get upgrade -y
 #RUM (Execute build commands)
 #opção do comando apt-get: install (install is followed by one or more package names), -y 
 #(yes confirmation)
-RUN apt-get install nginx -y
+RUN apt-get install nginx procps -y
 
-#copiar o arquivo de configuração do NGINX para o diretório padrão
+#copiar o arquivo de configuração do site padrão do NGINX do diretório de projeto
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
 #COPY: (Copy files and directories)
@@ -217,7 +220,7 @@ VOLUME /var/www/html/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
 #COPY: (Copy files and directories)
-COPY teste.html /var/www/html/
+COPY index.html /var/www/html/index.html
 
 #expondo a porta de acesso ao NGINX no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
@@ -225,17 +228,12 @@ COPY teste.html /var/www/html/
 EXPOSE 80
 
 #iniciando o NGINX na imagem do Dockerfile
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#stopsignal
-#STOPSIGNAL (Specify the system call signal for exiting a container)
-STOPSIGNAL SIGTERM
-
-#iniciando o NGINX na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
 #Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #CMD (Specify default commands)
 #opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
 #become a daemon)
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 ```
 ```bash
 #salvar e sair do arquivo
@@ -257,9 +255,10 @@ ls -lh teste02/
 #criando o container do NGIX utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
-#opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
-#optionally a tag in the name:tag format), teste02 (Directory path Dockerfile)
-docker build --tag nginx:0.1 teste02/
+#opção do comando docker: build (Build an image from a Dockerfile), --no-cache (Do not 
+#use cache when building the image)-t --tag (Name and optionally a tag in the name:tag 
+#format), teste02 (Directory path Dockerfile)
+docker build --no-cache --tag nginx:0.1 teste02/
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -268,15 +267,31 @@ docker build --tag nginx:0.1 teste02/
 docker image ls
 ```
 
-#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE
+#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
 ```bash
+#criando volume local no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), create (Create a volume), webserver
+#(Volume name)
+docker volume create webserver
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
+docker volume ls
+
 #executando o container do NGIX em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
-#from an image), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate 
-#a pseudo-TTY) ubuntu (imagem docker hub)
-docker container run -d -it --name webserver --publish 80:80 nginx:0.1 /bin/bash
+#from an image), -d --detach (Run container in background and print container ID), --name
+#(Assign a name to the container), -v --volume (Bind mount a volume), -p --publish (Publish 
+#a container's port(s) to the host) nginx:0.1 (imagem docker hub)
+docker container run -d --name webserver --volume webserver:/var/www/html --publish 80:80 nginx:0.1
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -284,35 +299,97 @@ docker container run -d -it --name webserver --publish 80:80 nginx:0.1 /bin/bash
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
 #all images (default hides intermediate images)
 docker container ls -a
-
-docker container inspect webserver
-
-docker container attach webserver
 ```
 
-#verificando o redirecionamento da Porta padrão do Apache2
+#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
+```bash
+#verificando o redirecionamento da Porta padrão do NGINX
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
 #Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o 
-#servidor (TO) do Apache2 Server na porta (PORT) 80 via protocolo TCP (PROTO TCP)
-sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o Apache2'
+#servidor (TO) do NGINX Server na porta (PORT) 80 via protocolo TCP (PROTO TCP)
+sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o NGINX'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
 sudo ufw status verbose
 
+#Testando o acesso ao site do NGINX via terminal
+#opções do comando curl: -s (silent), -S (show-error), -f (fail)
+curl -sSf http://172.16.1.30
+
+#utilizar os navegadores para testar o acesso ao NGINX 
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver
+```
+
+#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+```bash
+#verificando todos os status dos containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
+#all images (default hides intermediate images)
+docker container ls -a
+
+#removendo o container do NGINX no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
+#opção do comando docker: container (Manage containers), rm (Remove one or more containers),
+#-f --force (Force the removal of a running container), webserver (Container Names or ID)
+docker container rm -f webserver
+
+#listando os volumes criados no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
+#Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
+#opção do comando docker: volume (Manage volumes), ls (List volumes)
+docker volume ls
+
+#limpando o volume do Webserver no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/rm/
+#opção do comando docker: volume (Manage volumes), rm (Remove one or more volumes), -f 
+#--force (Force the removal of one or more volumes)
+docker volume rm -f webserver
+
+#listando todas as imagens de containers no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: image (Manage images), ls (List images)
+docker image ls
+
+#removendo as imagens do Ubuntu Apache2 e NGINX localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
+#opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
+#-f --force (Force removal of the image), vava:0.1 debian (imagem docker)
+docker image rm -f vava:0.1 nginx:0.1 debian
+
+#Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+sudo ufw status numbered
+
+#Removendo (DELETE) a Regra (RULES) de Acesso ao NGINX (9) do Docker-CE
+sudo ufw delete 9
+Deleting:
+ allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o NGINX'
+Proceed with operation (y|n)? y <Enter>
+
+#Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+sudo ufw status numbered
+```
+
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 22.04 Jammy`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage01`__, UTILIZANDO O VOLUME DE: __`estoque`__ E A REDE: __`estoque`__.
+**#10_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
 
-**#12_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 20.04 Focal`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage02`__, UTILIZANDO O VOLUME DE: __`producao`__ E A REDE: __`producao`__.
+**#11_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/07-image-docker.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-dockerfile-docker.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerfile
