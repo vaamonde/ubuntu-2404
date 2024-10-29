@@ -135,16 +135,9 @@ docker build --tag vava:0.1 teste01/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
-
-#verificando todos os status dos containers em execução no Docker-CE
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
-#opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
-#all images (default hides intermediate images)
-docker container ls -a
 ```
 
-#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) a nossa Imagem (Image) de Contêiner (Container) no Docker-CE<br>
 ```bash
 #criando o diretório de teste02 do Dockerfile
 #opção do comando mkdir: -v (verbose)
@@ -156,7 +149,7 @@ wget -O teste02/teste.html https://raw.githubusercontent.com/vaamonde/ubuntu-240
 
 #baixando o arquivo de configuração básica do NGINX do Github
 #opção do comando wget: -O (output-document file)
-wget -O teste02/nginx.conf 
+wget -O teste02/default https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/default
 
 #criando o arquivo do Dockerfile no diretório teste02
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -191,24 +184,24 @@ ARG DEBIAN_FRONTEND=noninteractive
 #utilizar o comando apt para atualizar a imagem
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
 #RUM (Execute build commands)
-#opção do comando apt: update (Resynchronize the package index files from their sources), 
+#opção do comando apt-get: update (Resynchronize the package index files from their sources), 
 #upgrade (Install the newest versions of all packages currently installed on the system), 
 #-y (yes confirmation)
 #opção do operador lógico &&: E lógico (AND)
-RUN apt update && apt upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
 #instalando o NGINX para testar o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
 #RUM (Execute build commands)
-#opção do comando apt: install (install is followed by one or more package names), -y 
+#opção do comando apt-get: install (install is followed by one or more package names), -y 
 #(yes confirmation)
-RUN apt install nginx -y
+RUN apt-get install nginx -y
 
 #copiar o arquivo de configuração do NGINX para o diretório padrão
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
 #COPY: (Copy files and directories)
-COPY teste02/nginx.conf /etc/nginx/nginx.conf
+COPY default /etc/nginx/sites-available/default
 
 #criando o diretório padrão de trabalho do NGINX
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#workdir
@@ -224,12 +217,12 @@ VOLUME /var/www/html/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
 #COPY: (Copy files and directories)
-COPY teste02/teste.html /var/www/html/
+COPY teste.html /var/www/html/
 
 #expondo a porta de acesso ao NGINX no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
 #EXPOSE (Describe which ports your application is listening on)
-EXPOSE 80/tcp
+EXPOSE 80
 
 #iniciando o NGINX na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
@@ -237,14 +230,14 @@ EXPOSE 80/tcp
 #CMD (Specify default commands)
 #opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
 #become a daemon)
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 ```
 ```bash
 #salvar e sair do arquivo
 Esc Shift : x <Enter>
 ```
 
-#06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#06_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Debian no Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
 #NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
@@ -264,6 +257,17 @@ docker build --tag nginx:0.1 teste02/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
+```
+
+#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE
+```bash
+#executando o container do NGIX em modo Daemon/Background no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
+#opção do comando docker: container (Manage containers), run (Create and run a new container 
+#from an image), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate 
+#a pseudo-TTY) ubuntu (imagem docker hub)
+docker container run -d -it --name webserver --publish 80:80 nginx:0.1 /bin/bash
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -271,7 +275,22 @@ docker image ls
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show 
 #all images (default hides intermediate images)
 docker container ls -a
+
+docker container inspect webserver
+
+docker container attach webserver
 ```
+
+#verificando o redirecionamento da Porta padrão do Apache2
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
+
+#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o 
+#servidor (TO) do Apache2 Server na porta (PORT) 80 via protocolo TCP (PROTO TCP)
+sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o Apache2'
+
+#Verificando as Regras Detalhadas padrão do UFW em modo Verboso
+sudo ufw status verbose
 
 ========================================DESAFIOS=========================================
 
