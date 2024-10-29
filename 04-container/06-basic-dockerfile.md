@@ -225,16 +225,25 @@ COPY teste.html /var/www/html/
 EXPOSE 80
 
 #iniciando o NGINX na imagem do Dockerfile
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#stopsignal
+#STOPSIGNAL (Specify the system call signal for exiting a container)
+STOPSIGNAL SIGTERM
+
+#iniciando o NGINX na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
 #Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #CMD (Specify default commands)
 #opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
 #become a daemon)
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 ```
 ```bash
 #salvar e sair do arquivo
 Esc Shift : x <Enter>
+
+#listando o conteúdo do diretório de projeto do Dockerfile
+#opções do comando ls: -l (long listing format), -h (human-readable)
+ls -lh teste02/
 ```
 
 #06_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Debian no Docker-CE<br>
