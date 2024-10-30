@@ -30,15 +30,16 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/07-image-d
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
-#02_ Baixando (Pull) Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
-#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
-#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
-#05_ Criando (Create) o Contêiner (Container) de Dados com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
-#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
-#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
-#08_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
-#09_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
-#10_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
+#02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
+#03_ Verificando o Histórico (History) e Inspecionando (Inspect) as Imagens (Image) do Ubuntu no Docker-CE<br>
+#04_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+#05_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+#06_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+#07_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+#08_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+#09_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>

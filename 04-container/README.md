@@ -116,15 +116,16 @@ Vídeo de comandos básicos de Image do Docker-CE (Community Edition) no Ubuntu 
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
-#02_ Baixando (Pull) Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
-#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
-#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
-#05_ Criando (Create) o Contêiner (Container) de Dados com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
-#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
-#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
-#08_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
-#09_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
-#10_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
+#02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
+#03_ Verificando o Histórico (History) e Inspecionando (Inspect) as Imagens (Image) do Ubuntu no Docker-CE<br>
+#04_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+#05_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+#06_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+#07_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+#08_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+#09_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
 
 [![Image Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Image Docker-CE")
 
@@ -136,15 +137,44 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-con
 
 Vídeo de comandos básicos de Dockerfile do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os conceitos básicas de criar um diretório de projeto e começar a trabalhar com o arquivo Dockerfile para criar imagens de Container personalizados.
 
+Conteúdo estudado nesse desafio:<br>
 #01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
 #02_ Baixando (Pull) as Imagens (Image) do Debian para o Repositório Local do Docker-CE<br>
 #03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 #05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
 #06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
+#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
+#09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
 [![Dockerfile Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker-CE")
 
 Link da vídeo aula: 
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/06-basic-dockerfile.md
+
+## **🤩🤩 Criando e Enviando Imagem para Docker Hub no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de Criar Imagens Personalizadas e Enviar para o Docker Hub utilizando o Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os conceitos básicas de criar uma conta no Docker Hub, utilizar o seu repositório pessoal, baixar uma imagem do Node.JS customizar e instalar uma aplicação sim e fazer o upload para o seu repositório.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
+#02_ Pesquisando (Search) a Imagem (Image) do Node.JS no Docker-HUB do Docker-CE<br>
+#03_ Baixando (Pull) a Imagem (Image) do Node.JS para o Repositório Local do Docker-CE<br>
+#04_ Criando o Projeto do Node.JS e Construindo (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#05_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Node.JS no Docker-CE<br>
+#06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE<br>
+#07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE<br>
+#08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE<br>
+#09_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
+#10_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+#11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
+#12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+
+[![Docker Hub](http://img.youtube.com/vi//0.jpg)]( "Docker Hub")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/07-basic-docker-hub.md

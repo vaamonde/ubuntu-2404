@@ -29,7 +29,18 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-docker-
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerhub
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
+#02_ Pesquisando (Search) a Imagem (Image) do Node.JS no Docker-HUB do Docker-CE<br>
+#03_ Baixando (Pull) a Imagem (Image) do Node.JS para o Repositório Local do Docker-CE<br>
+#04_ Criando o Projeto do Node.JS e Construindo (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#05_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Node.JS no Docker-CE<br>
+#06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE<br>
+#07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE<br>
+#08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE<br>
+#09_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
+#10_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+#11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
+#12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -293,7 +304,7 @@ docker image history USERNAME_DOCKER-HUB/app:0.1
 docker image inspect USERNAME_DOCKER-HUB/app:0.1
 ```
 
-#09_ Se autenticando (Login) no Docker Hub via Docker-CE<br>
+#09_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
 ```bash
 #se autenticando no Docker Hub utilizando o Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/login/
@@ -302,7 +313,28 @@ docker image inspect USERNAME_DOCKER-HUB/app:0.1
 docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 ```
 
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#10_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+```bash
+#fazendo o upload da imagem do Node.Js para o Docker Hub
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/push/
+#opção do comando docker: login (Authenticate to a registry), -u --username (Username Docker Hub)
+#-p --password (Password Docker Hub)
+docker push USERNAME_DOCKER-HUB/app:0.1
+```
+
+#11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
+```bash
+Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/SEU_USUÁRIO_DOCKER-HUB
+
+#pesquisando a imagem do container no repositório do seu usuário no Docker Hub
+#Link de consulta do Docker Hub: https://hub.docker.com/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
+#opção do comando docker: search (Search the Docker Hub for images)
+docker search USERNAME_DOCKER-HUB
+```
+
+#12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -311,12 +343,12 @@ docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 #all images (default hides intermediate images)
 docker container ls -a
 
-#removendo o container do NGINX no Docker-CE
+#removendo o container do Node.JS no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/rm/
 #opção do comando docker: container (Manage containers), rm (Remove one or more containers),
-#-f --force (Force the removal of a running container), webserver (Container Names or ID)
-docker container rm -f webserver
+#-f --force (Force the removal of a running container), app (Container Names or ID)
+docker container rm -f app
 
 #listando os volumes criados no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -325,12 +357,12 @@ docker container rm -f webserver
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
-#limpando o volume do Webserver no Docker-CE
+#limpando o volume do App no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/rm/
 #opção do comando docker: volume (Manage volumes), rm (Remove one or more volumes), -f 
 #--force (Force the removal of one or more volumes)
-docker volume rm -f webserver
+docker volume rm -f app
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -342,8 +374,8 @@ docker image ls
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
-#-f --force (Force removal of the image), vava:0.1 debian (imagem docker)
-docker image rm -f vava:0.1 nginx:0.1 debian
+#-f --force (Force removal of the image), USERNAME_DOCKER-HUB/app:0.1 node (imagem docker)
+docker image rm -f USERNAME_DOCKER-HUB/app:0.1 node
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
@@ -360,9 +392,7 @@ sudo ufw status numbered
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
-
-**#11_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
+**#13_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 12 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
 
 =========================================================================================
 
