@@ -6,9 +6,9 @@
 #Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica<br>
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
-#Data de criação: 22/10/2024<br>
+#Data de criação: 30/10/2024<br>
 #Data de atualização: 30/10/2024<br>
-#Versão: 0.06<br>
+#Versão: 0.01<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -20,25 +20,16 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-dockerfile-docker.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-docker-hub.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerfile
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerhub
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
-#02_ Baixando (Pull) as Imagens (Image) do Debian para o Repositório Local do Docker-CE<br>
-#03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
-#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
-#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
-#06_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
-#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
-#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
-#09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#01_ 
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -53,28 +44,63 @@ O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fu
 
 O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
-[![Dockerfile Docker](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker")
+[![Docker Hub](http://img.youtube.com/vi//0.jpg)]( "Docker Hub")
 
 Link da vídeo aula: 
 
-#01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
+#01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
 ```bash
-#pesquisando a imagem do container do Debian oficial no Docker-HUB
+Link oficial do projeto: https://hub.docker.com/
+
+01) Clicar no link: Sing up
+02) Na tela de: Create your account crie sua conta
+    OBSERVAÇÃO IMPORTANTE: VOCÊ PODE USAR UMA CONTA DO GOOGLE OU DO GITHUB PARA SE AUTENTICAR
+    NO DOCKER HUB, EM ALGUNS CASOS CONTAS DO GITHUB FACILITA O PROCESSO DE CRIAR DE IMAGENS
+    PERSONALIZADAS E INTEGRAÇÃO COM OUTRAS SOLUÇÕES.
+    A) Email: DIGITE_SEU_EMAIL
+    B) Username: DIGITE_SEU_USUÁRIO
+    C) Password: DIGITE_SUA_SENHA
+    D) (OFF) Send me occasional product updates and announcements.
+    <Sign up>
+03) Valide o seu Caption <VERIFICAR>
+04) Você irá receber no seu email o link para ativação da conta, clique no Link corresponde
+    A) [Docker] Please confirm your email address: <Verify Email Address>
+    B) Email verification successful: <Sign in>
+05) Sign in
+    A) Username or email address: DIGITE_SEU_USUÁRIO ou DIGITE_SEU_EMAIL: <Continue>
+    B) Password: DIGITE_SUA_SENHA: <Continue>
+
+#OBSERVAÇÃO IMPORTANTE: APÓS SE AUTENTICAR NO DOCKER HUB RECOMENDO PERSONALIZAR A SUA CONTA
+#FACILITANDO A IDENTIFICAÇÃO DAS IMAGENS DE CONTAINERS NA SUA CONTA.
+
+01) Após logado, no conto superior clique no Ícone da sua conta;
+02) Selecione: Account Settings
+03) Account information (This information will be visible to all users of Docker Hub.)
+    A) Full Name: DIGITE_SEU_NOME_COMPLETO (Exemplo: Robson Vaamonde)
+    B) Company: DIGITE_O_NOME_DA_SUA_EMPRESA (Exemplo: Bora para Prática)
+    C) Location: DIGITE_A_LOCALIZAÇÃO_DA_SUA_EMPRESA (Exemplo: São Paulo / Brasil)
+    D) Website: DIGITE_SEU_WEBSITE (Exemplo: https://github.com/vaamonde/)
+    E) Gravatar email: DEFAULT
+    <Save>
+```
+#02_ Pesquisando (Search) a Imagem (Image) do Node.JS no Docker-HUB do Docker-CE<br>
+```bash
+#pesquisando a imagem do container do Node.JS oficial no Docker-HUB
 #Link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 #opção do comando docker: search (Search the Docker Hub for images), --filters (Filter output 
 #based on conditions provided), is-official (parameters and value used in the filter)
-docker search debian --filter is-official=true
+docker search node --filter is-official=true
 ```
 
-#02_ Baixando (Pull) a Imagem (Image) do Debian para o Repositório Local do Docker-CE<br>
+#03_ Baixando (Pull) a Imagem (Image) do Node.JS para o Repositório Local do Docker-CE<br>
 ```bash
-#baixando a imagem do Debian do Docker-HUB
+#baixando a imagem do Node.JS do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/pull/
-#Link de consulta do Docker Hub: https://hub.docker.com/_/debian
+#Link de consulta do Docker Hub: https://hub.docker.com/_/node
 #opção do comando docker: imagem (Manage images), pull (Download an image from a registry)
-docker image pull debian
+docker image pull node
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -83,20 +109,29 @@ docker image pull debian
 docker image ls
 ```
 
-#03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
+#04_ Criando o Projeto do Node.JS e Construindo (Build) o nosso Contêiner (Container) no Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO
 #VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. CADA PROJETO
 #DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
 
-#criando o diretório de teste01 do Dockerfile
+#criando o diretório do projeto do Node.JS do Dockerfile
 #opção do comando mkdir: -v (verbose)
-mkdir -v teste01/
+mkdir -v app/
 
-#criando o arquivo do Dockerfile no diretório teste01
+#baixando o script do Node.JS de teste do Github
+#opção do comando wget: -O (output-document file)
+wget -O app/index.js https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/index.js
+
+#baixando os arquivo de dependências do Node.Js do Github
+#opção do comando wget: -O (output-document file):
+wget -O app/package.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package.json
+wget -O app/package-lock.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package-lock.json
+
+#criando o arquivo do Dockerfile no diretório app
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
-vim teste01/Dockerfile
+vim app/Dockerfile
 
 #entrando no modo de edição do VIM
 INSERT
@@ -104,137 +139,56 @@ INSERT
 ```bash
 #COPIAR E COLAR: as configurações básicas do Dockerfile
 
-#utilizar a Imagem do Debian para criar o container 
+#utilizar a Imagem do Node.JS para criar o nosso container 
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
 #FROM (Create a new build stage from a base image)
-FROM debian
-
-#utilizar o comando echo para imprimir na saída padrão a mensagem 
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
-RUN /bin/echo "Testando o Dockerfile no Debian"
-```
-```bash
-#salvar e sair do arquivo
-Esc Shift : x <Enter>
-```
-
-#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
-#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste01 UTILIZAR NO COMANDO 
-#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
-#PROJETO.
-
-#criando o container do Debian utilizando o Dockerfile
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
-#opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
-#optionally a tag in the name:tag format), teste01 (Directory path Dockerfile)
-docker build --tag vava:0.1 teste01/
-
-#listando todas as imagens de containers no Docker-CE
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
-#opção do comando docker: image (Manage images), ls (List images)
-docker image ls
-```
-
-#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) a nossa Imagem (Image) de Contêiner (Container) no Docker-CE<br>
-```bash
-#criando o diretório de teste02 do Dockerfile
-#opção do comando mkdir: -v (verbose)
-mkdir -v teste02/
-
-#baixando uma página de teste Index em HTML do Github
-#opção do comando wget: -O (output-document file)
-wget -O teste02/index.html https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/index.html
-
-#baixando o arquivo de configuração básica do site padrão do NGINX do Github
-#opção do comando wget: -O (output-document file)
-wget -O teste02/default https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/default
-
-#criando o arquivo do Dockerfile no diretório teste02
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
-#Documentação do Docker-CE: https://docs.docker.com/build/concepts/dockerfile/
-vim teste02/Dockerfile
-
-#entrando no modo de edição do VIM
-INSERT
-```
-```bash
-#COPIAR E COLAR: as configurações básicas do Dockerfile
-
-#utilizar a Imagem do Debian para criar o container 
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
-#FROM (Create a new build stage from a base image)
-FROM debian
+FROM node
 
 #utilizando os Rótulos (labels) para identificar a imagem
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#label
 #LABEL (Add metadata to an image)
 LABEL maintainer="Robson Vaamonde"
-LABEL version="0.2"
-LABEL description="Segundo projeto do Dockerfile"
+LABEL version="0.1"
+LABEL description="Projeto de App utilizando o Node.JS e Dockerfile"
 
-#criando argumentos da imagem padrão do NGINX quando utilizar o comando apt
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#arg
-#Documentação do Debconf: https://manpages.debian.org/jessie/debconf-doc/debconf.7.en.html
-#opção da variável DEBIAN_FRONTEND: noninteractive (This is the anti-frontend. It never 
-#interacts with you at all, and makes the default answers be used for all questions.)
-ARG DEBIAN_FRONTEND=noninteractive
-
-#utilizar o comando apt para atualizar a imagem
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
-#opção do comando apt-get: update (Resynchronize the package index files from their sources), 
-#upgrade (Install the newest versions of all packages currently installed on the system), 
-#-y (yes confirmation)
-#opção do operador lógico &&: E lógico (AND)
-RUN apt-get update && apt-get upgrade -y
-
-#instalando o NGINX para testar o Dockerfile
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
-#opção do comando apt-get: install (install is followed by one or more package names), -y 
-#(yes confirmation)
-RUN apt-get install nginx procps -y
-
-#copiar o arquivo de configuração do site padrão do NGINX do diretório de projeto
-#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
-#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
-#COPY: (Copy files and directories)
-COPY default /etc/nginx/sites-available/default
-
-#criando o diretório padrão de trabalho do NGINX
+#criando o diretório padrão de trabalho do projeto em Node.JS
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#workdir
 #WORKDIR (Change working directory)
-WORKDIR /var/www/html/
+WORKDIR /app/
 
-#criando o volume da imagem padrão do NGINX
+#criando o volume da imagem padrão do projeto em Node.JS
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#volume
 #VOLUME (Create volume mounts)
-VOLUME /var/www/html/
+VOLUME /app/
 
-#copiar o arquivo de html padrão para o Document Root do NGINX
+#copiando os arquivos package.json e o package-lock.json para o diretório de trabalho
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
 #COPY: (Copy files and directories)
-COPY index.html /var/www/html/index.html
+COPY package*.json ./
 
-#expondo a porta de acesso ao NGINX no Dockerfile
+#copiando o arquivo de index.js para o diretório de trabalho
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
+#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
+#COPY: (Copy files and directories)
+COPY index.js ./
+
+#instalando as dependências do projeto do Node.JS no diretório de trabalho
+#Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
+#Documentação do NPM: https://docs.npmjs.com/cli/v10/commands/npm-install
+#RUM (Execute build commands)
+#opção do comando npm: install (Install a package)
+RUN npm install
+
+#expondo a porta de acesso do projeto do Node.JS no Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#expose
 #EXPOSE (Describe which ports your application is listening on)
-EXPOSE 80
+EXPOSE 3000
 
-#iniciando o NGINX na imagem do Dockerfile
+#iniciando do projeto do Node.JS na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
-#Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #CMD (Specify default commands)
-#opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
-#become a daemon)
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["node", "index.js"]
 ```
 ```bash
 #salvar e sair do arquivo
@@ -242,24 +196,24 @@ Esc Shift : x <Enter>
 
 #listando o conteúdo do diretório de projeto do Dockerfile
 #opções do comando ls: -l (long listing format), -h (human-readable)
-ls -lh teste02/
+ls -lh app/
 ```
 
-#06_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Debian no Docker-CE<br>
+#05_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Node.JS no Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
 #NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste02 UTILIZAR NO COMANDO 
+#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/app UTILIZAR NO COMANDO 
 #DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
 #PROJETO.
 
-#criando o container do NGINX utilizando o Dockerfile
+#criando o container do Node.JS utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #opção do comando docker: build (Build an image from a Dockerfile), --no-cache (Do not 
 #use cache when building the image)-t --tag (Name and optionally a tag in the name:tag 
-#format), teste02 (Directory path Dockerfile)
-docker build --no-cache --tag nginx:0.1 teste02/
+#format), app/ (Directory path Dockerfile)
+docker build --no-cache --tag app:0.1 app/
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -268,15 +222,14 @@ docker build --no-cache --tag nginx:0.1 teste02/
 docker image ls
 ```
 
-#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
+#06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE<br>
 ```bash
 #criando volume local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/create/
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
-#opção do comando docker: volume (Manage volumes), create (Create a volume), webserver
-#(Volume name)
-docker volume create webserver
+#opção do comando docker: volume (Manage volumes), create (Create a volume), app (Volume name)
+docker volume create app
 
 #listando os volumes criados no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -285,14 +238,14 @@ docker volume create webserver
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
 
-#executando o container do NGINX em modo Daemon/Background no Docker-CE
+#executando o container do Node.JS em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
 #from an image), -d --detach (Run container in background and print container ID), --name
 #(Assign a name to the container), -v --volume (Bind mount a volume), -p --publish (Publish 
-#a container's port(s) to the host) nginx:0.1 (imagem docker hub)
-docker container run -d --name webserver --volume webserver:/var/www/html --publish 80:80 nginx:0.1
+#a container's port(s) to the host) app:0.1 (imagem docker hub)
+docker container run -d --name app --volume app:/app --publish 3000:3000 app:0.1
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -302,28 +255,28 @@ docker container run -d --name webserver --volume webserver:/var/www/html --publ
 docker container ls -a
 ```
 
-#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
+#07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE<br>
 ```bash
-#verificando o redirecionamento da Porta padrão do NGINX
+#verificando o redirecionamento da Porta padrão do Node.JS
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
-#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o 
-#servidor (TO) do NGINX Server na porta (PORT) 80 via protocolo TCP (PROTO TCP)
-sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o NGINX'
+#Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar
+#o servidor (TO) do Node.JS na porta (PORT) 3000 via protocolo TCP (PROTO TCP)
+sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 3000 proto tcp comment 'Liberando a sub-rede para acessar o Node.JS'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
 sudo ufw status verbose
 
-#Testando o acesso ao site do NGINX via terminal
+#Testando o acesso ao site do Node.JS via terminal
 #opções do comando curl: -s (silent), -S (show-error), -f (fail)
-curl -sSf http://172.16.1.30
+curl -sSf http://172.16.1.30:3000
 
-#utilizar os navegadores para testar o acesso ao NGINX 
-firefox ou google chrome: http://endereço_ipv4_ubuntuserver
+#utilizar os navegadores para testar o acesso ao Node.JS 
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-#09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
+#08_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
 ```bash
 #verificando os históricos da imagem do NGINX localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -333,7 +286,16 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 docker image history nginx:0.1
 ```
 
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#09_ Se autenticando (Login) no Docker Hub via Docker-CE<br>
+```bash
+#se autenticando no Docker Hub utilizando o Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/login/
+#opção do comando docker: login (Authenticate to a registry), -u --username (Username Docker Hub)
+#-p --password (Password Docker Hub)
+docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
+```
+
+#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -387,28 +349,20 @@ Proceed with operation (y|n)? y <Enter>
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
-
-#listando os diretórios de testes do Dockerfile
-#opções do comando ls: -l (long listing format), -h (human-readable)
-ls -lh
-
-#removendo os diretórios de testes do Dockerfile
-#opção do comando rm: -R (recursive), f (force), -v (verbose)
-rm -Rfv teste01/ teste02/
 ```
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
+**#10_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
 
-**#12_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
+**#11_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 09 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-dockerfile-docker.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2404/blob/main/selos/08-docker-hub.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerfile
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodocker #desafiodockerce #desafiodockerhub
