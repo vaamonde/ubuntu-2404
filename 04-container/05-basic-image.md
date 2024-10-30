@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/10/2024<br>
-#Data de atualização: 25/10/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 30/10/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -89,7 +89,24 @@ docker image pull ubuntu:focal
 docker image ls
 ```
 
-#03_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+#03_ Verificando o Histórico (History) e Inspecionando (Inspect) as Imagens (Image) do Ubuntu no Docker-CE<br>
+```bash
+#verificando os históricos da imagem do Ubuntu localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
+#opção do comando docker: images (List all imagens docker), history (Show the history of an image)
+#ubuntu (imagem docker)
+docker image history ubuntu
+
+#inspecionando a imagem do Ubuntu localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/inspect/
+#opção do comando docker: images (List all imagens docker), inspect (Display detailed information 
+#on one or more images), ubuntu (imagem docker)
+docker image inspect ubuntu
+```
+
+#04_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
 ```bash
 #criando o volume de dados local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -108,7 +125,7 @@ docker volume create dados
 docker volume ls --filter name=dados
 ```
 
-#04_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+#05_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
 ```bash
 #criando a rede de dados em modo Bridge no Docker-CE 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
@@ -125,7 +142,7 @@ docker network create dados --driver bridge
 docker network ls --filter name=dados
 ```
 
-#05_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+#06_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
 ```bash
 #criando um novo container do Ubuntu mais sem iniciar
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -152,7 +169,7 @@ docker container create -it --name samba4 --memory 1g --memory-reservation 512m 
 docker container ls -a --filter name=samba4
 ```
 
-#06_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+#07_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
 ```bash
 #iniciando o container do Ubuntu SAMBA-4 no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -176,7 +193,7 @@ docker container ls -a --filter name=samba4
 docker container attach samba4
 ```
 
-#07_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+#08_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
 ```bash
 #atualizando as lista do apt do Ubuntu
 apt update
@@ -238,7 +255,7 @@ Gerenciador de Arquivo (Nemo)
     smb://172.16.1.30/
 ```
 
-#08_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#09_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
 ```bash
 #criando uma imagem personalizada do container do SAMBA-4
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -292,7 +309,7 @@ docker container create -it --name samba4 --memory 1g --memory-reservation 512m 
 docker container ls -a
 ```
 
-#09_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+#10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
 ```bash
 #iniciando o container SAMBA-4 personalizado no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -326,7 +343,7 @@ Gerenciador de Arquivo (Nemo)
     smb://172.16.1.30/
 ```
 
-#10_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
+#11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -387,9 +404,9 @@ docker network rm -f dados
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 22.04 Jammy`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage01`__, UTILIZANDO O VOLUME DE: __`estoque`__ E A REDE: __`estoque`__.
+**#12_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 22.04 Jammy`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 11 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage01`__, UTILIZANDO O VOLUME DE: __`estoque`__ E A REDE: __`estoque`__.
 
-**#12_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 20.04 Focal`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage02`__, UTILIZANDO O VOLUME DE: __`producao`__ E A REDE: __`producao`__.
+**#13_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu 20.04 Focal`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 11 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`storage02`__, UTILIZANDO O VOLUME DE: __`producao`__ E A REDE: __`producao`__.
 
 =========================================================================================
 

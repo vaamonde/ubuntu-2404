@@ -213,7 +213,7 @@ ls -lh app/
 #opção do comando docker: build (Build an image from a Dockerfile), --no-cache (Do not 
 #use cache when building the image)-t --tag (Name and optionally a tag in the name:tag 
 #format), app/ (Directory path Dockerfile)
-docker build --no-cache --tag app:0.1 app/
+docker build --no-cache --tag USERNAME_DOCKER-HUB/app:0.1 app/
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -244,8 +244,8 @@ docker volume ls
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
 #from an image), -d --detach (Run container in background and print container ID), --name
 #(Assign a name to the container), -v --volume (Bind mount a volume), -p --publish (Publish 
-#a container's port(s) to the host) app:0.1 (imagem docker hub)
-docker container run -d --name app --volume app:/app --publish 3000:3000 app:0.1
+#a container's port(s) to the host) USERNAME_DOCKER-HUB/app:0.1 (imagem docker hub)
+docker container run -d --name app --volume app:/app --publish 3000:3000 USERNAME_DOCKER-HUB/app:0.1
 
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -276,14 +276,21 @@ curl -sSf http://172.16.1.30:3000
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-#08_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
+#08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE<br>
 ```bash
-#verificando os históricos da imagem do NGINX localmente no Docker-CE
+#verificando os históricos da imagem do Node.JS localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
 #opção do comando docker: images (List all imagens docker), history (Show the history of an image)
-#nginx:0.1 (imagem docker)
-docker image history nginx:0.1
+#USERNAME_DOCKER-HUB/app:0.1 (imagem docker)
+docker image history USERNAME_DOCKER-HUB/app:0.1
+
+#inspecionando a imagem do Node.Js localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/inspect/
+#opção do comando docker: images (List all imagens docker), inspect (Display detailed information 
+#on one or more images), USERNAME_DOCKER-HUB/app:0.1 (imagem docker)
+docker image inspect USERNAME_DOCKER-HUB/app:0.1
 ```
 
 #09_ Se autenticando (Login) no Docker Hub via Docker-CE<br>
@@ -295,7 +302,7 @@ docker image history nginx:0.1
 docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 ```
 
-#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

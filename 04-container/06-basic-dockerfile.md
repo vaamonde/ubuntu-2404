@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
 #Data de atualização: 30/10/2024<br>
-#Versão: 0.06<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -323,7 +323,7 @@ curl -sSf http://172.16.1.30
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ```
 
-#09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
+#09_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do NGINX no Docker-CE<br>
 ```bash
 #verificando os históricos da imagem do NGINX localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -331,6 +331,13 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 #opção do comando docker: images (List all imagens docker), history (Show the history of an image)
 #nginx:0.1 (imagem docker)
 docker image history nginx:0.1
+
+#inspecionando a imagem do NGINX localmente no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/inspect/
+#opção do comando docker: images (List all imagens docker), inspect (Display detailed information 
+#on one or more images), nginx:0.1 (imagem docker)
+docker image inspect nginx:0.1
 ```
 
 #10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
