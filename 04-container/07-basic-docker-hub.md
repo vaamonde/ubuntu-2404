@@ -112,7 +112,7 @@ docker search node --filter is-official=true
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/pull/
 #Link de consulta do Docker Hub: https://hub.docker.com/_/node
 #opção do comando docker: imagem (Manage images), pull (Download an image from a registry)
-docker image pull node
+docker image pull node:latest
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -136,8 +136,13 @@ mkdir -v app/
 wget -O app/index.js https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/index.js
 
 #baixando os arquivo de dependências do Node.Js do Github
+
+#baixando o arquivo package.json do projeto do Node.JS do Github
 #opção do comando wget: -O (output-document file)
 wget -O app/package.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package.json
+
+#baixando o arquivo package-lock.json do projeto do Node.JS do Github
+#opção do comando wget: -O (output-document file
 wget -O app/package-lock.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package-lock.json
 
 #criando o arquivo do Dockerfile no diretório app
@@ -318,9 +323,16 @@ docker container exec -it app /bin/bash
 #verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
 cat /etc/os-release
 
+#verificando a versão do Node.JS
+node --version
+
 #verificando o diretório padrão do projeto do Node.JS
 #opções do comando ls: -l (long listing format), -h (human-readable)
 ls -lh /app
+
+#verificando os processo em execução no container o Node.JS
+#opção do comando ps: -a (all processes except both session leaders), -u (userlist)
+ps -aux
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
@@ -328,6 +340,19 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 
 #10_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: CUIDADO AO USAR O COMANDO: docker login PASSANDO O USUÁRIO E SENHA
+#DIRETAMENTE NO TERMINAL EM TEXTO PLANO, A SEGUINTE MENSAGEM E MOSTRADA QUANDO VOCÊ EXECUTA
+#ESSE COMANDO:
+
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /home/SEU_USUÁRIO/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+#OBSERVAÇÃO IMPORTANTE: SERÁ CRIADO O ARQUIVO: config.json NO DIRETÓRIO DE CONFIGURAÇÃO
+#PADRÃO DO DOCKER NO PERFIL DO SEU USUÁRIO EM: /home/SEU_USUÁRIO/.docker/config.json ONDE
+#IRÁ FICAR ARMAZENADO A SENHA DE AUTENTICAÇÃO NO DOCKER HUB.
+
 #se autenticando no Docker Hub utilizando o Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/login/
 #opção do comando docker: login (Authenticate to a registry), -u --username (Username Docker Hub)
@@ -356,7 +381,7 @@ Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/S
 docker search USERNAME_DOCKER-HUB
 ```
 
-#13_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#13_ Removendo (RM) o Volume (Volume), Contêiner (Container) e Imagem (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -392,7 +417,7 @@ docker volume rm -f app
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
 
-#removendo as imagens do Ubuntu Apache2 e NGINX localmente no Docker-CE
+#removendo as imagens do Node.JS e do App localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
@@ -402,19 +427,35 @@ docker image rm -f USERNAME_DOCKER-HUB/app:0.1 node
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
-#Removendo (DELETE) a Regra (RULES) de Acesso ao NGINX (9) do Docker-CE
+#Removendo (DELETE) a Regra (RULES) de Acesso ao Node.JS (9) do Docker-CE
 sudo ufw delete 9
 Deleting:
- allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o NGINX'
+ allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o Node.JS'
 Proceed with operation (y|n)? y <Enter>
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
+
+#deslogando do Registro Docker Hub no Docker CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/logout/
+#opção do comando docker: logout (Log out from a registry)
+docker logout
+
+#verificar se a senha guardada no arquivo: /home/SEU_USUÁRIO/.docker/config.json foi removida
+cat /home/SEU_USUÁRIO/.docker/config.json
+
+#listando o diretório de App do Dockerfile
+#opções do comando ls: -l (long listing format), -h (human-readable)
+ls -lh
+
+#removendo o diretório de App do Dockerfile
+#opção do comando rm: -R (recursive), f (force), -v (verbose), * (all)
+rm -Rfv app/
 ```
 
 ========================================DESAFIOS=========================================
 
-**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
+**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Node`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`newapp`__, UTILIZANDO O VOLUME DE: __`newapp`__ E A REDE: __`newapp`__, ALTERAR E ADICIONAR MAIS OPÇÃO NO ARQUIVO: __`index.js`__ E CRIAR E PUBLICAR UMA NOVA IMAGEM E CONTAINER COM ESSAS MUDANÇAS, ALTERANDO A TAG PARA: __`newapp:0.2 `__.
 
 =========================================================================================
 

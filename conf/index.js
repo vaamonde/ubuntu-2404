@@ -12,6 +12,6 @@ app.get('/', function (req, res) {
 });
 
 // Porta padrão utilizada pela aplicação do Node.JS
-app.listen(3030, function() {
-    console.log('Aplicativo de exemplo ouvindo na porta 3030');
+app.listen(3000, function() {
+    console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });

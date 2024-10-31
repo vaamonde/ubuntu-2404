@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 27/10/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 31/10/2024<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -38,6 +38,7 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE<br>
 #08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE<br>
 #09_ Criando (Create) Contêiner (Container) com o Volumes (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -54,7 +55,7 @@ O QUE É E PARA QUE SERVER O NETWORK DO DOCKER: O Network no Docker refere-se ao
 
 Link da vídeo aula: 
 
-#01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Docker-CE<br>
+#01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Ubuntu e Docker-CE<br>
 ```bash
 #verificando as informações de Placa de Rede (Network) do Ubuntu Server
 #opção do comando lshw: -class (Only show the given class of hardware)
@@ -63,6 +64,11 @@ sudo lshw -class network
 #verificando a interface e endereço IPv4 do Ubuntu Server
 sudo ifconfig enp0s3
   enp0s3: 172.16.1.30/24 
+
+#verificando a tabela de roteamento IPv4 do Ubuntu Server
+#opção do comando route: -n (numeric)
+sudo route -n
+  0.0.0.0  172.16.1.254  0.0.0.0  UG  0  0  0  enp0s3
 
 #verificando a interface e endereço IPv4 do Docker-CE
 sudo ifconfig docker0
@@ -138,8 +144,9 @@ ubuntu/apache2 /bin/bash
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
-#opção do comando docker: image (Manage images), ls (List images)
-docker image ls
+#opção do comando docker: image (Manage images), ls (List images), -f --filter (Filter output based
+#on conditions provided)
+docker image ls --filter reference=ubuntu/apache2
 
 #listando o container do Ubuntu Apache2 em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -157,6 +164,9 @@ docker container attach website01
 
 #verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
 cat /etc/os-release
+
+#verificando o status do serviço do Apache2 Server na Imagem do Ubuntu
+service apache2 status
 
 #iniciando o serviço do Apache2 Server na Imagem do Ubuntu
 service apache2 start
@@ -181,6 +191,10 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 
 #05_ Inspecionando (Inspect) o Contêiner (Container) da Imagem (Image) do Apache2 no Docker-CE<br>
 ```bash
+#informações dois tipos de Modos de Volumes do Docker-CE
+#Modo z (minúsculo): Configura o volume para ser compartilhado entre múltiplos containers
+#Modo Z (maiúsculo): Configura o volume para ser utilizado exclusivamente por um único container. 
+
 #inspecionando as informações de montagem no container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
@@ -274,15 +288,23 @@ sudo brctl show
 #opção do comando iptables: -L (list all chain), -n (numeric output)
 sudo iptables -L -n
 
-#Tabelas NAT (Network Address Translation) utilizadas pelo Docker-CE (NESSE CENÁRIO)
-#Chain PREROUTING (policy ACCEPT)
-#Chain OUTPUT (policy ACCEPT)
-#Chain POSTROUTING (policy ACCEPT)
-#Chain DOCKER (2 references)
-
 #listando todas as regras de Firewall das Tabelas de NAT do IPTables no Ubuntu Server
 #opção do comando iptables: -L (list all chain), -n (numeric output), -t (table)
-iptables -L -n -t nat
+sudo iptables -L -n -t nat
+
+#Tabelas NAT (Network Address Translation) utilizadas pelo Docker-CE (NESSE CENÁRIO)
+#opção do comando iptables: -t (table), -L (list all chain), -n (numeric output)
+#Chain PREROUTING (policy ACCEPT)
+sudo iptables -t nat -L PREROUTING -n
+
+#Chain OUTPUT (policy ACCEPT)
+sudo iptables -t nat -L OUTPUT -n 
+
+#Chain POSTROUTING (policy ACCEPT)
+sudo iptables -t nat -L POSTROUTING -n 
+
+#Chain DOCKER (2 references)
+sudo iptables -t nat -L DOCKER -n 
 ```
 
 #08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE<br>
@@ -291,15 +313,24 @@ iptables -L -n -t nat
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/create/
 #Documentação do Docker-CE: https://docs.docker.com/engine/network/
+#opção do comando docker: network (Manage networks), create (Create a network), -d --driver
+#(Driver to manage the Network), bridge (default)
 docker network create vaamonde --driver bridge
 
 #listando as redes padrão do Docker-CE 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/ls/
 #Documentação do Docker-CE: https://docs.docker.com/engine/network/
-#opção do comando docker: network (Manage networks), ls (List networks), --filter (Provide
+#opção do comando docker: network (Manage networks), ls (List networks), -f --filter (Provide
 #filter values)
 docker network ls --filter name=vaamonde
+
+#inspecionando as informações da rede em modo Bridge no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/inspect/
+#opção do comando docker: network (Manage networks), inspect (Display detailed information
+#on one or more networks), vaamonde (network)
+docker network inspect vaamonde
 ```
 
 #09_ Criando (Create) Contêiner (Container) com o Volume (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
@@ -332,6 +363,9 @@ docker container ls -a --filter name=website02
 #and error streams to a running container), website02 (Container Names or Container ID)
 docker container attach website02
 
+#verificando o status do serviço do NGINX Server na Imagem do Ubuntu
+service nginx status
+
 #iniciando o serviço do NGINX Server na Imagem do Ubuntu
 service nginx start
 
@@ -341,6 +375,9 @@ service nginx status
 #verificando os processos do serviço do NGINX Server na Imagem do Ubuntu
 #opção do comando ps: -a (all processes except both session leaders), -u (userlist)
 ps -aux
+
+#verificando as informações do tráfego das interfaces de rede na Imagem do Ubuntu
+cat /proc/net/dev
 
 #verificando as informações de endereço de rede na Imagem do Ubuntu
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -360,11 +397,15 @@ sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 81 proto tcp comme
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
 sudo ufw status verbose
 
+#OBSERVAÇÃO IMPORTANTE: OBSERVER A FALHA DA PÁGINA DO UBUNTU EM RELAÇÃO AO LOGO QUANDO VOCÊ
+#ACESSAR A PORTA DO NGINX, O ERRO ESTÁ RELACIONADO AO CAMINHO: icons/ubuntu-logo.png QUE NÃO
+#TEM NO VOLUME CRIADo, MAIS O NGINX ESTÁ LENDO A PÁGINA: index.html DO NOSSO VOLUME.
+
 #utilizar os navegadores para testar o acesso ao NGINX 
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:81
 ```
 
-#09_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/

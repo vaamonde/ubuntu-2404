@@ -120,7 +120,7 @@ RUN /bin/echo "Testando o Dockerfile no Debian"
 Esc Shift : x <Enter>
 ```
 
-#04_ Construindo (Build) o nosso Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
+#04_ Construindo (Build) nossa Imagem (Image) de Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
 #NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
@@ -341,20 +341,23 @@ docker image history nginx:0.1
 docker image inspect nginx:0.1
 ```
 
-#10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+#10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) do NGINX no Docker-CE<br>
 ```bash
 #executando e acessando o Bash remoto do container do NGINX
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/exec/
 #opção do comando docker: container (Manage containers), exec (Execute a command in a running 
 #container), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate  a 
-#pseudo-TTY), webserver (imagem docker hub)
+#pseudo-TTY), webserver (imagem docker hub), /bin/bash (command executed)
 docker container exec -it webserver /bin/bash
 
-#verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
+#verificando a versão da imagem do Debian rodando no container do Docker-CE
 cat /etc/os-release
 
-#saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
+#verificando o status de serviço NGINX
+service nginx status
+
+#saindo do container do Debian mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
@@ -418,8 +421,8 @@ sudo ufw status numbered
 ls -lh
 
 #removendo os diretórios de testes do Dockerfile
-#opção do comando rm: -R (recursive), f (force), -v (verbose)
-rm -Rfv teste01/ teste02/
+#opção do comando rm: -R (recursive), f (force), -v (verbose), * (all)
+rm -Rfv teste0*/
 ```
 
 ========================================DESAFIOS=========================================
