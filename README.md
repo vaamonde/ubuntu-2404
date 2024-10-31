@@ -59,7 +59,7 @@ Cloud: Computação em nuvem é um termo coloquial para a disponibilidade sob de
 
 Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 24.04.x LTS do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 24.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet utilizando como base os Conceitos de Containers junto com o Docker-CE e Portainer.io.
 
-[![Apresentação do Curso](http://img.youtube.com/vi/LmPu-D3BzQU/0.jpg)](https://www.youtube.com/watch?v=LmPu-D3BzQU"Apresentação do Curso")
+[![Apresentação do Curso](http://img.youtube.com/vi/LmPu-D3BzQU/0.jpg)](https://www.youtube.com/watch?v=LmPu-D3BzQU "Apresentação do Curso")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=LmPu-D3BzQU
 
