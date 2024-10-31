@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/10/2024<br>
-#Data de atualização: 30/10/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 31/10/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -37,10 +37,11 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE<br>
 #07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE<br>
 #08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE<br>
-#09_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
-#10_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
-#11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
-#12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#09_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+#10_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
+#11_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+#12_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
+#13_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -135,7 +136,7 @@ mkdir -v app/
 wget -O app/index.js https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/index.js
 
 #baixando os arquivo de dependências do Node.Js do Github
-#opção do comando wget: -O (output-document file):
+#opção do comando wget: -O (output-document file)
 wget -O app/package.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package.json
 wget -O app/package-lock.json https://raw.githubusercontent.com/vaamonde/ubuntu-2404/refs/heads/main/conf/package-lock.json
 
@@ -304,7 +305,28 @@ docker image history USERNAME_DOCKER-HUB/app:0.1
 docker image inspect USERNAME_DOCKER-HUB/app:0.1
 ```
 
-#09_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
+#09_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+```bash
+#executando e acessando o Bash remoto do container do Node.JS
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/exec/
+#opção do comando docker: container (Manage containers), exec (Execute a command in a running 
+#container), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate  a 
+#pseudo-TTY), app (imagem docker hub)
+docker container exec -it app /bin/bash
+
+#verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
+cat /etc/os-release
+
+#verificando o diretório padrão do projeto do Node.JS
+#opções do comando ls: -l (long listing format), -h (human-readable)
+ls -lh /app
+
+#saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
+Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
+```
+
+#10_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
 ```bash
 #se autenticando no Docker Hub utilizando o Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/login/
@@ -313,7 +335,7 @@ docker image inspect USERNAME_DOCKER-HUB/app:0.1
 docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 ```
 
-#10_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+#11_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
 ```bash
 #fazendo o upload da imagem do Node.Js para o Docker Hub
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -323,7 +345,7 @@ docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 docker push USERNAME_DOCKER-HUB/app:0.1
 ```
 
-#11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
+#12_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
 ```bash
 Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/SEU_USUÁRIO_DOCKER-HUB
 
@@ -334,7 +356,7 @@ Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/S
 docker search USERNAME_DOCKER-HUB
 ```
 
-#12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#13_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -392,7 +414,7 @@ sudo ufw status numbered
 
 ========================================DESAFIOS=========================================
 
-**#13_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 12 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
+**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
 
 =========================================================================================
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
-#Data de atualização: 30/10/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 31/10/2024<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -38,7 +38,8 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
 #08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
 #09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+#11_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
 Site Oficial do Docker: https://www.docker.com/<br>
 Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
@@ -340,7 +341,24 @@ docker image history nginx:0.1
 docker image inspect nginx:0.1
 ```
 
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+#10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+```bash
+#executando e acessando o Bash remoto do container do NGINX
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/exec/
+#opção do comando docker: container (Manage containers), exec (Execute a command in a running 
+#container), -i --interactive (Keep STDIN open even if not attached), -t --tty (Allocate  a 
+#pseudo-TTY), webserver (imagem docker hub)
+docker container exec -it webserver /bin/bash
+
+#verificando a versão da imagem do Ubuntu rodando no container do Docker-CE
+cat /etc/os-release
+
+#saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
+Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
+```
+
+#11_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -406,9 +424,9 @@ rm -Rfv teste01/ teste02/
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
+**#12_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 11 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
 
-**#12_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 10 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
+**#13_ DESAFIO-02:** UTILIZAR A IMAGEM DE CONTAINER DO: __`CentOS`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 11 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver02`__, UTILIZANDO O VOLUME DE: __`webserver02`__ E A REDE: __`webserver02`__.
 
 =========================================================================================
 

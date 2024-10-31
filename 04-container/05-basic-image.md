@@ -380,7 +380,7 @@ docker volume rm -f dados
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
 
-#removendo as imagens do Ubuntu Latest e do SAMBA-4 Pesonalizado localmente no Docker-CE
+#removendo as imagens do Ubuntu Latest e do SAMBA-4 Personalizado localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/rm/
 #opção do comando docker: images (List all imagens docker), rm (Remove one or more images), 
