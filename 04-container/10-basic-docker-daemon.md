@@ -38,20 +38,25 @@ Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
 O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
-
-O QUE É E PARA QUE SERVER O DOCKER IMAGE: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
-
-O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
-
-O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER: Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
-
-[![Docker Compose](http://img.youtube.com/vi//0.jpg)]( "Docker Compose")
+[![Docker Daemon](http://img.youtube.com/vi//0.jpg)]( "Docker Daemon")
 
 Link da vídeo aula: 
 
-#01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
+#01_ Verificando o Status de Serviço do Docker-CE no Ubuntu Server<br>
 ```bash
+https://docs.docker.com/engine/daemon/
+https://docs.docker.com/reference/cli/dockerd/
+https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
+
+sudo systemctl status docker.service
+sudo systemctl status docker.socket
+
+sudo journalctl -xu docker.service
+sudo journalctl -xu docker.service
+
+sud cat -n /var/log/syslog | grep -i docker
+
+https://docs.docker.com/engine/daemon/remote-access/
 
 ```
 
