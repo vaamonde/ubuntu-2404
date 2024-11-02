@@ -115,13 +115,14 @@ vim teste01/vavatour.yml
 #entrando no modo de edição do VIM
 INSERT
 ```
-```yaml
-#COPIAR E COLAR: as configurações básicas do Compose
+```bash
+#COPIAR E COLAR: as configurações básicas do Docker Compose
 
 #OBSERVAÇÃO IMPORTANTE: NOS ARQUIVOS DO COMPOSE QUE UTILIZA A EXTENSÃO .YML NUNCA
 #UTILIZAR O TAB (TABULADOR) SEMPRE UTILIZAR 02 (DOIS) ESPAÇOS PARA A INDENTAÇÃO DO
-#DAS CONFIGURAÇÕES.
-
+#ARQUIVO DE CONFIGURAÇÕES DO DOCKER COMPOSE.
+```
+```yaml
 #definindo o nome do projeto
 #Documentação do Docker: https://docs.docker.com/reference/compose-file/version-and-name/
 name: vavatour
