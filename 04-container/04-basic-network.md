@@ -391,7 +391,7 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 sudo lsof -nP -iTCP:'81' -sTCP:LISTEN
 
 #Liberando (allow) e Logando Tudo (LOG-ALL) da Sub-rede 172.16.1.0/24 (FROM) acessar o 
-#servidor (TO) do NGINX Server na porta (PORT) 80 via protocolo TCP (PROTO TCP)
+#servidor (TO) do NGINX Server na porta (PORT) 81 via protocolo TCP (PROTO TCP)
 sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 81 proto tcp comment 'Liberando a sub-rede para acessar o NGINX'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso

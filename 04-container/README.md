@@ -178,3 +178,23 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: 
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/07-basic-docker-hub.md
+
+## **🤩🤩 Criando Projetos do Docker Compose no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de comandos básicos de Criar Projetos de Containers utilizando o Docker Compose no Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os conceitos básicas de criar um projeto simples de dois containers de Web Site e Banco de Dados utilizando um único arquivo, facilitando a criação e administração dos containers e serviços de rede.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Pesquisando (Search) as Imagens (Image) do NGINX e MySQL no Docker-HUB do Docker-CE<br>
+#02_ Baixando (Pull) as Imagens (Image) do NGINX e MySQL para o Repositório Local do Docker-CE<br>
+#03_ Criando o Primeiro arquivo do Docker Compose File YML (YAML Ain't Markup Language) no Docker-CE<br>
+#04_ Executando o Docker Compose utilizando o arquivo (file) para construir os Contêiners (Container) no Docker-CE<br>
+#05_ Verificando as Informações dos Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
+#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br
+#07_ Liberando o acesso Remoto dos Contêiners (Container) do NGINX e MySQL no Docker-CE<br>
+#08_ Removendo (Rm/Down) os Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
+
+[![Docker Compose](http://img.youtube.com/vi//0.jpg)]( "Docker Compose")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/08-basic-docker-compose.md
