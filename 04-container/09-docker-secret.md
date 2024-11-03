@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 31/10/2024<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 03/11/2024<br>
+#Versão: 0.02<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -46,7 +46,9 @@ O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que
 
 O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER: Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
 
-[![Docker Compose](http://img.youtube.com/vi//0.jpg)]( "Docker Compose")
+O QUE É E PARA QUE SERVER O DOCKER SECRET: O Docker Secret é um recurso de segurança do Docker projetado para armazenar e gerenciar informações sensíveis, como senhas, chaves SSH, certificados, tokens de API e outros dados confidenciais usados por containers. Ele é especialmente útil em ambientes de produção e em arquiteturas de microsserviços, onde as credenciais e dados privados precisam ser mantidos seguros e acessíveis apenas para os serviços autorizados.
+
+[![Docker Secret](http://img.youtube.com/vi//0.jpg)]( "Docker Secret")
 
 Link da vídeo aula: 
 
@@ -56,6 +58,9 @@ Link da vídeo aula:
 ```
 
 
+echo "minha_senha_secreta" | docker secret create minha_senha -
+docker service create --name meu_servico --secret minha_senha nginx
+/run/secrets/nome_do_segredo
 
 ========================================DESAFIOS=========================================
 
