@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 07/10/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 03/11/2024<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 
@@ -83,7 +83,6 @@ cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null
 ```bash
 #adicionando o repositório do Docker-CE
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção da contra barra (\): criar uma quebra de linha no terminal
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
@@ -119,7 +118,7 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.29.7/docker
 sudo chmod -v 755 /usr/bin/docker-compose
 ```
 
-#07_ Verificando o Serviço e Versão do Docker-CE e Compose<br>
+#07_ Verificando o Serviço e Versão do Docker-CE e do Docker Compose<br>
 ```bash
 #verificando o serviço do Docker-CE
 sudo systemctl status docker
@@ -128,11 +127,13 @@ sudo systemctl reload docker
 sudo systemctl stop docker
 sudo systemctl start docker
 
-#analisando os Log's e mensagens de erro do Docker
+#analisando os Log's e mensagens de erro do Docker-CE
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu docker
 
-#verificando as versões do Docker-CE e Compose
+#verificando as versões do Docker-CE e do Docker Compose
+#Documentação do Docker-DE: https://docs.docker.com/reference/cli/docker/
+#Documentação do Docker Compose: https://docs.docker.com/compose/
 sudo docker version
 sudo docker-compose version
 ```
@@ -172,12 +173,12 @@ sudo getent group docker
 exit
 ```
 
-#11_ Verificando Informações Detalhadas do Serviço do Docker-CE<br>
+#11_ Verificando as Informações Detalhadas do Serviço do Docker-CE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É
-#MAIS NECESSÁRIO ADICIONAR O COMANDO: SUDO ANTES DO COMANDO: DOCKER.
+#MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
 
-#verificando informações detalhadas do Docker-CE
+#verificando as informações detalhadas do Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/info/
 docker info
 
