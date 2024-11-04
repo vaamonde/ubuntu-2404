@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 31/10/2024<br>
-#Data de atualização: 02/10/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 04/10/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -77,7 +77,7 @@ docker search mysql --filter is-official=true
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/pull/
 #opção do comando docker: imagem (Manage images), pull (Download an image from a registry)
 docker image pull nginx:latest
-docker image pull nginx:latest
+docker image pull mysql:latest
 
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -138,7 +138,7 @@ services:
     #DICA: recomendo deixar o mapeamento das portas dentro de Aspas Duplas
     ports: 
       - "80:80"
-    #definindo as políticas de reinício automático do container do Data Base
+    #definindo as políticas de reinício automático do container do Web Site
     #OBSERVAÇÃO a opção: always (sempre) é utilizada caso tenha alguma falha
     #no container ele será reiniciado automaticamente.
     restart: always
@@ -154,6 +154,7 @@ services:
     #OBSERVAÇÃO: as variáveis de ambiente sempre está disponível na descrição
     #do Docker Hub e na sua documentação oficial.
     environment:
+      #definindo a senha do usuário root do MySQL Server
       MYSQL_ROOT_PASSWORD: pti@2018
     #definindo as políticas de reinício automático do container do Data Base
     restart: always
@@ -349,7 +350,7 @@ rm -Rfv teste0*/
 
 ========================================DESAFIOS=========================================
 
-**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Ubuntu`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`webserver01`__, UTILIZANDO O VOLUME DE: __`webserver01`__ E A REDE: __`webserver01`__.
+**#14_ DESAFIO-01:** UTILIZAR AS IMAGENS DE CONTAINERS DO: __`Apache2 (httpd)`__ e do __`MariaDB`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSAS IMAGENS E CRIAR O ARQUIVO DO DOCKER COMPOSE DE: __`vavaschool.yml`__ A OPÇÃO: __`name`__ COM O SEGUINTE NOME: __`vavaschool`__, NOME DO CONTAINER DO APACHE2 DE: __`hotsite`__ E A BANCO DE DADOS DE: __`db`__.
 
 =========================================================================================
 
