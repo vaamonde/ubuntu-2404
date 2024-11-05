@@ -350,7 +350,7 @@ rm -Rfv teste0*/
 
 ========================================DESAFIOS=========================================
 
-**#14_ DESAFIO-01:** UTILIZAR AS IMAGENS DE CONTAINERS DO: __`Apache2 (httpd)`__ e do __`MariaDB`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSAS IMAGENS E CRIAR O ARQUIVO DO DOCKER COMPOSE DE: __`vavaschool.yml`__ A OPÇÃO: __`name`__ COM O SEGUINTE NOME: __`vavaschool`__, NOME DO CONTAINER DO APACHE2 DE: __`hotsite`__ E A BANCO DE DADOS DE: __`db`__.
+**#09_ DESAFIO-01:** UTILIZAR AS IMAGENS DE CONTAINERS DO: __`Apache2 (httpd)`__ e do __`MariaDB`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 08 UTILIZANDO ESSAS IMAGENS E CRIAR O ARQUIVO DO DOCKER COMPOSE DE: __`vavaschool.yml`__ A OPÇÃO: __`name`__ COM O SEGUINTE NOME: __`vavaschool`__, NOME DO CONTAINER DO APACHE2 DE: __`hotsite`__ E A BANCO DE DADOS DE: __`db`__.
 
 =========================================================================================
 

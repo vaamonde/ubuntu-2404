@@ -78,7 +78,7 @@ sudo journalctl -xu docker.service
 #opção do comando cat: -n (number)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-sud cat -n /var/log/syslog | grep -i docker
+sudo cat -n /var/log/syslog | grep -i docker
 ```
 
 #02_ Habilitando o Suporte Remoto do Docker-CE no SystemD<br>
@@ -149,7 +149,7 @@ sudo ufw status verbose
 #ls (List containers), -a --all (Show all images (default hides intermediate images)
 docker -H tcp://172.16.1.30:2375 container ls -a
 
-#utilizar os navegadores para testar o acesso ao Docker Daemon 
+#utilizar os navegadores para testar o acesso da API do Docker Daemon 
 #Documentação do Docker-CE: https://docs.docker.com/engine/security/#docker-daemon-attack-surface
 #Documentação do Docker-CE: https://docs.docker.com/engine/security/protect-access/
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:2375
