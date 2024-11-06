@@ -496,10 +496,11 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE<br>
 #08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE<br>
 #09_ Criando (Create) Contêiner (Container) com o Volumes (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
+#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
 
-[![Network Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Network Docker-CE")
+[![Network Docker](http://img.youtube.com/vi/MSJmXtRu45I/0.jpg)](https://www.youtube.com/watch?v=MSJmXtRu45I "Network Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=MSJmXtRu45I
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/04-basic-network.md
 

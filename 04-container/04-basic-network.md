@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 06/11/2024<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -51,9 +51,9 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 O QUE É E PARA QUE SERVER O NETWORK DO DOCKER: O Network no Docker refere-se ao sistema de rede virtual usado para conectar containers entre si e com o mundo externo. Ele permite que containers se comuniquem de maneira controlada e segura, tanto entre si quanto com redes externas, como a rede do host ou a internet.
 
-[![Network Docker](http://img.youtube.com/vi//0.jpg)]( "Network Docker")
+[![Network Docker](http://img.youtube.com/vi/MSJmXtRu45I/0.jpg)](https://www.youtube.com/watch?v=MSJmXtRu45I "Network Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=MSJmXtRu45I
 
 #01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Ubuntu e Docker-CE<br>
 ```bash
@@ -69,6 +69,9 @@ sudo ifconfig enp0s3
 #opção do comando route: -n (numeric)
 sudo route -n
   0.0.0.0  172.16.1.254  0.0.0.0  UG  0  0  0  enp0s3
+
+#verificando as informações dos servidores DNS do Ubuntu Server
+sudo resolvectl
 
 #verificando a interface e endereço IPv4 do Docker-CE
 sudo ifconfig docker0
