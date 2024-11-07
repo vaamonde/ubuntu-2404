@@ -86,8 +86,8 @@ sudo cat -n /var/log/syslog | grep -i docker
 #editando o arquivo de inicialização do serviço do Docker-CE
 sudo systemctl edit docker.service
 
-#OBSERVAÇÃO IMPORTANTE: A porta remota padrão é 2376 se você estiver usando transporte 
-#criptografado TLS/SSL ou 2375 caso contrário.
+#OBSERVAÇÃO IMPORTANTE: A porta remota padrão é a: 2376 se você estiver usando transporte 
+#criptografado TLS/SSL ou: 2375 caso contrário.
 
 #Documentação do Docker-CE: https://docs.docker.com/engine/daemon/remote-access/
 #Documentação do Docker-CE: https://docs.docker.com/engine/daemon/

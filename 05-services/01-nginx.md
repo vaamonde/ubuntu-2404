@@ -38,13 +38,15 @@ Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
 O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
+O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER: Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
+
 O QUE É E PARA QUE SERVER O NGINX: O NGINX é um servidor web de alta performance e um proxy reverso. Ele é amplamente usado para servir páginas web, equilibrar carga de servidores e como cache de conteúdo. É conhecido por sua eficiência em lidar com milhares de conexões simultâneas, sendo uma escolha popular para sites de alto tráfego e para melhorar a distribuição e segurança de aplicações na internet.
 
 [![NGINX Server](http://img.youtube.com/vi//0.jpg)]( "NGINX Server")
 
 Link da vídeo aula: 
 
-#01_ Verificando o Status de Serviço do Docker-CE e do Docker Socket no Ubuntu Server<br>
+#01_ <br>
 ```bash
 
 ```
