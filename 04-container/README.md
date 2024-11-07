@@ -89,7 +89,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=dbOmIfI3n1s
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/03-basic-volume.md
 
-## **🤩🤩 Comandos Básicos de Network Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Comandos Básicos de Network do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de comandos básicos de Network do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para criar, configurar, mapear redes e portas nos Container do Docker-CE para facilitar o gerenciamento e acesso remoto aos serviços.
 
@@ -110,7 +110,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=MSJmXtRu45I
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/04-basic-network.md
 
-## **🤩🤩 Comandos Básicos de Image Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Comandos Básicos de Imagem do Docker-CE no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de comandos básicos de Image do Docker-CE (Community Edition) no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender todos os comandos básicos para consultar, baixar, gerenciar e construir imagens personalizadas de Container do Docker.
 
@@ -127,9 +127,9 @@ Conteúdo estudado nesse desafio:<br>
 #10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
 #11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
 
-[![Image Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Image Docker-CE")
+[![Image Docker](http://img.youtube.com/vi/aEAv-rD42hI/0.jpg)](https://www.youtube.com/watch?v=aEAv-rD42hI "Image Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=aEAv-rD42hI
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/05-basic-image.md
 

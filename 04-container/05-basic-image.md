@@ -52,9 +52,9 @@ O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner
 
 O QUE É E PARA QUE SERVER O IMAGE DO DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
-[![Image Docker](http://img.youtube.com/vi//0.jpg)]( "Image Docker")
+[![Image Docker](http://img.youtube.com/vi/aEAv-rD42hI/0.jpg)](https://www.youtube.com/watch?v=aEAv-rD42hI "Image Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=aEAv-rD42hI
 
 #01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
 ```bash
@@ -68,7 +68,7 @@ docker search ubuntu --filter is-official=true
 
 #02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
 ```bash
-#informações importante sobre os Tipos de Tags () mais utilizadas no Docker Hub
+#informações importante sobre os Tipos de Tags (Marcação/Etiqueta) mais utilizadas no Docker Hub
 #latest........: é a tag padrão se nenhuma outra for especificada, versão mais recente;
 #alpine........: imagens mínimas baseadas no Alpine Linux
 #slim..........: imagens menores com bibliotecas mínimas
@@ -105,8 +105,8 @@ docker image ls
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
 #opção do comando docker: images (List all imagens docker), history (Show the history of an image)
-#ubuntu (imagem docker)
-docker image history ubuntu
+#ubuntu (imagem docker), --no-trunc (Don't truncate output)
+docker image history ubuntu --no-trunc
 
 #inspecionando a imagem do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
