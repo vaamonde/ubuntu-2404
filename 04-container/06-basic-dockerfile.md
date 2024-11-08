@@ -54,9 +54,9 @@ O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fu
 
 O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
-[![Dockerfile Docker](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker")
+[![Dockerfile Docker](http://img.youtube.com/vi/56m308eEMZQ/0.jpg)](https://www.youtube.com/watch?v=56m308eEMZQ "Dockerfile Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=56m308eEMZQ
 
 #01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
 ```bash
@@ -112,7 +112,7 @@ FROM debian
 
 #utilizar o comando echo para imprimir na saída padrão a mensagem 
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
+#RUN (Execute build commands)
 RUN /bin/echo "Testando o Dockerfile no Debian"
 ```
 ```bash
@@ -128,7 +128,7 @@ Esc Shift : x <Enter>
 #DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
 #PROJETO.
 
-#criando o container do Debian utilizando o Dockerfile
+#construindo a imagem com base na imagem do Debian utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #opção do comando docker: build (Build an image from a Dockerfile), -t --tag (Name and 
@@ -254,7 +254,7 @@ ls -lh teste02/
 #DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
 #PROJETO.
 
-#criando o container do NGINX utilizando o Dockerfile
+#construindo a imagem do NGINX utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
 #opção do comando docker: build (Build an image from a Dockerfile), --no-cache (Do not 

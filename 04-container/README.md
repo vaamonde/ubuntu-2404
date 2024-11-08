@@ -149,9 +149,9 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Verificando o Histórico (History) da Imagem (Image) do NGINX no Docker-CE<br>
 #10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
-[![Dockerfile Docker-CE](http://img.youtube.com/vi//0.jpg)]( "Dockerfile Docker-CE")
+[![Dockerfile Docker](http://img.youtube.com/vi/56m308eEMZQ/0.jpg)](https://www.youtube.com/watch?v=56m308eEMZQ "Dockerfile Docker")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=56m308eEMZQ
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/06-basic-dockerfile.md
 
