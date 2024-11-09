@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/10/2024<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 09/11/2024<br>
+#Versão: 0.03<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -56,9 +56,9 @@ O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fu
 
 O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
-[![Docker Hub](http://img.youtube.com/vi//0.jpg)]( "Docker Hub")
+[![Docker Hub](http://img.youtube.com/vi/BjxBWOFZqxw/0.jpg)](https://www.youtube.com/watch?v=BjxBWOFZqxw "Docker Hub")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=BjxBWOFZqxw
 
 #01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
 ```bash
@@ -180,13 +180,14 @@ VOLUME /app/
 
 #copiando os arquivos package.json e o package-lock.json para o diretório de trabalho
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
-#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
+#Documentação do NPM: https://docs.npmjs.com/cli/v10/configuring-npm/package-json
+#Documentação do NPM: https://docs.npmjs.com/cli/v9/configuring-npm/package-lock-json
 #COPY: (Copy files and directories)
 COPY package*.json ./
 
 #copiando o arquivo de index.js para o diretório de trabalho
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
-#Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
+#Documentação do Node.JS: https://nodejs.org/docs/latest/api/synopsis.html
 #COPY: (Copy files and directories)
 COPY index.js ./
 
@@ -204,6 +205,7 @@ EXPOSE 3000
 
 #iniciando do projeto do Node.JS na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
+#Documentação do Node.JS: https://nodejs.org/docs/latest/api/synopsis.html
 #CMD (Specify default commands)
 CMD ["node", "index.js"]
 ```
@@ -455,7 +457,7 @@ rm -Rfv app/
 
 ========================================DESAFIOS=========================================
 
-**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Node`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`newapp`__, UTILIZANDO O VOLUME DE: __`newapp`__ E A REDE: __`newapp`__, ALTERAR E ADICIONAR MAIS OPÇÃO NO ARQUIVO: __`index.js`__ E CRIAR E PUBLICAR UMA NOVA IMAGEM E CONTAINER COM ESSAS MUDANÇAS, ALTERANDO A TAG PARA: __`newapp:0.2 `__.
+**#14_ DESAFIO-01:** UTILIZAR A IMAGEM DE CONTAINER DO: __`Node`__ EXECUTAR TODOS OS PROCEDIMENTOS DAS ETAPAS: 01 ATÉ 13 UTILIZANDO ESSA IMAGEM E ADICIONANDO NO COMANDO: __`docker container create`__ A OPÇÃO: __`--name`__ COM O SEGUINTE NOME: __`newapp`__, UTILIZANDO O VOLUME DE: __`newapp`__ E A REDE: __`newapp`__, ALTERAR E ADICIONAR MAIS OPÇÃO NO ARQUIVO: __`index.js`__ E CRIAR E PUBLICAR UMA NOVA IMAGEM DE CONTAINER COM ESSAS MUDANÇAS, ALTERANDO A TAG PARA: __`newapp:0.2 `__.
 
 =========================================================================================
 

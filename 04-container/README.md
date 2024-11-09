@@ -173,9 +173,9 @@ Conteúdo estudado nesse desafio:<br>
 #11_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
 #12_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
 
-[![Docker Hub](http://img.youtube.com/vi//0.jpg)]( "Docker Hub")
+[![Docker Hub](http://img.youtube.com/vi/BjxBWOFZqxw/0.jpg)](https://www.youtube.com/watch?v=BjxBWOFZqxw "Docker Hub")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=BjxBWOFZqxw
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/07-basic-docker-hub.md
 
