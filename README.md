@@ -583,12 +583,31 @@ Conteúdo estudado nesse desafio:<br>
 #03_ Criando o Primeiro arquivo do Docker Compose File YML (YAML Ain't Markup Language) no Docker-CE<br>
 #04_ Executando o Docker Compose utilizando o arquivo (file) para construir os Contêiners (Container) no Docker-CE<br>
 #05_ Verificando as Informações dos Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br
+#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br>
 #07_ Liberando o acesso Remoto dos Contêiners (Container) do NGINX e MySQL no Docker-CE<br>
 #08_ Removendo (Rm/Down) os Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
 
-[![Docker Compose](http://img.youtube.com/vi//0.jpg)]( "Docker Compose")
+[![Docker Compose](http://img.youtube.com/vi/7Y5ZEmDZlNA/0.jpg)](https://www.youtube.com/watch?v=7Y5ZEmDZlNA "Docker Compose")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=7Y5ZEmDZlNA
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/08-basic-docker-compose.md
+
+## **🤩🤩 Configurando o Docker Daemon no Ubuntu Server 24.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração básica do serviço do Docker-CE (Community Edition) Daemon no Ubuntu Server 24.04.x LTS, nesse vídeo você vai aprender as configurações básicas do Docker Daemon para permitir acesso remoto e as configurações para personalizar o serviço e recursos extras que facilita a administração dos containers em produção.
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Verificando o Status de Serviço do Docker-CE e do Docker Socket no Ubuntu Server<br>
+#02_ Habilitando o Suporte Remoto do Docker-CE no SystemD<br>
+#03_ Liberando o acesso Remoto da API (Application Programming Interface) do Docker-CE no Ubuntu Server<br>
+#04_ Verificando as Informações (Info) do Sistema (System) do Docker-CE<br>
+#05_ Testando a API (Application Programming Interface) do Docker Daemon via Navegador<br>
+#06_ Instalando o Docker Cli no Linux Mint<br>
+#07_ Integrando o Docker Cli com o Docker Daemon Remoto no Linux Mint<br>
+
+[![Docker Daemon](http://img.youtube.com/vi//0.jpg)]( "Docker Daemon")
 
 Link da vídeo aula: 
 
-Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/08-basic-docker-compose.md
+Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/09-basic-docker-daemon.md

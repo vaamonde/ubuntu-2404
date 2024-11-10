@@ -34,7 +34,7 @@ Conteúdo estudado nesse desafio:<br>
 #03_ Criando o Primeiro arquivo do Docker Compose File YML (YAML Ain't Markup Language) no Docker-CE<br>
 #04_ Executando o Docker Compose utilizando o arquivo (file) para construir os Contêiners (Container) no Docker-CE<br>
 #05_ Verificando as Informações dos Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
-#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br
+#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br>
 #07_ Liberando o acesso Remoto dos Contêiners (Container) do NGINX e MySQL no Docker-CE<br>
 #08_ Removendo (Rm/Down) os Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
 
@@ -53,9 +53,9 @@ O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que
 
 O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER: Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
 
-[![Docker Compose](http://img.youtube.com/vi//0.jpg)]( "Docker Compose")
+[![Docker Compose](http://img.youtube.com/vi/7Y5ZEmDZlNA/0.jpg)](https://www.youtube.com/watch?v=7Y5ZEmDZlNA "Docker Compose")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=7Y5ZEmDZlNA
 
 #01_ Pesquisando (Search) as Imagens (Image) do NGINX e MySQL no Docker-HUB do Docker-CE<br>
 ```bash
