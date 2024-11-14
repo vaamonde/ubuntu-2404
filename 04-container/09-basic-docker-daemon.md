@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 31/10/2024<br>
-#Data de atualização: 10/11/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 14/11/2024<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -49,9 +49,9 @@ O QUE É E PARA QUE SERVER O DOCKER DAEMON: O Docker Daemon (ou dockerd) é o pr
 
 O QUE É E PARA QUE SERVER O DOCKER SOCKET: O Docker Socket (normalmente localizado em /var/run/docker.sock em sistemas Linux) é um arquivo de socket do tipo UNIX domain socket que permite a comunicação entre o Docker Daemon e a CLI do Docker (docker). Ele funciona como um ponto de entrada local para a API do Docker, permitindo que processos locais possam interagir diretamente com o Docker Daemon para controlar containers, redes, imagens, volumes, e outras funções sem a necessidade de uma interface de rede (como TCP/IP).
 
-[![Docker Daemon](http://img.youtube.com/vi//0.jpg)]( "Docker Daemon")
+[![Docker Daemon](http://img.youtube.com/vi/o4tpClNtBHk/0.jpg)](https://www.youtube.com/watch?v=o4tpClNtBHk "Docker Daemon")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=o4tpClNtBHk
 
 #01_ Verificando o Status de Serviço do Docker-CE e do Docker Socket no Ubuntu Server<br>
 ```bash
@@ -73,7 +73,7 @@ sudo journalctl -xu docker.service
 
 #visualizando os logs de serviço do Docker Socket
 #opção do comando journalctl: -x (catalog), -u (unit)
-sudo journalctl -xu docker.service
+sudo journalctl -xu docker.socket
 
 #visualizando os logs de sistema do Docker-CE
 #opção do comando cat: -n (number)
@@ -200,7 +200,7 @@ firefox ou google chrome: http://172.16.1.30:2375/v1.43/networks
 firefox ou google chrome: http://172.16.1.30:2375/v1.43/volumes
 ```
 
-#06_ Instalando o Docker Cli no Linux Mint<br>
+#06_ Instalando o Docker Cli no Linux Mint 22.x<br>
 ```bash
 #instalação das dependências básicas do Docker-CE e do Docker Cli
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -216,14 +216,14 @@ wget -q https://download.docker.com/linux/ubuntu/gpg
 #opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null
 
-#adicionando o repositório do Docker-CE e do Docker Cli
+#adicionando o repositório do Docker-CE e do Docker Cli no Linux Mint 22.x
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
 #atualizando as lista do apt com o novo repositório do Docker
 sudo apt update
 
-#instalando o Docker Cli
+#instalando o Docker Cli no Linux Mint 22.x
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends docker-ce-cli
 
@@ -319,7 +319,7 @@ sudo ufw status numbered
 #Removendo (DELETE) a Regra (RULES) de Acesso ao Daemon (9) do Docker-CE
 sudo ufw delete 9
 Deleting:
- allow log-all from 172.16.1.0/24 to 172.16.1.30 port 80 proto tcp comment 'Liberando a sub-rede para acessar o Docker-CE'
+ allow log-all from 172.16.1.0/24 to 172.16.1.30 port 2375 proto tcp comment 'Liberando a sub-rede para acessar o Docker-CE'
 Proceed with operation (y|n)? y <Enter>
 
 #Comentando a linha do DOCKER_HOST no arquivo bashrc

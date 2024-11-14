@@ -607,8 +607,8 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Integrando o Docker Cli com o Docker Daemon Remoto no Linux Mint<br>
 #08_ Desabilitando os Recursos de Acesso Remoto do Daemon do Docker-CE<br>
 
-[![Docker Daemon](http://img.youtube.com/vi//0.jpg)]( "Docker Daemon")
+[![Docker Daemon](http://img.youtube.com/vi/o4tpClNtBHk/0.jpg)](https://www.youtube.com/watch?v=o4tpClNtBHk "Docker Daemon")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=o4tpClNtBHk
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2404/blob/main/04-container/09-basic-docker-daemon.md
