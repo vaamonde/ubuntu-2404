@@ -211,6 +211,7 @@ Conteúdo estudado nesse desafio:<br>
 #05_ Testando a API (Application Programming Interface) do Docker Daemon via Navegador<br>
 #06_ Instalando o Docker Cli no Linux Mint<br>
 #07_ Integrando o Docker Cli com o Docker Daemon Remoto no Linux Mint<br>
+#08_ Desabilitando os Recursos de Acesso Remoto do Daemon do Docker-CE<br>
 
 [![Docker Daemon](http://img.youtube.com/vi//0.jpg)]( "Docker Daemon")
 
