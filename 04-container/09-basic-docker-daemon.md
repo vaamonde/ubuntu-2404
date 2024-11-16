@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 31/10/2024<br>
-#Data de atualização: 14/11/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 16/11/2024<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -84,6 +84,12 @@ sudo cat -n /var/log/syslog | grep -i docker
 
 #02_ Habilitando o Suporte Remoto do Docker-CE no SystemD<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): VOCÊ TAMBÉM PODE FAZER AS CONFIGURAÇÕES DO
+#DOCKER DAEMON UTILIZANDO O ARQUIVO DE CONFIGURAÇÃO LOCALIZADO EM: /etc/docker/daemon.json,
+#NESSE ARQUIVO VOCÊ PODE ALTERAR VÁRIAS OPÇÕES DO DOCKER DAEMON, RECOMENDO SEMPRE QUANDO É
+#NECESSÁRIO FAZER CONFIGURAÇÕES EXTRAS OU HABILITAR RECURSOS DE SEGURANÇA, SERÁ VISTO MAIS
+#A FRENTE NESSE CURSO.
+
 #editando o arquivo de inicialização do serviço do Docker-CE
 sudo systemctl edit docker.service
 
