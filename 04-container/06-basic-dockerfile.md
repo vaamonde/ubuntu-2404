@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 16/11/2024<br>
+#Versão: 0.09<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -179,16 +179,17 @@ LABEL maintainer="Robson Vaamonde"
 LABEL version="0.2"
 LABEL description="Segundo projeto do Dockerfile"
 
-#criando argumentos da imagem padrão do NGINX quando utilizar o comando apt
+#utilizando argumentos da imagem padrão do NGINX quando utilizar o comando apt
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#arg
+#ARG (Use build-time variables)
 #Documentação do Debconf: https://manpages.debian.org/jessie/debconf-doc/debconf.7.en.html
 #opção da variável DEBIAN_FRONTEND: noninteractive (This is the anti-frontend. It never 
 #interacts with you at all, and makes the default answers be used for all questions.)
 ARG DEBIAN_FRONTEND=noninteractive
 
-#utilizar o comando apt para atualizar a imagem
+#utilizando o comando apt para atualizar a imagem
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
+#RUN (Execute build commands)
 #opção do comando apt-get: update (Resynchronize the package index files from their sources), 
 #upgrade (Install the newest versions of all packages currently installed on the system), 
 #-y (yes confirmation)
@@ -197,15 +198,15 @@ RUN apt-get update && apt-get upgrade -y
 
 #instalando o NGINX para testar o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#run
-#RUM (Execute build commands)
+#RUN (Execute build commands)
 #opção do comando apt-get: install (install is followed by one or more package names), -y 
 #(yes confirmation)
 RUN apt-get install nginx procps -y
 
-#copiar o arquivo de configuração do site padrão do NGINX do diretório de projeto
+#copiando o arquivo de configuração do site padrão do NGINX do diretório de projeto
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
+#COPY (Copy files and directories)
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
-#COPY: (Copy files and directories)
 COPY default /etc/nginx/sites-available/default
 
 #criando o diretório padrão de trabalho do NGINX
@@ -213,15 +214,15 @@ COPY default /etc/nginx/sites-available/default
 #WORKDIR (Change working directory)
 WORKDIR /var/www/html/
 
-#criando o volume da imagem padrão do NGINX
+#criando o ponto de montagem do volume da imagem padrão do NGINX
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#volume
 #VOLUME (Create volume mounts)
 VOLUME /var/www/html/
 
-#copiar o arquivo de html padrão para o Document Root do NGINX
+#copiando o arquivo de html padrão para o Document Root do NGINX
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#copy
+#COPY (Copy files and directories)
 #Documentação do NGINX: http://nginx.org/en/docs/beginners_guide.html
-#COPY: (Copy files and directories)
 COPY index.html /var/www/html/index.html
 
 #expondo a porta de acesso ao NGINX no Dockerfile
@@ -231,8 +232,8 @@ EXPOSE 80
 
 #iniciando o NGINX na imagem do Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#cmd
-#Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #CMD (Specify default commands)
+#Documentação do NGINX: http://nginx.org/en/docs/switches.html
 #opções do comando nginx: -g (directives), daemon off (Determines whether nginx should 
 #become a daemon)
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
