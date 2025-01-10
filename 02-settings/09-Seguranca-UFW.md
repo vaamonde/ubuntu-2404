@@ -198,7 +198,11 @@ sudo ufw status verbose
 ```bash
 #Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
 sudo vim /etc/ufw/before.rules
+
+#habilitando o número de linhas no editor de texto VIM
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -238,24 +242,32 @@ sudo ufw status verbose
 ```bash
 #editando o arquivo de configuração do TCPWrappers Hosts.Deny
 sudo vim /etc/hosts.deny
-INSERT
 
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
 # alterar as informações na linha 17
 # mais informações veja o arquivo Hosts.Deny no Github:
 ALL: ALL: spawn /bin/echo "$(date) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-deny.log
-
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
 #editando o arquivo de configuração do TCPWrappers Hosts.Allow
 sudo vim /etc/hosts.allow
-INSERT
 
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
 # alterar as informações na linha 10
 # OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
 # mais informações veja o arquivo Hosts.Allow no Github:
 sshd: 172.16.1.0/24: spawn /bin/echo "$(date) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/hosts-allow.log
-
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 ```
