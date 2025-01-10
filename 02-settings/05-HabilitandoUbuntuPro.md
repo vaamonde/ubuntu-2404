@@ -69,17 +69,17 @@ sudo apt autoclean
 Acesse o site: https://login.ubuntu.com/
 
 01) Clique em: I don’t have an Ubuntu One account
-Preencha os campos: 
-	Please type your email: (DIGITE_SEU_EMAIL)
-	Full name: (DIGITE SEU NOME COMPLETO)
-	Username: (DIGITE O SEU USUÁRIO)
-	Choose password: (DIGITE SUA SENHA)
-	Re-type password: (CONFIRME SUA SENHA)
-	Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
-	Clique em: <Create account>
+    Preencha os campos: 
+      Please type your email: (DIGITE_SEU_EMAIL)
+      Full name: (DIGITE SEU NOME COMPLETO)
+      Username: (DIGITE O SEU USUÁRIO)
+      Choose password: (DIGITE SUA SENHA)
+      Re-type password: (CONFIRME SUA SENHA)
+      Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
+      Clique em: <Create account>
 
 02) Finalize os procedimentos acessando seu email para ativar a sua conta no Ubuntu One.
-	Are you sure you want to confirm and validate this email address?
+    Are you sure you want to confirm and validate this email address?
 <Sim, tenho certeza>
 ```
 
@@ -88,10 +88,10 @@ Preencha os campos:
 Acesse o site: https://ubuntu.com/pro/dashboard
 
 01) Faça a autenticação com a sua conta criada no Ubuntu One;
-	Personal Data Request: <Yes, log me in>
+    Personal Data Request: <Yes, log me in>
 
 02) Será mostrado no campo Free Personal Token o seu token;
-	Copiar o seu Token no campo: Token.
+    Copiar o seu Token no campo: Token.
 ```
 
 #05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>

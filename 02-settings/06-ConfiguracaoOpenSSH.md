@@ -109,13 +109,17 @@ sudo vim /etc/hosts.deny
 
 #mostrando o número de linha do arquivo hosts.deny
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
-
-	#inserir as informações na linha: 17
-	#lista de serviço: lista de hosts: comando
-	#OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
-	ALL: ALL
-
+```
+```bash
+#inserir as informações na linha: 17
+#lista de serviço: lista de hosts: comando
+#OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
+ALL: ALL
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
@@ -124,13 +128,17 @@ sudo vim /etc/hosts.allow
 
 #mostrando o número de linha do arquivo hosts.allow
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
-
-	#inserir as informações na linha: 10
-	#lista de serviço: lista de hosts: comando
-	#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-	sshd: 172.16.1.0/24
-
+```
+```bash
+#inserir as informações na linha: 10
+#lista de serviço: lista de hosts: comando
+#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+sshd: 172.16.1.0/24
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 ```
@@ -150,21 +158,25 @@ sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu
 
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#alterar a variável ListenAddress na linha: 27 
+#ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
+#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+ListenAddress 172.16.1.30
 
-	#alterar a variável ListenAddress na linha: 27 
-	#ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
-	#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-	ListenAddress 172.16.1.30
+#alterar a variável AllowUsers na linha: 77
+#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
+AllowUsers vaamonde
 
-	#alterar a variável AllowUsers na linha: 77
-	#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
-	AllowUsers vaamonde
-
-	#alterar a variável AllowGroups na linha: 83
-	#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
-	AllowGroups vaamonde
-
+#alterar a variável AllowGroups na linha: 83
+#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
+AllowGroups vaamonde
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
@@ -174,12 +186,16 @@ sudo sshd -t
 
 #editando o arquivo de configuração do Banner do Ubuntu Server
 sudo vim /etc/issue.net
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
-
-	#alterar a linha 5: Servidor e Admin
-	#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
-	Servidor: ctnvaamonde - Admin: Robson Vaamonde
-
+```
+```bash
+#alterar a linha 5: Servidor e Admin
+#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
+Servidor: ctnvaamonde - Admin: Robson Vaamonde
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 

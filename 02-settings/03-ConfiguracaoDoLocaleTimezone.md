@@ -118,15 +118,19 @@ sudo timedatectl
 
 #editando o arquivo de configuração timesyncd.conf
 sudo vim /etc/systemd/timesyncd.conf
-INSERT
-	
-	#descomentar e alterar os valores das variáveis a partir da linha: 14
-	#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
-	#para o sincronismo de Data e Hora.
-	[Time]
-	NTP=a.st1.ntp.br
-	FallbackNTP=a.ntp.br
 
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#descomentar e alterar os valores das variáveis a partir da linha: 14
+#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
+#para o sincronismo de Data e Hora.
+[Time]
+NTP=a.st1.ntp.br
+FallbackNTP=a.ntp.br
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```

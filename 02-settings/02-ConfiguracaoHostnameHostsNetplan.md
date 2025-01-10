@@ -50,12 +50,16 @@ sudo apt install vim git python3
 
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
-INSERT
-	
-	#alterar o nome de domínio FQDN na linha 1
-	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-	ctnvaamonde.pti.intra
 
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar o nome de domínio FQDN na linha 1
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
+ctnvaamonde.pti.intra
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -64,14 +68,26 @@ ESC SHIFT : x <Enter>
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
-INSERT
-	
-	#adicionar o nome de domínio e apelido nas linhas 2 e 3
-	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-	127.0.0.1    localhost.pti.intra     localhost
-	127.0.1.1    ctnvaamonde.pti.intra   ctnvaamonde
-	172.16.1.30  ctnvaamonde.pti.intra   ctnvaamonde
 
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#adicionar o nome de domínio e apelido nas linhas 2 e 3
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+127.0.0.1    localhost.pti.intra     localhost
+127.0.1.1    ctnvaamonde.pti.intra   ctnvaamonde
+172.16.1.30  ctnvaamonde.pti.intra   ctnvaamonde
+
+#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -99,11 +115,13 @@ sudo lshw -class network
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
+#opções do comando ip: address (Protocol (IP or IPv6) address on a device)
 sudo ifconfig -a
 sudo ip address show
 
 #verificando as configurações de Gateway (route)
 #opção do comando route: -n (number)
+#opções do comando ip: route (Routing table entry)
 sudo route -n
 sudo ip route
 
