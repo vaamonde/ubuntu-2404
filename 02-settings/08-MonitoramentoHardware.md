@@ -7,12 +7,13 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 25/09/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 01/04/2025<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
@@ -26,31 +27,36 @@ Conteúdo estudado nessa configuração:<br>
 #05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server<br>
 #06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
 #07_ Verificando o Desempenho de Rede (Network) no Ubuntu Server<br>
-#08_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+#08_ Verificando a Temperatura do Servidor Ubuntu Server (NÃO COMENTADO O VÍDEO)<br>
+#09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
-O Ubuntu Server é uma versão do sistema operacional Ubuntu, especificamente desenvolvida para servidores. Enquanto o Ubuntu Desktop é voltado para usuários finais com uma interface gráfica amigável, o Ubuntu Server é otimizado para desempenho e eficiência em ambientes de servidores, geralmente sem uma interface gráfica (GUI) por padrão. Isso permite que ele seja mais leve e utilize menos recursos, o que é ideal para servidores que precisam ser rápidos, estáveis e capazes de gerenciar grandes volumes de trabalho.
+**O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu, especificamente desenvolvida para servidores. Enquanto o Ubuntu Desktop é voltado para usuários finais com uma interface gráfica amigável, o Ubuntu Server é otimizado para desempenho e eficiência em ambientes de servidores, geralmente sem uma interface gráfica (GUI) por padrão. Isso permite que ele seja mais leve e utilize menos recursos, o que é ideal para servidores que precisam ser rápidos, estáveis e capazes de gerenciar grandes volumes de trabalho.
 
-O Kernel é o núcleo central de um sistema operacional. Ele atua como uma ponte entre o hardware do computador e o software, gerenciando os recursos do sistema e permitindo que os programas de software interajam com o hardware de forma eficiente e segura.
+**O QUE É E PARA QUE SERVER O KERNEL:** O Kernel é o núcleo central de um sistema operacional. Ele atua como uma ponte entre o hardware do computador e o software, gerenciando os recursos do sistema e permitindo que os programas de software interajam com o hardware de forma eficiente e segura.
 
-A CPU (Central Processing Unit), também conhecida como processador, é o componente principal de um computador responsável por executar instruções e processar dados. É frequentemente descrita como o "cérebro" do computador, pois é onde a maioria das operações de cálculo e lógica são realizadas.
+**O QUE É E PARA QUE SERVER O CPU:** A CPU (Central Processing Unit), também conhecida como processador, é o componente principal de um computador responsável por executar instruções e processar dados. É frequentemente descrita como o "cérebro" do computador, pois é onde a maioria das operações de cálculo e lógica são realizadas.
 
-A RAM (Random Access Memory), ou Memória de Acesso Aleatório, é um tipo de memória volátil usada em computadores e outros dispositivos eletrônicos para armazenar dados temporariamente enquanto estão sendo processados. Diferente do armazenamento permanente, como discos rígidos ou SSDs, a RAM é muito mais rápida, mas só mantém os dados enquanto o dispositivo está ligado.
+**O QUE É E PARA QUE SERVER O RAM:** A RAM (Random Access Memory), ou Memória de Acesso Aleatório, é um tipo de memória volátil usada em computadores e outros dispositivos eletrônicos para armazenar dados temporariamente enquanto estão sendo processados. Diferente do armazenamento permanente, como discos rígidos ou SSDs, a RAM é muito mais rápida, mas só mantém os dados enquanto o dispositivo está ligado.
 
-HD, sigla para "Hard Disk" ou "Hard Disk Drive" (Disco Rígido em português), é um dispositivo de armazenamento de dados usado em computadores e outros dispositivos eletrônicos. Ele armazena permanentemente os dados, mesmo quando o computador está desligado. O HD é um dos métodos mais tradicionais de armazenamento, sendo usado para guardar sistemas operacionais, aplicativos, documentos, fotos, vídeos, e qualquer outro tipo de dado digital.
+**O QUE É E PARA QUE SERVER O HD:** HD, sigla para "Hard Disk" ou "Hard Disk Drive" (Disco Rígido em português), é um dispositivo de armazenamento de dados usado em computadores e outros dispositivos eletrônicos. Ele armazena permanentemente os dados, mesmo quando o computador está desligado. O HD é um dos métodos mais tradicionais de armazenamento, sendo usado para guardar sistemas operacionais, aplicativos, documentos, fotos, vídeos, e qualquer outro tipo de dado digital.
 
-Uma Interface de Rede é um componente de hardware ou software que conecta um dispositivo, como um computador, servidor, ou roteador, a uma rede, permitindo que ele se comunique e troque dados com outros dispositivos na mesma rede ou em redes externas. A interface de rede é essencial para o funcionamento de redes de computadores, permitindo a transferência de dados entre dispositivos conectados.
+**O QUE É E PARA QUE SERVER O NETWORK:** Uma Interface de Rede é um componente de hardware ou software que conecta um dispositivo, como um computador, servidor, ou roteador, a uma rede, permitindo que ele se comunique e troque dados com outros dispositivos na mesma rede ou em redes externas. A interface de rede é essencial para o funcionamento de redes de computadores, permitindo a transferência de dados entre dispositivos conectados.
+
+**O QUE É E PARA QUE SERVER O SENSOR:** Os sensores de temperatura em um servidor GNU/Linux Ubuntu Server são usados para monitorar a temperatura da CPU, GPU, discos e outros componentes críticos. Isso ajuda a evitar superaquecimento, melhorar a eficiência do resfriamento e garantir um desempenho estável.
 
 [![Monitoramento](http://img.youtube.com/vi/fstVt6vOrYc/0.jpg)](https://www.youtube.com/watch?v=fstVt6vOrYc "Monitoramento")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc 
 
-#01_ Instalando os aplicativos de monitoramento no Ubuntu Server<br>
+## 01_ Instalando os aplicativos de monitoramento no Ubuntu Server
 ```bash
 #instalação dos aplicativos básicos de monitoramento de hardware
-sudo apt install sysstat nmon btop htop iotop dstat atop nload iftop bmon ethtool stress-ng s-tui
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install sysstat nmon btop htop iotop dstat atop nload iftop bmon ethtool stress-ng \
+s-tui lm-sensors acpi i7z glances
 ```
 
-#02_ Verificando a versão do Ubuntu Server<br>
+## 02_ Verificando a versão do Ubuntu Server
 ```bash
 #verificando a versão do Ubuntu Server 
 sudo cat /etc/os-release
@@ -59,7 +65,7 @@ sudo cat /etc/os-release
 sudo cat /etc/lsb-release
 ```
 
-#03_ Verificando a versão do Kernel e Uptime no Ubuntu Server<br>
+## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
 ```bash
 
 #Entendendo os valores do Kernel com o comando uname
@@ -106,7 +112,7 @@ sudo uptime -s
 sudo uptime
 ```
 
-#04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server<br>
+## 04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server
 ```bash
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
@@ -152,7 +158,7 @@ J) %MEM: Porcentagem da memória física total que o processo está utilizando,
 K) TIME+: Tempo total de CPU utilizado pelo processo desde que foi iniciado,
 L) COMAND: Nome do comando ou do processo que está sendo executado.
 
-#analisando o desempenho do processador com o comando top (PARA SAIR: q (quit))
+#analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
 sudo top
 
 #Entendendo os valores de métricas do comando htop
@@ -360,11 +366,14 @@ O) 1/6: O índice da página exibida (como 1/6).X
 #
 #PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
 
-#analisando o desempenho do processador com o comando atop (PARA SAIR: q (quit))
+#analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
 sudo atop
+
+#analisando o desempenho do processador com o comando glances (PARA SAIR PRESSIONE: q (quit)) - (NÃO FOI COMENTADO NO VÍDEO)
+sudo glances
 ```
 
-#05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server<br>
+## 05_ Verificando o Desempenho da Memória RAM (Random-Access Memory) no Ubuntu Server
 ```bash
 #verificando as informações de memória do arquivo meminfo
 sudo cat /proc/meminfo
@@ -437,9 +446,12 @@ sudo sar -h -r 1 5
 
 #analisando o desempenho da memória com o comando btop
 sudo btop
+
+#analisando o desempenho da memória com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+sudo glances
 ```
 
-#06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
+## 06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server
 ```bash
 #Entendendo os valores de métricas do arquivo diskstats
 #
@@ -599,14 +611,17 @@ D) read writ: Número de transações por segundo (TPS), ou seja, o número de o
 #-dsk/total- -loop-nvme-sda- -dsk/total-
 #read  writ | util | #read #writ
 
-#analisando o desempenho do disco com o comando dstat (PARA SAIR: Ctrl+C (quit))
+#analisando o desempenho do disco com o comando dstat (PARA SAIR PRESSIONE: Ctrl+C (quit))
 #opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
 #requests were issued to the device), --disk-tps (number of transfers per second that were
 #issued to the device)
 sudo dstat -d --disk-util --disk-tps
+
+#analisando o desempenho do disco com o comando glances (PARA SAIR PRESSIONE: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+sudo glances
 ```
 
-#07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server<br>
+## 07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server
 ```bash
 #Entendendo os valores de métricas do do arquivo dev
 #
@@ -667,15 +682,53 @@ sudo bmon
    d: habilitar detalhes de estáticas da placa de rede
    i: habilitar informações adicionais da placa de rede
    q: sair (quit)
+
+#analisando o desempenho de rede com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+sudo glances
 ```
 
-#08_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+## 08_ Verificando a Temperatura do Servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#detectando os sensores de temperatura disponível no servidor
+sudo sensors-detect
+
+#exibindo a temperatura da CPU e outros sensores no servidor
+sudo sensors
+
+#
+sudo apt install smartmontools ipmitool hddtemp psensor
+
+#
+sudo ipmitool sensor | grep -i "temp"
+
+#analisando a temperatura do disco com o comando smartctl
+#opção do comando smartctl: -A (attributes)
+#opção do comando grep: -i (ignore-case)
+sudo smartctl -A /dev/sda  | grep -i temperature
+sudo nvme smart-log /dev/nvme0 | grep temperature
+
+#
+sudo hddtemp /dev/sda
+
+#
+nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader
+
+#
+psensor
+
+#analisando a temperatura do servidor com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+#opção do comando glances: --enable-plugin
+sudo glances --enable-plugin sensors
+```
+
+## 09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+
+Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/manpages/xenial/man1/stress-ng.1.html<br>
+Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1<br>
+
 ```bash
 #utilizando o software btop para o monitoramento
 sudo btop
-
-Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/manpages/xenial/man1/stress-ng.1.html
-Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1
 
 #estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
 #opção do comando stress-ng: --hdd (start N workers continually writing, reading and 

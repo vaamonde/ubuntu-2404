@@ -7,19 +7,20 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 03/11/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 01/04/2025<br>
+#Versão: 0.09<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -49,17 +50,17 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER COMPOSE: Docker Compose é uma ferramenta para executar aplicativos de vários contêineres no Docker definidos usando o formato de arquivo Compose. Um arquivo Compose é usado para definir como um ou mais contêineres que compõem seu aplicativo são configurados. Depois de ter um arquivo Compose, você pode criar e iniciar seu aplicativo com um único comando: docker compose up.
+**O QUE É E PARA QUE SERVER O DOCKER COMPOSE:** Docker Compose é uma ferramenta para executar aplicativos de vários contêineres no Docker definidos usando o formato de arquivo Compose. Um arquivo Compose é usado para definir como um ou mais contêineres que compõem seu aplicativo são configurados. Depois de ter um arquivo Compose, você pode criar e iniciar seu aplicativo com um único comando: docker compose up.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
 [![Instalação do Docker-CE](http://img.youtube.com/vi/M_Dazb75OTc/0.jpg)](https://www.youtube.com/watch?v=M_Dazb75OTc "Instalação do Docker-CE")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 
-#01_ Instalando as Dependência do Docker-CE no Ubuntu Server<br>
+## 01_ Instalando as Dependência do Docker-CE no Ubuntu Server
 ```bash
 #instalação das dependências básicas do Docker CE
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -67,7 +68,7 @@ sudo apt install vim git python3 python3-pip apt-transport-https ca-certificates
 software-properties-common linux-image-generic linux-image-extra-virtual lsof jq
 ```
 
-#02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server<br>
+## 02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server
 ```bash
 #download da Chave GPG do Docker-CE
 #opções do comando wget: -q (quiet)
@@ -79,20 +80,20 @@ wget -q https://download.docker.com/linux/ubuntu/gpg
 cat gpg | gpg --dearmor | sudo tee /usr/share/keyrings/docker-ce.gpg > /dev/null
 ```
 
-#03_ Adicionando o Repositório do Docker-CE no Ubuntu Server<br>
+## 03_ Adicionando o Repositório do Docker-CE no Ubuntu Server
 ```bash
 #adicionando o repositório do Docker-CE
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
-#04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server<br>
+## 04_ Atualizando as Lista do Apt com o novo Repositório do Docker-CE no Ubuntu Server
 ```bash
 #atualizando as lista do apt com o novo repositório do Docker
 sudo apt update
 ```
 
-#05_ Instalando o Docker-CE e suas Dependências no Ubuntu Server<br>
+## 05_ Instalando o Docker-CE e suas Dependências no Ubuntu Server
 ```bash
 #instalando o Docker CE e Compose
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
@@ -101,12 +102,11 @@ sudo apt install --install-recommends docker-ce docker-ce-cli containerd.io dock
 docker-compose-plugin cgroup-lite
 ```
 
-#06_ Instalação do Docker Compose no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: a versão do Docker-Compose utilizando o Sources List do Docker-CE está
-#desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado
-#baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo.
+## 06_ Instalação do Docker Compose no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** a versão do Docker-Compose utilizando o Sources List do Docker-CE está desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo.
+
+```bash
 #baixando o Docker Compose do Projeto do Github
 #opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 27/09/2024)
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -118,7 +118,7 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.29.7/docker
 sudo chmod -v 755 /usr/bin/docker-compose
 ```
 
-#07_ Verificando o Serviço e Versão do Docker-CE e do Docker Compose<br>
+## 07_ Verificando o Serviço e Versão do Docker-CE e do Docker Compose
 ```bash
 #verificando o serviço do Docker-CE
 sudo systemctl status docker
@@ -138,20 +138,20 @@ sudo docker version
 sudo docker-compose version
 ```
 
-#08_ Localização dos Arquivos de Configuração do Docker-CE<br>
+## 08_ Localização dos Arquivos de Configuração do Docker-CE
 ```bash
 /etc/docker/       <-- Diretório de configuração do Docker
 /var/lib/docker/   <-- Diretório raiz de dados do Docker
 ```
 
-#09_ Interface e Endereçamento IPv4 padrão do Docker-CE<br>
+## 09_ Interface e Endereçamento IPv4 padrão do Docker-CE
 ```bash
 #verificando a interface e endereço IPv4 do Docker-CE
 sudo ifconfig docker0
   docker0: 172.17.0.1/16 (255.255.0.0)
 ```
 
-#10_ Adicionando o Usuário Local no Grupo Padrão do Docker-CE<br>
+## 10_ Adicionando o Usuário Local no Grupo Padrão do Docker-CE
 ```bash
 #adicionando o seu usuário no grupo do Docker
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
@@ -173,11 +173,11 @@ sudo getent group docker
 exit
 ```
 
-#11_ Verificando as Informações Detalhadas do Serviço do Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É
-#MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
+## 11_ Verificando as Informações Detalhadas do Serviço do Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
+
+```bash
 #verificando as informações detalhadas do Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/info/
 docker info
@@ -188,7 +188,7 @@ docker info
 docker system info
 ```
 
-#12_ Iniciando um Container de Teste do Docker-CE<br>
+## 12_ Iniciando um Container de Teste do Docker-CE
 ```bash
 #pesquisando o container de Hello World do Docker-CE
 #link de consulta do Docker Hub: https://hub.docker.com/
@@ -202,7 +202,7 @@ docker search hello-world
 docker run hello-world
 ```
 
-#13_ Iniciando um Container de Teste do Ubuntu Bash no Docker-CE<br>
+## 13_ Iniciando um Container de Teste do Ubuntu Bash no Docker-CE
 ```bash
 #pesquisando o container do Ubuntu do Docker-CE
 #link de consulta do Docker Hub: https://hub.docker.com/
@@ -232,7 +232,7 @@ traceroute 8.8.8.8                              #traçando a rota do endereço d
 exit
 ```
 
-#14_ Verificando as Imagens dos Containers no Docker-CE<br>
+## 14_ Verificando as Imagens dos Containers no Docker-CE
 ```bash
 #listando as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -247,7 +247,7 @@ docker images
 docker container ls -a
 ```
 
-#15_ Limpando todas as Imagens, Containers, Volumes e Redes no Docker-CE<br>
+## 15_ Limpando todas as Imagens, Containers, Volumes e Redes no Docker-CE
 ```bash
 #limpando todos os objetos do Docker-CE (Containers, Imagens, Volumes, Redes)
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
@@ -279,7 +279,7 @@ docker images
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Implementação do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

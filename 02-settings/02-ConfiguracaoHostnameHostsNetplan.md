@@ -7,14 +7,15 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 13/09/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 01/04/2025<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
-**OBSERVAÇÃO IMPORTANTE: O VÍDEO DAS CONFIGURAÇÕES DA PLACA DE REDE DO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, AS CONFIGURAÇÕES É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.**
+**OBSERVAÇÃO IMPORTANTE:** O VÍDEO DAS CONFIGURAÇÕES DO HOSTNAME, FQDN, HOSTS E DA PLACA DE REDE DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
@@ -30,19 +31,19 @@ Conteúdo estudado nessa configuração:<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
 #08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
-Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
+**O QUE É E PARA QUE SERVER O NETPLAN:** O Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
-Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name).
+**O QUE É E PARA QUE SERVER O HOSTNAME:** O arquivo Hostname é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
 
-FQDN, algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
+**O QUE É E PARA QUE SERVER O FQDN:** Algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
 
-Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
+**O QUE É E PARA QUE SERVER O HOSTS:** O arquivo Hosts faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
 
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
-#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
+## 01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server
 ```bash
 #instalando o editor de Texto Vim, Git e o Python3
 sudo apt update
@@ -64,7 +65,7 @@ ctnvaamonde.pti.intra
 ESC SHIFT : x <Enter>
 ```
 
-#02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
+## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
@@ -92,14 +93,14 @@ ff02::2 ip6-allrouters
 ESC SHIFT : x <Enter>
 ```
 
-#03_ Instalando os principais software de rede no Ubuntu Server<br>
+## 03_ Instalando os principais software de rede no Ubuntu Server
 ```bash
 #atualizando as lista do sources.list e instalando os pacotes e ferramentas de rede
 sudo apt update
 sudo apt install bridge-utils ifenslave net-tools lshw iputils-ping
 ```
 
-#04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
+## 04_ Verificando as informações do Hardware de Rede no Ubuntu Server
 ```bash
 #verificando os dispositivos PCI de Placa de Rede instalados
 #opções do comando lspci: -v (verbose), -s (show)
@@ -111,7 +112,7 @@ sudo lspci -v | grep -i ethernet
 sudo lshw -class network
 ```
 
-#05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
+## 05_ Verificando as informações de Endereços IPv4 no Ubuntu Server
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
@@ -129,18 +130,13 @@ sudo ip route
 sudo resolvectl
 ```
 
-#06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
+## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
+
+**OBSERVAÇÃO:** o nome do arquivo pode mudar dependendo da versão do Ubuntu Server, o arquivo: */etc/netplan/00-installer-config.yaml* é o padrão do *Ubuntu Server 22.04.x LTS*, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digita o comando: *ls -lh /etc/netplan* antes saber e editar o arquivo Netplan corretamente.
+
+**OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do *Netplan* e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado pela linguagem de programação **Python**, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
+
 ```bash
-#OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
-#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS, no
-#Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml, sempre 
-#digita o comando: ls -lh /etc/netplan antes de editar o arquivo Netplan.
-
-#OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
-#de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 
-#pela linguagem de programação Python, muito cuidado com o uso de espaços e 
-#tabulação e principalmente sua indentação.
-
 #listando o conteúdo do diretório do Netplan
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh /etc/netplan/
@@ -196,7 +192,7 @@ network:
 ESC SHIFT : x <Enter>
 ```
 
-#07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
+## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server
 ```bash
 #aplicando as mudanças do Netplan em modo Debug (detalhado)
 sudo netplan --debug apply
@@ -229,13 +225,11 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
-```bash
-#OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
-#acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
-#ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
-#fácil administrar e configurar os principais serviços de rede de forma remota.
+## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
+**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux ou Microsoft para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
+
+```bash
 #testando a conexão com o Ubuntu Server
 ping 172.16.1.30
 

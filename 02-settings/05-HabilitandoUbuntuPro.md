@@ -7,14 +7,15 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 13/09/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 01/04/2025<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
-**OBSERVAÇÃO IMPORTANTE: O VÍDEO DE HABILITAR O UBUNTU PRO NO UBUNTU SERVER ESTÁ NA VERSÃO 22.04.x LTS, AS CONFIGURAÇÕES É A MESMA NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO MINIMIZADA (MINIMIZED) DO UBUNTU SERVER.**
+**OBSERVAÇÃO IMPORTANTE:** O VÍDEO DE HABILITAR O UBUNTU PRO DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
@@ -37,22 +38,30 @@ Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
-O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
+**O QUE É E PARA QUE SERVER O UBUNTU PRO:** O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
+
+**O QUE É E PARA QUE SERVER O ESM (Enterprise Service Manager):** é um serviço da Canonical que estende as atualizações de segurança para versões LTS do Ubuntu após o fim do suporte oficial.
+
+**O QUE É E PARA QUE SERVER O LTS (Long-Term Support):** é uma versão de software que recebe suporte estendido por um longo período, geralmente 5 anos ou mais. Esse tipo de versão é comum em sistemas operacionais, como o Ubuntu LTS, e em softwares empresariais que exigem estabilidade e suporte prolongado. 
+
+**O QUE É E PARA QUE SERVER O CVE (Common Vulnerabilities and Exposures):** é um sistema de identificação e catalogação de vulnerabilidades de segurança conhecidas em softwares e hardware. Ele é gerenciado pela organização MITRE Corporation e utilizado globalmente para rastrear e reportar falhas de segurança de forma padronizada.
 
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
-#01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
+## 01_ Verificando as Informações do Sistema Operacional Ubuntu Server
 ```bash
 #verificando as informações da identificação do Sistema Operacional
-sudo cat /etc/os-release
+#opção do comando cat: -n (number all output lines)
+sudo cat -n /etc/os-release
 
 #verificando as informações específicas do Sistema Operacional
-sudo cat /etc/lsb-release
+#opção do comando cat: -n (number all output lines)
+sudo cat -n /etc/lsb-release
 ```
 
-#02_ Atualizando o Sistema Operacional Ubuntu Server<br>
+## 02_ Atualizando o Sistema Operacional Ubuntu Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: recomendo fazer um upgrade completo no servidor antes de
 #adicionar a Licença do Ubuntu Pro.
@@ -64,15 +73,16 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
-#03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
-```bash
-Acesse o site: https://login.ubuntu.com/
+## 03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server
 
+Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
+
+```bash
 01) Clique em: I don’t have an Ubuntu One account
-    Preencha os campos: 
+    Preencha os campos:
       Please type your email: (DIGITE_SEU_EMAIL)
       Full name: (DIGITE SEU NOME COMPLETO)
-      Username: (DIGITE O SEU USUÁRIO)
+      Username: (DIGITE O NOME DO SEU USUÁRIO)
       Choose password: (DIGITE SUA SENHA)
       Re-type password: (CONFIRME SUA SENHA)
       Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
@@ -83,10 +93,11 @@ Acesse o site: https://login.ubuntu.com/
 <Sim, tenho certeza>
 ```
 
-#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
-```bash
-Acesse o site: https://ubuntu.com/pro/dashboard
+## 04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal
 
+Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/pro/dashboard
+
+```bash
 01) Faça a autenticação com a sua conta criada no Ubuntu One;
     Personal Data Request: <Yes, log me in>
 
@@ -94,82 +105,83 @@ Acesse o site: https://ubuntu.com/pro/dashboard
     Copiar o seu Token no campo: Token.
 ```
 
-#05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
-#>= a versão 27.13.x
+## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja *>= a versão 27.13.x*
+
+```bash
 #instalando o Ubuntu Pro Client
 sudo apt update
 sudo apt install ubuntu-advantage-tools
 
 #verificando a versão do cliente do Ubuntu Pro Client
+#opção do comado pro: --version ou version (Show version of the Ubuntu Pro package)
 sudo pro --version
 ```
 
-#06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
+## 06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server
 ```bash
 #adicionando o Token da licença do Ubuntu Pro
+#opção do comando pro: attach (Connect an Ubuntu Pro support contract to this machine)
 sudo pro attach [COLAR O SEU TOKEN]
 ```
 
-#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
+## 07_ Verificando os repositórios de origem das atualizações no Ubuntu Server
 ```bash
 #verificando o status do Ubuntu Pro
+#opção do comando pro: status (Report current status of Ubuntu Pro services on system)
 sudo pro status
 
 #verificando os status dos pacotes de segurança do Ubuntu Pro
+#opção do comando pro: security-status (Show security updates for packages in the system)
 sudo pro security-status
 
 #verificando os status dos pacotes de segurança ESM (Enterprise Service Manager) do Ubuntu Pro
+#opção do comando pro: security-status (Show security updates for packages in the system), 
+#--esm-apps (flag will only  show  information  about esm-apps packages)
 sudo pro security-status --esm-apps
 
-#Site dos CVEs do Ubuntu: https://ubuntu.com/security/cves
 #verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
+#opção do comando pro: fix (Fix a CVE or USN on the  system  by  upgrading  the  appropriate
+#package(s))
+#Site dos CVEs do Ubuntu: https://ubuntu.com/security/cves
 sudo pro fix CVE-2023-23518
 ```
 
-#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
+## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
 #serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 
 #serviços veja a lista abaixo:
 
 01) cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
-
 02) cis.............: Ferramentas para conformidade automatizada com o Center of Internet 
-Security (CIS) e seus benchmarks;
-
+                      Security (CIS) e seus benchmarks;
 03) esm-infra.......: Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos
-de atualizações de segurança para versões LTS;
-
+                      de atualizações de segurança para versões LTS;
 04) esm-apps........: ESM do Ubuntu, mas para aplicativos.
-
 05) fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
-Informações (FIPS);
-
+                      Informações (FIPS);
 06) fips-updates....: Atualizações de segurança para fips;
-
 07) livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch);
-
 08) realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente
-não precisa dele);
-
+                      não precisa dele);
 09) ros.............: Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional 
-de Robô;
-
+                      de Robô;
 10) ros-updates.....: Atualizações de segurança para o sistema operacional do robô;
-
 11) usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
 
 #habilitando o suporte ao ESM-APPS no Ubuntu Pro
+#opção do comando pro: enable (Activate  and  configure  this machine's access to an Ubuntu
+#Pro service)
 sudo pro enable esm-apps
 
 #verificando o status do Ubuntu Pro
+#opção do comando pro: status (Report current status of Ubuntu Pro services on system)
 sudo pro status
 ```
 
-#09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: após adicionar a licença do Ubuntu Pro é recomendado fazer
 #um upgrade completo do sistema para testar o Token e as novas listas do sources.list

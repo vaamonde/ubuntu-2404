@@ -9,12 +9,13 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 08/08/2024<br>
-Data de atualização: 18/09/2024<br>
-Versão: 0.03<br>
+Data de atualização: 01/04/2025<br>
+Versão: 0.04<br>
 Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.1: https://lists.ubuntu.com/archives/ubuntu-announce/2024-August/000304.html<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -29,11 +30,13 @@ Conteúdo estudado nessa instalação:<br>
 #05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
 #06_ Acessando o Ubuntu Server pela primeira vez<br>
 
+**O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
+
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/p4f6a_-yM_8/0.jpg)](https://www.youtube.com/watch?v=p4f6a_-yM_8 "Instalação Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p4f6a_-yM_8
 
-#01_ Download da ISO do Ubuntu Server 24.04.x LTS<br>
+## 01_ Download da ISO do Ubuntu Server 24.04.x LTS
 ```bash
 A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
 B) Versão do download Ubuntu Server: ubuntu-24.04.1-live-server-amd64.iso (Link atualizado em 27/08/2024)
@@ -41,7 +44,7 @@ C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
-#02_ Criação da Máquina Virtual no Oracle VirtualBOX<br>
+## 02_ Criação da Máquina Virtual no Oracle VirtualBOX
 ```bash
 A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
@@ -77,7 +80,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Finalizar>
 ```
 
-#03_ Configurações da Máquina Virtual DockerUbuntu<br>
+## 03_ Configurações da Máquina Virtual DockerUbuntu
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -111,7 +114,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <OK>
 ```
 
-#04_ Iniciando a Instalação do Ubuntu Server 24.04.x LTS (localizar a ISO)<br>
+## 04_ Iniciando a Instalação do Ubuntu Server 24.04.x LTS (localizar a ISO)
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -124,7 +127,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Montar e Tentar Novo Boot>
 ```
 
-#05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
+## 05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS
 ```bash
 A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
@@ -213,7 +216,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 <Enter>
 ```
 
-#06_ Acessando o Ubuntu Server pela primeira vez<br>
+## 06_ Acessando o Ubuntu Server pela primeira vez
 ```bash
 #AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
