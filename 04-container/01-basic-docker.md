@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 14/10/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 01/04/2025<br>
+#Versão: 0.13<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico dos Comandos de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico dos Comandos de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -45,19 +46,19 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+**O QUE É E PARA QUE SERVER O IMAGE DOCKER:** O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
-O QUE É E PARA QUE SERVER O CONTAINER DOCKER: O container Docker é uma instância executável e isolada de uma imagem Docker. Ele encapsula tudo o que é necessário para rodar uma aplicação: o código, as dependências, bibliotecas, variáveis de ambiente, e arquivos de configuração, tudo em um ambiente leve e isolado. Containers são o coração do Docker e a principal unidade de execução de aplicações.
+**O QUE É E PARA QUE SERVER O CONTAINER DOCKER:** O container Docker é uma instância executável e isolada de uma imagem Docker. Ele encapsula tudo o que é necessário para rodar uma aplicação: o código, as dependências, bibliotecas, variáveis de ambiente, e arquivos de configuração, tudo em um ambiente leve e isolado. Containers são o coração do Docker e a principal unidade de execução de aplicações.
 
 [![Basic Docker](http://img.youtube.com/vi/438Swr41MLs/0.jpg)](https://www.youtube.com/watch?v=438Swr41MLs "Basic Docker")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=438Swr41MLs
 
-#01_ Utilizando o comando Básico de Pesquisa (Search) do Docker-CE e Docker-HUB<br>
+## 01_ Utilizando o comando Básico de Pesquisa (Search) do Docker-CE e Docker-HUB
 ```bash
 #pesquisando imagens de containers do Ubuntu no Docker HUB
 #link de consulta do Docker Hub: https://hub.docker.com/
@@ -107,7 +108,7 @@ JSON
   Filtrar JSON: name
 ```
 
-#02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE<br>
+## 02_ Utilizando os comandos Básicos de Contêiner (Container) e Imagens (Images) no Docker-CE
 ```bash
 #executando o container do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -115,14 +116,16 @@ JSON
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
 #from an image), ubuntu (imagem docker hub), :latest (latest image update)
 docker container run ubuntu
+```
 
-#informações que são mostradas na saída do comando: docker image ls
-#REPOSITORY.: nome da imagem do docker;
-#TAG........: versão da imagem do docker;
-#IMAGE ID...: identificação da imagem do docker;
-#CREATED....: quando a imagem foi criada;
-#SIZE.......: tamanho da imagem do docker.
+Informações que são mostradas na saída do comando: *docker image ls*<br>
+1. REPOSITORY.: nome da imagem do docker;
+2. TAG........: versão da imagem do docker;
+3. IMAGE ID...: identificação da imagem do docker;
+4. CREATED....: quando a imagem foi criada;
+5. SIZE.......: tamanho da imagem do docker.
 
+```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #opção do comando docker: images (List all imagens docker)
@@ -133,35 +136,36 @@ docker images
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
+```
 
-#informações que são mostradas na saída do comando: docker container ls
-#CONTAINER ID..: identificação única do container no docker;
-#IMAGE.........: imagem utilizada na execução do container no docker;
-#COMMAND.......: comando em execução da imagem do docker;
-#CREATED.......: quando a imagem foi criada no docker;
-#STATUS........: status atual da imagem no docker;
-#PORTS.........: porta do container e do host utilizada para se comunicar no docker;
-#NAMES.........: nome do container no docker.
+Informações que são mostradas na saída do comando: *docker container ls*<br>
+1. CONTAINER ID..: identificação única do container no docker;
+2. IMAGE.........: imagem utilizada na execução do container no docker;
+3. COMMAND.......: comando em execução da imagem do docker;
+4. CREATED.......: quando a imagem foi criada no docker;
+5. STATUS........: status atual da imagem no docker;
+6. PORTS.........: porta do container e do host utilizada para se comunicar no docker;
+7. NAMES.........: nome do container no docker.
 
-#informações dos status padrão dos containers do Docker-CE
-#Up..... ...: O contêiner está em execução e funcionando normalmente.
-#Exited.....: O contêiner foi encerrado. 
-#Restarting.: O contêiner está em um ciclo de reinicialização.
-#Created....: O contêiner foi criado mais não foi executado ainda.
+Informações dos status padrão dos containers do Docker-CE<br>
+1. Up..... ...: O contêiner está em execução e funcionando normalmente.
+2. Exited.....: O contêiner foi encerrado. 
+3. Restarting.: O contêiner está em um ciclo de reinicialização.
+4. Created....: O contêiner foi criado mais não foi executado ainda.
 
-#informações dos códigos do status Exited dos containers do Docker-CE
-#  0 - O contêiner finalizou sua execução com sucesso (sem erros).
-#  1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada.
-#137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória).
-#139 - O contêiner foi encerrado devido a um segmentation fault.
-#143 - O contêiner foi finalizado após receber um SIGTERM, comando: docker stop.
-#125 - Ocorreu um erro ao tentar iniciar o contêiner, comando: docker run.
-#126 - O contêiner tentou executar um comando, mas o comando não pôde ser invocado.
-#127 - O comando ou programa que o contêiner tentou executar não foi encontrado.
+Informações dos códigos do status Exited dos containers do Docker-CE<br>
+1.   0 - O contêiner finalizou sua execução com sucesso (sem erros);
+2.   1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada;
+3. 137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória);
+4. 139 - O contêiner foi encerrado devido a um segmentation fault;
+5. 143 - O contêiner foi finalizado após receber um SIGTERM, comando: *docker stop*;
+6. 125 - Ocorreu um erro ao tentar iniciar o contêiner, comando: *docker run*;
+7. 126 - O contêiner tentou executar um comando, mas o comando não pôde ser invocado;
+8. 127 - O comando ou programa que o contêiner tentou executar não foi encontrado.
 
-#OBSERVAÇÃO IMPORTANTE: SE VOCÊ NÃO USAR A OPÇÃO: --name (QUE SERÁ VISTO EM BREVE NESSE CURSO), O
-#DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: modest_shaw, peaceful_tharp, etc.
+**OBSERVAÇÃO IMPORTANTE:** SE VOCÊ NÃO USAR A OPÇÃO: *--name* (QUE SERÁ VISTO EM BREVE NESSE CURSO), O DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: *modest_shaw, peaceful_tharp, etc*.
 
+```bash
 #verificando os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
@@ -176,7 +180,7 @@ docker container ls
 docker container ls -a
 ```
 
-#03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE<br>
+## 03_ Utilizando os comandos Básicos de Contêiner (Container), Execução (Run) e Sair (Exit) no Docker-CE
 ```bash
 #executando o container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -200,12 +204,11 @@ apt update
 
 #finalizando (matando/kill) a execução do container do Ubuntu
 exit
+```
 
-#OBSERVAÇÃO IMPORTANTE: A CADA COMANDO: docker container run EXECUTADO NO TERMINAL, O DOCKER
-#ENTENDE QUE SERÁ CRIADO MAIS UM CONTAINER (CONTAINER ID) COM A IMAGEM DO UBUNTU, PARA USAR
-#O MESMO CONTAINER É NECESSÁRIO INDICAR O CONTAINER ID OU NAME NA EXECUÇÃO QUE SERÁ MOSTRADO
-#NOS PRÓXIMOS COMANDOS.
+**OBSERVAÇÃO IMPORTANTE:** A CADA COMANDO: *docker container run* EXECUTADO NO TERMINAL, O DOCKER ENTENDE QUE SERÁ CRIADO MAIS UM CONTAINER (CONTAINER ID) COM A IMAGEM DO UBUNTU, PARA USAR O MESMO CONTAINER É NECESSÁRIO INDICAR O CONTAINER ID OU NAME NA EXECUÇÃO QUE SERÁ MOSTRADO NOS PRÓXIMOS COMANDOS.
 
+```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/ls/
@@ -251,7 +254,7 @@ docker container run -d -it ubuntu
 docker container ls -a
 ```
 
-#04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE<br>
+## 04_ Utilizando os comandos Básicos de Contêiner (Container) e Conectar (Attach) no Docker-CE
 ```bash
 #conectando no container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -271,7 +274,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 docker container ls -a
 ```
 
-#05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE<br>
+## 05_ Executando (Exec) comandos Remotos no Contêiner (Container) no Docker-CE
 ```bash
 #executando comandos no container do Ubuntu remoto no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -291,7 +294,7 @@ docker container exec -it [CONTAINER ID ou NAME] /bin/hostname
 docker container exec -e ROBSON=1 -e VAAMONDE=2 [CONTAINER ID ou NAME] env
 ```
 
-#06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE<br>
+## 06_ Parando (Stop), Iniciando (Start), Reiniciando (Restart), Pausando (Pause) e Bloqueando (Wait) os Contêiner (Container) no Docker-CE
 ```bash
 #parando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -327,11 +330,11 @@ docker container pause [CONTAINER ID ou NAME]
 #opção do comando docker: container (Manage containers), unpause (Unpause all processes within one or 
 #more containers), happy_carver 1851e38b8e18 (Container Names or Container ID)
 docker container unpause [CONTAINER ID ou NAME]
+```
 
-#OBSERVAÇÃO IMPORTANTE: NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O
-#CONTAINER, O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS DO 
-#PROBLEMA.
+**OBSERVAÇÃO IMPORTANTE:** NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O CONTAINER, O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS DO PROBLEMA.
 
+```bash
 #bloqueando o container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/wait/
@@ -340,19 +343,20 @@ docker container unpause [CONTAINER ID ou NAME]
 docker container wait [CONTAINER ID ou NAME]
 ```
 
-#07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE<br>
-```bash
-#informações que são mostradas na saída do comando: docker container stats
-#CONTAINER ID...: Identificação única do container em execução;
-#NAME...........: Nome atribuído ao container;
-#CPU %..........: Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema;
-#MEM USAGE/LIMIT: Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o 
-#                 limite de memória disponível para ele (LIMIT);
-#MEM %..........: Percentual de uso da memória pelo container em relação ao limite de memória;
-#NET I/O........: Quantidade de dados trafegados pela rede (entrada e saída) do container;
-#BLOCK I/O......: Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);
-#PIDS...........: Número de processos (PIDs) em execução dentro do container.
+## 07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE
 
+Informações que são mostradas na saída do comando: *docker container stats*<br>
+1. CONTAINER ID...: Identificação única do container em execução;
+2. NAME...........: Nome atribuído ao container;
+3. CPU %..........: Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema;
+4. MEM USAGE/LIMIT: Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o 
+                    limite de memória disponível para ele (LIMIT);
+5. MEM %..........: Percentual de uso da memória pelo container em relação ao limite de memória;
+6. NET I/O........: Quantidade de dados trafegados pela rede (entrada e saída) do container;
+7. BLOCK I/O......: Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);
+8. PIDS...........: Número de processos (PIDs) em execução dentro do container.
+
+```bash
 #verificando as estatísticas do container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/stats/
@@ -360,17 +364,19 @@ docker container wait [CONTAINER ID ou NAME]
 #resource usage statistics), happy_carver 1851e38b8e18 (Container Names or Container ID)
 #OBSERVAÇÃO IMPORTANTE: para sair das estáticas do container pressione: Ctrl+C 03 (três) vezes.
 docker container stats [CONTAINER ID ou NAME]
+```
 
-#informações que são mostradas na saída do comando: docker top
-#UID...: Identificador do usuário (User ID) que está executando o processo no container;
-#PID...: Identificador do processo (Process ID) dentro do container;
-#PPID..: Identificador do processo pai (Parent Process ID) que iniciou o processo;
-#C.....: Percentual de uso da CPU pelo processo;
-#STIME.: Hora de início (Start Time) do processo;
-#TTY...: Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?;
-#TIME..: Quantidade de tempo de CPU que o processo consumiu até o momento;
-#CMD...: Comando ou caminho completo do executável que iniciou o processo.
+Informações que são mostradas na saída do comando: *docker top*<br>
+1. UID...: Identificador do usuário (User ID) que está executando o processo no container;
+2. PID...: Identificador do processo (Process ID) dentro do container;
+3. PPID..: Identificador do processo pai (Parent Process ID) que iniciou o processo;
+4. C.....: Percentual de uso da CPU pelo processo;
+5. STIME.: Hora de início (Start Time) do processo;
+6. TTY...: Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?;
+7. TIME..: Quantidade de tempo de CPU que o processo consumiu até o momento;
+8. CMD...: Comando ou caminho completo do executável que iniciou o processo.
 
+```bash
 #verificando os processos rodando no container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/top/
@@ -394,7 +400,7 @@ docker container logs [CONTAINER ID ou NAME]
 docker container inspect [CONTAINER ID ou NAME]
 ```
 
-#08_ Removendo (RM) e Limpando/Podar (Prune) os Contêiner (Container) no Docker-CE<br>
+## 08_ Removendo (RM) e Limpando/Podar (Prune) os Contêiner (Container) no Docker-CE
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -436,18 +442,19 @@ docker container prune
 docker container ls -a
 ```
 
-#09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE<br>
+## 09_ Criando (Create), Renomeando (Rename) e Executando (Run) um novo Contêiner (Container) no Docker-CE
 ```bash
 #pesquisando imagens de containers do Debian no Docker HUB
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 #opção do comando docker: search (Search the Docker Hub for images)
 docker search debian
+```
 
+**OBSERVAÇÃO IMPORTANTE:** NA CRIAÇÃO DE CONTAINER SE VOCÊ NÃO PASSAR AS OPÇÕES: *-it* NO MOMENTO DE INICIAR O CONTAINER SERÁ APRESENTADO O ERRO DE: *Exited (0)*, NESSE EXEMPLO ESTÁ SENDO FEITO APENAS A CRIAÇÃO DO CONTAINER NÃO A SUA EXECUÇÃO.
+
+```bash
 #criando um novo container do Debian mais sem executar sem o modo Interativo
-#OBSERVAÇÃO IMPORTANTE: NA CRIAÇÃO DE CONTAINER SE VOCÊ NÃO PASSAR AS OPÇÕES: -it NO MOMENTO
-#DE INICIAR O CONTAINER SERÁ APRESENTADO O ERRO DE: Exited (0), NESSE EXEMPLO ESTÁ SENDO FEITO
-#APENAS A CRIAÇÃO DO CONTAINER NÃO A SUA EXECUÇÃO.
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
 docker container create debian
@@ -501,25 +508,27 @@ docker container rename [CONTAINER ID ou NAME] vaamonde
 docker container ls -a
 ```
 
-#10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE<br>
+## 10_ Listando Imagens (Images), Histórico (History), Inspecionando (Inspect) e Removendo (RM) no Docker-CE
 ```bash
 #outra opção para listar todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
 #opção do comando docker: image (Manage images), ls (List images)
 docker image ls
+```
 
-#informações que são mostradas na saída do comando: docker image history
-#IMAGE......: Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa
-#             de criação. Cada camada é uma modificação incremental.
-#CREATED....: Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").
-#CREATED BY.: Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada 
-#             da imagem (por exemplo, RUN apt-get update).
-#SIZE.......: Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados 
-#             nesta etapa específica.
-#COMMENT....: Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, 
-#             a menos que tenha sido explicitamente preenchida durante o processo de build da imagem.
+Informações que são mostradas na saída do comando: *docker image history*<br>
+1. IMAGE......: Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa
+                de criação. Cada camada é uma modificação incremental.
+2. CREATED....: Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").
+3. CREATED BY.: Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada 
+                da imagem (por exemplo, RUN apt-get update).
+4. SIZE.......: Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados 
+                nesta etapa específica.
+5. COMMENT....: Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, 
+                a menos que tenha sido explicitamente preenchida durante o processo de build da imagem.
 
+```bash
 #verificando os históricos das imagens do Ubuntu e do Debian localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/history/
@@ -553,7 +562,7 @@ docker image rm debian
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico dos Comandos de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico dos Comandos de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
