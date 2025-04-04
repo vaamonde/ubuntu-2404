@@ -58,7 +58,7 @@ INSERT
 ```bash
 #alterar o nome de domínio FQDN na linha 1
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-ctnvaamonde.pti.intra
+ctnseunome.seu.domínio
 ```
 ```bash
 #salvar e sair do arquivo
@@ -76,9 +76,9 @@ INSERT
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-127.0.0.1    localhost.pti.intra     localhost
-127.0.1.1    ctnvaamonde.pti.intra   ctnvaamonde
-172.16.1.30  ctnvaamonde.pti.intra   ctnvaamonde
+127.0.0.1    localhost.seu.dominio    localhost
+127.0.1.1    ctnseunome.seu.domínio   ctnseunome
+172.16.1.30  ctnseunome.seu.domínio   ctnseunome
 
 #OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
 # The following lines are desirable for IPv6 capable hosts

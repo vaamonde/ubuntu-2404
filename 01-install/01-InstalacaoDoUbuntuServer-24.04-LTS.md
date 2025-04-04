@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 08/08/2024<br>
-Data de atualização: 01/04/2025<br>
-Versão: 0.04<br>
+Data de atualização: 04/04/2025<br>
+Versão: 0.05<br>
 Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -30,26 +30,39 @@ Conteúdo estudado nessa instalação:<br>
 #05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS<br>
 #06_ Acessando o Ubuntu Server pela primeira vez<br>
 
+**O QUE É E PARA QUE SERVER O ON-PREMISES:** O termo correto é "on-premises", e ele se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
+
+**O QUE É E PARA QUE SERVER O CLOUD:** O Cloud Computing (Computação em Nuvem) é um modelo de TI que permite o acesso remoto a servidores, armazenamento, bancos de dados, redes e softwares por meio da internet. Em vez de manter servidores e infraestrutura física dentro da empresa (on-premises), tudo é hospedado em datacenters de provedores de nuvem, como AWS, Microsoft Azure, Google Cloud, entre outros.
+
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
+
+**O QUE É E PARA QUE SERVER O LTS:** LTS significa Long-Term Support (Suporte de Longo Prazo). Ele é um tipo de versão de software que recebe atualizações e suporte por um período estendido, geralmente de 3 a 5 anos ou mais, dependendo do projeto.
+
+**O QUE É E PARA QUE SERVER O HWE:** O HWE (Hardware Enablement Stack) no Ubuntu é um conjunto de atualizações de kernel, drivers e bibliotecas que estendem o suporte a hardware mais recente nas versões LTS (Long-Term Support) do sistema.
+
+**O QUE É E PARA QUE SERVER O UBUNTU SERVER MINIMAL:** O Ubuntu Server Minimal é uma versão enxuta do Ubuntu Server, projetada para oferecer uma instalação mais leve e essencial, sem pacotes e serviços adicionais que podem não ser necessários para todos os usuários. Ele é ideal para quem deseja uma base limpa e personalizada, instalando apenas os componentes essenciais para o funcionamento do servidor.
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/p4f6a_-yM_8/0.jpg)](https://www.youtube.com/watch?v=p4f6a_-yM_8 "Instalação Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p4f6a_-yM_8
 
 ## 01_ Download da ISO do Ubuntu Server 24.04.x LTS
+
+Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
+
 ```bash
-A) Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
-B) Versão do download Ubuntu Server: ubuntu-24.04.1-live-server-amd64.iso (Link atualizado em 27/08/2024)
-C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
-D) Tipo de instalação: DVD Image (ISO) Installer
+A) Versão do download Ubuntu Server: ubuntu-24.04.2-live-server-amd64.iso (Link atualizado em 04/04/2025)
+B) Arquitetura do Ubuntu Server: AMD64 (64-bit)
+C) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
 ## 02_ Criação da Máquina Virtual no Oracle VirtualBOX
-```bash
-A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
-B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
-C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
+Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
+Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
+Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA<br>
+
+```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 01) Ferramentas;	
@@ -128,9 +141,10 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```
 
 ## 05_ Instalação e Configuração do Ubuntu Server 24.04.x LTS
-```bash
-A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
+Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
+
+```bash
 01) *Try or Install Ubuntu Server
 <Enter>
 
@@ -191,10 +205,10 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 10) Profile setup
     #OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
     Your name: Seu Nome e Sobrenome <Tab>
-    Your servers name: ctnvaamonde <Tab>
-    Pick a username: vaamonde <Tab>
-    Choose a passwords: pti@2018 <Tab>
-    Confirm your passwords: pti@2018
+    Your servers name: ctnseunome <Tab>
+    Pick a username: seu_usuário <Tab>
+    Choose a passwords: sua_senha <Tab>
+    Confirm your passwords: sua_senha
 <Done>
 
 11) Upgrade to Ubuntu Pro
@@ -222,6 +236,6 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
 01) Tela de Login do Ubuntu Server
-    ctnvaamonde login: vaamonde <Enter> (altere para o seu usuário)
-    Password: pti@2018 <Enter> (altere para o seu usuário)
+    ctnseunome login: seu_usuário <Enter> (altere para o seu usuário)
+    Password: sua_senha <Enter> (altere para o seu usuário)
 ```
