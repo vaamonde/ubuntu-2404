@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/10/2024<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -46,17 +47,17 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O IMAGE DO DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+**O QUE É E PARA QUE SERVER O IMAGE DO DOCKER:** O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
 [![Image Docker](http://img.youtube.com/vi/aEAv-rD42hI/0.jpg)](https://www.youtube.com/watch?v=aEAv-rD42hI "Image Docker")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=aEAv-rD42hI
 
-#01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE<br>
+## 01_ Pesquisando (Search) a Imagem (Image) do Ubuntu no Docker-HUB do Docker-CE
 ```bash
 #pesquisando a imagem do container do Ubuntu oficial no Docker-HUB
 #Link de consulta do Docker Hub: https://hub.docker.com/
@@ -66,17 +67,18 @@ Link da vídeo aula: https://www.youtube.com/watch?v=aEAv-rD42hI
 docker search ubuntu --filter is-official=true
 ```
 
-#02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE<br>
-```bash
-#informações importante sobre os Tipos de Tags (Marcação/Etiqueta) mais utilizadas no Docker Hub
-#latest........: é a tag padrão se nenhuma outra for especificada, versão mais recente;
-#alpine........: imagens mínimas baseadas no Alpine Linux
-#slim..........: imagens menores com bibliotecas mínimas
-#beta..........: versões de pré-lançamento ou teste
-#rc............: versões de candidato liberado ou teste
-#lts...........: utilizadas em algumas imagens que possuem versões de suporte de longo prazo
-#x, x.y, x.y.z.: essas tags especificam versões específicas da imagem
+## 02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE
 
+Informações importante sobre os Tipos de Tags (Marcação/Etiqueta) mais utilizadas no Docker Hub<br>
+1. latest........: é a tag padrão se nenhuma outra for especificada, versão mais recente;
+2. alpine........: imagens mínimas baseadas no Alpine Linux
+3. slim..........: imagens menores com bibliotecas mínimas
+4. beta..........: versões de pré-lançamento ou teste
+5. rc............: versões de candidato liberado ou teste
+6. lts...........: utilizadas em algumas imagens que possuem versões de suporte de longo prazo
+7. x, x.y, x.y.z.: essas tags especificam versões específicas da imagem
+
+```bash
 #baixando a imagem do Ubuntu (Noble - 24.04) do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/pull/
@@ -99,7 +101,7 @@ docker image pull ubuntu:focal
 docker image ls
 ```
 
-#03_ Verificando o Histórico (History) e Inspecionando (Inspect) as Imagens (Image) do Ubuntu no Docker-CE<br>
+## 03_ Verificando o Histórico (History) e Inspecionando (Inspect) as Imagens (Image) do Ubuntu no Docker-CE
 ```bash
 #verificando os históricos da imagem do Ubuntu localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -116,7 +118,7 @@ docker image history ubuntu --no-trunc
 docker image inspect ubuntu
 ```
 
-#04_ Criando (Create) o Volume (Volume) de Dados no Docker-CE<br>
+## 04_ Criando (Create) o Volume (Volume) de Dados no Docker-CE
 ```bash
 #criando o volume de dados local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -135,7 +137,7 @@ docker volume create dados
 docker volume ls --filter name=dados
 ```
 
-#05_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE<br>
+## 05_ Criando (Create) a Rede (Network) de Dados do Tipo Ponte (Bridge) no Docker-CE
 ```bash
 #criando a rede de dados em modo Bridge no Docker-CE 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
@@ -159,7 +161,7 @@ docker network ls --filter name=dados
 docker network inspect dados
 ```
 
-#06_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE<br>
+## 06_ Criando (Create) o Contêiner (Container) do SAMBA-4 com RAM, CPU, Volume e Rede Customizada no Docker-CE
 ```bash
 #criando um novo container do Ubuntu mais sem iniciar
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -186,7 +188,7 @@ docker container create -it --name samba4 --memory 1g --memory-reservation 512m 
 docker container ls -a --filter name=samba4
 ```
 
-#07_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE<br>
+## 07_ Iniciando (Start) o Contêiner (Container) do Ubuntu (Image) e Conectando (Attach) no Docker-CE
 ```bash
 #iniciando o container do Ubuntu SAMBA-4 no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -210,7 +212,7 @@ docker container ls -a --filter name=samba4
 docker container attach samba4
 ```
 
-#08_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE<br>
+## 08_ Instalando o Serviço do SAMBA-4 Server na Imagem (Image) do Ubuntu no Docker-CE
 ```bash
 #atualizando as lista do apt e atualizando a imagem do Ubuntu
 #opções do comando apt: update (Resynchronize the package index files from their sources.), 
@@ -266,12 +268,16 @@ chown -Rv nobody:nogroup /dados
 #opções do comando chmod: -v (verbose), 2 (inherits the group of the parent directory), 770
 #(7 User=RWX - 7 Group=RWS - 0 Others=---)
 chmod -v 2770 /dados/
+```
 
-#nmbd (NetBIOS Message Block Daemon): Esse serviço gerencia o NetBIOS sobre TCP/IP
-#smbd (Server Message Block Daemon): Esse é o serviço principal do Samba
-#cifs (Common Internet File System) Esse é o serviço para compartilhamento de arquivos 
-#winbind: Esse serviço permite que o Samba autentique usuários em um domínio Windows
+Explicação de cada Serviços do SAMBA4 Server<br>
+1. nmbd (NetBIOS Message Block Daemon): Esse serviço gerencia o NetBIOS sobre TCP/IP
+2. smbd (Server Message Block Daemon).: Esse é o serviço principal do Samba4 Server
+3. cifs (Common Internet File System).: Esse é o serviço para compartilhamento de arquivos 
+4. winbind (Windows + Bind DNS).......: Esse serviço permite que o Samba autentique usuários
+                                        em um domínio Windows
 
+```bash
 #iniciando os serviços do SAMBA-4 na Imagem do Ubuntu
 service nmbd start
 service smbd start
@@ -279,21 +285,22 @@ service winbind start
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
+```
 
-#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO É PRECISO CRIAR REGRAS DE FIREWALL PARA LIBRAR AS
-#PORTAS DO SAMBA-4 PARA ACESSAR A REDE REMOTAMENTE.
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO NÃO É PRECISO CRIAR REGRAS DE FIREWALL PARA LIBRAR AS PORTAS DO SAMBA-4 PARA ACESSAR A REDE REMOTAMENTE.
 
+```bash
 #testando o acesso ao compartilhamento de Dados no Linux Mint
 Gerenciador de Arquivo (Nemo)
   Atalho: Ctrl + L (Localizar)
     smb://172.16.1.30/
       Clicar duas vezes no compartilhamento: dados
         Conectar como: Anonimamente <Conectar>
-
-#OBSERVAÇÃO IMPORTANTE: FAZER OS TESTES DE CRIAÇÃO DE DIRETÓRIOS E ARQUIVOS NO VOLUME MONTADO.
 ```
 
-#09_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+**OBSERVAÇÃO IMPORTANTE:** FAZER OS TESTES DE CRIAÇÃO DE DIRETÓRIOS E ARQUIVOS NO VOLUME MONTADO.
+
+## 09_ Criando uma Nova (Commit) Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE
 ```bash
 #criando uma imagem personalizada do container do SAMBA-4
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -352,7 +359,7 @@ docker container create -it --name samba4 --hostname samba4 --memory 1g --memory
 docker container ls -a --filter name=samba4
 ```
 
-#10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE<br>
+## 10_ Iniciando (Start) a Imagem (Image) de Contêiner (Container) do SAMBA-4 no Docker-CE
 ```bash
 #iniciando o container SAMBA-4 personalizado no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -383,9 +390,11 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 Gerenciador de Arquivo (Nemo)
   Atalho: Ctrl + L (Localizar)
     smb://172.16.1.30/
+```
 
-#OBSERVAÇÃO IMPORTANTE: FAZER OS TESTES DE CRIAÇÃO DE DIRETÓRIOS E ARQUIVOS NO VOLUME MONTADO.
+**OBSERVAÇÃO IMPORTANTE:** FAZER OS TESTES DE CRIAÇÃO DE DIRETÓRIOS E ARQUIVOS NO VOLUME MONTADO.
 
+```bash
 #listando o conteúdo do volume de Dados do SAMBA-4 com o usuário Root
 #opção do comando sudo: -i (login)
 sudo -i
@@ -397,7 +406,7 @@ ls -lh /var/lib/docker/volumes/dados/_data/
 exit
 ```
 
-#11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE<br>
+## 11_ Removendo (RM) Volumes (Volume), Contêiner (Container), Imagem (Image) e Redes (Network) no Docker-CE
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -464,7 +473,7 @@ docker network rm -f dados
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

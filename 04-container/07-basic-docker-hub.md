@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/10/2024<br>
-#Data de atualização: 09/11/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -48,54 +49,53 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+**O QUE É E PARA QUE SERVER O IMAGE DOCKER:** O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
-O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
+**O QUE É E PARA QUE SERVER O DOCKERFILE:** O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
 [![Docker Hub](http://img.youtube.com/vi/BjxBWOFZqxw/0.jpg)](https://www.youtube.com/watch?v=BjxBWOFZqxw "Docker Hub")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=BjxBWOFZqxw
 
-#01_ Criando um Conta (Sing up) no site Oficial do Docker Hub<br>
-```bash
-Link oficial do projeto: https://hub.docker.com/
+## 01_ Criando um Conta (Sing up) no site Oficial do Docker Hub
+
+Link oficial do projeto do Docker Hub: https://hub.docker.com/
 
 01) Clicar no link: Sing up
-02) Na tela de: Create your account crie sua conta
-    OBSERVAÇÃO IMPORTANTE: VOCÊ PODE USAR UMA CONTA DO GOOGLE OU DO GITHUB PARA SE AUTENTICAR
-    NO DOCKER HUB, EM ALGUNS CASOS CONTAS DO GITHUB FACILITA O PROCESSO DE CRIAR DE IMAGENS
-    PERSONALIZADAS E INTEGRAÇÃO COM OUTRAS SOLUÇÕES.
-    A) Email: DIGITE_SEU_EMAIL
-    B) Username: DIGITE_SEU_USUÁRIO
-    C) Password: DIGITE_SUA_SENHA
-    D) (OFF) Send me occasional product updates and announcements.
-    <Sign up>
+02) Na tela de: Create your account crie sua conta<br>
+    **OBSERVAÇÃO IMPORTANTE:** VOCÊ PODE USAR UMA CONTA DO GOOGLE OU DO GITHUB PARA SE AUTENTICAR<br>
+    NO DOCKER HUB, EM ALGUNS CASOS CONTAS DO GITHUB FACILITA O PROCESSO DE CRIAÇÃO DAS IMAGENS<br>
+    PERSONALIZADAS E INTEGRAÇÃO COM OUTRAS SOLUÇÕES.<br>
+      A) Email: DIGITE_SEU_EMAIL<br>
+      B) Username: DIGITE_SEU_USUÁRIO<br>
+      C) Password: DIGITE_SUA_SENHA<br>
+      D) (OFF) Send me occasional product updates and announcements.<br>
+    <Sign up><br>
 03) Valide o seu Caption <VERIFICAR>
-04) Você irá receber no seu email o link para ativação da conta, clique no Link corresponde
-    A) [Docker] Please confirm your email address: <Verify Email Address>
-    B) Email verification successful: <Sign in>
-05) Sign in
-    A) Username or email address: DIGITE_SEU_USUÁRIO ou DIGITE_SEU_EMAIL: <Continue>
-    B) Password: DIGITE_SUA_SENHA: <Continue>
+04) Você irá receber no seu email o link para ativação da conta, clique no Link corresponde<br>
+    A) [Docker] Please confirm your email address: <Verify Email Address><br>
+    B) Email verification successful: <Sign in><br>
+05) Sign in<br>
+    A) Username or email address: DIGITE_SEU_USUÁRIO ou DIGITE_SEU_EMAIL: <Continue><br>
+    B) Password: DIGITE_SUA_SENHA: <Continue><br>
 
-#OBSERVAÇÃO IMPORTANTE: APÓS SE AUTENTICAR NO DOCKER HUB RECOMENDO PERSONALIZAR A SUA CONTA
-#FACILITANDO A IDENTIFICAÇÃO DAS IMAGENS DE CONTAINERS NA SUA CONTA.
+**OBSERVAÇÃO IMPORTANTE:** APÓS SE AUTENTICAR NO DOCKER HUB RECOMENDO PERSONALIZAR A SUA CONTA FACILITANDO A IDENTIFICAÇÃO DAS IMAGENS DE CONTAINERS NA SUA CONTA.
 
 01) Após logado, no conto superior clique no Ícone da sua conta;
 02) Selecione: Account Settings
-03) Account information (This information will be visible to all users of Docker Hub.)
-    A) Full Name: DIGITE_SEU_NOME_COMPLETO (Exemplo: Robson Vaamonde)
-    B) Company: DIGITE_O_NOME_DA_SUA_EMPRESA (Exemplo: Bora para Prática)
-    C) Location: DIGITE_A_LOCALIZAÇÃO_DA_SUA_EMPRESA (Exemplo: São Paulo / Brasil)
-    D) Website: DIGITE_SEU_WEBSITE (Exemplo: https://github.com/vaamonde/)
-    E) Gravatar email: DEFAULT
-    <Save>
-```
-#02_ Pesquisando (Search) a Imagem (Image) do Node.JS no Docker-HUB do Docker-CE<br>
+03) Account information (This information will be visible to all users of Docker Hub.)<br>
+      A) Full Name: DIGITE_SEU_NOME_COMPLETO (Exemplo: Robson Vaamonde)<br>
+      B) Company: DIGITE_O_NOME_DA_SUA_EMPRESA (Exemplo: Bora para Prática)<br>
+      C) Location: DIGITE_A_LOCALIZAÇÃO_DA_SUA_EMPRESA (Exemplo: São Paulo / Brasil)<br>
+      D) Website: DIGITE_SEU_WEBSITE (Exemplo: https://github.com/vaamonde/)<br>
+      E) Gravatar email: DEFAULT<br>
+    <Save><br>
+
+## 02_ Pesquisando (Search) a Imagem (Image) do Node.JS no Docker-HUB do Docker-CE
 ```bash
 #pesquisando a imagem do container do Node.JS oficial no Docker-HUB
 #Link de consulta do Docker Hub: https://hub.docker.com/
@@ -105,7 +105,7 @@ Link oficial do projeto: https://hub.docker.com/
 docker search node --filter is-official=true
 ```
 
-#03_ Baixando (Pull) a Imagem (Image) do Node.JS para o Repositório Local do Docker-CE<br>
+## 03_ Baixando (Pull) a Imagem (Image) do Node.JS para o Repositório Local do Docker-CE
 ```bash
 #baixando a imagem do Node.JS do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -121,12 +121,11 @@ docker image pull node:latest
 docker image ls
 ```
 
-#04_ Criando o Projeto do Node.JS e Construindo (Build) o nosso Contêiner (Container) no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO
-#VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. CADA PROJETO
-#DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+## 04_ Criando o Projeto do Node.JS e Construindo (Build) o nosso Contêiner (Container) no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* OU COM O *DOCKER COMPOSE*. CADA PROJETO DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+
+```bash
 #criando o diretório do projeto do Node.JS do Dockerfile
 #opção do comando mkdir: -v (verbose)
 mkdir -v app/
@@ -153,9 +152,10 @@ vim app/Dockerfile
 #entrando no modo de edição do VIM
 INSERT
 ```
-```bash
-#COPIAR E COLAR: as configurações básicas do Dockerfile
 
+**COPIAR E COLAR:** as configurações básicas do Dockerfile
+
+```bash
 #utilizar a Imagem do Node.JS para criar o nosso container 
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
 #FROM (Create a new build stage from a base image)
@@ -218,14 +218,11 @@ Esc Shift : x <Enter>
 ls -lh app/
 ```
 
-#05_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Node.JS no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
-#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/app UTILIZAR NO COMANDO 
-#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
-#PROJETO.
+## 05_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Node.JS no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* NÃO É NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: */home/vaamonde/app* UTILIZAR NO COMANDO DO DOCKER A OPÇÃO DE: **. (ponto)** QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO PROJETO.
+
+```bash
 #criando o container do Node.JS utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -241,7 +238,7 @@ docker build --no-cache --tag USERNAME_DOCKER-HUB/app:0.1 app/
 docker image ls
 ```
 
-#06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE<br>
+## 06_ Executando (Run) o Contêiner (Container) da Imagem (Image) do Node.JS no Docker-CE
 ```bash
 #criando volume local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -274,7 +271,7 @@ docker container run -d --name app --volume app:/app --publish 3000:3000 USERNAM
 docker container ls -a
 ```
 
-#07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE<br>
+## 07_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso da aplicação do Node.JS no Docker-CE
 ```bash
 #verificando o redirecionamento da Porta padrão do Node.JS
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -295,7 +292,7 @@ curl -sSf http://172.16.1.30:3000
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-#08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE<br>
+## 08_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do Node.JS no Docker-CE
 ```bash
 #verificando os históricos da imagem do Node.JS localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -312,7 +309,7 @@ docker image history USERNAME_DOCKER-HUB/app:0.1
 docker image inspect USERNAME_DOCKER-HUB/app:0.1
 ```
 
-#09_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE<br>
+## 09_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) no Docker-CE
 ```bash
 #executando e acessando o Bash remoto do container do Node.JS
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -340,21 +337,17 @@ ps -aux
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
-#10_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE<br>
+## 10_ Se autenticando (Login) e Registrando (Registry) no Docker Hub via Docker-CE
+
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO AO USAR O COMANDO: *docker login* PASSANDO O USUÁRIO E SENHA DIRETAMENTE NO TERMINAL EM TEXTO PLANO, A SEGUINTE MENSAGEM É MOSTRADA QUANDO VOCÊ EXECUTA ESSE COMANDO:
+
+**WARNING!** Using --password via the CLI is insecure. Use *--password-stdin*.<br>
+**WARNING!** Your password will be stored unencrypted in */home/SEU_USUÁRIO/.docker/config.json*.<br>
+Configure a credential helper to remove this warning. See https://docs.docker.com/engine/reference/commandline/login/#credential-stores<br>
+
+**OBSERVAÇÃO IMPORTANTE:** SERÁ CRIADO O ARQUIVO: *config.json* NO DIRETÓRIO DE CONFIGURAÇÃO PADRÃO DO DOCKER NO PERFIL DO SEU USUÁRIO EM: */home/SEU_USUÁRIO/.docker/config.json* ONDE IRÁ FICAR ARMAZENADO A SENHA DE AUTENTICAÇÃO NO DOCKER HUB.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: CUIDADO AO USAR O COMANDO: docker login PASSANDO O USUÁRIO E SENHA
-#DIRETAMENTE NO TERMINAL EM TEXTO PLANO, A SEGUINTE MENSAGEM E MOSTRADA QUANDO VOCÊ EXECUTA
-#ESSE COMANDO:
-
-WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-WARNING! Your password will be stored unencrypted in /home/SEU_USUÁRIO/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credential-stores
-
-#OBSERVAÇÃO IMPORTANTE: SERÁ CRIADO O ARQUIVO: config.json NO DIRETÓRIO DE CONFIGURAÇÃO
-#PADRÃO DO DOCKER NO PERFIL DO SEU USUÁRIO EM: /home/SEU_USUÁRIO/.docker/config.json ONDE
-#IRÁ FICAR ARMAZENADO A SENHA DE AUTENTICAÇÃO NO DOCKER HUB.
-
 #se autenticando no Docker Hub utilizando o Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/login/
 #opção do comando docker: login (Authenticate to a registry), -u --username (Username Docker Hub)
@@ -362,7 +355,7 @@ https://docs.docker.com/engine/reference/commandline/login/#credential-stores
 docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 ```
 
-#11_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE<br>
+## 11_ Enviando (Push) a Imagem (Image) para o Docker Hub via Docker-CE
 ```bash
 #fazendo o upload da imagem do Node.Js para o Docker Hub
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -372,10 +365,11 @@ docker login --username SEU_USUÁRIO_DOCKER-HUB --password SUA_SENHA_DOCKER-HUB
 docker push USERNAME_DOCKER-HUB/app:0.1
 ```
 
-#12_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE<br>
-```bash
+## 12_ Consultando no Docker Hub a Imagem (Image) Enviada (Push/Upload) e no Docker-CE
+
 Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/SEU_USUÁRIO_DOCKER-HUB
 
+```bash
 #pesquisando a imagem do container no repositório do seu usuário no Docker Hub
 #Link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
@@ -383,7 +377,7 @@ Link direto do Docker Hub do Repositório: https://hub.docker.com/repositories/S
 docker search USERNAME_DOCKER-HUB
 ```
 
-#13_ Removendo (RM) o Volume (Volume), Contêiner (Container) e Imagem (Image) no Docker-CE<br>
+## 13_ Removendo (RM) o Volume (Volume), Contêiner (Container) e Imagem (Image) no Docker-CE
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -461,7 +455,7 @@ rm -Rfv app/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Hub e Imagens dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

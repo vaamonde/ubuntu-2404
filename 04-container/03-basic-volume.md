@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 24/10/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Volumes dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Volumes dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -43,17 +44,17 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O VOLUME DO DOCKER: Volumes no Docker são uma das principais formas de persistir dados gerados e utilizados por contêineres. Eles permitem que os dados sejam armazenados fora do ciclo de vida dos contêineres, garantindo que informações importantes não sejam perdidas quando um contêiner é removido ou recriado.
+**O QUE É E PARA QUE SERVER O VOLUME DO DOCKER:** Volumes no Docker são uma das principais formas de persistir dados gerados e utilizados por contêineres. Eles permitem que os dados sejam armazenados fora do ciclo de vida dos contêineres, garantindo que informações importantes não sejam perdidas quando um contêiner é removido ou recriado.
 
 [![Volumes Docker](http://img.youtube.com/vi/dbOmIfI3n1s/0.jpg)](https://www.youtube.com/watch?v=dbOmIfI3n1s "Volumes Docker")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=dbOmIfI3n1s
 
-#01_ Criando o Diretório de Dados do TomCAT no Ubuntu Server<br>
+## 01_ Criando o Diretório de Dados do TomCAT no Ubuntu Server
 ```bash
 #criando o diretório de dados do TomCAT no Ubuntu Server
 #opção do comando mkdir: -v verbose
@@ -67,7 +68,7 @@ ls -lh
 pwd tomcat/
 ```
 
-#02_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) do Computador Local (Host) no Contêiner (Container) do TomCAT no Docker-CE<br>
+## 02_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) do Computador Local (Host) no Contêiner (Container) do TomCAT no Docker-CE
 ```bash
 #executando o container do Ubuntu em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -91,23 +92,25 @@ docker container run -d -it --name tomcat --mount type=bind,source=/home/vaamond
 #opção do comando docker: container (Manage containers), ls (List containers), -a --all (Show all
 #images (default hides intermediate images))
 docker container ls -a
+```
 
-#informações que são mostradas na saída do comando: docker container inspect
-#"Type": "bind"                    Especifica o tipo de montagem. No caso, o valor "bind" 
-#                                  indica que essa é uma montagem vinculada (bind mount)
-#"Source": "/home/vaamonde/tomcat" O caminho no host onde o diretório ou arquivo que está
-#                                  sendo montado reside. Neste exemplo, o diretório /home/
-#                                  vaamonde/tomcat no host está sendo montado no container.
-#"Destination": "/tomcat"          O caminho dentro do container onde o diretório ou arquivo
-#                                  do host (Source) será montado.
-#"Mode": ""                        O modo de montagem define permissões e outras configurações, 
-#                                  como leitura/escrita ou somente leitura.
-#"RW": "true"                      Indica se o ponto de montagem está configurado como leitura 
-#                                  e escrita (read/write). 
-#"Propagation": "rprivate"         O modo de propagação controla como as mudanças no filesystem
-#                                  (como novas montagens) são visíveis entre o host e o container, 
-#                                  e vice-versa.
+Informações que são mostradas na saída do comando: *docker container inspect*<br>
+1. "Type": "bind"                    Especifica o tipo de montagem. No caso, o valor "bind" 
+                                     indica que essa é uma montagem vinculada (bind mount)
+2. "Source": "/home/vaamonde/tomcat" O caminho no host onde o diretório ou arquivo que está
+                                     sendo montado reside. Neste exemplo, o diretório /home/
+                                     vaamonde/tomcat no host está sendo montado no container.
+3. "Destination": "/tomcat"          O caminho dentro do container onde o diretório ou arquivo
+                                     do host (Source) será montado.
+4. "Mode": ""                        O modo de montagem define permissões e outras configurações, 
+                                     como leitura/escrita ou somente leitura.
+5. "RW": "true"                      Indica se o ponto de montagem está configurado como leitura 
+                                     e escrita (read/write). 
+6. "Propagation": "rprivate"         O modo de propagação controla como as mudanças no filesystem
+                                     (como novas montagens) são visíveis entre o host e o container, 
+                                     e vice-versa.
 
+```bash
 #inspecionando as informações de montagem container do TomCAT no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
@@ -132,7 +135,7 @@ docker container inspect tomcat | grep -i -E "source|destination"
 docker container inspect tomcat | jq '.[] | .Mounts[] | select(.Type == "bind")'
 ```
 
-#03_ Conectando (Attach) e Verificando o Ponto de Montagem (Bind Mounts) no Contêiner (Container) do TomCAT no Docker-CE<br>
+## 03_ Conectando (Attach) e Verificando o Ponto de Montagem (Bind Mounts) no Contêiner (Container) do TomCAT no Docker-CE
 ```bash
 #conectando no container do Ubuntu em modo Interativo no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -162,7 +165,7 @@ Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para 
 ls -lh tomcat/
 ```
 
-#04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE<br>
+## 04_ Criando (Create) e Montando (Bind Mounts) o Diretório (Directory) Somente Leitura (Read-Only) do Computador Local (Host) no Contêiner (Container) do Zabbix no Docker-CE
 ```bash
 #criando o diretório de dados do Zabbix no Ubuntu Server
 #opção do comando mkdir: -v verbose
@@ -245,7 +248,7 @@ touch teste.txt
 Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
 ```
 
-#05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE<br>
+## 05_ Criando (Create) Volumes (Volume) e Inspecionando (Inspect) o seu Conteúdo no Docker-CE
 ```bash
 #criando volume local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -261,20 +264,23 @@ docker volume create vaamonde
 #Documentação do Docker-CE: https://docs.docker.com/engine/storage/volumes/
 #opção do comando docker: volume (Manage volumes), ls (List volumes)
 docker volume ls
+```
 
-#informações que são mostradas na saída do comando: docker volume inspect
-#"CreatedAt": "2024-10-11T09:41:05-03:00": Indica a data e hora em que o volume foi criado.
-#"Driver": "local": O driver define como o volume é gerenciado em /var/lib/docker/volumes/.
-#"Labels": null:    Labels são metadados que podem ser atribuídos a um volume para facilitar
-#                   sua categorização e organização.
-#"Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema
-#                                                        de arquivos do host onde os dados do
-#                                                        volume estão armazenados.
-#"Name": "vaamonde": O nome do volume.
-#"Options": null:    Opções adicionais configuráveis para o volume.
-#"Scope": "local":   O escopo do volume define onde ele pode ser usado,  o volume é acessível 
-#                    apenas pelo Docker local.
+Informações que são mostradas na saída do comando: *docker volume inspect*<br>
+1. "CreatedAt": "2024-10-11T09:41:05-03:00": Indica a data e hora em que o volume foi criado.
+2. "Driver": "local".......................: O driver define como o volume é gerenciado em 
+                                             /var/lib/docker/volumes/.
+3. "Labels": null..........................: Labels são metadados que podem ser atribuídos a um 
+                                             volume para facilitar sua categorização e organização.
+4. "Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema de 
+                                                           arquivos do host onde os dados do volume
+                                                           estão armazenados.
+5. "Name": "vaamonde"......................: O nome do volume.
+6. "Options": null.........................: Opções adicionais configuráveis para o volume.
+"Scope": "local"...........................: O escopo do volume define onde ele pode ser usado,  o 
+                                             volume é acessível apenas pelo Docker local.
 
+```bash
 #inspecionando o volume criado no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
@@ -284,7 +290,7 @@ docker volume ls
 docker volume inspect vaamonde
 ```
 
-#06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE<br>
+## 06_ Montando (Mount) Volumes (Volume) no Contêiner (Container) da Imagem (Image) do Ubuntu no Docker-CE
 ```bash
 #executando o container do Ubuntu em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -365,12 +371,11 @@ ls -lh /var/lib/docker/volumes/vaamonde/_data/
 exit
 ```
 
-#07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ FAZ A CRIAÇÃO DE UM CONTAINER INDICANDO QUAL SERÁ O VOLUME
-#A SER UTILIZADO, CASO O VOLUME NÃO EXISTA NO DOCKER ELE SERÁ CRIADO COM O NOME DE IDENTIFICAÇÃO
-#PADRÃO GERADO AUTOMATICAMENTE PELO DOCKER É NÃO PELO SEU NOME.
+## 07_ Criando (Create) Contêiner (Container) de Volume (Volume) para Apenas Dados (Data-Only) no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** QUANDO VOCÊ FAZ A CRIAÇÃO DE UM CONTAINER INDICANDO QUAL SERÁ O VOLUME A SER UTILIZADO, CASO O VOLUME NÃO EXISTA NO DOCKER ELE SERÁ CRIADO COM O NOME DE IDENTIFICAÇÃO PADRÃO GERADO AUTOMATICAMENTE PELO DOCKER É NÃO PELO SEU NOME.
+
+```bash
 #criando um novo container do CentOS mais sem executar o modo Interativo
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/create/
@@ -405,12 +410,11 @@ docker volume ls
 #os pontos de montagem (bind mounts, volumes, etc.) do container, select(.Type == "volume"): 
 #Filtra para exibir apenas as montagens do tipo volume.
 docker container inspect dbdados | jq '.[] | .Mounts[] | select(.Type == "volume")'
+```
 
-#OBSERVAÇÃO IMPORTANTE: NO EXEMPLO ABAIXO SERÁ UTILIZADO UMA IMAGEM DE CONTAINER DO BANCO
-#DE DADOS POSTGRESQL DO REPOSITÓRIO DA CANONICAL: https://hub.docker.com/u/ubuntu, PARA ESSE
-#CENÁRIO SERÁ NECESSÁRIO CONFIGURAR O MAPEAMENTO DAS PORTAS UTILIZADAS PELO POSTGRESQL QUE
-#SERÁ VISTO MAIS ADIANTE NESSE CURSO NAS AULAS DE REDE E MAPEAMENTO DE PORTAS.
+**OBSERVAÇÃO IMPORTANTE:** NO EXEMPLO ABAIXO SERÁ UTILIZADO UMA IMAGEM DE CONTAINER DO BANCO DE DADOS *POSTGRESQL* DO REPOSITÓRIO DA CANONICAL: https://hub.docker.com/u/ubuntu, PARA ESSE CENÁRIO SERÁ NECESSÁRIO CONFIGURAR O MAPEAMENTO DAS PORTAS UTILIZADAS PELO POSTGRESQL QUE SERÁ VISTO MAIS ADIANTE NESSE CURSO NAS AULAS DE REDE E MAPEAMENTO DE PORTAS.
 
+```bash
 #executando o container do Ubuntu em modo Daemon/Background no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
@@ -461,7 +465,7 @@ ls -lh /var/lib/docker/volumes/ID_DO_VOLUME_DBDADOS/_data/
 exit
 ```
 
-#08_ Removendo (RM) Volumes (Volume), Contêiners (Container) e Imagens (Image) no Docker-CE<br>
+## 08_ Removendo (RM) Volumes (Volume), Contêiners (Container) e Imagens (Image) no Docker-CE
 ```bash
 #verificando o uso do Disco das Imagens, Container e Volumes no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
@@ -535,7 +539,7 @@ sudo rm -Rfv tomcat/ zabbix/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Volumes dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Volumes dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

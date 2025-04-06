@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.09<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.10<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 
@@ -65,7 +65,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=M_Dazb75OTc
 #instalação das dependências básicas do Docker CE
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install vim git python3 python3-pip apt-transport-https ca-certificates curl \
-software-properties-common linux-image-generic linux-image-extra-virtual lsof jq
+software-properties-common linux-image-generic linux-image-extra-virtual lsof jq bc
 ```
 
 ## 02_ Adicionando a Chave GPG do Docker-CE no Ubuntu Server
@@ -104,13 +104,13 @@ docker-compose-plugin cgroup-lite
 
 ## 06_ Instalação do Docker Compose no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** a versão do Docker-Compose utilizando o Sources List do Docker-CE está desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo.
+**OBSERVAÇÃO IMPORTANTE:** a versão do Docker-Compose utilizando o Sources List do Docker-CE está desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo, antes sempre acesse o site: https://github.com/docker/compose/releases/ para verificar a versão atual do Docker Compose antes de baixar.
 
 ```bash
 #baixando o Docker Compose do Projeto do Github
-#opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 27/09/2024)
+#opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 06/04/2025)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.29.7/docker-compose-linux-x86_64 \
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-linux-x86_64 \
 -o /usr/bin/docker-compose
 
 #alterando as permissões do Binário do Docker Compose	

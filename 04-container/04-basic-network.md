@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/10/2024<br>
-#Data de atualização: 06/11/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Network dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Network dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -45,17 +46,17 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O NETWORK DO DOCKER: O Network no Docker refere-se ao sistema de rede virtual usado para conectar containers entre si e com o mundo externo. Ele permite que containers se comuniquem de maneira controlada e segura, tanto entre si quanto com redes externas, como a rede do host ou a internet.
+**O QUE É E PARA QUE SERVER O NETWORK DO DOCKER:** O Network no Docker refere-se ao sistema de rede virtual usado para conectar containers entre si e com o mundo externo. Ele permite que containers se comuniquem de maneira controlada e segura, tanto entre si quanto com redes externas, como a rede do host ou a internet.
 
 [![Network Docker](http://img.youtube.com/vi/MSJmXtRu45I/0.jpg)](https://www.youtube.com/watch?v=MSJmXtRu45I "Network Docker")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=MSJmXtRu45I
 
-#01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Ubuntu e Docker-CE<br>
+## 01_ Verificando as Interfaces e Endereçamento IPv4 padrão do Ubuntu e Docker-CE
 ```bash
 #verificando as informações de Placa de Rede (Network) do Ubuntu Server
 #opção do comando lshw: -class (Only show the given class of hardware)
@@ -78,30 +79,31 @@ sudo ifconfig docker0
   docker0: 172.17.0.1/16 (255.255.0.0)
 ```
 
-#02_ Verificando as Redes criadas por padrão no Docker-CE<br>
+## 02_ Verificando as Redes criadas por padrão no Docker-CE
+
+Informações que são mostradas na saída do comando: *docker network ls*<br>
+1. NETWORK ID.: É o identificador único da rede Docker. Cada rede tem um ID associado que
+                pode ser usado para identificá-la de forma única dentro do Docker.
+2. NAME.......: É o nome atribuído à rede. Pode ser um nome padrão (como bridge, host, none)
+                ou um nome personalizado que foi definido durante a criação da rede.
+3. DRIVER.....: Define o tipo de driver de rede utilizado. Os drivers de rede determinam 
+                como os containers se conectam entre si.
+
+Informações dois tipos de Drivers de Redes utilizados no Docker-CE<br>
+1. bridge.....: Rede padrão para containers no modo bridge, onde os containers em execução
+                na mesma rede podem se comunicar.
+2. host.......: A rede do container é a mesma do host, ou seja, ele não cria uma interface
+                de rede isolada.
+3. overlay....: Usado para criar redes que se estendem por vários hosts Docker, útil para 
+                serviços em modo swarm.
+4. macvlan....: Permite que os containers tenham seus próprios endereços MAC e façam parte
+                da rede física.
+
+Informações dos tipos de Escopo de Redes utilizados no Docker-CE<br>
+1. local......: A rede está restrita ao host local.
+2. global.....: A rede pode ser usada em vários hosts Docker no caso de um cluster swarm.
+
 ```bash
-#informações que são mostradas na saída do comando: docker network ls
-#NETWORK ID.: É o identificador único da rede Docker. Cada rede tem um ID associado que
-#             pode ser usado para identificá-la de forma única dentro do Docker.
-#NAME.......: É o nome atribuído à rede. Pode ser um nome padrão (como bridge, host, none)
-#             ou um nome personalizado que foi definido durante a criação da rede.
-#DRIVER.....: Define o tipo de driver de rede utilizado. Os drivers de rede determinam 
-#             como os containers se conectam entre si.
-
-#informações dois tipos de Drivers de Redes utilizados no Docker-CE
-#bridge.....: Rede padrão para containers no modo bridge, onde os containers em execução
-#             na mesma rede podem se comunicar.
-#host.......: A rede do container é a mesma do host, ou seja, ele não cria uma interface
-#             de rede isolada.
-#overlay....: Usado para criar redes que se estendem por vários hosts Docker, útil para 
-#             serviços em modo swarm.
-#macvlan....: Permite que os containers tenham seus próprios endereços MAC e façam parte
-#             da rede física.
-
-#informações dos tipos de Escopo de Redes utilizados no Docker-CE
-#local......: A rede está restrita ao host local.
-#global.....: A rede pode ser usada em vários hosts Docker no caso de um cluster swarm.
-
 #listando todas as redes padrão do Docker-CE 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/ls/
@@ -110,7 +112,7 @@ sudo ifconfig docker0
 docker network ls
 ```
 
-#03_ Criando (Create) Volumes (Volume) no Docker-CE<br>
+## 03_ Criando (Create) Volumes (Volume) no Docker-CE
 ```bash
 #criando volume local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -128,7 +130,7 @@ docker volume create website
 docker volume ls
 ```
 
-#04_ Criando (Create) Contêiner (Container) com o Volume (Volume) e Publicando (Publish) a Porta (Port) do Apache2 no Docker-CE<br>
+## 04_ Criando (Create) Contêiner (Container) com o Volume (Volume) e Publicando (Publish) a Porta (Port) do Apache2 no Docker-CE
 ```bash
 #criando o container do Ubuntu Apache2 Server localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -192,12 +194,13 @@ cat /etc/hosts | grep 172
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
-#05_ Inspecionando (Inspect) o Contêiner (Container) da Imagem (Image) do Apache2 no Docker-CE<br>
-```bash
-#informações dois tipos de Modos de Volumes do Docker-CE
-#Modo z (minúsculo): Configura o volume para ser compartilhado entre múltiplos containers
-#Modo Z (maiúsculo): Configura o volume para ser utilizado exclusivamente por um único container. 
+## 05_ Inspecionando (Inspect) o Contêiner (Container) da Imagem (Image) do Apache2 no Docker-CE
 
+Informações dois tipos de Modos de Volumes do Docker-CE<br>
+1. Modo z (minúsculo): Configura o volume para ser compartilhado entre múltiplos containers
+2. Modo Z (maiúsculo): Configura o volume para ser utilizado exclusivamente por um único container. 
+
+```bash
 #inspecionando as informações de montagem no container do Ubuntu no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/inspect/
@@ -236,7 +239,7 @@ docker container inspect website01 | jq '.[0].NetworkSettings.Networks.bridge'
 docker container inspect website01 | jq '.[0].NetworkSettings.Ports'
 ```
 
-#06_ Verificando as Interfaces de Rede criadas pelo Docker-CE no Ubuntu Server<br>
+## 06_ Verificando as Interfaces de Rede criadas pelo Docker-CE no Ubuntu Server
 ```bash
 #verificando todas as interfaces e endereço IPv4 no Ubuntu Server
 sudo ifconfig
@@ -259,34 +262,34 @@ sudo ufw status verbose
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ```
 
-#07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE<br>
-```bash
-#informações que são mostradas na saída do comando: brctl show
-#bridge name..: É o nome da bridge (ponte de rede) que foi criada no sistema. A bridge é 
-#               uma interface virtual que conecta várias interfaces de rede, permitindo 
-#               que pacotes sejam trocados entre elas, como se estivessem em um switch.
-#bridge id....: Identificador único da bridge no formato hexadecimal, que é composto pelo
-#               endereço MAC da interface da bridge e uma prioridade (usada STP).
-#STP enabled..: Indica se o Spanning Tree Protocol (STP) está habilitado ou não. O STP
-#               é um protocolo que previne loops de rede em bridges.
-#Interfaces...: Lista todas as interfaces de rede conectadas à bridge. Essas interfaces 
-#               podem ser físicas ou virtuais e participam da troca de pacotes na bridge.
+## 07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE
 
+Informações que são mostradas na saída do comando: *brctl show*<br>
+1. bridge name..: É o nome da bridge (ponte de rede) que foi criada no sistema. A bridge é 
+                  uma interface virtual que conecta várias interfaces de rede, permitindo 
+                  que pacotes sejam trocados entre elas, como se estivessem em um switch.
+2. bridge id....: Identificador único da bridge no formato hexadecimal, que é composto pelo
+                  endereço MAC da interface da bridge e uma prioridade (usada STP).
+3. STP enabled..: Indica se o Spanning Tree Protocol (STP) está habilitado ou não. O STP
+                  é um protocolo que previne loops de rede em bridges.
+4. Interfaces...: Lista todas as interfaces de rede conectadas à bridge. Essas interfaces 
+                  podem ser físicas ou virtuais e participam da troca de pacotes na bridge.
+
+```bash
 #verificando as informações de Bridge do Docker-CE
 sudo brctl show
+```
 
-#OBSERVAÇÃO MUITO IMPORTANTE: NESSE CURSO ESTOU TRABALHANDO COM A SEGURANÇA DE REGRAS DE
-#FIREWALL UTILIZANDO O UFW (Uncomplicated Firewall) QUE É UM FRAMEWORKS DO NETFILTER QUE
-#USO O IPTABLES PARA A CRIAÇÃO DAS REGRAS DE FIREWALL, O DOCKER-CE TAMBÉM UTILIZA ESSE
-#RECURSOS PARA SE COMUNICAR COM OS CONTAINERS.
+**OBSERVAÇÃO MUITO IMPORTANTE:** NESSE CURSO ESTOU TRABALHANDO COM A SEGURANÇA DE REGRAS DE FIREWALL UTILIZANDO O *UFW (Uncomplicated Firewall)* QUE É UM FRAMEWORKS DO **NETFILTER** QUE USO O **IPTABLES** PARA A CRIAÇÃO DAS REGRAS DE FIREWALL, O DOCKER-CE TAMBÉM UTILIZA ESSE RECURSOS PARA SE COMUNICAR COM OS CONTAINERS.
 
-#Tabelas Filter utilizadas pelo Docker-CE (NESSE CENÁRIO):
-#Chain FORWARD (policy DROP)
-#Chain DOCKER (1 references)
-#Chain DOCKER-ISOLATION-STAGE-1 (1 references)
-#Chain DOCKER-ISOLATION-STAGE-2 (1 references)
-#Chain DOCKER-USER (1 references)
+Tabelas Filter utilizadas pelo Docker-CE (NESSE CENÁRIO):<br>
+1. Chain FORWARD (policy DROP)
+2. Chain DOCKER (1 references)
+3. Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+4. Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+5. Chain DOCKER-USER (1 references)
 
+```bash
 #listando todas as regras de Firewall das Tabelas do IPTables no Ubuntu Server
 #opção do comando iptables: -L (list all chain), -n (numeric output)
 sudo iptables -L -n
@@ -310,7 +313,7 @@ sudo iptables -t nat -L POSTROUTING -n
 sudo iptables -t nat -L DOCKER -n 
 ```
 
-#08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE<br>
+## 08_ Criando (Create) Redes (Network) do Tipo Ponte (Bridge) no Docker-CE
 ```bash
 #criando redes em modo Bridge no Docker-CE 
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/network/
@@ -336,7 +339,7 @@ docker network ls --filter name=vaamonde
 docker network inspect vaamonde
 ```
 
-#09_ Criando (Create) Contêiner (Container) com o Volume (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE<br>
+## 09_ Criando (Create) Contêiner (Container) com o Volume (Volume), Rede (Network) e Publicando (Publish) a Porta (Port) do NGINX no Docker-CE
 ```bash
 #criando o container do Ubuntu NGINX Server localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -399,16 +402,16 @@ sudo ufw allow log-all from 172.16.1.0/24 to 172.16.1.30 port 81 proto tcp comme
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Verboso
 sudo ufw status verbose
+```
 
-#OBSERVAÇÃO IMPORTANTE: OBSERVER A FALHA DA PÁGINA DO UBUNTU EM RELAÇÃO AO LOGO QUANDO VOCÊ
-#ACESSAR A PORTA DO NGINX, O ERRO ESTÁ RELACIONADO AO CAMINHO: icons/ubuntu-logo.png QUE NÃO
-#TEM NO VOLUME CRIADo, MAIS O NGINX ESTÁ LENDO A PÁGINA: index.html DO NOSSO VOLUME.
+**OBSERVAÇÃO IMPORTANTE:** OBSERVER A *FALHA DA PÁGINA DO UBUNTU* EM RELAÇÃO AO **LOGO** QUANDO VOCÊ ACESSAR A PORTA DO *NGINX*, O ERRO ESTÁ RELACIONADO AO CAMINHO: *icons/ubuntu-logo.png* QUE NÃO TEM NO VOLUME CRIADO, MAIS O NGINX ESTÁ LENDO A PÁGINA: *index.html* DO NOSSO VOLUME.
 
+```bash
 #utilizar os navegadores para testar o acesso ao NGINX 
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:81
 ```
 
-#10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE<br>
+## 10_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) e Redes (Network) no Docker-CE
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -504,7 +507,7 @@ Proceed with operation (y|n)? y <Enter>
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Network dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Network dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/09/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.14<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -84,13 +84,11 @@ docker search ubuntu --filter stars=10 --filter is-official=true
 #based on conditions provided), stars (parameters and value used in the filter), is-official
 #(parameters and value used in the filter), --no-trunc (Don't truncate output)
 docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
+```
 
-#OBSERVAÇÃO IMPORTANTE: O termo: latest geralmente se refere à versão mais recente de um 
-#software ou imagem de contêiner. É comum em sistemas de versionamento e ferramentas como
-#o Docker. No Docker, por exemplo, ao baixar uma imagem, se você não especificar uma tag, 
-#a tag latest é usada por padrão. Isso significa que você estará puxando a versão mais 
-#atualizada da imagem.
+**OBSERVAÇÃO IMPORTANTE:** O termo: *latest* geralmente se refere à **versão mais recente** de um software ou imagem de contêiner. É comum em sistemas de versionamento e ferramentas como o Docker. No Docker, por exemplo, ao baixar uma imagem, se você não especificar uma *tag*, a **tag latest** é usada por padrão. Isso significa que você estará puxando a versão mais atualizada da imagem.
 
+```bash
 #pesquisando todas as informações de NAME e TAG da imagem de container do Ubuntu via APIv2 do Docker-HUB
 #opções de comando curl: -s (silent)
 #opção do comando jq: .results[] (Accesses the results key in JSON and iterates over each element of the 
@@ -119,11 +117,11 @@ docker container run ubuntu
 ```
 
 Informações que são mostradas na saída do comando: *docker image ls*<br>
-1. REPOSITORY.: nome da imagem do docker;
-2. TAG........: versão da imagem do docker;
-3. IMAGE ID...: identificação da imagem do docker;
-4. CREATED....: quando a imagem foi criada;
-5. SIZE.......: tamanho da imagem do docker.
+| 01 | REPOSITORY | nome da imagem do docker;          |
+| 02 | TAG        | versão da imagem do docker;        |
+| 03 | IMAGE ID   | identificação da imagem do docker; |
+| 04 | CREATED    | quando a imagem foi criada;        |
+| 05 | SIZE       | tamanho da imagem do docker.       |
 
 ```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE

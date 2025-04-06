@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/10/2024<br>
-#Data de atualização: 16/11/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.10<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -46,19 +47,19 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O IMAGE DOCKER: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+**O QUE É E PARA QUE SERVER O IMAGE DOCKER:** O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
-O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
+**O QUE É E PARA QUE SERVER O DOCKERFILE:** O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
 [![Dockerfile Docker](http://img.youtube.com/vi/56m308eEMZQ/0.jpg)](https://www.youtube.com/watch?v=56m308eEMZQ "Dockerfile Docker")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=56m308eEMZQ
 
-#01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE<br>
+## 01_ Pesquisando (Search) a Imagem (Image) do Debian no Docker-HUB do Docker-CE
 ```bash
 #pesquisando a imagem do container do Debian oficial no Docker-HUB
 #Link de consulta do Docker Hub: https://hub.docker.com/
@@ -68,7 +69,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=56m308eEMZQ
 docker search debian --filter is-official=true
 ```
 
-#02_ Baixando (Pull) a Imagem (Image) do Debian para o Repositório Local do Docker-CE<br>
+## 02_ Baixando (Pull) a Imagem (Image) do Debian para o Repositório Local do Docker-CE
 ```bash
 #baixando a imagem do Debian do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -84,12 +85,11 @@ docker image pull debian
 docker image ls
 ```
 
-#03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO
-#VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. CADA PROJETO
-#DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+## 03_ Criando o Primeiro arquivo do Dockerfile para Construir (Build) o nosso Contêiner (Container) no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** É INDICADO SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETO* QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* OU COM O *DOCKER COMPOSE*. CADA PROJETO DEVE FICAR EM UM DIRETÓRIOS SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+
+```bash
 #criando o diretório de teste01 do Dockerfile
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste01/
@@ -102,9 +102,10 @@ vim teste01/Dockerfile
 #entrando no modo de edição do VIM
 INSERT
 ```
-```bash
-#COPIAR E COLAR: as configurações básicas do Dockerfile
 
+**COPIAR E COLAR:** as configurações básicas do Dockerfile
+
+```bash
 #utilizar a Imagem do Debian para criar o container 
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
 #FROM (Create a new build stage from a base image)
@@ -120,14 +121,11 @@ RUN /bin/echo "Testando o Dockerfile no Debian"
 Esc Shift : x <Enter>
 ```
 
-#04_ Construindo (Build) nossa Imagem (Image) de Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
-#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste01 UTILIZAR NO COMANDO 
-#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
-#PROJETO.
+## 04_ Construindo (Build) nossa Imagem (Image) de Contêiner (Container) utilizando a Imagem (Image) do Debian no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* NÃO É NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: */home/vaamonde/teste01* UTILIZAR NO COMANDO DO DOCKER A OPÇÃO DE: **. (ponto)** QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO PROJETO.
+
+```bash
 #construindo a imagem com base na imagem do Debian utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -142,7 +140,7 @@ docker build --tag vava:0.1 teste01/
 docker image ls
 ```
 
-#05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) a nossa Imagem (Image) de Contêiner (Container) no Docker-CE<br>
+## 05_ Criando o Segundo arquivo do Dockerfile para Construir (Build) a nossa Imagem (Image) de Contêiner (Container) no Docker-CE
 ```bash
 #criando o diretório de teste02 do Dockerfile
 #opção do comando mkdir: -v (verbose)
@@ -164,9 +162,10 @@ vim teste02/Dockerfile
 #entrando no modo de edição do VIM
 INSERT
 ```
-```bash
-#COPIAR E COLAR: as configurações básicas do Dockerfile
 
+**COPIAR E COLAR:** as configurações básicas do Dockerfile
+
+```bash
 #utilizar a Imagem do Debian para criar o container 
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/#from
 #FROM (Create a new build stage from a base image)
@@ -247,14 +246,11 @@ Esc Shift : x <Enter>
 ls -lh teste02/
 ```
 
-#06_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Debian no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE NÃO É
-#NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ
-#ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: /home/vaamonde/teste02 UTILIZAR NO COMANDO 
-#DO DOCKER A OPÇÃO DE: . (ponto) QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO
-#PROJETO.
+## 06_ Construindo (Build) a nossa Imagem (Image) de Contêiner (Container) utilizando o Debian no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* NÃO É NECESSÁRIO INDICAR O NOME DO ARQUIVO, APENAS O DIRETÓRIO DO PROJETO, SE VOCÊ JÁ ESTÁ NO DIRETÓRIO DO PROJETO, EXEMPLO: */home/vaamonde/teste02* UTILIZAR NO COMANDO DO DOCKER A OPÇÃO DE: **. (ponto)** QUE INDICA QUE VOCÊ ESTÁ NO DIRETÓRIO CORRENTE DO PROJETO.
+
+```bash
 #construindo a imagem do NGINX utilizando o Dockerfile
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/build-legacy/
 #Documentação do Docker-CE: https://docs.docker.com/reference/dockerfile/
@@ -270,7 +266,7 @@ docker build --no-cache --tag nginx:0.1 teste02/
 docker image ls
 ```
 
-#07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE<br>
+## 07_ Executando (Run) o Contêiner (Container) da Imagem (Image) do NGINX no Docker-CE
 ```bash
 #criando volume local no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
@@ -304,7 +300,7 @@ docker container run -d --name webserver --volume webserver:/var/www/html --publ
 docker container ls -a
 ```
 
-#08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE<br>
+## 08_ Verificando a Porta de Conexão, Protocolo e Liberando o acesso ao site do NGINX no Docker-CE
 ```bash
 #verificando o redirecionamento da Porta padrão do NGINX
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -325,7 +321,7 @@ curl -sSf http://172.16.1.30
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ```
 
-#09_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do NGINX no Docker-CE<br>
+## 09_ Verificando o Histórico (History) e Inspecionando (Inspect) a Imagem (Image) do NGINX no Docker-CE
 ```bash
 #verificando os históricos da imagem do NGINX localmente no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -342,7 +338,7 @@ docker image history nginx:0.1
 docker image inspect nginx:0.1
 ```
 
-#10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) do NGINX no Docker-CE<br>
+## 10_ Executando (Exec) comandos na Imagem (Image) do Contêiner (Container) do NGINX no Docker-CE
 ```bash
 #executando e acessando o Bash remoto do container do NGINX
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -362,7 +358,7 @@ service nginx status
 Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para sair)
 ```
 
-#11_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE<br>
+## 11_ Removendo (RM) Volumes (Volume), Contêiners (Container), Imagens (Image) no Docker-CE
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
@@ -432,7 +428,7 @@ rm -Rfv teste0*/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Dockerfile dos Containers de Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
