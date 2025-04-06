@@ -379,14 +379,17 @@ docker container stats [CONTAINER ID ou NAME]
 ```
 
 Informações que são mostradas na saída do comando: *docker top*<br>
-1. UID...: Identificador do usuário (User ID) que está executando o processo no container;
-2. PID...: Identificador do processo (Process ID) dentro do container;
-3. PPID..: Identificador do processo pai (Parent Process ID) que iniciou o processo;
-4. C.....: Percentual de uso da CPU pelo processo;
-5. STIME.: Hora de início (Start Time) do processo;
-6. TTY...: Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?;
-7. TIME..: Quantidade de tempo de CPU que o processo consumiu até o momento;
-8. CMD...: Comando ou caminho completo do executável que iniciou o processo.
+
+| ID | DADOS | INFORMAÇÃO                                                                             |
+|----|-------|----------------------------------------------------------------------------------------|
+| 01 | UID   | Identificador do usuário (User ID) que está executando o processo no container;        |
+| 02 | PID   | Identificador do processo (Process ID) dentro do container;                            |
+| 03 | PPID  | Identificador do processo pai (Parent Process ID) que iniciou o processo;              |
+| 04 | C     | Percentual de uso da CPU pelo processo;                                                |
+| 05 | STIME | Hora de início (Start Time) do processo;                                               |
+| 06 | TTY   | Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?; |
+| 07 | TIME  | Quantidade de tempo de CPU que o processo consumiu até o momento;                      |
+| 08 | CMD   | Comando ou caminho completo do executável que iniciou o processo.                      |
 
 ```bash
 #verificando os processos rodando no container do Ubuntu no Docker-CE
@@ -530,15 +533,19 @@ docker image ls
 ```
 
 Informações que são mostradas na saída do comando: *docker image history*<br>
-1. IMAGE......: Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa
-                de criação. Cada camada é uma modificação incremental.
-2. CREATED....: Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").
-3. CREATED BY.: Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada 
-                da imagem (por exemplo, RUN apt-get update).
-4. SIZE.......: Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados 
-                nesta etapa específica.
-5. COMMENT....: Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, 
-                a menos que tenha sido explicitamente preenchida durante o processo de build da imagem.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | IMAGE      | Identificador (ID) da camada da imagem ou o hash da imagem correspondente a 
+cada etapa de criação. Cada camada é uma modificação incremental. |
+| 02 | CREATED    | Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").  |
+| 03 | CREATED BY | Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a |
+camada da imagem (por exemplo, RUN apt-get update). |
+| 04 | SIZE       | Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou 
+modificados nesta etapa específica. |
+| 05 | COMMENT    | Comentários associados à criação da imagem. Normalmente, essa coluna pode 
+estar em branco, a menos que tenha sido explicitamente preenchida durante o processo de build
+da imagem. |
 
 ```bash
 #verificando os históricos das imagens do Ubuntu e do Debian localmente no Docker-CE
