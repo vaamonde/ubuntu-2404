@@ -362,8 +362,7 @@ Informações que são mostradas na saída do comando: *docker container stats*<
 | 01 | CONTAINER ID    | Identificação única do container em execução;                                       |
 | 02 | NAME            | Nome atribuído ao container;                                                        |
 | 03 | CPU             | Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema; |
-| 04 | MEM USAGE/LIMIT | Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o    |
-                         limite de memória disponível para ele (LIMIT);                                      |
+| 04 | MEM USAGE/LIMIT | Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o limite de memória disponível para ele (LIMIT); |
 | 05 | MEM %           | Percentual de uso da memória pelo container em relação ao limite de memória;        |
 | 06 | NET I/O         | Quantidade de dados trafegados pela rede (entrada e saída) do container;            |
 | 07 | BLOCK I/O       | Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);  |
