@@ -117,17 +117,12 @@ docker container run ubuntu
 ```
 
 Informações que são mostradas na saída do comando: *docker image ls*<br>
-|----|------------|------------------------------------|
+
 | 01 | REPOSITORY | nome da imagem do docker;          |
-|----|------------|------------------------------------|
 | 02 | TAG        | versão da imagem do docker;        |
-|----|------------|------------------------------------|
 | 03 | IMAGE ID   | identificação da imagem do docker; |
-|----|------------|------------------------------------|
 | 04 | CREATED    | quando a imagem foi criada;        |
-|----|------------|------------------------------------|
 | 05 | SIZE       | tamanho da imagem do docker.       |
-|----|------------|------------------------------------|
 
 ```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE
