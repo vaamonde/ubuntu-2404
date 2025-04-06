@@ -140,29 +140,38 @@ docker image ls
 ```
 
 Informações que são mostradas na saída do comando: *docker container ls*<br>
-1. CONTAINER ID..: identificação única do container no docker;
-2. IMAGE.........: imagem utilizada na execução do container no docker;
-3. COMMAND.......: comando em execução da imagem do docker;
-4. CREATED.......: quando a imagem foi criada no docker;
-5. STATUS........: status atual da imagem no docker;
-6. PORTS.........: porta do container e do host utilizada para se comunicar no docker;
-7. NAMES.........: nome do container no docker.
+
+| ID | DADOS        | INFORMAÇÃO                                                          |
+|----|--------------|---------------------------------------------------------------------|
+| 01 | CONTAINER ID | identificação única do container no docker;                         |
+| O2 | IMAGE        | imagem utilizada na execução do container no docker;                |
+| 03 | COMMAND      | comando em execução da imagem do docker;                            |
+| 04 | CREATED      | quando a imagem foi criada no docker;                               |
+| 05 | STATUS       | status atual da imagem no docker;                                   |
+| 06 | PORTS        | porta do container e do host utilizada para se comunicar no docker; |
+| 07 | NAMES        | nome do container no docker.                                        |
 
 Informações dos status padrão dos containers do Docker-CE<br>
-1. Up..... ...: O contêiner está em execução e funcionando normalmente.
-2. Exited.....: O contêiner foi encerrado. 
-3. Restarting.: O contêiner está em um ciclo de reinicialização.
-4. Created....: O contêiner foi criado mais não foi executado ainda.
+
+| ID | DADOS      | INFORMAÇÃO                                              |
+|----|------------|---------------------------------------------------------|
+| 01 | Up         | O contêiner está em execução e funcionando normalmente. |
+| 02 | Exited     | O contêiner foi encerrado.                              |
+| 03 | Restarting | O contêiner está em um ciclo de reinicialização.        |
+| 04 | Created    | O contêiner foi criado mais não foi executado ainda.    |
 
 Informações dos códigos do status Exited dos containers do Docker-CE<br>
-1.   0 - O contêiner finalizou sua execução com sucesso (sem erros);
-2.   1 - O contêiner finalizou com um erro genérico ou uma exceção inesperada;
-3. 137 - O contêiner foi encerrado devido a um comando SIGKILL (falta de memória);
-4. 139 - O contêiner foi encerrado devido a um segmentation fault;
-5. 143 - O contêiner foi finalizado após receber um SIGTERM, comando: *docker stop*;
-6. 125 - Ocorreu um erro ao tentar iniciar o contêiner, comando: *docker run*;
-7. 126 - O contêiner tentou executar um comando, mas o comando não pôde ser invocado;
-8. 127 - O comando ou programa que o contêiner tentou executar não foi encontrado.
+
+| ID | DADOS | INFORMAÇÃO                                                                   |
+|----|-------|------------------------------------------------------------------------------|
+| 01 |    0  | O contêiner finalizou sua execução com sucesso (sem erros);                  |
+| 02 |    1  | O contêiner finalizou com um erro genérico ou uma exceção inesperada;        |
+| 03 |  137  | O contêiner foi encerrado devido a um comando SIGKILL (falta de memória);    |
+| 04 |  139  | O contêiner foi encerrado devido a um segmentation fault;                    |
+| 05 |  143  | O contêiner foi finalizado após receber um SIGTERM, comando: *docker stop*;  |
+| 06 |  125  | Ocorreu um erro ao tentar iniciar o contêiner, comando: *docker run*;        |
+| 07 |  126  | O contêiner tentou executar um comando, mas o comando não pôde ser invocado; |
+| 08 |  127  | O comando ou programa que o contêiner tentou executar não foi encontrado.    |
 
 **OBSERVAÇÃO IMPORTANTE:** SE VOCÊ NÃO USAR A OPÇÃO: *--name* (QUE SERÁ VISTO EM BREVE NESSE CURSO), O DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: *modest_shaw, peaceful_tharp, etc*.
 
@@ -347,15 +356,18 @@ docker container wait [CONTAINER ID ou NAME]
 ## 07_ Verificando as Estatísticas (Stats), Processos (Top), Logs (Log) e Inspecionando (Inspect) do Contêiner (Container) no Docker-CE
 
 Informações que são mostradas na saída do comando: *docker container stats*<br>
-1. CONTAINER ID...: Identificação única do container em execução;
-2. NAME...........: Nome atribuído ao container;
-3. CPU %..........: Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema;
-4. MEM USAGE/LIMIT: Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o 
-                    limite de memória disponível para ele (LIMIT);
-5. MEM %..........: Percentual de uso da memória pelo container em relação ao limite de memória;
-6. NET I/O........: Quantidade de dados trafegados pela rede (entrada e saída) do container;
-7. BLOCK I/O......: Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);
-8. PIDS...........: Número de processos (PIDs) em execução dentro do container.
+
+| ID | DADOS           | INFORMAÇÃO                                                                          |
+|----|-----------------|-------------------------------------------------------------------------------------|
+| 01 | CONTAINER ID    | Identificação única do container em execução;                                       |
+| 02 | NAME            | Nome atribuído ao container;                                                        |
+| 03 | CPU             | Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema; |
+| 04 | MEM USAGE/LIMIT | Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o    |
+                         limite de memória disponível para ele (LIMIT);                                      |
+| 05 | MEM %           | Percentual de uso da memória pelo container em relação ao limite de memória;        |
+| 06 | NET I/O         | Quantidade de dados trafegados pela rede (entrada e saída) do container;            |
+| 07 | BLOCK I/O       | Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);  |
+| 08 | PIDS            | Número de processos (PIDs) em execução dentro do container.                         |
 
 ```bash
 #verificando as estatísticas do container do Ubuntu no Docker-CE
