@@ -536,16 +536,11 @@ Informações que são mostradas na saída do comando: *docker image history*<br
 
 | ID | DADOS      | INFORMAÇÃO                                                                   |
 |----|------------|------------------------------------------------------------------------------|
-| 01 | IMAGE      | Identificador (ID) da camada da imagem ou o hash da imagem correspondente a 
-cada etapa de criação. Cada camada é uma modificação incremental. |
+| 01 | IMAGE      | Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa de criação. Cada camada é uma modificação incremental. |
 | 02 | CREATED    | Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").  |
-| 03 | CREATED BY | Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a |
-camada da imagem (por exemplo, RUN apt-get update). |
-| 04 | SIZE       | Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou 
-modificados nesta etapa específica. |
-| 05 | COMMENT    | Comentários associados à criação da imagem. Normalmente, essa coluna pode 
-estar em branco, a menos que tenha sido explicitamente preenchida durante o processo de build
-da imagem. |
+| 03 | CREATED BY | Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada da imagem (por exemplo, RUN apt-get update). |
+| 04 | SIZE       | Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados nesta etapa específica. |
+| 05 | COMMENT    | Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, a menos que tenha sido explicitamente preenchida durante o processo de build da imagem. |
 
 ```bash
 #verificando os históricos das imagens do Ubuntu e do Debian localmente no Docker-CE
