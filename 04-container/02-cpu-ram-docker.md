@@ -166,15 +166,13 @@ docker container stop nginx mysql
 ```
 
 Informações que são mostradas na saída do comando: *docker container inspect nginx | grep -i memory*<br>
-1. "Memory":            0   : Indica o limite máximo de memória que o container pode usar. O valor 0 significa 
-                              que não há limite específico de memória configurado para o container.
-2. "MemoryReservation": 0   : Define a quantidade mínima de memória que é reservada para o container. O valor 0 
-                              significa que não há reserva mínima de memória.
-3. "MemorySwap"       : 0   : Limite combinado de memória física (RAM) e swap. 0 indica que o container não pode 
-                              usar swap.
-4. "MemorySwappiness" : null: Controla a propensão do sistema a usar a memória swap para o container. 
-                              null significa que o Docker está usando a configuração padrão do sistema operacional
-                              para a "swappiness" (que geralmente é 60).
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | "Memory": 0 | Indica o limite máximo de memória que o container pode usar. O valor 0 significa que não há limite específico de memória configurado para o container. | 
+| 02 | "MemoryReservation": 0 | Define a quantidade mínima de memória que é reservada para o container. O valor 0 significa que não há reserva mínima de memória. |
+| 03 | "MemorySwap" 0 | Limite combinado de memória física (RAM) e swap. 0 indica que o container não pode usar swap. |
+| 04 | "MemorySwappiness" : null | Controla a propensão do sistema a usar a memória swap para o container. null significa que o Docker está usando a configuração padrão do sistema operacional para a "swappiness" (que geralmente é 60). |
 
 ```bash
 #inspecionando as informações de RAM dos containers do Ubuntu no Docker-CE
