@@ -70,13 +70,16 @@ docker search ubuntu --filter is-official=true
 ## 02_ Baixando (Pull) as Imagens (Image) do Ubuntu para o Repositório Local do Docker-CE
 
 Informações importante sobre os Tipos de Tags (Marcação/Etiqueta) mais utilizadas no Docker Hub<br>
-1. latest........: é a tag padrão se nenhuma outra for especificada, versão mais recente;
-2. alpine........: imagens mínimas baseadas no Alpine Linux
-3. slim..........: imagens menores com bibliotecas mínimas
-4. beta..........: versões de pré-lançamento ou teste
-5. rc............: versões de candidato liberado ou teste
-6. lts...........: utilizadas em algumas imagens que possuem versões de suporte de longo prazo
-7. x, x.y, x.y.z.: essas tags especificam versões específicas da imagem
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | latest | é a tag padrão se nenhuma outra for especificada, versão mais recente; |
+| 02 | alpine | imagens mínimas baseadas no Alpine Linux |
+| 03 | slim | imagens menores com bibliotecas mínimas |
+| 04 | beta | versões de pré-lançamento ou teste |
+| 05 | rc | versões de candidato liberado ou teste |
+| 06 | lts | utilizadas em algumas imagens que possuem versões de suporte de longo prazo |
+| 07 | x, x.y, x.y.z. | essas tags especificam versões específicas da imagem |
 
 ```bash
 #baixando a imagem do Ubuntu (Noble - 24.04) do Docker-HUB
@@ -271,11 +274,13 @@ chmod -v 2770 /dados/
 ```
 
 Explicação de cada Serviços do SAMBA4 Server<br>
-1. nmbd (NetBIOS Message Block Daemon): Esse serviço gerencia o NetBIOS sobre TCP/IP
-2. smbd (Server Message Block Daemon).: Esse é o serviço principal do Samba4 Server
-3. cifs (Common Internet File System).: Esse é o serviço para compartilhamento de arquivos 
-4. winbind (Windows + Bind DNS).......: Esse serviço permite que o Samba autentique usuários
-                                        em um domínio Windows
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | nmbd (NetBIOS Message Block Daemon) | Esse serviço gerencia o NetBIOS sobre TCP/IP |
+| 02 | smbd (Server Message Block Daemon) | Esse é o serviço principal do Samba4 Server |
+| 03 | cifs (Common Internet File System) | Esse é o serviço para compartilhamento de arquivos |
+| 04 | winbind (Windows + Bind DNS) | Esse serviço permite que o Samba autentique usuários em um domínio Windows |
 
 ```bash
 #iniciando os serviços do SAMBA-4 na Imagem do Ubuntu

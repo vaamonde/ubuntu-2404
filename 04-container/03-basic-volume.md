@@ -95,20 +95,15 @@ docker container ls -a
 ```
 
 Informações que são mostradas na saída do comando: *docker container inspect*<br>
-1. "Type": "bind"                    Especifica o tipo de montagem. No caso, o valor "bind" 
-                                     indica que essa é uma montagem vinculada (bind mount)
-2. "Source": "/home/vaamonde/tomcat" O caminho no host onde o diretório ou arquivo que está
-                                     sendo montado reside. Neste exemplo, o diretório /home/
-                                     vaamonde/tomcat no host está sendo montado no container.
-3. "Destination": "/tomcat"          O caminho dentro do container onde o diretório ou arquivo
-                                     do host (Source) será montado.
-4. "Mode": ""                        O modo de montagem define permissões e outras configurações, 
-                                     como leitura/escrita ou somente leitura.
-5. "RW": "true"                      Indica se o ponto de montagem está configurado como leitura 
-                                     e escrita (read/write). 
-6. "Propagation": "rprivate"         O modo de propagação controla como as mudanças no filesystem
-                                     (como novas montagens) são visíveis entre o host e o container, 
-                                     e vice-versa.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | "Type": "bind" | Especifica o tipo de montagem. No caso, o valor "bind" indica que essa é uma montagem vinculada (bind mount). | 
+| 02 | "Source": "/home/vaamonde/tomcat" | O caminho no host onde o diretório ou arquivo que está sendo montado reside. Neste exemplo, o diretório /home/vaamonde/tomcat no host está sendo montado no container. | 
+| 03 | "Destination": "/tomcat" | O caminho dentro do container onde o diretório ou arquivo do host (Source) será montado. | 
+| 04 | "Mode": "" | O modo de montagem define permissões e outras configurações, como leitura/escrita ou somente leitura. | 
+| 05 | "RW": "true" | Indica se o ponto de montagem está configurado como leitura e escrita (read/write). |
+| 06 | "Propagation": "rprivate" | O modo de propagação controla como as mudanças no filesystem (como novas montagens) são visíveis entre o host e o container, e vice-versa. |
 
 ```bash
 #inspecionando as informações de montagem container do TomCAT no Docker-CE
@@ -267,18 +262,16 @@ docker volume ls
 ```
 
 Informações que são mostradas na saída do comando: *docker volume inspect*<br>
-1. "CreatedAt": "2024-10-11T09:41:05-03:00": Indica a data e hora em que o volume foi criado.
-2. "Driver": "local".......................: O driver define como o volume é gerenciado em 
-                                             /var/lib/docker/volumes/.
-3. "Labels": null..........................: Labels são metadados que podem ser atribuídos a um 
-                                             volume para facilitar sua categorização e organização.
-4. "Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema de 
-                                                           arquivos do host onde os dados do volume
-                                                           estão armazenados.
-5. "Name": "vaamonde"......................: O nome do volume.
-6. "Options": null.........................: Opções adicionais configuráveis para o volume.
-"Scope": "local"...........................: O escopo do volume define onde ele pode ser usado,  o 
-                                             volume é acessível apenas pelo Docker local.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | "CreatedAt": "2024-10-11T09:41:05-03:00" | Indica a data e hora em que o volume foi criado. |
+| 02 | "Driver": "local" | O driver define como o volume é gerenciado em /var/lib/docker/volumes/. | 
+| 03 | "Labels": null | Labels são metadados que podem ser atribuídos a um volume para facilitar sua categorização e organização. | 
+| 04 | "Mountpoint": "/var/lib/docker/volumes/vaamonde/_data": O Mountpoint é o caminho no sistema de arquivos do host onde os dados do volume estão armazenados. | 
+| 05 | "Name": "vaamonde" | O nome do volume. |
+| 06 | "Options": null | Opções adicionais configuráveis para o volume. |
+| 07 | "Scope": "local" | O escopo do volume define onde ele pode ser usado, o volume é acessível apenas pelo Docker local. |
 
 ```bash
 #inspecionando o volume criado no Docker-CE
@@ -358,10 +351,12 @@ touch teste.txt
 
 #saindo do container do Ubuntu mais mantendo a imagem em execução (Atalho)
 Ctrl + p + q (Manter pressionado o Ctrl e depois pressionar: p e depois: q para sair)
+```
 
-#OBSERVAÇÃO IMPORTANTE: MESMO QUE VOCÊ FAÇA PARTE DO GRUPO DO DOCKER NO UBUNTU SERVER, SOMENTE
-#O USUÁRIO ROOT TEM DIREITO DE LISTAR O CONTEÚDO DO DIRETÓRIO: /var/lib/docker/volumes/, PARA
-#VER OS CONTEÚDOS DE ARQUIVOS DOS VOLUMES PRECISAMOS SE LOGAR/MUDAR PARA O USUÁRIO ROOT.
+**OBSERVAÇÃO IMPORTANTE:** MESMO QUE VOCÊ FAÇA PARTE DO *GRUPO DO DOCKER* NO UBUNTU SERVER, SOMENTE O USUÁRIO **ROOT** TEM DIREITO DE LISTAR O CONTEÚDO DO DIRETÓRIO: */var/lib/docker/volumes/*, PARA VER OS CONTEÚDOS DE ARQUIVOS DOS VOLUMES PRECISAMOS SE LOGAR/MUDAR PARA O USUÁRIO ROOT.
+
+```bash
+#alterando o usuário para root local
 #opção do comando sudo: -i (login)
 sudo -i
 

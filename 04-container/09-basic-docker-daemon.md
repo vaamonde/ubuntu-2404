@@ -7,20 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 31/10/2024<br>
-#Data de atualização: 16/11/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 06/04/2025<br>
+#Versão: 0.07<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Daemon do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Daemon do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -43,24 +44,24 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER DAEMON: O Docker Daemon (ou dockerd) é o processo principal do Docker, que funciona como o “motor” responsável por gerenciar e controlar todos os recursos do Docker. Ele fica em execução em segundo plano e gerencia as tarefas do Docker, como criação, execução, pausa e exclusão de containers. O daemon é uma peça central no funcionamento do Docker, sendo responsável por orquestrar os containers, redes, volumes e imagens, além de se comunicar com a API do Docker.
+**O QUE É E PARA QUE SERVER O DOCKER DAEMON:** O Docker Daemon (ou dockerd) é o processo principal do Docker, que funciona como o “motor” responsável por gerenciar e controlar todos os recursos do Docker. Ele fica em execução em segundo plano e gerencia as tarefas do Docker, como criação, execução, pausa e exclusão de containers. O daemon é uma peça central no funcionamento do Docker, sendo responsável por orquestrar os containers, redes, volumes e imagens, além de se comunicar com a API do Docker.
 
-O QUE É E PARA QUE SERVER O DOCKER SOCKET: O Docker Socket (normalmente localizado em /var/run/docker.sock em sistemas Linux) é um arquivo de socket do tipo UNIX domain socket que permite a comunicação entre o Docker Daemon e a CLI do Docker (docker). Ele funciona como um ponto de entrada local para a API do Docker, permitindo que processos locais possam interagir diretamente com o Docker Daemon para controlar containers, redes, imagens, volumes, e outras funções sem a necessidade de uma interface de rede (como TCP/IP).
+**O QUE É E PARA QUE SERVER O DOCKER SOCKET:** O Docker Socket (normalmente localizado em /var/run/docker.sock em sistemas Linux) é um arquivo de socket do tipo UNIX domain socket que permite a comunicação entre o Docker Daemon e a CLI do Docker (docker). Ele funciona como um ponto de entrada local para a API do Docker, permitindo que processos locais possam interagir diretamente com o Docker Daemon para controlar containers, redes, imagens, volumes, e outras funções sem a necessidade de uma interface de rede (como TCP/IP).
 
 [![Docker Daemon](http://img.youtube.com/vi/o4tpClNtBHk/0.jpg)](https://www.youtube.com/watch?v=o4tpClNtBHk "Docker Daemon")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=o4tpClNtBHk
 
-#01_ Verificando o Status de Serviço do Docker-CE e do Docker Socket no Ubuntu Server<br>
-```bash
-#docker.service...: É o serviço principal do Docker. Ele executa o daemon do Docker (dockerd), 
-#                   que gerencia os containers, imagens, volumes, redes e outras funcionalidades
-#                   do Docker.
-#docker.socket....: Representa o socket de comunicação entre o cliente Docker (docker CLI) e o 
-#                   daemon Docker.
+## 01_ Verificando o Status de Serviço do Docker-CE e do Docker Socket no Ubuntu Server
 
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | docker.service | É o serviço principal do Docker. Ele executa o daemon do Docker (dockerd), que gerencia os containers, imagens, volumes, redes e outras funcionalidades do Docker. |
+| 02 | docker.socket | Representa o socket de comunicação entre o cliente Docker (docker CLI) e o daemon Docker. |
+
+```bash
 #verificando o status de serviço do Docker-CE
 sudo systemctl status docker.service
 
@@ -82,37 +83,32 @@ sudo journalctl -xu docker.socket
 sudo cat -n /var/log/syslog | grep -i docker
 ```
 
-#02_ Habilitando o Suporte Remoto do Docker-CE no SystemD<br>
+## 02_ Habilitando o Suporte Remoto do Docker-CE no SystemD
+
+**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** VOCÊ TAMBÉM PODE FAZER AS CONFIGURAÇÕES DO *DOCKER DAEMON* UTILIZANDO O ARQUIVO DE CONFIGURAÇÃO LOCALIZADO EM: */etc/docker/daemon.json*, NESSE ARQUIVO VOCÊ PODE ALTERAR VÁRIAS OPÇÕES DO DOCKER DAEMON, RECOMENDO SEMPRE QUANDO É NECESSÁRIO FAZER CONFIGURAÇÕES EXTRAS OU HABILITAR RECURSOS DE SEGURANÇA, SERÁ VISTO MAIS A FRENTE NESSE CURSO.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): VOCÊ TAMBÉM PODE FAZER AS CONFIGURAÇÕES DO
-#DOCKER DAEMON UTILIZANDO O ARQUIVO DE CONFIGURAÇÃO LOCALIZADO EM: /etc/docker/daemon.json,
-#NESSE ARQUIVO VOCÊ PODE ALTERAR VÁRIAS OPÇÕES DO DOCKER DAEMON, RECOMENDO SEMPRE QUANDO É
-#NECESSÁRIO FAZER CONFIGURAÇÕES EXTRAS OU HABILITAR RECURSOS DE SEGURANÇA, SERÁ VISTO MAIS
-#A FRENTE NESSE CURSO.
-
-#editando o arquivo de inicialização do serviço do Docker-CE
-sudo systemctl edit docker.service
-
-#OBSERVAÇÃO IMPORTANTE: A porta remota padrão é a: 2376 se você estiver usando transporte 
-#criptografado TLS/SSL ou: 2375 caso contrário.
-
 #Documentação do Docker-CE: https://docs.docker.com/engine/daemon/remote-access/
 #Documentação do Docker-CE: https://docs.docker.com/engine/daemon/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/dockerd/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
 
-#ExecStart=/usr/bin/dockerd......: define o caminho do binário dockerd, que é o daemon do Docker.
-#-H fd://........................: configura o Docker para ouvir no file descriptor fd://, que é 
-#                                  a configuração padrão em alguns sistemas e permite a comunicação
-#                                  com o Docker sem necessidade de definir uma porta específica.
-#-H tcp://0.0.0.0:2375...........: expõe o daemon Docker na interface TCP em todas as interfaces de 
-#                                  rede (0.0.0.0) e na porta 2375.
-#-H unix:///var/run/docker.sock..: configura o Docker para ouvir no socket UNIX localizado em 
-#                                  /var/run/docker.sock, permitindo o controle local do Docker sem 
-#                                  uso de uma interface de rede.
+#editando o arquivo de inicialização do serviço do Docker-CE
+sudo systemctl edit docker.service
+```
 
-#COPIAR E COLOCAR O CÓDIGO ABAIXO NO ARQUIVO DE SERVIÇO DO DOCKER-CE
+**OBSERVAÇÃO IMPORTANTE:** A porta remota padrão é a: *2376* se você estiver usando transporte **Criptografado TLS/SSL** ou: *2375* caso contrário (sem criptografia).
 
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | ExecStart=/usr/bin/dockerd | define o caminho do binário dockerd, que é o daemon do Docker. |
+| 02 | -H fd:// | configura o Docker para ouvir no file descriptor fd://, que é a configuração padrão em alguns sistemas e permite a comunicação com o Docker sem necessidade de definir uma porta específica. |
+| 03 | -H tcp://0.0.0.0:2375 | expõe o daemon Docker na interface TCP em todas as interfaces de rede (0.0.0.0) e na porta 2375. |
+| 04 | -H unix:///var/run/docker.sock | configura o Docker para ouvir no socket UNIX localizado em /var/run/docker.sock, permitindo o controle local do Docker sem uso de uma interface de rede. |
+
+**COPIAR E COLOCAR** O CÓDIGO ABAIXO NO ARQUIVO DE SERVIÇO DO DOCKER-CE
+
+```bash
 #entrando no modo de edição do VIM
 INSERT
 ```
@@ -135,7 +131,7 @@ sudo systemctl restart docker.service
 sudo systemctl status docker.service
 ```
 
-#03_ Liberando o acesso Remoto da API (Application Programming Interface) do Docker-CE no Ubuntu Server<br>
+## 03_ Liberando o acesso Remoto da API (Application Programming Interface) do Docker-CE no Ubuntu Server
 ```bash
 #verificando a porta padrão do Docker-CE
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -162,7 +158,7 @@ docker -H tcp://172.16.1.30:2375 container ls -a
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:2375
 ```
 
-#04_ Verificando as Informações (Info) do Sistema (System) do Docker-CE<br>
+## 04_ Verificando as Informações (Info) do Sistema (System) do Docker-CE
 ```bash
 #verificando informações detalhadas do Sistema do Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/system/
@@ -183,7 +179,7 @@ In future versions this will be a hard failure preventing the daemon from starti
 Learn more at: https://docs.docker.com/go/api-security/
 ```
 
-#05_ Testando a API (Application Programming Interface) do Docker Daemon via Navegador<br>
+## 05_ Testando a API (Application Programming Interface) do Docker Daemon via Navegador
 ```bash
 #utilizar os navegadores para testar a API de Informações do Docker
 #Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
@@ -206,7 +202,7 @@ firefox ou google chrome: http://172.16.1.30:2375/v1.43/networks
 firefox ou google chrome: http://172.16.1.30:2375/v1.43/volumes
 ```
 
-#06_ Instalando o Docker Cli no Linux Mint 22.x<br>
+## 06_ Instalando o Docker Cli no Linux Mint 22.x
 ```bash
 #instalação das dependências básicas do Docker-CE e do Docker Cli
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -245,7 +241,7 @@ docker version
 docker system info
 ```
 
-#07_ Integrando o Docker Cli com o Docker Daemon Remoto no Linux Mint<br>
+## 07_ Integrando o Docker Cli com o Docker Daemon Remoto no Linux Mint
 ```bash
 #testando o acesso a Instância do Docker Daemon Remoto
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/
@@ -288,7 +284,7 @@ source ~/.bashrc
 docker container ls -a
 ```
 
-#08_ Desabilitando os Recursos de Acesso Remoto do Daemon do Docker-CE<br>
+## 08_ Desabilitando os Recursos de Acesso Remoto do Daemon do Docker-CE
 ```bash
 #editando o arquivo de inicialização do serviço do Docker-CE
 sudo systemctl edit docker.service
@@ -357,7 +353,7 @@ source ~/.bashrc
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Daemon do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Daemon do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

@@ -82,26 +82,28 @@ sudo ifconfig docker0
 ## 02_ Verificando as Redes criadas por padrão no Docker-CE
 
 Informações que são mostradas na saída do comando: *docker network ls*<br>
-1. NETWORK ID.: É o identificador único da rede Docker. Cada rede tem um ID associado que
-                pode ser usado para identificá-la de forma única dentro do Docker.
-2. NAME.......: É o nome atribuído à rede. Pode ser um nome padrão (como bridge, host, none)
-                ou um nome personalizado que foi definido durante a criação da rede.
-3. DRIVER.....: Define o tipo de driver de rede utilizado. Os drivers de rede determinam 
-                como os containers se conectam entre si.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | NETWORK ID | É o identificador único da rede Docker. Cada rede tem um ID associado que pode ser usado para identificá-la de forma única dentro do Docker. |
+| 02 | NAME | É o nome atribuído à rede. Pode ser um nome padrão (como bridge, host, none) ou um nome personalizado que foi definido durante a criação da rede. | 
+| 03 | DRIVER | Define o tipo de driver de rede utilizado. Os drivers de rede determinam como os containers se conectam entre si. |
 
 Informações dois tipos de Drivers de Redes utilizados no Docker-CE<br>
-1. bridge.....: Rede padrão para containers no modo bridge, onde os containers em execução
-                na mesma rede podem se comunicar.
-2. host.......: A rede do container é a mesma do host, ou seja, ele não cria uma interface
-                de rede isolada.
-3. overlay....: Usado para criar redes que se estendem por vários hosts Docker, útil para 
-                serviços em modo swarm.
-4. macvlan....: Permite que os containers tenham seus próprios endereços MAC e façam parte
-                da rede física.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | bridge | Rede padrão para containers no modo bridge, onde os containers em execução na mesma rede podem se comunicar. | 
+| 02 | host | A rede do container é a mesma do host, ou seja, ele não cria uma interface de rede isolada. |
+| 03 | overlay | Usado para criar redes que se estendem por vários hosts Docker, útil para serviços em modo swarm. |
+| 04 | macvlan | Permite que os containers tenham seus próprios endereços MAC e façam parte da rede física. |
 
 Informações dos tipos de Escopo de Redes utilizados no Docker-CE<br>
-1. local......: A rede está restrita ao host local.
-2. global.....: A rede pode ser usada em vários hosts Docker no caso de um cluster swarm.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | local | A rede está restrita ao host local. |
+| 02 | global | A rede pode ser usada em vários hosts Docker no caso de um cluster swarm. |
 
 ```bash
 #listando todas as redes padrão do Docker-CE 
@@ -197,8 +199,11 @@ Ctrl + p + q (Mantenha pressionado o Ctrl e depois pressiona: p e depois: q para
 ## 05_ Inspecionando (Inspect) o Contêiner (Container) da Imagem (Image) do Apache2 no Docker-CE
 
 Informações dois tipos de Modos de Volumes do Docker-CE<br>
-1. Modo z (minúsculo): Configura o volume para ser compartilhado entre múltiplos containers
-2. Modo Z (maiúsculo): Configura o volume para ser utilizado exclusivamente por um único container. 
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | Modo z (minúsculo) | Configura o volume para ser compartilhado entre múltiplos containers. |
+| 02 | Modo Z (maiúsculo) | Configura o volume para ser utilizado exclusivamente por um único container. |
 
 ```bash
 #inspecionando as informações de montagem no container do Ubuntu no Docker-CE
@@ -265,15 +270,13 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ## 07_ Analisando as Configurações de Pontes de Rede (Bridges) e Regras de Firewall (IPTables) do Docker-CE
 
 Informações que são mostradas na saída do comando: *brctl show*<br>
-1. bridge name..: É o nome da bridge (ponte de rede) que foi criada no sistema. A bridge é 
-                  uma interface virtual que conecta várias interfaces de rede, permitindo 
-                  que pacotes sejam trocados entre elas, como se estivessem em um switch.
-2. bridge id....: Identificador único da bridge no formato hexadecimal, que é composto pelo
-                  endereço MAC da interface da bridge e uma prioridade (usada STP).
-3. STP enabled..: Indica se o Spanning Tree Protocol (STP) está habilitado ou não. O STP
-                  é um protocolo que previne loops de rede em bridges.
-4. Interfaces...: Lista todas as interfaces de rede conectadas à bridge. Essas interfaces 
-                  podem ser físicas ou virtuais e participam da troca de pacotes na bridge.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | bridge name | É o nome da bridge (ponte de rede) que foi criada no sistema. A bridge é uma interface virtual que conecta várias interfaces de rede, permitindo que pacotes sejam trocados entre elas, como se estivessem em um switch. |
+| 02 | bridge id | Identificador único da bridge no formato hexadecimal, que é composto pelo endereço MAC da interface da bridge e uma prioridade (usada STP). |
+| 03 | STP enabled | Indica se o Spanning Tree Protocol (STP) está habilitado ou não. O STP é um protocolo que previne loops de rede em bridges. |
+| 04 | Interfaces | Lista todas as interfaces de rede conectadas à bridge. Essas interfaces podem ser físicas ou virtuais e participam da troca de pacotes na bridge. |
 
 ```bash
 #verificando as informações de Bridge do Docker-CE

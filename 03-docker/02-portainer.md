@@ -81,8 +81,11 @@ docker volume create portainer_data
 ```
 
 Informações que são mostradas na saída do comando: *docker volume*<br>
-1. DRIVER......: local de armazenamento do volume;
-2. VOLUME NAME.: nome do volume criado.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | DRIVER | local de armazenamento do volume; | 
+| 02 | VOLUME NAME | nome do volume criado. |
 
 ```bash
 #listando o volume criado do Portainer.io CE
@@ -116,11 +119,14 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 ## 04_ Verificando o Status do Container do Portainer.io CE no Docker-CE
 
 Informações que são mostradas na saída do comando: *docker images*<br>
-1. REPOSITORY.: nome da imagem do docker;
-2. TAG........: versão da imagem do docker;
-3. IMAGE ID...: identificação da imagem do docker;
-4. CREATED....: quando a imagem foi criada;
-5. SIZE.......: tamanho da imagem do docker.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | REPOSITORY | nome da imagem do docker; |
+| 02 | TAG | versão da imagem do docker; |
+| 03 | IMAGE ID | identificação da imagem do docker; |
+| 04 | CREATED | quando a imagem foi criada; | 
+| 05 | SIZE | tamanho da imagem do docker. |
 
 ```bash
 #listando todas as imagens de containers no Docker-CE
@@ -130,13 +136,16 @@ docker images
 ```
 
 Informações que são mostradas na saída do comando: *docker container ls*<br>
-1. CONTAINER ID..: dentificação única do container no docker;
-2. IMAGE.........: imagem utilizada na execução do container no docker;
-3. COMMAND.......: comando em execução da imagem do docker;
-4. CREATED.......: quando a imagem foi criada no docker;
-5. STATUS........: status atual da imagem no docker;
-6. PORTS.........: porta do container e do host utilizada para se comunicar no docker;
-7. NAMES.........: nome do container no docker.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------
+| 01 | CONTAINER ID | identificação única do container no docker; |
+| 02 | IMAGE | imagem utilizada na execução do container no docker; |
+| 03 | COMMAND | comando em execução da imagem do docker; |
+| 04 | CREATED | quando a imagem foi criada no docker; |
+| 05 | STATUS | status atual da imagem no docker; |
+| 06 | PORTS | porta do container e do host utilizada para se comunicar no docker; |
+| 07 | NAMES | nome do container no docker. |
 
 ```bash
 #listando todos os containers em execução no Docker-CE

@@ -15,12 +15,13 @@
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Compose do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Compose do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -43,21 +44,21 @@ Site Oficial do Docker Engine: https://docs.docker.com/engine/install/<br>
 Site Oficial do Docker Compose: https://github.com/docker/compose<br>
 Site Oficial do Docker Hub: https://hub.docker.com/<br>
 
-O QUE É E PARA QUE SERVER O DOCKER CE: Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+**O QUE É E PARA QUE SERVER O DOCKER CE:** Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-O QUE É E PARA QUE SERVER O DOCKER HUB: Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
+**O QUE É E PARA QUE SERVER O DOCKER HUB:** Docker Hub é um registro de contêiner criado para desenvolvedores e colaboradores de código aberto encontrarem, usarem e compartilharem suas imagens de contêiner. Com o Hub, os desenvolvedores podem hospedar repositórios públicos que podem ser usados ​​gratuitamente ou repositórios privados para equipes e empresas.
 
-O QUE É E PARA QUE SERVER O DOCKER IMAGE: O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
+**O QUE É E PARA QUE SERVER O DOCKER IMAGE:** O Docker Image é um dos conceitos fundamentais do Docker. Ele é o modelo imutável usado para criar containers. Basicamente, uma imagem Docker é um pacote que contém tudo o que é necessário para rodar um programa: código-fonte, bibliotecas, dependências, variáveis de ambiente, arquivos de configuração e muito mais. As imagens são "read-only" e os containers são instâncias de imagens em execução.
 
-O QUE É E PARA QUE SERVER O DOCKERFILE: O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
+**O QUE É E PARA QUE SERVER O DOCKERFILE:** O Dockerfile é um arquivo de texto que contém instruções para criar uma imagem Docker de forma automatizada. Ele define os passos que o Docker deve seguir para montar uma aplicação como: Imagem, Aplicação, Configurações, Volumes, Arquivos, Comandos, etc..., isso facilita a criação e reprodução de ambientes consistentes, possibilitando que qualquer pessoa ou máquina possa construir uma imagem com as mesmas configurações, garantindo portabilidade e consistência em diferentes sistemas.
 
-O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER: Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
+**O QUE É E PARA QUE SERVER O COMPOSE DO DOCKER:** Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações Docker compostas por vários contêineres. Ele usa um arquivo YAML para definir e configurar serviços, redes e volumes que uma aplicação pode precisar, permitindo que tudo seja gerenciado e iniciado com um único comando.
 
 [![Docker Compose](http://img.youtube.com/vi/7Y5ZEmDZlNA/0.jpg)](https://www.youtube.com/watch?v=7Y5ZEmDZlNA "Docker Compose")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=7Y5ZEmDZlNA
 
-#01_ Pesquisando (Search) as Imagens (Image) do NGINX e MySQL no Docker-HUB do Docker-CE<br>
+## 01_ Pesquisando (Search) as Imagens (Image) do NGINX e MySQL no Docker-HUB do Docker-CE
 ```bash
 #pesquisando as imagens dos container do NGINX e do MySQL oficial no Docker-HUB
 #Link de consulta do Docker Hub: https://hub.docker.com/
@@ -70,7 +71,7 @@ docker search nginx --filter is-official=true
 docker search mysql --filter is-official=true
 ```
 
-#02_ Baixando (Pull) as Imagens (Image) do NGINX e MySQL para o Repositório Local do Docker-CE<br>
+## 02_ Baixando (Pull) as Imagens (Image) do NGINX e MySQL para o Repositório Local do Docker-CE
 ```bash
 #baixando as imagens do NGINX e do MySQL do Docker-HUB
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -97,12 +98,11 @@ docker image inspect nginx:latest | jq '.[0].Config.Env'
 docker image inspect mysql:latest | jq '.[0].Config.Env'
 ```
 
-#03_ Criando o Primeiro arquivo do Docker Compose File YML (YAML Ain't Markup Language) no Docker-CE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO
-#VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS DOCKERFILE OU COM O DOCKER COMPOSE. CADA PROJETO
-#DEVE FICAR EM UM DIRETÓRIO SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+## 03_ Criando o Primeiro arquivo do Docker Compose File YML (YAML Ain't Markup Language) no Docker-CE
 
+**OBSERVAÇÃO IMPORTANTE:** É INDICADO SEMPRE TRABALHAR COM DIRETÓRIOS DE PROJETO QUANDO VOCÊ ESTÁ TRABALHANDO COM ARQUIVOS *DOCKERFILE* OU COM O *DOCKER COMPOSE*. CADA PROJETO DEVE FICAR EM UM DIRETÓRIO SEPARADO PARA FACILITAR A CONSTRUÇÃO DOS CONTAINERS.
+
+```bash
 #criando o diretório de teste01 do Compose
 #opção do comando mkdir: -v (verbose)
 mkdir -v teste01/
@@ -115,13 +115,11 @@ vim teste01/vavatour.yml
 #entrando no modo de edição do VIM
 INSERT
 ```
-```bash
-#COPIAR E COLAR: as configurações básicas do Docker Compose
 
-#OBSERVAÇÃO IMPORTANTE: NOS ARQUIVOS DO COMPOSE QUE UTILIZA A EXTENSÃO .YML NUNCA
-#UTILIZAR O TAB (TABULADOR) SEMPRE UTILIZAR 02 (DOIS) ESPAÇOS PARA A INDENTAÇÃO DO
-#ARQUIVO DE CONFIGURAÇÕES DO DOCKER COMPOSE.
-```
+**COPIAR E COLAR:** as configurações básicas do Docker Compose
+
+**OBSERVAÇÃO IMPORTANTE:** NOS ARQUIVOS DO *COMPOSE* QUE UTILIZA A EXTENSÃO **.YML** NUNCA UTILIZAR O *TAB (TABULADOR)* SEMPRE UTILIZAR *02 (DOIS) ESPAÇOS* PARA A INDENTAÇÃO DO ARQUIVO DE CONFIGURAÇÕES DO DOCKER COMPOSE.
+
 ```yaml
 #definindo o nome do projeto
 #Documentação do Docker: https://docs.docker.com/reference/compose-file/version-and-name/
@@ -168,7 +166,7 @@ Esc Shift : x <Enter>
 ls -lh teste01/
 ```
 
-#04_ Executando o Docker Compose utilizando o arquivo (file) para construir os Contêiners (Container) no Docker-CE<br>
+## 04_ Executando o Docker Compose utilizando o arquivo (file) para construir os Contêiners (Container) no Docker-CE
 ```bash
 #executando o projeto do Docker Compose utilizando o comando docker-compose
 #Documentação do Docker: https://docs.docker.com/compose/
@@ -193,7 +191,7 @@ docker compose ls --all
 docker network ls --filter name=vavatour
 ```
 
-#05_ Verificando as Informações dos Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
+## 05_ Verificando as Informações dos Contêiners (Container) do Projeto do Docker Compose no Docker-CE
 ```bash
 #visualizando as imagens de containers utilizadas no projeto
 #Documentação do Docker: https://docs.docker.com/reference/cli/docker/compose/
@@ -232,7 +230,7 @@ docker compose --file teste01/vavatour.yml logs
 docker compose --file teste01/vavatour.yml top
 ```
 
-#06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE<br>
+## 06_ Parando (Stop), Iniciando (Start), Pausando (Pause) e Despausando (Unpause) os Contêiners (Container) do Projeto no Docker-CE
 ```bash
 #parando os containers do projeto
 #Documentação do Docker: https://docs.docker.com/reference/cli/docker/compose/
@@ -263,7 +261,7 @@ docker compose --file teste01/vavatour.yml pause
 docker compose --file teste01/vavatour.yml unpause
 ```
 
-#07_ Liberando o acesso Remoto dos Contêiners (Container) do NGINX e MySQL no Docker-CE<br>
+## 07_ Liberando o acesso Remoto dos Contêiners (Container) do NGINX e MySQL no Docker-CE
 ```bash
 #verificando o redirecionamento da Porta padrão do NGINX e do MySQL
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -304,7 +302,7 @@ MySQL Workbench
   <OK>
 ```
 
-#08_ Removendo (Rm/Down) os Contêiners (Container) do Projeto do Docker Compose no Docker-CE<br>
+## 08_ Removendo (Rm/Down) os Contêiners (Container) do Projeto do Docker Compose no Docker-CE
 ```bash
 #removendo os containers parados do projeto do Docker Compose
 #Documentação do Docker: https://docs.docker.com/reference/cli/docker/compose/
@@ -354,7 +352,7 @@ rm -Rfv teste0*/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: Básico de Docker Compose do Docker-CE realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO BÁSICO DE DOCKER-CE SE VOCÊ CONSEGUIU FAZER A IMPLEMENTAÇÃO COM A SEGUINTE FRASE: *Básico de Docker Compose do Docker-CE realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
