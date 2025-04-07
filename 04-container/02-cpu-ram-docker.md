@@ -188,22 +188,15 @@ docker container inspect mysql | grep -i memory
 ```
 
 Informações que são mostradas na saída do comando: *docker container inspect nginx | grep -i cpu*<br>
-1. "CpuShares":   0: Define a quantidade de "shares" (partes) de CPU atribuídas ao container em
-                     relação a outros containers. O valor 0 indica que o container está usando o 
-                     valor padrão (normalmente 1024), o que significa que ele compartilhará a CPU 
-                     de forma igualitária com outros containers que também usam o padrão.
-2. "NanoCpus"   : 0: Especifica a quantidade exata de CPU alocada para o container em nanossegundos 
-                     por segundo (1 bilhão de nanossegundos = 1 segundo de CPU). 0 indica que não há 
-                     uma limitação explícita de CPU.
-3. "CpuPeriod"  : 0: Define o período do agendador CFS. O valor padrão é 100.000 microssegundos. Esta 
-                     opção sempre vem em par com --cpu-quota.
-4. "CpuQuota"   : 0: Define uma cota CFS para um contêiner, ou seja, o tempo antes de o contêiner ser 
-                     limitado, por período do agendador CFS. Por exemplo, definir --cpu-period como 
-                     100.000 e --cpu-quota como 150.000 é o mesmo que definir a opção --cpus como 1,5.
-5. "CpusetCpus": "": Especifica quais CPUs o container pode usar. O valor vazio ("") significa que o 
-                     container pode usar todas as CPUs disponíveis no sistema.
-6. "CpusetMems": "": Indica quais nós de memória o container pode usar. Se vazio (""), significa que 
-                     o container pode usar qualquer nó de memória disponível no sistema.
+
+| ID | DADOS      | INFORMAÇÃO                                                                   |
+|----|------------|------------------------------------------------------------------------------|
+| 01 | "CpuShares": 0: | Define a quantidade de "shares" (partes) de CPU atribuídas ao container em relação a outros containers. O valor 0 indica que o container está usando o valor padrão (normalmente 1024), o que significa que ele compartilhará a CPU de forma igualitária com outros containers que também usam o padrão. |
+| 02 | "NanoCpus": 0: | Especifica a quantidade exata de CPU alocada para o container em nanossegundos por segundo (1 bilhão de nanossegundos = 1 segundo de CPU). 0 indica que não há uma limitação explícita de CPU. |
+| 03 | "CpuPeriod": 0: | Define o período do agendador CFS. O valor padrão é 100.000 microssegundos. Esta opção sempre vem em par com --cpu-quota. |
+| 04 | "CpuQuota": 0: | Define uma cota CFS para um contêiner, ou seja, o tempo antes de o contêiner ser limitado, por período do agendador CFS. Por exemplo, definir --cpu-period como 100.000 e --cpu-quota como 150.000 é o mesmo que definir a opção --cpus como 1,5. |
+| 05 | "CpusetCpus": "": | Especifica quais CPUs o container pode usar. O valor vazio ("") significa que o container pode usar todas as CPUs disponíveis no sistema. |
+| 06 | "CpusetMems": "": | Indica quais nós de memória o container pode usar. Se vazio (""), significa que o container pode usar qualquer nó de memória disponível no sistema. |
 
 ```bash
 #inspecionando as informações de CPU dos containers do Ubuntu no Docker-CE
