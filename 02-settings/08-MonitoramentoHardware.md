@@ -67,7 +67,7 @@ sudo cat /etc/lsb-release
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
 
-Entendendo os valores de saída do Kernel com o comando: *uname*
+Entendendo os valores de saída das informações do Kernel com o comando: *uname*
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -80,7 +80,7 @@ Entendendo os valores de saída do Kernel com o comando: *uname*
 | 07 | x86_64 x86_64 x86_64 | Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando) |
 | 08 | GNU/Linux | Indica que você está usando o sistema operacional GNU/Linux
 
-**SAÍDA DO COMANDO:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+**SAÍDA DO COMANDO UNAME:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
 ```bash
 #verificando a versão do Kernel com o comando uname
@@ -92,16 +92,18 @@ sudo hostnamectl
 
 #verificando a versão do Kernel do arquivo version
 sudo cat /proc/version
+```
 
-#Entendendo os valores de métricas do comando uptime
-#
-A) 13:22:55: Hora atual do sistema,
-B) up 3 days, 23:53: O sistema está em funcionamento há 3 dias e 23 horas e 53 minutos, 
-   ou seja, o tempo de atividade desde o último boot,
-C) 1 user: Indica que há um usuário logado no sistema no momento,
-D) load average: 1,92, 2,05, 2,06: Refere-se à "carga média" do sistema nos últimos 1, 5 
-   e 15 minutos, respectivamente.
+Entendendo os valores de saída das métricas do comando: *uptime*
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 13:22:55 | Hora atual do sistema |
+| 02 | up 3 days, 23:53 | O sistema está em funcionamento há 3 dias e 23 horas e 53 minutos, ou seja, o tempo de atividade desde o último boot |
+| 03 | 1 user | Indica que há um usuário logado no sistema no momento |
+| 04 | load average: 1,92, 2,05, 2,06 | Refere-se à "carga média" do sistema nos últimos 1, 5 e 15 minutos, respectivamente. |
+
+```bash
 #verificando o tempo de atividade do servidor com o comando uptime
 #opção do coma ndo uptime: -s (system up since)
 sudo uptime -s
@@ -112,17 +114,30 @@ sudo uptime
 ```bash
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
+```
 
-#Entendendo os valores de métricas do comando top
-#
-A) Tasks: 168 total: O número total de processos no sistema,
-B) 1 running: Número de processos que estão atualmente em execução (rodando), 
-C) 167 sleeping: Número de processos que estão no estado de espera ("dormindo"), 
-D) 0 stopped: Número de processos que foram interrompidos (suspensos), 
-E) 0 zombie: Número de processos zumbis.
-#
-#Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
-#
+Entendendo os valores de saída das métricas do comando: top
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | top | Comando top em execução
+| 02 | 16:43:02 | Hora do sistema operacional |
+| 03 | up 4:11 | Tempo de execução do sistema operacional desde que foi ligado |
+| 04 | 1 user | Quantidade de usuários logados e usando o sistema |
+| 05 | load average: 1,18, 1,55, 1,25 | A carga média nos últimos 1 minuto, 5 minutos e 15 minutos |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO TOP:** top - 16:43:02   up   4:11,   1 user,   load average: 1,18, 1,55, 1,25
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Tasks: 168 total | O número total de processos no sistema |
+| 02 | 1 running | Número de processos que estão atualmente em execução (rodando) |
+| 03 | 167 sleeping | Número de processos que estão no estado de espera ("dormindo") |
+| 04 | 0 stopped | Número de processos que foram interrompidos (suspensos) |
+| 05 | 0 zombie | Número de processos zumbis. |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO TOP:** Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
+
 A) %CPU(s): 18,9 us (user space): Percentual de tempo que a CPU está gastando executando 
     processos de usuários, 
 B) 4,3 sy (system): Percentual de tempo gasto com processos do sistema, 
@@ -133,8 +148,8 @@ F) 0,0 hi (hardware interrupts): Percentual de tempo gasto com interrupções de
 G) 0,5 si (software interrupts): Percentual de tempo gasto com interrupções de software, 
 H) 0,0 st (steal): Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava
    aguardando porque a CPU física estava sendo usada por outra máquina virtual.
-#
-#%Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
+
+**SAÍDA DA TERCEIRA LINHA COMANDO TOP:** %Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
 
 A) PID: Identificador do processo (Process ID),
 B: user: Nome do usuário que iniciou o processo. Indica a quem pertence o processo,
@@ -154,6 +169,9 @@ J) %MEM: Porcentagem da memória física total que o processo está utilizando,
 K) TIME+: Tempo total de CPU utilizado pelo processo desde que foi iniciado,
 L) COMAND: Nome do comando ou do processo que está sendo executado.
 
+**SAÍDA DAS COLUNAS DO COMANDO TOP:** PID   USER   PR   NI   VIRT   RES   SHR S   %CPU   %MEM   TIME+ COMMAND
+
+```bash
 #analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
 sudo top
 
