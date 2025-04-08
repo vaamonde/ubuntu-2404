@@ -66,27 +66,23 @@ sudo cat /etc/lsb-release
 ```
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
+
+Entendendo os valores de saída do Kernel com o comando: *uname*
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Linux | Este é o nome do sistema operacional, que é o Linux |
+| 02 | ctnvaamonde.pti.intra | Este é o hostname e FQDN da máquina |
+| 03 | 5.15.0-119-generic | Este é o número da versão do kernel Linux que está rodando no sistema (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: Número de patch, 119: Número da build específica para essa versão do kernel, generic: Indica que este é o kernel genérico do Ubuntu) |
+| 04 | 129-Ubuntu | Esse número indica o número da compilação do kernel |
+| 05 | SMP | Isso significa Symmetric Multiprocessing, o que indica que o kernel foi compilado para suportar múltiplos processadores |
+| 06 | Fri Aug 2 19:25:20 UTC 2024 | Esta é a data e hora em que o kernel foi compilado |
+| 07 | x86_64 x86_64 x86_64 | Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando) |
+| 08 | GNU/Linux | Indica que você está usando o sistema operacional GNU/Linux
+
+**SAÍDA DO COMANDO:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+
 ```bash
-
-#Entendendo os valores do Kernel com o comando uname
-#
-A) Linux: Este é o nome do sistema operacional, que é o Linux, 
-B) ctnvaamonde.pti.intra: Este é o hostname da máquina, 
-C) 5.15.0-119-generic Este é o número da versão do kernel Linux que está rodando no sistema 
-   (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: Número de patch, 119: 
-   Número da build específica para essa versão do kernel, generic: Indica que este é o kernel 
-   genérico do Ubuntu), 
-D) 129-Ubuntu: Esse número indica o número da compilação do kernel, 
-E) SMP: Isso significa Symmetric Multiprocessing, o que indica que o kernel foi compilado para 
-   suportar múltiplos processadores, 
-F) Fri Aug 2 19:25:20 UTC 2024: Esta é a data e hora em que o kernel foi compilado, 
-G) x86_64 x86_64 x86_64: Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 
-   indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O 
-   terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando), 
-H) GNU/Linux: Indica que você está usando o sistema operacional GNU/Linux
-#
-#Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-
 #verificando a versão do Kernel com o comando uname
 #opção do comando uname: -a (all)
 sudo uname -a
