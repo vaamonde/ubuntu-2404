@@ -182,24 +182,24 @@ Learn more at: https://docs.docker.com/go/api-security/
 ## 05_ Testando a API (Application Programming Interface) do Docker Daemon via Navegador
 ```bash
 #utilizar os navegadores para testar a API de Informações do Docker
-#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
-firefox ou google chrome: http://172.16.1.30:2375/v1.43/info
+#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.48/
+firefox ou google chrome: http://172.16.1.30:2375/v1.48/info
 
 #utilizar os navegadores para testar a API de Imagens do Docker
-#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
-firefox ou google chrome: http://172.16.1.30:2375/v1.43/images/json
+#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.48/
+firefox ou google chrome: http://172.16.1.30:2375/v1.48/images/json
 
 #utilizar os navegadores para testar a API de Containers do Docker
-#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
-firefox ou google chrome: http://172.16.1.30:2375/v1.43/containers/json
+#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.48/
+firefox ou google chrome: http://172.16.1.30:2375/v1.48/containers/json
 
 #utilizar os navegadores para testar a API de Redes do Docker
-#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
-firefox ou google chrome: http://172.16.1.30:2375/v1.43/networks
+#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.48/
+firefox ou google chrome: http://172.16.1.30:2375/v1.48/networks
 
 #utilizar os navegadores para testar a API de Volumes do Docker
-#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.43/
-firefox ou google chrome: http://172.16.1.30:2375/v1.43/volumes
+#Documentação do Docker: https://docs.docker.com/reference/api/engine/version/v1.48/
+firefox ou google chrome: http://172.16.1.30:2375/v1.48/volumes
 ```
 
 ## 06_ Instalando o Docker Cli no Linux Mint 22.x
