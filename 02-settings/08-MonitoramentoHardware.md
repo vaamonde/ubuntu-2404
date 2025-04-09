@@ -705,12 +705,29 @@ sudo glances
 ```bash
 #detectando os sensores de temperatura disponível no servidor
 sudo sensors-detect
+```
 
+01. Do you want to scan for them? This is totally safe. (YES/no): yes
+02. Do you want to scan for Super I/O sensors? (YES/no): yes
+03. ISA slots! Do you want to scan the ISA I/O ports? (YES/no): yes
+04. Do you want to probe the I2C/SMBus adapters now? (YES/no): yes
+05. Do you want to scan it? (YES/no/selectively): yes
+06. Do you want to scan it? (yes/NO/selectively): yes
+07. Do you want to scan it? (yes/NO/selectively): yes
+08. Do you want to scan it? (yes/NO/selectively): yes
+09. Do you want to scan it? (yes/NO/selectively): yes
+10. Do you want to scan it? (yes/NO/selectively): yes
+11. Do you want to scan it? (yes/NO/selectively): yes
+12. Do you want to scan it? (yes/NO/selectively): yes
+13. Just press ENTER to continue:
+14. Do you want to add these lines automatically to /etc/modules? (yes/NO) yes
+
+```bash
 #exibindo a temperatura da CPU e outros sensores no servidor
 sudo sensors
 
 #
-sudo apt install smartmontools ipmitool hddtemp psensor
+sudo apt install smartmontools ipmitool nvme-cli
 
 #
 sudo ipmitool sensor | grep -i "temp"
@@ -722,13 +739,7 @@ sudo smartctl -A /dev/sda  | grep -i temperature
 sudo nvme smart-log /dev/nvme0 | grep temperature
 
 #
-sudo hddtemp /dev/sda
-
-#
-nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader
-
-#
-psensor
+sudo nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader
 
 #analisando a temperatura do servidor com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
 #opção do comando glances: --enable-plugin
