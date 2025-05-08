@@ -180,43 +180,50 @@ Entendendo os valores de métricas do comando: __`*htop*`__
 | 01 | 72 | O número de processos ativos no sistema, |
 | 02 | 500 thr | O número total de threads que estão em execução, |
 | 03 | 1 running | O número de processos ou threads que estão atualmente sendo executados pela CPU. |
-Tasks: 72, 500 thr; 1 running
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO HTOP:** Tasks: 72, 500 thr; 1 running
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Load average: 0.22 | A carga média nos últimos 1 minuto, |
 | 02 | 0.41 | A carga média nos últimos 5 minutos, |
 | 03 | 0.65 | A carga média nos últimos 15 minutos. |
-Load average: 0.22 0.41 0.65
+
+**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** Load average: 0.22 0.41 0.65
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Disk IO: 5.2% | A porcentagem de utilização do disco no momento, indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, |
 | 02 | read: OK | Indica que a leitura do disco está funcionando dentro de parâmetros normais, |
 | 03 | write: 140K | A quantidade de dados sendo gravados no disco por segundo. |
-Disk IO: 5.2% read: OK write: 140K
+
+**SAÍDA DA TERCEIRA LINHA COMANDO HTOP:** Disk IO: 5.2% read: OK write: 140K
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Network rx: 1KiB/s | A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte por segundo, |
 | 02 | tx: 4KiB/s | A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, |
 | 03 | (41/40 packets) | O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes e enviou 40 pacotes. |
-Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+
+**SAÍDA DA QUARTA LINHA COMANDO HTOP:** Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) some CPU | Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre a CPU nos últimos 1, 5, e 15 minutos |
-PSI some CPU: 10.6% 9.29% 9.25%
+
+**SAÍDA DA QUINTA LINHA COMANDO HTOP:** PSI some CPU: 10.6% 9.29% 9.25%
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) full I/O | Os valores 1.25%, 1.24%, 1.32% representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos |
-PSI full IO: 1.25% 1.24% 1.32%
+
+**SAÍDA DA SEXTA LINHA COMANDO HTOP:** PSI full IO: 1.25% 1.24% 1.32%
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) full memory | Os valores 0.00% indicam que não houve pressão de memória nos últimos 1, 5, e 15 minutos |
-PSI full memory 0.00% 0.00% 0.00%
+
+**SAÍDA DA SÉTIMA LINHA COMANDO HTOP:** PSI full memory 0.00% 0.00% 0.00%
 
 ```bash
 #analisando o desempenho do processador com o comando htop
@@ -254,7 +261,8 @@ Entendendo os valores de métricas do comando __`*vmstat*`__
 | 15 | id (idle) | Percentual de tempo em que a CPU está ociosa, |
 | 16 | wa (wait) | Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de operações de I/O (input/output), |
 | 17 | st (steal time) | Percentual de tempo "roubado" pela CPU em um ambiente virtualizado. |
-r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+
+**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
 
 ```bash
 #analisando o desempenho do processador com o comando vmstat
