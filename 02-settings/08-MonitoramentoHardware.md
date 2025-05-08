@@ -383,42 +383,39 @@ sudo btop
 
 Entendendo os valores de métricas do comando __`*atop*`__
 
-A) sys 8h51m: Tempo total gasto pelo sistema em modo kernel (modo de sistema ou "system mode")
-   nas últimas 8 horas e 51 minutos,
-B) user 14h41m: Tempo total gasto pela CPU executando processos de modo usuário (user mode) nas 
-   últimas 14 horas e 41 minutos,
-C) proc 317: Número total de processos criados e ativos durante o intervalo de monitoramento,
-D) trun 2: Número de processos em execução ativa (running) no momento da amostra,
-E) tslpi 1089: Número de processos que estão dormindo (sleeping) de forma ininterrupta,
-F) tslpu 1: Número de processos que estão dormindo de forma interrompível,
-G) zombie 0: Número de processos em estado zumbi,
-H) clones 917e3: Número de processos clonados (geralmente subprocessos ou threads) no sistema, 
-   desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones.
-I) exit 1: Número de processos que saíram ou terminaram durante o período de monitoramento.
-#
-#PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | sys 8h51m | Tempo total gasto pelo sistema em modo kernel (modo de sistema ou "system mode") nas últimas 8 horas e 51 minutos, |
+| 02 | user 14h41m | Tempo total gasto pela CPU executando processos de modo usuário (user mode) nas últimas 14 horas e 41 minutos, |
+| 03 | proc 317 | Número total de processos criados e ativos durante o intervalo de monitoramento, |
+| 04 | trun 2 | Número de processos em execução ativa (running) no momento da amostra, |
+| 05 | tslpi 1089 | Número de processos que estão dormindo (sleeping) de forma ininterrupta, |
+| 06 | tslpu 1 | Número de processos que estão dormindo de forma interrompível, |
+| 07 | zombie 0 | Número de processos em estado zumbi, |
+| 08 clones 917e3 | Número de processos clonados (geralmente subprocessos ou threads) no sistema, desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones. |
+| 09 exit 1 | Número de processos que saíram ou terminaram durante o período de monitoramento. |
 
-A) PID: Identificador do processo (Process ID),
-B) SYSCPU: Quantidade de tempo de CPU usada pelo processo no modo kernel (system CPU time),
-C) USRCPU: Quantidade de tempo de CPU usada pelo processo no modo usuário (user CPU time),
-D) VGROW: Crescimento no uso de memória virtual (virtual memory growth),
-E) RGROW: Crescimento no uso de memória residente (resident memory growth),
-F) RUID: ID do usuário real (Real User ID),
-G) EUID: ID do usuário efetivo (Effective User ID),
-H) ST: Estado do processo (State). Representa o estado atual do processo, por exemplo:
-   R: Em execução (Running), S: Dormindo (Sleeping), D: Em espera ininterrupta (Waiting 
-   for I/O), Z: Zumbi (Zombie) e T: Parado (Stopped),
-I) EXC: Número de trocas de contexto (Context Switches),
-J) THR: Número de threads que o processo possui,
-K) S: Estado geral de uso da CPU do processo,
-   R: Em execução (Running), S: Dormindo (Sleeping) e Outros estados indicam diferentes 
-   condições do processo.
-L) CPUNR: O número da CPU em que o processo está sendo executado,
-M) CPU: Percentual de uso da CPU pelo processo,
-N) CMD: O nome do comando ou programa associado ao processo,
-O) 1/6: O índice da página exibida (como 1/6).X
-#
-#PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
+**SAÍDA DA PRIMEIRA LINHA COMANDO ATOP:** PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PID | Identificador do processo (Process ID), |
+| 02 | SYSCPU | Quantidade de tempo de CPU usada pelo processo no modo kernel (system CPU time), |
+| 03 | USRCPU | Quantidade de tempo de CPU usada pelo processo no modo usuário (user CPU time), |
+| 04 | VGROW | Crescimento no uso de memória virtual (virtual memory growth), |
+| 05 | RGROW | Crescimento no uso de memória residente (resident memory growth), |
+| 06 | RUID | ID do usuário real (Real User ID), |
+| 07 | EUID | ID do usuário efetivo (Effective User ID), |
+| 08 | ST | Estado do processo (State). Representa o estado atual do processo, por exemplo: R: Em execução (Running), S: Dormindo (Sleeping), D: Em espera ininterrupta (Waiting for I/O), Z: Zumbi (Zombie) e T: Parado (Stopped), |
+| 09 | EXC | Número de trocas de contexto (Context Switches), |
+| 10 | THR | Número de threads que o processo possui, |
+| 11 | S | Estado geral de uso da CPU do processo, R: Em execução (Running), S: Dormindo (Sleeping) e Outros estados indicam diferentes condições do processo, |
+| 12 | CPUNR | O número da CPU em que o processo está sendo executado, |
+| 13 | CPU | Percentual de uso da CPU pelo processo, |
+| 14 | CMD | O nome do comando ou programa associado ao processo, |
+| 15 | 1/6 | O índice da página exibida (como 1/6).X |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO ATOP:** PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
 
 ```bash
 #analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
