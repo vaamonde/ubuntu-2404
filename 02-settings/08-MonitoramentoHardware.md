@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.07<br>
+#Data de atualização: 08/05/2025<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -102,6 +102,8 @@ Entendendo os valores de saída das métricas do comando: __`*uptime*`__
 | 02 | up 3 days, 23:53 | O sistema está em funcionamento há 3 dias e 23 horas e 53 minutos, ou seja, o tempo de atividade desde o último boot |
 | 03 | 1 user | Indica que há um usuário logado no sistema no momento |
 | 04 | load average: 1,92, 2,05, 2,06 | Refere-se à "carga média" do sistema nos últimos 1, 5 e 15 minutos, respectivamente. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO UPTIME:** 13:22:55 up 3 days, 23:53,  1 user,  load average: 1,92, 2,05, 2,06
 
 ```bash
 #verificando o tempo de atividade do servidor com o comando uptime
@@ -244,6 +246,17 @@ Entendendo os valores de métricas do comando __`*vmstat*`__
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
+| 01 | procs | Agrupamento das colunas de Processos: r b |
+| 02 | memory | Agrupamento das colunas de Memória RAM: swpd free inact active |
+| 03 | swap | Agrupamento das colunas de Memória Swap: si so |
+| 04 | io | Agrupamento das colunas de Hard Disk: bi bo |
+| 05 | system | Agrupamento das colunas de Sistema: in cs |
+| 06 | cpu | Agrupamento das colunas de Processador CPU: us sy id wa st |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO VMSTAT:** procs ---memory--- ---swap--- ---io--- ---system--- ---cpu---
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
 | 01 | r (run queue) | Número de processos prontos para execução, |
 | 02 | b (blocked processes) | Número de processos bloqueados, ou seja, aguardando a finalização de operações de I/O, |
 | 03 | swpd (swap used) | Quantidade de memória swap utilizada, |
@@ -262,7 +275,7 @@ Entendendo os valores de métricas do comando __`*vmstat*`__
 | 16 | wa (wait) | Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de operações de I/O (input/output), |
 | 17 | st (steal time) | Percentual de tempo "roubado" pela CPU em um ambiente virtualizado. |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+**SAÍDA DA SEGUNDA LINHA COMANDO VMSTAT:** r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
 
 ```bash
 #analisando o desempenho do processador com o comando vmstat
@@ -271,6 +284,15 @@ sudo vmstat -a -t -w
 ```
 
 Entendendo os valores de métricas do comando __`*mpstat*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Linux 5.15.0-139-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
+| 02 | 08/05/2025 | Data atual do servidor |
+| 03 | _x86_64_ | Arquitetura do Processador do servidor | 
+| 04 | (2 CPU) | Quantidade de Núcleos de Processador ativo no servidor |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO MPSTAT:** Linux 5.15.0-139-generic (ctnvaamonde.pti.intra)   08/05/2025   _x86_64_   (2 CPU)
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -286,44 +308,57 @@ Entendendo os valores de métricas do comando __`*mpstat*`__
 | 10 | %guest | Percentual de tempo que a CPU passa rodando uma máquina virtual, |
 | 11 | %gnice | Percentual de tempo gasto em processos de máquina virtual com  prioridade ajustada, |
 | 12 | %idle | Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando por operações de I/O. |
-11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
 
+**SAÍDA DA SEGUNDA LINHA COMANDO MPSTAT:** 11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
+
+```bash
 #analisando o desempenho do processador com o comando mpstat
 #opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
 sudo mpstat -P ALL
+```
 
-#Entendendo os valores de métricas do comando iostat
-#
-A) avg-cpu: visão geral da utilização da CPU;
-B) %user: Percentual de tempo que a CPU passou executando processos de usuários, 
-C) %nice: Percentual de tempo que a CPU passou executando processos de usuários que foram 
-   atribuídos a uma prioridade mais baixa, 
-D) %system: Percentual de tempo que a CPU passou executando processos do sistema ou do kernel, 
-E) %iowait: Percentual de tempo que a CPU passou ociosa, mas aguardando a conclusão de operações
-   de I/O, 
-F) %steal: Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais em um 
-   ambiente virtualizado, 
-G) %idle: Percentual de tempo que a CPU passou completamente ociosa
-#
-#avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
-#
-A) tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, 
-B) kB_read/s: Taxa de leitura em KB por segundo, 
-C) kB_wrtn/s: Taxa de gravação em KB por segundo,
-D)  kB_dscd/s: Taxa de descarte de dados em KB por segundo, 
-E) kB_read: Quantidade total de dados lidos do dispositivo de armazenamento desde o início
-   da medição, 
-F) kB_wrtn: Quantidade total de dados gravados no dispositivo de armazenamento desde o início
-   da medição, 
-G) kB_dscd: Quantidade total de dados descartados desde o início da medição, 
-H) Device: Nome do dispositivo de armazenamento.
-#
-#tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
+Entendendo os valores de métricas do comando __`*iostat*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Linux 5.15.0-139-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
+| 02 | 08/05/2025 | Data atual do servidor |
+| 03 | _x86_64_ | Arquitetura do Processador do servidor | 
+| 04 | (2 CPU) | Quantidade de Núcleos de Processador ativo no servidor |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** Linux 5.15.0-139-generic (ctnvaamonde.pti.intra)   08/05/2025   _x86_64_   (2 CPU)
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | avg-cpu | visão geral da utilização da CPU; |
+| 02 | %user | Percentual de tempo que a CPU passou executando processos de usuários, |
+| 03 | %nice | Percentual de tempo que a CPU passou executando processos de usuários que foram atribuídos a uma prioridade mais baixa, |
+| 04 | %system | Percentual de tempo que a CPU passou executando processos do sistema ou do kernel, |
+| 05 | %iowait | Percentual de tempo que a CPU passou ociosa, mas aguardando a conclusão de operações de I/O, |
+| 06 | %steal | Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais em um ambiente virtualizado, |
+| 07 | %idle | Percentual de tempo que a CPU passou completamente ociosa
+
+**SAÍDA DA SEGUNDA LINHA COMANDO IOSTAT:** avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Device | Nome do dispositivo de armazenamento | 
+| 02 | tps (transactions per second) | Número de operações de I/O por segundo para o dispositivo, |
+| 03 | kB_read/s | Taxa de leitura em KB por segundo, |
+| 04 | kB_wrtn/s | Taxa de gravação em KB por segundo, |
+| 05 | kB_dscd/s | Taxa de descarte de dados em KB por segundo, |
+| 06 | kB_read | Quantidade total de dados lidos do dispositivo de armazenamento desde o início da medição, |
+| 07 | kB_wrtn | Quantidade total de dados gravados no dispositivo de armazenamento desde o início da medição, | 
+| 08 | kB_dscd | Quantidade total de dados descartados desde o início da medição, |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO IOSTAT:** Device tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd
+
+```bash
 #analisando o desempenho do processador com o comando iostat
 #opção do comando iostat: -h (human)
 sudo iostat -h
-
+```
+```bash
 #analisando o desempenho do processador com o comando nmon
 #personalizando o comando nmon:
 sudo nmon
@@ -342,11 +377,12 @@ sudo btop
    Tecla: n (network) mudança de Placa de Rede
    Tecla: - (menos) diminuir o tempo de atualização em ms (100ms)
    Tecla: q (quit) para sair
+```
 
-#OBSERVAÇÃO IMPORTANTE NÃO FOI MOSTRADO NO VÍDEO O COMANDO: atop SEGUE AS SUAS MÉTRICAS
+**OBSERVAÇÃO IMPORTANTE NÃO FOI MOSTRADO NO VÍDEO O COMANDO:** __`*atop*`__ SEGUE AS SUAS MÉTRICAS.
 
-#Entendendo os valores de métricas do comando atop
-#
+Entendendo os valores de métricas do comando __`*atop*`__
+
 A) sys 8h51m: Tempo total gasto pelo sistema em modo kernel (modo de sistema ou "system mode")
    nas últimas 8 horas e 51 minutos,
 B) user 14h41m: Tempo total gasto pela CPU executando processos de modo usuário (user mode) nas 
@@ -384,6 +420,7 @@ O) 1/6: O índice da página exibida (como 1/6).X
 #
 #PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
 
+```bash
 #analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
 sudo atop
 
