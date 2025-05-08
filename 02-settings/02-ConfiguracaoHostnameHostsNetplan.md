@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.05<br>
+#Data de atualização: 08/05/2025<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 **OBSERVAÇÃO IMPORTANTE:** O VÍDEO DAS CONFIGURAÇÕES DO HOSTNAME, FQDN, HOSTS E DA PLACA DE REDE DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
@@ -76,9 +76,9 @@ INSERT
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-127.0.0.1    localhost.seu.dominio    localhost
-127.0.1.1    ctnseunome.seu.domínio   ctnseunome
-172.16.1.30  ctnseunome.seu.domínio   ctnseunome
+127.0.0.1      localhost.seu.dominio    localhost
+127.0.1.1      ctnseunome.seu.domínio   ctnseunome
+ENDEREÇO_IPV4  ctnseunome.seu.domínio   ctnseunome
 
 #OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
 # The following lines are desirable for IPv6 capable hosts
@@ -164,7 +164,7 @@ network:
       link-local: []
       #alterar o endereço IPv4 para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
-      addresses: [172.16.1.30/24]
+      addresses: [ENDEREÇO_IPv4_SERVIDOR/CIDR]
       #alterar o gateway padrão para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
       #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
@@ -173,7 +173,7 @@ network:
         #configuração da rota padrão (cuidado com o traço antes do to)
         - to: default
           #configuração do endereço IPv4 do Gateway
-          via: 172.16.1.254
+          via: ENDEREÇO_IPv4_GATEWAY
       #configuração dos servidores de DNS Preferencial e Alternativo
       nameservers:
         #alterar os servidores DNS para o seu cenário
@@ -183,7 +183,7 @@ network:
         addresses: [8.8.8.8, 8.8.4.4]
         #alterar a pesquisa de domínio para o seu cenário
         #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
-        search: [pti.intra]
+        search: [SEU.DOMÍNIO]
   #fim do bloco de configuração do protocolo Ethernet versão 2
   version: 2
 ```
@@ -231,10 +231,10 @@ sudo hostname -i
 
 ```bash
 #testando a conexão com o Ubuntu Server
-ping 172.16.1.30
+ping ENDEREÇO_IPv4_SERVIDOR
 
 #acessando remotamente o Ubuntu Server
-ssh vaamonde@172.16.1.30
+ssh seu_usuário@ENDEREÇO_IPv4_SERVIDOR
 
 #confirmando a troca das chaves públicas e do fingerprint do SSH
 Yes <Enter>

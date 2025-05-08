@@ -67,7 +67,7 @@ sudo cat /etc/lsb-release
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
 
-Entendendo os valores de saída das informações do Kernel com o comando: *uname*
+Entendendo os valores de saída das informações do Kernel com o comando: __`*uname*`__
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -94,7 +94,7 @@ sudo hostnamectl
 sudo cat /proc/version
 ```
 
-Entendendo os valores de saída das métricas do comando: *uptime*
+Entendendo os valores de saída das métricas do comando: __`*uptime*`__
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -116,7 +116,7 @@ sudo uptime
 sudo cat /proc/cpuinfo
 ```
 
-Entendendo os valores de saída das métricas do comando: top
+Entendendo os valores de saída das métricas do comando: __`*top*`__
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -138,87 +138,87 @@ Entendendo os valores de saída das métricas do comando: top
 
 **SAÍDA DA SEGUNDA LINHA COMANDO TOP:** Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
 
-A) %CPU(s): 18,9 us (user space): Percentual de tempo que a CPU está gastando executando 
-    processos de usuários, 
-B) 4,3 sy (system): Percentual de tempo gasto com processos do sistema, 
-C) 1,2 ni (nice): Percentual de tempo gasto em processos de usuários que foram "reniceados", 
-D) 74,7 id (idle): Percentual de tempo que a CPU está ociosa, 
-E) 0,3 wa (iowait): Percentual de tempo que a CPU está aguardando por operações de entrada/saída (I/O), 
-F) 0,0 hi (hardware interrupts): Percentual de tempo gasto com interrupções de hardware, 
-G) 0,5 si (software interrupts): Percentual de tempo gasto com interrupções de software, 
-H) 0,0 st (steal): Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava
-   aguardando porque a CPU física estava sendo usada por outra máquina virtual.
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | %CPU(s): 18,9 us (user space) | Percentual de tempo que a CPU está gastando executando processos de usuários, |
+| 02 | 4,3 sy (system) | Percentual de tempo gasto com processos do sistema, |
+| 03 | 1,2 ni (nice) | Percentual de tempo gasto em processos de usuários que foram "reniceados", |
+| 04 | 74,7 id (idle) | Percentual de tempo que a CPU está ociosa, |
+| 05 | 0,3 wa (iowait) | Percentual de tempo que a CPU está aguardando por operações de entrada/saída (I/O), |
+| 06 | 0,0 hi (hardware interrupts) | Percentual de tempo gasto com interrupções de hardware, |
+| 07 | 0,5 si (software interrupts) | Percentual de tempo gasto com interrupções de software, |
+| 08| 0,0 st (steal) | Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava aguardando porque a CPU física estava sendo usada por outra máquina virtual. |
 
 **SAÍDA DA TERCEIRA LINHA COMANDO TOP:** %Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
 
-A) PID: Identificador do processo (Process ID),
-B: user: Nome do usuário que iniciou o processo. Indica a quem pertence o processo,
-C) PR: Prioridade do processo. Processos com prioridade mais baixa (valores mais altos) são 
-   executados com menor frequência em relação a processos com prioridade mais alta.
-D) NI: Valor de "nice" do processo. O valor "nice" determina a prioridade de execução do processo,
-E) VIRT: Memória virtual total utilizada pelo processo, incluindo toda a memória que o processo 
-   pode acessar (inclui a memória que pode não estar fisicamente presente),
-F) RES: Memória residente. É a quantidade de memória física (RAM) que o processo está usando no 
-   momento. Esta é a parte da memória que está realmente alocada e em uso,
-G) SHR: Memória compartilhada. Indica a quantidade de memória que é compartilhada entre processos.
-H) S: Estado do processo. Os estados comuns incluem: R: Executando (running), S: Dormindo (sleeping)
-   Z: Zumbi (zombie) e T: Parado (stopped),
-I) %CPU: Porcentagem da CPU que o processo está utilizando no momento. Isso mostra quão ativo o 
-    processo está em termos de uso da CPU.
-J) %MEM: Porcentagem da memória física total que o processo está utilizando,
-K) TIME+: Tempo total de CPU utilizado pelo processo desde que foi iniciado,
-L) COMAND: Nome do comando ou do processo que está sendo executado.
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PID | Identificador do processo (Process ID), |
+| 02 | user | Nome do usuário que iniciou o processo. Indica a quem pertence o processo, |
+| 03 | PR | Prioridade do processo. Processos com prioridade mais baixa (valores mais altos) são executados com menor frequência em relação a processos com prioridade mais alta, |
+| 04 | NI | Valor de "nice" do processo. O valor "nice" determina a prioridade de execução do processo, |
+| 05 | VIRT | Memória virtual total utilizada pelo processo, incluindo toda a memória que o processo pode acessar (inclui a memória que pode não estar fisicamente presente), |
+| 06 | RES | Memória residente. É a quantidade de memória física (RAM) que o processo está usando no momento. Esta é a parte da memória que está realmente alocada e em uso, |
+| 07 | SHR | Memória compartilhada. Indica a quantidade de memória que é compartilhada entre processos, |
+| 08 | S | Estado do processo. Os estados comuns incluem: R: Executando (running), S: Dormindo (sleeping), Z: Zumbi (zombie) e T: Parado (stopped), | 
+| 09 | %CPU | Porcentagem da CPU que o processo está utilizando no momento. Isso mostra quão ativo o processo está em termos de uso da CPU, |
+| 10 | %MEM | Porcentagem da memória física total que o processo está utilizando, |
+| 11 | TIME+ | Tempo total de CPU utilizado pelo processo desde que foi iniciado, |
+| 12 | COMMAND | Nome do comando ou do processo que está sendo executado. |
 
 **SAÍDA DAS COLUNAS DO COMANDO TOP:** PID   USER   PR   NI   VIRT   RES   SHR S   %CPU   %MEM   TIME+ COMMAND
 
 ```bash
 #analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
 sudo top
+```
 
-#Entendendo os valores de métricas do comando htop
-#
-A) 72: O número de processos ativos no sistema, 
-B) 500 thr: O número total de threads que estão em execução, 
-C) 1 running: O número de processos ou threads que estão atualmente sendo executados pela CPU
-#
-#Tasks: 72, 500 thr; 1 running
-#
-A) Load average: 0.22: A carga média nos últimos 1 minuto, 
-B) 0.41: A carga média nos últimos 5 minutos, 
-C) 0.65: A carga média nos últimos 15 minutos.
-#
-#Load average: 0.22 0.41 0.65
-#
-A) Disk IO: 5.2%: A porcentagem de utilização do disco no momento, indicando quanta capacidade
-   de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, 
-B) read: OK: Indica que a leitura do disco está funcionando dentro de parâmetros normais, 
-C) write: 140K: A quantidade de dados sendo gravados no disco por segundo.
-#
-#Disk IO: 5.2% read: OK write: 140K
-#
-A) Network rx: 1KiB/s: A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte
-   por segundo, 
-B) tx: 4KiB/s: A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, 
-C) (41/40 packets): O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes 
-   e enviou 40 pacotes.
-#
-#Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
-#
-A) PSI (Pressure Stall Information) some CPU: Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre
-   a CPU nos últimos 1, 5, e 15 minutos
-#
-#PSI some CPU: 10.6% 9.29% 9.25%
-#
-A) PSI (Pressure Stall Information) full I/O: Os valores 1.25%, 1.24%, 1.32% representam a pressão 
-   sobre o sistema de I/O nos últimos 1, 5, e 15 minutos
-#
-#PSI full IO: 1.25% 1.24% 1.32%
-#
-A) PSI (Pressure Stall Information) full memory: Os valores 0.00% indicam que não houve pressão de 
-   memória nos últimos 1, 5, e 15 minutos
-#
-#PSI full memory 0.00% 0.00% 0.00%
+Entendendo os valores de métricas do comando: __`*htop*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 72 | O número de processos ativos no sistema, |
+| 02 | 500 thr | O número total de threads que estão em execução, |
+| 03 | 1 running | O número de processos ou threads que estão atualmente sendo executados pela CPU. |
+Tasks: 72, 500 thr; 1 running
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Load average: 0.22 | A carga média nos últimos 1 minuto, |
+| 02 | 0.41 | A carga média nos últimos 5 minutos, |
+| 03 | 0.65 | A carga média nos últimos 15 minutos. |
+Load average: 0.22 0.41 0.65
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Disk IO: 5.2% | A porcentagem de utilização do disco no momento, indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, |
+| 02 | read: OK | Indica que a leitura do disco está funcionando dentro de parâmetros normais, |
+| 03 | write: 140K | A quantidade de dados sendo gravados no disco por segundo. |
+Disk IO: 5.2% read: OK write: 140K
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Network rx: 1KiB/s | A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte por segundo, |
+| 02 | tx: 4KiB/s | A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, |
+| 03 | (41/40 packets) | O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes e enviou 40 pacotes. |
+Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) some CPU | Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre a CPU nos últimos 1, 5, e 15 minutos |
+PSI some CPU: 10.6% 9.29% 9.25%
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) full I/O | Os valores 1.25%, 1.24%, 1.32% representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos |
+PSI full IO: 1.25% 1.24% 1.32%
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) full memory | Os valores 0.00% indicam que não houve pressão de memória nos últimos 1, 5, e 15 minutos |
+PSI full memory 0.00% 0.00% 0.00%
+
+```bash
 #analisando o desempenho do processador com o comando htop
 #personalizando o comando htop: F2 (Setup)
 sudo htop
@@ -231,58 +231,54 @@ sudo htop
       PSI full IO <Enter>
       PSI full memory <Enter>
   F10 (Quit)
+```
 
-#Entendendo os valores de métricas do comando vmstat
-#
-A) r (run queue): Número de processos prontos para execução, 
-B) b (blocked processes): Número de processos bloqueados, ou seja, aguardando a finalização
-   de operações de I/O, 
-C) swpd (swap used): Quantidade de memória swap utilizada, 
-D) free (free memory): Quantidade de memória RAM livre,
-E) inact (inactive memory): Quantidade de memória classificada como inativa, 
-F) active (active memory): Quantidade de memória ativa em uso, 
-G) si (swap in): Quantidade de dados (em KB) que estão sendo movidos da área de swap para a 
-   memória RAM por segundo, 
-H) so (swap out): Quantidade de dados (em KB) que estão sendo movidos da memória RAM para a 
-   área de swap por segundo, 
-I) bi (blocks in): Quantidade de dados (em blocos) lidos do disco (ou dispositivos de I/O) 
-   por segundo, 
-J) bo (blocks out): Quantidade de dados (em blocos) gravados no disco (ou dispositivos de I/O) 
-   por segundo, 
-K) in (interrupts): Número de interrupções por segundo que o sistema está lidando, 
-L) cs (context switches): Número de trocas de contexto por segundo, 
-M) us (user): Percentual de tempo gasto pela CPU executando processos em modo usuário , 
-N) sy (system): Percentual de tempo gasto pela CPU em modo kernel, 
-O) id (idle): Percentual de tempo em que a CPU está ociosa, 
-P) wa (wait): Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de 
-   operações de I/O (input/output), 
-Q) st (steal time): Percentual de tempo "roubado" pela CPU em um ambiente virtualizado
-#
-#r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+Entendendo os valores de métricas do comando __`*vmstat*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | r (run queue) | Número de processos prontos para execução, |
+| 02 | b (blocked processes) | Número de processos bloqueados, ou seja, aguardando a finalização de operações de I/O, |
+| 03 | swpd (swap used) | Quantidade de memória swap utilizada, |
+| 04 | free (free memory) | Quantidade de memória RAM livre, |
+| 05 | inact (inactive memory) | Quantidade de memória classificada como inativa, |
+| 06 | active (active memory) | Quantidade de memória ativa em uso, |
+| 07 | si (swap in) | Quantidade de dados (em KB) que estão sendo movidos da área de swap para a memória RAM por segundo, |
+| 08 | so (swap out) | Quantidade de dados (em KB) que estão sendo movidos da memória RAM para a área de swap por segundo, |
+| 09 | bi (blocks in) | Quantidade de dados (em blocos) lidos do disco (ou dispositivos de I/O) por segundo, |
+| 10 | bo (blocks out) | Quantidade de dados (em blocos) gravados no disco (ou dispositivos de I/O) por segundo, |
+| 11 | in (interrupts) | Número de interrupções por segundo que o sistema está lidando, |
+| 12 | cs (context switches) | Número de trocas de contexto por segundo, |
+| 13 | us (user) | Percentual de tempo gasto pela CPU executando processos em modo usuário, |
+| 14 | sy (system) | Percentual de tempo gasto pela CPU em modo kernel, |
+| 15 | id (idle) | Percentual de tempo em que a CPU está ociosa, |
+| 16 | wa (wait) | Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de operações de I/O (input/output), |
+| 17 | st (steal time) | Percentual de tempo "roubado" pela CPU em um ambiente virtualizado. |
+r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+
+```bash
 #analisando o desempenho do processador com o comando vmstat
 #opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
 sudo vmstat -a -t -w
+```
 
-#Entendendo os valores de métricas do comando mpstat
-#
-A) 11:23:50: Hora da análise do desempenho dos processadores,
-B) CPU: Lista de todos os processadores disponíveis no servidor,
-C) %usr: Percentual de tempo gasto pela CPU em modo usuário, 
-D) %nice: Percentual de tempo que a CPU passa executando processos que foram "envelhecidos"
-   ou "reniceados" com uma prioridade mais baixa 
-E) %sys: Percentual de tempo que a CPU gasta executando tarefas no modo kernel, 
-F) %iowait: Percentual de tempo que a CPU passa ociosa esperando operações de I/O, 
-G) %irq: Percentual de tempo que a CPU gasta lidando com interrupções de hardware, 
-H) %soft: Percentual de tempo que a CPU passa lidando com interrupções de software, 
-I) %steal: Percentual de tempo que a CPU foi "roubada" para executar outras tarefas em um 
-   ambiente virtualizado, 
-J) %guest: Percentual de tempo que a CPU passa rodando uma máquina virtual, 
-K) %gnice: Percentual de tempo gasto em processos de máquina virtual com  prioridade ajustada, 
-L) %idle: Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando
-   por operações de I/O.
-#
-#11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
+Entendendo os valores de métricas do comando __`*mpstat*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 11:23:50 | Hora da análise do desempenho dos processadores, |
+| 02 | CPU | Lista de todos os processadores disponíveis no servidor, |
+| 03 | %usr | Percentual de tempo gasto pela CPU em modo usuário, |
+| 04 | %nice | Percentual de tempo que a CPU passa executando processos que foram "envelhecidos" ou "reniceados" com uma prioridade mais baixa, |
+| 05 | %sys | Percentual de tempo que a CPU gasta executando tarefas no modo kernel, |
+| 06 | %iowait | Percentual de tempo que a CPU passa ociosa esperando operações de I/O, |
+| 07 | %irq | Percentual de tempo que a CPU gasta lidando com interrupções de hardware, |
+| 08 | %soft | Percentual de tempo que a CPU passa lidando com interrupções de software, |
+| 09 | %steal | Percentual de tempo que a CPU foi "roubada" para executar outras tarefas em um ambiente virtualizado, |
+| 10 | %guest | Percentual de tempo que a CPU passa rodando uma máquina virtual, |
+| 11 | %gnice | Percentual de tempo gasto em processos de máquina virtual com  prioridade ajustada, |
+| 12 | %idle | Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando por operações de I/O. |
+11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
 
 #analisando o desempenho do processador com o comando mpstat
 #opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
@@ -766,4 +762,9 @@ sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
 #fazendo uma busca no disk utilizando o comando find
 #opção do comando find: / (root device), -name (Base of file name), * (Qualquer coisa)
 sudo find / -name vaamonde*
+
+#fazendo uma busca no disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
+#opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 
+#'root'(with-filename), {} (path find file), \; (end command execution)
+sudo find / -type f -exec grep -H 'root' {} \;
 ```

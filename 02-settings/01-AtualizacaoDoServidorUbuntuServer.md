@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.04<br>
+#Data de atualização: 08/05/2025<br>
+#Versão: 0.05<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 **OBSERVAÇÃO IMPORTANTE:** O VÍDEO DAS ATUALIZAÇÕES DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
@@ -106,7 +106,29 @@ sudo apt autoclean
 #Clean limpa o repositório local de arquivos de pacotes recuperados
 #opção do comando apt: clean (clean clears out the local repository of retrieved package files)
 sudo apt clean
+```
 
+## 09_ Verificando todas as versões de software atualizados no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#List é utilizado para listar todos os software que serão atualizados no sistema.
+#opção do comando apt: list (list is used to display a list of packages), --installed (shows
+#a list of packages names as well as options to list installed)
+sudo apt list --installed
+```
+
+## 10_ Verificando os Logs de atualização de software no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#Verificando o Log de instalação e atualização de pacotes no Ubuntu Server
+#opção do comando cat: -n (number line)
+sudo cat -n /var/log/apt/history.log
+
+#Verificando o Log de finalização da atualização de pacotes no Ubuntu Server
+#opção do comando cat: -n (number line)
+sudo cat -n /var/log/apt/term.log
+```
+
+## 11_ Reiniciando o sistema operacional do Ubuntu Server
+```bash
 #Reiniciar o servidor para testar as atualizações
 sudo reboot
 ```
