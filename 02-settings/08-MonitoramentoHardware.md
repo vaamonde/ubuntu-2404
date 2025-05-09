@@ -467,7 +467,7 @@ Entendendo os valores de métricas do comando __`*sar*`__
 | 02 | ctnvaamonde | Este é o nome do host ou o nome da máquina. |
 | 03 | 25/09/2024 | Data em que o comando foi executado, indicando quando as estatísticas foram coletadas. |
 | 04 | x86_64 | Isso indica a arquitetura da CPU, que é de 64 bits (x86_64), comum em CPUs modernas. |
-| 05 (8 CPU) | Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos, como no caso de processadores com Hyper-Threading). |
+| 05 | (8 CPU) | Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos, como no caso de processadores com Hyper-Threading). |
 
 **SAÍDA DA PRIMEIRA LINHA COMANDO SAR:** Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
 
@@ -587,7 +587,7 @@ Entendendo os valores de métricas do comando __`*df*`__
 | 03 | Used | Indica a quantidade de espaço em disco que já está ocupada por dados, |
 | 04 | Available | Mostra o espaço livre disponível na partição ou sistema de arquivos, ou seja, quanto ainda pode ser utilizado para armazenar novos dados. |
 | 05 | Use% | Representa a porcentagem do espaço total que está atualmente em uso. É uma boa métrica para verificar o quanto de um sistema de arquivos está ocupado. |
-| 06 Mounted on | Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos está acessível no sistema. Exemplo: /, /home, /mnt. |
+| 06 | Mounted on | Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos está acessível no sistema. Exemplo: /, /home, /mnt. |
 
 **SAÍDA DA PRIMEIRA LINHA COMANDO DF:** Filesystem   Size   Used   Avail   Use%   Mounted on
 
