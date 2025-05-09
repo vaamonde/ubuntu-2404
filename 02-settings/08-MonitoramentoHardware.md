@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 08/05/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 09/05/2025<br>
+#Versão: 0.09<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -392,8 +392,8 @@ Entendendo os valores de métricas do comando __`*atop*`__
 | 05 | tslpi 1089 | Número de processos que estão dormindo (sleeping) de forma ininterrupta, |
 | 06 | tslpu 1 | Número de processos que estão dormindo de forma interrompível, |
 | 07 | zombie 0 | Número de processos em estado zumbi, |
-| 08 clones 917e3 | Número de processos clonados (geralmente subprocessos ou threads) no sistema, desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones. |
-| 09 exit 1 | Número de processos que saíram ou terminaram durante o período de monitoramento. |
+| 08 | clones 917e3 | Número de processos clonados (geralmente subprocessos ou threads) no sistema, desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones. |
+| 09 | exit 1 | Número de processos que saíram ou terminaram durante o período de monitoramento. |
 
 **SAÍDA DA PRIMEIRA LINHA COMANDO ATOP:** PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
 
@@ -429,20 +429,22 @@ sudo glances
 ```bash
 #verificando as informações de memória do arquivo meminfo
 sudo cat /proc/meminfo
+```
 
-#Entendendo os valores de métricas do comando free
-#
-A) total: Esta coluna mostra a quantidade total de memória disponível no sistema, 
-B) used: Exibe a quantidade de memória que está sendo efetivamente usada no momento, 
-C) free: Mostra a quantidade de memória que está completamente livre, 
-D) shared: Quantidade de memória que está sendo compartilhada entre vários processos, 
-E) buff/cache: Exibe a quantidade de memória que está sendo usada pelo sistema para 
-   buffers e cache, 
-F) available: Quantidade de memória que está disponível para ser usada por novos processos, 
-   levando em consideração a memória que pode ser liberada de buffers e cache.
-#
-#total   used   free   shared   buff/cache   available
+Entendendo os valores de métricas do comando __`*free*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | total | Esta coluna mostra a quantidade total de memória disponível no sistema, |
+| 02 | used | Exibe a quantidade de memória que está sendo efetivamente usada no momento, |
+| 03 | free | Mostra a quantidade de memória que está completamente livre, |
+| 04 | shared | Quantidade de memória que está sendo compartilhada entre vários processos, |
+| 05 | buff/cache | Exibe a quantidade de memória que está sendo usada pelo sistema para buffers e cache, |
+| 06 | available | Quantidade de memória que está disponível para ser usada por novos processos, levando em consideração a memória que pode ser liberada de buffers e cache. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO FREE:** total   used   free   shared   buff/cache   available
+
+```bash
 #analisando o desempenho da memória com o comando free
 #opções do comando free: -h (human), -m (megabyte), -t (total)
 sudo free -h -m -t
@@ -455,43 +457,40 @@ sudo top
 
 #analisando o desempenho da memória com o comando htop
 sudo htop
+```
 
-#Entendendo os valores de métricas do comando sar
-#
-A) Linux 5.15.0-119-generic: Esta é a versão do kernel Linux que o sistema está rodando.
-B) ctnvaamonde: Este é o nome do host ou o nome da máquina.
-C) 25/09/2024: Data em que o comando foi executado, indicando quando as estatísticas foram coletadas.
-D) x86_64: Isso indica a arquitetura da CPU, que é de 64 bits (x86_64), comum em CPUs modernas.
-E) (8 CPU): Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos,
-   como no caso de processadores com Hyper-Threading).
-#
-#Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
+Entendendo os valores de métricas do comando __`*sar*`__
 
-#Entendendo os valores de métricas do comando sar
-#
-A) 09:55:21: O horário em que a amostra foi coletada.
-B) kbmemfree: Quantidade de memória livre disponível (em kilobytes).
-C) kbavail: Quantidade de memória disponível para novos processos, levando em consideração
-   a memória usada pelo cache e buffers, que pode ser rapidamente liberada.
-D) kbmemused: Quantidade de memória atualmente em uso (em kilobytes), calculada como a diferença
-   entre a memória total e a memória livre.
-E) %memused: Percentual da memória RAM total que está em uso.
-F) kbbuffers: Quantidade de memória usada por buffers de sistema (em kilobytes), que geralmente
-   é usada para armazenar dados que estão sendo transferidos entre dispositivos.
-G) kbcached: Quantidade de memória usada para armazenar dados em cache (em kilobytes), que são dados
-   frequentemente acessados para melhorar o desempenho.
-H) kbcommit: Quantidade de memória comprometida para ser usada no futuro, incluindo a memória virtual
-que pode estar alocada mas ainda não usada.
-I) %commit: Percentual da memória RAM total que está comprometida para ser usada no futuro (pode 
-   incluir a memória swap).
-I) kbactive: Quantidade de memória ativa que está sendo usada recentemente por processos (em kilobytes).
-J) kbinact: Quantidade de memória inativa que foi usada recentemente e está pronta para ser movida 
-   para o swap ou liberada, se necessário (em kilobytes).
-K) kbdirty: Quantidade de memória que contém dados que foram modificados mas ainda não foram gravados
-   em disco (em kilobytes).
-#
-# 09:55:21   kbmemfree   kbavail   kbmemused   %memused   kbbuffers   kbcached   kbcommit   %commit   kbactive   kbinact   kbdirty
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Linux 5.15.0-119-generic | Esta é a versão do kernel Linux que o sistema está rodando. |
+| 02 | ctnvaamonde | Este é o nome do host ou o nome da máquina. |
+| 03 | 25/09/2024 | Data em que o comando foi executado, indicando quando as estatísticas foram coletadas. |
+| 04 | x86_64 | Isso indica a arquitetura da CPU, que é de 64 bits (x86_64), comum em CPUs modernas. |
+| 05 (8 CPU) | Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos, como no caso de processadores com Hyper-Threading). |
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO SAR:** Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
+
+Entendendo os valores de métricas do comando __`*sar*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 09:55:21 | O horário em que a amostra foi coletada. |
+| 02 | kbmemfree | Quantidade de memória livre disponível (em kilobytes). |
+| 03 | kbavail | Quantidade de memória disponível para novos processos, levando em consideração a memória usada pelo cache e buffers, que pode ser rapidamente liberada. |
+| 04 | kbmemused | Quantidade de memória atualmente em uso (em kilobytes), calculada como a diferença entre a memória total e a memória livre. |
+| 05 | %memused | Percentual da memória RAM total que está em uso. |
+| 06 | kbbuffers | Quantidade de memória usada por buffers de sistema (em kilobytes), que geralmente é usada para armazenar dados que estão sendo transferidos entre dispositivos. |
+| 07 | kbcached | Quantidade de memória usada para armazenar dados em cache (em kilobytes), que são dados frequentemente acessados para melhorar o desempenho. |
+| 08 | kbcommit | Quantidade de memória comprometida para ser usada no futuro, incluindo a memória virtual que pode estar alocada mas ainda não usada. |
+| 09 | %commit | Percentual da memória RAM total que está comprometida para ser usada no futuro (pode  incluir a memória swap). |
+| 10 | kbactive | Quantidade de memória ativa que está sendo usada recentemente por processos (em kilobytes). |
+| 11 | kbinact | Quantidade de memória inativa que foi usada recentemente e está pronta para ser movida  para o swap ou liberada, se necessário (em kilobytes). |
+| 12 | kbdirty | Quantidade de memória que contém dados que foram modificados mas ainda não foram gravados em disco (em kilobytes). |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO FREE:** 09:55:21   kbmemfree   kbavail   kbmemused   %memused   kbbuffers   kbcached   kbcommit   %commit   kbactive   kbinact   kbdirty
+
+```bash
 #analisando o desempenho da memória com o comando sar
 #opções do comando sar: -h (human), -r (Report memory utilization statistics), 1 (one second), 5 (five lines)
 sudo sar -h -r 1 5
@@ -504,165 +503,166 @@ sudo glances
 ```
 
 ## 06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server
-```bash
-#Entendendo os valores de métricas do arquivo diskstats
-#
-A) 8: (major number) Número major que identifica o driver do dispositivo de bloco, 
-B) 0: (minor number) Número minor que identifica o dispositivo específico, 
-C) sda: (device name) Nome do dispositivo, 
-D) 366584: (reads completed) Número total de operações de leitura completadas com sucesso, 
-E) 41475: (reads merged) Número de operações de leitura que foram mescladas em uma única operação, 
-F) 22505582: (sectors read) Número total de setores lidos. Um setor geralmente tem 512 bytes, 
-   mas isso pode variar,
-G) 693820: (time reading) Tempo total (em milissegundos) que o disco gastou lendo dados, 
-H) 1594861: (writes completed) Número total de operações de escrita completadas com sucesso, 
-I) 1615195: (writes merged) Número de operações de escrita que foram mescladas, 
-J) 35142920: (sectors written) Número total de setores escritos no disco, 
-K) 3921960: (time writing) Tempo total (em milissegundos) que o disco gastou escrevendo dados, 
-L) 0: (in flight) Número de operações de I/O em andamento no momento, 
-M) 4599484: (time spent doing I/Os) Tempo total (em milissegundos) que o sistema passou realizando
-   operações de I/O,
-N) 7453602: (weighted time spent doing I/Os) Tempo ponderado (em milissegundos) que as operações
-   de I/O levaram para serem processadas, 
-O) 0: (discards completed) Número total de operações de descarte de blocosM
-P) 0: (discards merged) Número de operações de descarte mescladas, 
-Q) 0: (sectors discarded) Número total de setores descartados, 
-R) 0: (time discarding) Tempo total (em milissegundos) gasto em operações de descarte de blocos, 
-S) 519283: (flush requests) Número total de solicitações de flush, 
-T) 2837821: (flush time) Tempo total (em milissegundos) gasto com solicitações de flush.
-#
-#8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 519283 2837821
 
+Entendendo os valores de métricas do arquivo __`*diskstats*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 8 | (major number) Número major que identifica o driver do dispositivo de bloco, |
+| 02 | 0 | (minor number) Número minor que identifica o dispositivo específico, |
+| 03 | sda | (device name) Nome do dispositivo, |
+| 04 | 366584 | (reads completed) Número total de operações de leitura completadas com sucesso, |
+| 05 | 41475 | (reads merged) Número de operações de leitura que foram mescladas em uma única operação, |
+| 06 | 22505582 | (sectors read) Número total de setores lidos. Um setor geralmente tem 512 bytes, mas isso pode variar, |
+| 07 | 693820 | (time reading) Tempo total (em milissegundos) que o disco gastou lendo dados, |
+| 08 | 1594861 | (writes completed) Número total de operações de escrita completadas com sucesso, |
+| 09 | 1615195 | (writes merged) Número de operações de escrita que foram mescladas, |
+| 10 | 35142920 | (sectors written) Número total de setores escritos no disco, |
+| 11 | 3921960 | (time writing) Tempo total (em milissegundos) que o disco gastou escrevendo dados, |
+| 12 | 0 | (in flight) Número de operações de I/O em andamento no momento, |
+| 13 | 4599484 | (time spent doing I/Os) Tempo total (em milissegundos) que o sistema passou realizando operações de I/O, |
+| 14 | 7453602 | (weighted time spent doing I/Os) Tempo ponderado (em milissegundos) que as operações de I/O levaram para serem processadas, |
+| 15 | 0 | (discards completed) Número total de operações de descarte de blocosM, |
+| 16 | 0 | (discards merged) Número de operações de descarte mescladas, |
+| 17 | 0 | (sectors discarded) Número total de setores descartados, |
+| 18 | 0 | (time discarding) Tempo total (em milissegundos) gasto em operações de descarte de blocos, |
+| 19 | 519283 | (flush requests) Número total de solicitações de flush, |
+| 20 | 2837821 | (flush time) Tempo total (em milissegundos) gasto com solicitações de flush. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO DISKSTATS:** 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 519283 2837821
+
+```bash
 #verificando as informações de estáticas de disco do arquivo diskstats
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/diskstats | grep -i sda
+```
 
-#Entendendo os valores de métricas do arquivo mounts
-#
-A) /dev/mapper/ubuntu--vg-ubuntu--lv: Este é o dispositivo de bloco onde o sistema de arquivos
-   está armazenado, 
-B) /: Este campo indica o ponto de montagem do volume lógico, que, no caso, é a raiz (/) do 
-   sistema de arquivos, 
-C) ext4: Este é o tipo de sistema de arquivos utilizado no volume lógico, 
-D) rw: Esta opção indica que o sistema de arquivos está montado como read-write, 
-E) relatime: Relatime (Relative Access Time) é uma opção de montagem que otimiza a atualização
-   do tempo de acesso aos arquivos, 
-F) 0: O primeiro 0 refere-se ao campo de dump. Um valor de 0 significa que o comando dump 
-   (utilizado para fazer backups) não vai considerar esse sistema de arquivos para backup, 
-G) 0: O segundo 0 refere-se ao campo de fsck order. Um valor de 0 indica que o utilitário fsck 
-   (que verifica e repara sistemas de arquivos) não será executado automaticamente durante a 
-   inicialização para este sistema de arquivos.
-#
-#/dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
+Entendendo os valores de métricas do arquivo __`*mounts*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | /dev/mapper/ubuntu--vg-ubuntu--lv | Este é o dispositivo de bloco onde o sistema de arquivos está armazenado, |
+| 02 | / | Este campo indica o ponto de montagem do volume lógico, que, no caso, é a raiz (/) do sistema de arquivos, |
+| 03 | ext4 | Este é o tipo de sistema de arquivos utilizado no volume lógico, |
+| 04 | rw | Esta opção indica que o sistema de arquivos está montado como read-write, |
+| 05 | relatime | Relatime (Relative Access Time) é uma opção de montagem que otimiza a atualização do tempo de acesso aos arquivos, |
+| 06 | 0 | O primeiro 0 refere-se ao campo de dump. Um valor de 0 significa que o comando dump (utilizado para fazer backups) não vai considerar esse sistema de arquivos para backup, |
+| 07 | 0 | O segundo 0 refere-se ao campo de fsck order. Um valor de 0 indica que o utilitário fsck (que verifica e repara sistemas de arquivos) não será executado automaticamente durante a inicialização para este sistema de arquivos. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO MOUNTS:** /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
+
+```bash
 #verificando as informações de ponto de montagem do arquivo mounts
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat /proc/mounts | grep -i /dev/mapper/
+```
 
-#Entendendo os valores de métricas do comando fdisk
-#
-A) Device: Este campo mostra o nome do dispositivo de bloco ou partição, 
-B) Start: Indica o setor de início da partição. No disco, o armazenamento é dividido em setores, 
-C) End: Indica o setor final da partição, ou seja, o número do último setor em que a partição termina, 
-D) Sectors: Indica a quantidade total de setores que a partição ocupa. Esse valor é obtido subtraindo
-   o setor de início (Start) do setor de fim (End), 
-E) Size: Este campo exibe o tamanho total da partição em uma unidade de medida legível, 
-F) Type: Este campo indica o tipo de partição ou o sistema de arquivos associado à partição. 
-#
-#Device   Start   End   Sectors   Size   Type
+Entendendo os valores de métricas do comando __`*fdisk*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Device | Este campo mostra o nome do dispositivo de bloco ou partição, |
+| 02 | Start | Indica o setor de início da partição. No disco, o armazenamento é dividido em setores, |
+| 03 | End | Indica o setor final da partição, ou seja, o número do último setor em que a partição termina, |
+| 04 | Sectors | Indica a quantidade total de setores que a partição ocupa. Esse valor é obtido subtraindo o setor de início (Start) do setor de fim (End), |
+| 05 | Size | Este campo exibe o tamanho total da partição em uma unidade de medida legível, |
+| 06 | Type | Este campo indica o tipo de partição ou o sistema de arquivos associado à partição. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO FDISK:** Device   Start   End   Sectors   Size   Type
+
+```bash
 #verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
 #opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
 sudo fdisk -l /dev/sda
+```
 
-#Entendendo os valores de métricas do comando df
-#
-A) Filesystem: Refere-se ao nome ou caminho do sistema de arquivos ou dispositivo de armazenamento,
-B) Size: Exibe o tamanho total da partição ou do sistema de arquivos, ou seja, a capacidade total 
-   disponível para armazenar dados,
-C) Used: Indica a quantidade de espaço em disco que já está ocupada por dados,
-D) Available: Mostra o espaço livre disponível na partição ou sistema de arquivos, ou seja, quanto
-   ainda pode ser utilizado para armazenar novos dados.
-E) Use%: Representa a porcentagem do espaço total que está atualmente em uso. É uma boa métrica para
-   verificar o quanto de um sistema de arquivos está ocupado.
-F) Mounted on: Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos 
-   está acessível no sistema. Exemplo: /, /home, /mnt.
-#
-#Filesystem   Size   Used   Avail   Use%   Mounted on
+Entendendo os valores de métricas do comando __`*df*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Filesystem | Refere-se ao nome ou caminho do sistema de arquivos ou dispositivo de armazenamento, |
+| 02 | Size | Exibe o tamanho total da partição ou do sistema de arquivos, ou seja, a capacidade total disponível para armazenar dados, |
+| 03 | Used | Indica a quantidade de espaço em disco que já está ocupada por dados, |
+| 04 | Available | Mostra o espaço livre disponível na partição ou sistema de arquivos, ou seja, quanto ainda pode ser utilizado para armazenar novos dados. |
+| 05 | Use% | Representa a porcentagem do espaço total que está atualmente em uso. É uma boa métrica para verificar o quanto de um sistema de arquivos está ocupado. |
+| 06 Mounted on | Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos está acessível no sistema. Exemplo: /, /home, /mnt. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO DF:** Filesystem   Size   Used   Avail   Use%   Mounted on
+
+```bash
 #verificando o uso do disco com o comando df
 #opção do comando df: -h (human)
 sudo df -h
+```
 
-#Entendendo os valores de métricas do comando iostat
-#
-A) tps (transactions per second): Número de operações de I/O por segundo para o dispositivo, 
-B) kB_read/s: Taxa de leitura em KB por segundo, 
-C) kB_wrtn/s: Taxa de gravação em KB por segundo,
-D)  kB_dscd/s: Taxa de descarte de dados em KB por segundo, 
-E) kB_read: Quantidade total de dados lidos do dispositivo de armazenamento desde o início
-   da medição, 
-F) kB_wrtn: Quantidade total de dados gravados no dispositivo de armazenamento desde o início
-   da medição, 
-G) kB_dscd: Quantidade total de dados descartados desde o início da medição, 
-H) Device: Nome do dispositivo de armazenamento.
-#
-#tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
+Entendendo os valores de métricas do comando __`*iostat*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | tps | (transactions per second)Número de operações de I/O por segundo para o dispositivo, 
+| 02 | kB_read/s | Taxa de leitura em KB por segundo, 
+| 03 | kB_wrtn/s | Taxa de gravação em KB por segundo,
+| 04 | kB_dscd/s | Taxa de descarte de dados em KB por segundo, 
+| 05 | kB_read | Quantidade total de dados lidos do dispositivo de armazenamento desde o início da medição, 
+| 06 | kB_wrtn | Quantidade total de dados gravados no dispositivo de armazenamento desde o início da medição, 
+| 07 | kB_dscd | Quantidade total de dados descartados desde o início da medição, 
+| 08 | Device | Nome do dispositivo de armazenamento.
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
+
+```bash
 #analisando o desempenho do disco com o comando iostat
 #opção do comando iostat: -h (human)
 sudo iostat -h
+```
 
-#Entendendo os valores de métricas do comando iotop
-#
-A) Total DISK READ: Leitura total de disco desde que o iotop começou a ser executado.
-B) Total DISK WRITE: Escrita total de disco desde que o iotop começou a ser executado.
-C) Current DISK READ: Leitura de disco atual, medida no instante em que o iotop foi atualizado 
-   pela última vez.
-D) Current DISK WRITE: Escrita de disco atual, medida no instante em que o iotop foi atualizado
-   pela última vez.
-#
-#Total DISK READ: 0.00 B/s | Total DISK WRITE: 0.00 B/s | Current DISK READ:  0.00 B/s | Current DISK WRITE: 0.00B/s
-#
-A) TID: Thread ID (ou Task ID): Identifica cada processo ou thread com um ID único,
-B) PRIO: Prioridade do processo: Define a prioridade do processo em relação aos outros. 
-C) USER: O nome de usuário que iniciou o processo — Mostra qual usuário (ou grupo de usuários)
-   está executando o processo ou a thread,
-D) DISK READ: Quantidade de leitura de disco realizada pelo processo, medida em KB/s ou MB/s,
-E) DISK WRITE: Quantidade de escrita de disco realizada pelo processo, medida em KB/s ou MB/s,
-F) SWAPIN: Percentual de tempo que o processo passa trocando (swap) dados entre a memória RAM
-   e o espaço de swap do disco,
-G) IO>: IO wait time — Percentual do tempo que o processo está gastando esperando por operações
-   de entrada/saída (I/O) de disco para serem concluídas,
-H) COMMAND: O nome do comando/processo que está sendo monitorado.
-#
-#TID   PRIO   USER   DISK READ   DISK WRITE   SWAPIN   IO>   COMMAND
+Entendendo os valores de métricas do comando __`*iotop*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Total DISK READ | Leitura total de disco desde que o iotop começou a ser executado. |
+| 02 | Total DISK WRITE | Escrita total de disco desde que o iotop começou a ser executado. |
+| 03 | Current DISK READ | Leitura de disco atual, medida no instante em que o iotop foi atualizado pela última vez. |
+| 04 | Current DISK WRITE | Escrita de disco atual, medida no instante em que o iotop foi atualizado pela última vez. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOTOP:** Total DISK READ: 0.00 B/s | Total DISK WRITE: 0.00 B/s | Current DISK READ:  0.00 B/s | Current DISK WRITE: 0.00B/s
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | TID | Thread ID (ou Task ID): Identifica cada processo ou thread com um ID único, |
+| 02 | PRIO | Prioridade do processo: Define a prioridade do processo em relação aos outros. |
+| 03 | USER | O nome de usuário que iniciou o processo — Mostra qual usuário (ou grupo de usuários) está executando o processo ou a thread, |
+| 04 | DISK READ | Quantidade de leitura de disco realizada pelo processo, medida em KB/s ou MB/s, |
+| 05 | DISK WRITE | Quantidade de escrita de disco realizada pelo processo, medida em KB/s ou MB/s, |
+| 06 | SWAPIN | Percentual de tempo que o processo passa trocando (swap) dados entre a memória RAM e o espaço de swap do disco, |
+| 07 | IO> | IO wait time — Percentual do tempo que o processo está gastando esperando por operações de entrada/saída (I/O) de disco para serem concluídas, |
+| 08 | COMMAND | O nome do comando/processo que está sendo monitorado. |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO IOTOP:** TID   PRIO   USER   DISK READ   DISK WRITE   SWAPIN   IO>   COMMAND
+
+```bash
 #analisando o desempenho do disco com o comando iotop
 #opção do comando iotop: -o (only)
 sudo iotop -o
    a: (accumulate) totalizar por processo
    q: quit
+```
 
-#Entendendo os valores de métricas do comando dstat
-#
-A) -dsk/total-: Esta linha mostra as métricas de leitura e escrita de disco agregadas para
-B) loop, nvme, sda, etc.: Esses são os dispositivos de disco individuais monitorados pelo 
-   dstat. Dependendo do sistema, pode haver dispositivos como:
-     loop: Dispositivos de loopback (normalmente usados para montar arquivos de imagem).
-     nvme: Discos NVMe (de alta performance).
-     sda: Um dos discos de bloco padrão (SATA ou SCSI).
-C) util: Utilização de disco por dispositivo, em termos percentuais.
-D) read writ: Número de transações por segundo (TPS), ou seja, o número de operações de leitura 
-   (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a 
-   quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para 
-   cada dispositivo de disco.
-#
-#-dsk/total- -loop-nvme-sda- -dsk/total-
-#read  writ | util | #read #writ
+Entendendo os valores de métricas do comando __`*dstat*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | -dsk/total- | Esta linha mostra as métricas de leitura e escrita de disco agregadas, | 
+| 02 | loop, nvme, sda, etc. | Esses são os dispositivos de disco individuais monitorados pelo dstat. Dependendo do sistema, pode haver dispositivos como: loop: Dispositivos de loopback (normalmente usados para montar arquivos de imagem). nvme: Discos NVMe (de alta performance). sda: Um dos discos de bloco padrão (SATA ou SCSI). |
+| 03 | util | Utilização de disco por dispositivo, em termos percentuais. |
+| 04 | read writ | Número de transações por segundo (TPS), ou seja, o número de operações de leitura (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a  quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para cada dispositivo de disco. |
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO DSTAT:** -dsk/total- -loop-nvme-sda- -dsk/total-<br>
+**SAÍDA DA SEGUNDA LINHA COMANDO DSTAT:** read  writ | util | #read #writ
+
+```bash
 #analisando o desempenho do disco com o comando dstat (PARA SAIR PRESSIONE: Ctrl+C (quit))
 #opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
 #requests were issued to the device), --disk-tps (number of transfers per second that were
@@ -674,24 +674,25 @@ sudo glances
 ```
 
 ## 07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server
-```bash
-#Entendendo os valores de métricas do do arquivo dev
-#
-A) Interfaces: Interfaces e Rede Física ou lógica do servidor,
-B) Receive and TransmitL Informação de Recebimento e Transmissão da dados na rede,
-C) bytes: O número total de bytes recebidos pela interface.
-D) packets: O número total de pacotes recebidos pela interface.
-E) errs: O número de erros ocorridos ao receber pacotes,
-F) drop: O número de pacotes descartados (drop) durante a recepção,
-G) fifo: O número de erros FIFO (First In, First Out) ao receber pacotes, geralmente relacionados
-   a congestionamento de buffer,
-H) frame: O número de erros de enquadramento (frame errors), que ocorrem quando o quadro de dados
-   de um pacote está corrompido,
-I) compressed: O número de pacotes recebidos que estavam comprimidos,
-J) multicast: O número de pacotes multicast recebidos. 
-#
-#Interface | bytes   packets   errs   drop   fifo   frame   compressed   multicast
 
+Entendendo os valores de métricas do do arquivo __`*/proc/net/dev*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Interfaces | Interfaces e Rede Física ou lógica do servidor, |
+| 02 | Receive and Transmit | Informação de Recebimento e Transmissão da dados na rede, |
+| 03 | bytes | O número total de bytes recebidos pela interface. |
+| 04 | packets | O número total de pacotes recebidos pela interface. |
+| 05 | errs | O número de erros ocorridos ao receber pacotes, |
+| 06 | drop | O número de pacotes descartados (drop) durante a recepção, |
+| 07 | fifo | O número de erros FIFO (First In, First Out) ao receber pacotes, geralmente relacionados a congestionamento de buffer, |
+| 08 | frame | O número de erros de enquadramento (frame errors), que ocorrem quando o quadro de dados de um pacote está corrompido, |
+| 09 | compressed | O número de pacotes recebidos que estavam comprimidos, |
+| 10 | multicast | O número de pacotes multicast recebidos. |
+
+**SAÍDA DA PRIMEIRA LINHA DO ARQUIVO DEV:** Interface | bytes   packets   errs   drop   fifo   frame   compressed   multicast
+
+```bash
 #verificando as informações de estáticas de rede do arquivo net/dev
 sudo cat /proc/net/dev
 
@@ -700,17 +701,20 @@ sudo mii-tool enp0s3
 
 #analisando o desempenho de rede com o comando ethtool
 sudo ethtool enp0s3
+```
 
-#Entendendo os valores de métricas do do arquivo nload
-#
-A) Incoming and Outgoing: Entrada e Saída de dados da Placa de Rede,
-B) Curr (Current): A taxa de transferência atual de dados em kilobits por segundo (kbit/s)
-   ou megabits por segundo (Mbit/s).
-C) Avg (Average): A taxa de transferência média de dados,
-D) Min (Minimum): A taxa de transferência mínima registrada desde o início do monitoramento,
-E) Max (Maximum): A taxa de transferência máxima registrada desde o início do monitoramento,
-F) Ttl (Total): O total de dados transferidos (enviados e recebidos) desde o monitoramento.
+Entendendo os valores de métricas do do arquivo __`*nload*`__
 
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Incoming and Outgoing | Entrada e Saída de dados da Placa de Rede, |
+| 02 | Curr (Current) | A taxa de transferência atual de dados em kilobits por segundo (kbit/s) ou megabits por segundo (Mbit/s). |
+| 03 | Avg (Average) | A taxa de transferência média de dados, |
+| 04 | Min (Minimum) | A taxa de transferência mínima registrada desde o início do monitoramento, |
+| 05 | Max (Maximum) | A taxa de transferência máxima registrada desde o início do monitoramento, |
+| 06 | Ttl (Total) | O total de dados transferidos (enviados e recebidos) desde o monitoramento. |
+
+```bash
 #analisando o desempenho de rede com o comando nload
 #personalizando o comando nload:
 sudo nload
@@ -764,10 +768,10 @@ sudo sensors-detect
 #exibindo a temperatura da CPU e outros sensores no servidor
 sudo sensors
 
-#
+#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
 sudo apt install smartmontools ipmitool nvme-cli
 
-#
+#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
 sudo ipmitool sensor | grep -i "temp"
 
 #analisando a temperatura do disco com o comando smartctl
@@ -776,7 +780,7 @@ sudo ipmitool sensor | grep -i "temp"
 sudo smartctl -A /dev/sda  | grep -i temperature
 sudo nvme smart-log /dev/nvme0 | grep temperature
 
-#
+#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
 sudo nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader
 
 #analisando a temperatura do servidor com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
