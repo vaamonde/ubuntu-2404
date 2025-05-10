@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 09/05/2025<br>
-#Versão: 0.09<br>
+#Data de atualização: 10/05/2025<br>
+#Versão: 0.10<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -28,7 +28,7 @@ Conteúdo estudado nessa configuração:<br>
 #06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server<br>
 #07_ Verificando o Desempenho de Rede (Network) no Ubuntu Server<br>
 #08_ Verificando a Temperatura do Servidor Ubuntu Server (NÃO COMENTADO O VÍDEO)<br>
-#09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+#09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)<br>
 
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu, especificamente desenvolvida para servidores. Enquanto o Ubuntu Desktop é voltado para usuários finais com uma interface gráfica amigável, o Ubuntu Server é otimizado para desempenho e eficiência em ambientes de servidores, geralmente sem uma interface gráfica (GUI) por padrão. Isso permite que ele seja mais leve e utilize menos recursos, o que é ideal para servidores que precisam ser rápidos, estáveis e capazes de gerenciar grandes volumes de trabalho.
 
@@ -53,20 +53,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc
 #instalação dos aplicativos básicos de monitoramento de hardware
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install sysstat nmon btop htop iotop dstat atop nload iftop bmon ethtool stress-ng \
-s-tui lm-sensors acpi i7z glances
+s-tui lm-sensors acpi i7z glances smartmontools nvme-cli
 ```
 
 ## 02_ Verificando a versão do Ubuntu Server
 ```bash
-#verificando a versão do Ubuntu Server 
+#verificando a versão e codinome do Ubuntu Server 
 sudo cat /etc/os-release
 
-#verificando a versão do LSB (Linux Standard Base)
+#verificando a versão do LSB (Linux Standard Base) do Ubuntu Server
 sudo cat /etc/lsb-release
 ```
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
-
 ```bash
 #verificando a versão do Kernel com o comando uname
 #opção do comando uname: -a (all)
@@ -75,18 +74,18 @@ sudo uname -a
 
 Entendendo os valores de saída das informações do Kernel com o comando: __`*uname*`__
 
-**SAÍDA DO COMANDO UNAME:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-
+**SAÍDA DO COMANDO UNAME:** Linux ctnvaamonde.pti.intra 6.8.0-57-generic #59-Ubuntu SMP PREEMPT_DYNAMIC Sat Mar 15 17:40:59 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Linux | Este é o nome do sistema operacional, que é o Linux |
 | 02 | ctnvaamonde.pti.intra | Este é o hostname e FQDN da máquina |
-| 03 | 5.15.0-119-generic | Este é o número da versão do kernel Linux que está rodando no sistema (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: Número de patch, 119: Número da build específica para essa versão do kernel, generic: Indica que este é o kernel genérico do Ubuntu) |
-| 04 | 129-Ubuntu | Esse número indica o número da compilação do kernel |
-| 05 | SMP | Isso significa Symmetric Multiprocessing, o que indica que o kernel foi compilado para suportar múltiplos processadores |
-| 06 | Fri Aug 2 19:25:20 UTC 2024 | Esta é a data e hora em que o kernel foi compilado |
-| 07 | x86_64 x86_64 x86_64 | Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando) |
-| 08 | GNU/Linux | Indica que você está usando o sistema operacional GNU/Linux
+| 03 | 6.8.0-57-generic | Este é o número da versão do kernel Linux que está rodando no sistema (5: Versão principal do kernel, 15: Versão secundária do kernel, 0: Número de patch, 119: Número da build específica para essa versão do kernel, generic: Indica que este é o kernel genérico do Ubuntu) |
+| 04 | #59-Ubuntu | Esse número indica o número da compilação do kernel |
+| 05 | PREEMPT_DYNAMIC | Permite alternar em tempo real entre os modos VOLUNTARY e PREEMPT usando interfaces do sistema |
+| 06 | SMP | Isso significa Symmetric Multiprocessing, o que indica que o kernel foi compilado para suportar múltiplos processadores |
+| 07 | Sat Mar 15 17:40:59 UTC 2025 | Esta é a data e hora em que o kernel foi compilado |
+| 08 | x86_64 x86_64 x86_64 | Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando) |
+| 09 | GNU/Linux | Indica que você está usando o sistema operacional GNU/Linux
 
 ```bash
 #verificando a versão do Kernel com o comando hostnamectl
@@ -95,7 +94,6 @@ sudo hostnamectl
 #verificando a versão do Kernel do arquivo version
 sudo cat /proc/version
 ```
-
 ```bash
 #verificando o tempo de atividade do servidor com o comando uptime
 sudo uptime
@@ -104,7 +102,6 @@ sudo uptime
 Entendendo os valores de saída das métricas do comando: __`*uptime*`__
 
 **SAÍDA DA PRIMEIRA LINHA COMANDO UPTIME:** 13:22:55 up 3 days, 23:53,  1 user,  load average: 1,92, 2,05, 2,06
-
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | 13:22:55 | Hora atual do sistema |
@@ -117,7 +114,6 @@ Entendendo os valores de saída das métricas do comando: __`*uptime*`__
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
 ```
-
 ```bash
 #analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
 sudo top
@@ -155,6 +151,15 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 07 | 0,5 si (software interrupts) | Percentual de tempo gasto com interrupções de software, |
 | 08| 0,0 st (steal) | Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava aguardando porque a CPU física estava sendo usada por outra máquina virtual. |
 
+**SAÍDA DA QUARTA LINHA COMANDO TOP:** MiB Mem :   3916,1 total,   1895,6 free,   1050,7 used,   1208,7 buff/cache <br>
+**SAÍDA DA QUINTA LINHA COMANDO TOP:** MiB Swap:   3916,0 total,   3916,0 free,      0,0 used.   2865,5 avail Mem
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | MiB Mem 3916,1 total/MiB Swap 3916,0 total | Total de memória RAM e Swap disponível no sistema |
+| 02 | MiB Mem 1895,6 free / MiB Swap 3916,0 free | Total de memória RAM e Swap livre no sistema |
+| 02 | MiB Mem 1050,7 used / MiB Swap 0,0 used | Total de memória RAM e Swap utilizada no sistema |
+| 02 | MiB Mem 1208,7 buff/cache / MiB Swap 2865,5 avail Mem | Total de memória RAM e Swap em Buffer/Cache e disponível |
+
 **SAÍDA DAS COLUNAS DO COMANDO TOP:** PID   USER   PR   NI   VIRT   RES   SHR S   %CPU   %MEM   TIME+ COMMAND
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -170,7 +175,6 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 10 | %MEM | Porcentagem da memória física total que o processo está utilizando, |
 | 11 | TIME+ | Tempo total de CPU utilizado pelo processo desde que foi iniciado, |
 | 12 | COMMAND | Nome do comando ou do processo que está sendo executado. |
-
 
 ```bash
 #analisando o desempenho do processador com o comando htop
@@ -196,47 +200,81 @@ Entendendo os valores de métricas do comando: __`*htop*`__
 | 02 | 500 thr | O número total de threads que estão em execução, |
 | 03 | 1 running | O número de processos ou threads que estão atualmente sendo executados pela CPU. |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** Load average: 0.22 0.41 0.65
+**SAÍDA DA TERCEIRA LINHA COMANDO HTOP:** Load average: 0.22 0.41 0.65
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Load average: 0.22 | A carga média nos últimos 1 minuto, |
 | 02 | 0.41 | A carga média nos últimos 5 minutos, |
 | 03 | 0.65 | A carga média nos últimos 15 minutos. |
 
-**SAÍDA DA TERCEIRA LINHA COMANDO HTOP:** Disk IO: 5.2% read: OK write: 140K
+**SAÍDA DA QUARTA LINHA COMANDO HTOP:** Disk IO: 5.2% read: OK write: 140K
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Disk IO: 5.2% | A porcentagem de utilização do disco no momento, indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, |
 | 02 | read: OK | Indica que a leitura do disco está funcionando dentro de parâmetros normais, |
 | 03 | write: 140K | A quantidade de dados sendo gravados no disco por segundo. |
 
-**SAÍDA DA QUARTA LINHA COMANDO HTOP:** Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+**SAÍDA DA QUINTA LINHA COMANDO HTOP:** Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Network rx: 1KiB/s | A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte por segundo, |
 | 02 | tx: 4KiB/s | A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, |
 | 03 | (41/40 packets) | O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes e enviou 40 pacotes. |
 
-**SAÍDA DA QUINTA LINHA COMANDO HTOP:** PSI some CPU: 10.6% 9.29% 9.25%
+**SAÍDA DA SEXTA LINHA COMANDO HTOP:** PSI some CPU: 10.6% 9.29% 9.25%
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) some CPU | Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre a CPU nos últimos 1, 5, e 15 minutos |
 
-**SAÍDA DA SEXTA LINHA COMANDO HTOP:** PSI full IO: 1.25% 1.24% 1.32%
+**SAÍDA DA SÉTIMA LINHA DO COMANDO HTOP:** PSI full IO: 1.25% 1.24% 1.32%
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) full I/O | Os valores 1.25%, 1.24%, 1.32% representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos |
 
-**SAÍDA DA SÉTIMA LINHA COMANDO HTOP:** PSI full memory 0.00% 0.00% 0.00%
+**SAÍDA DA OITAVA LINHA DO COMANDO HTOP:** PSI full memory 0.00% 0.00% 0.00%
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PSI (Pressure Stall Information) full memory | Os valores 0.00% indicam que não houve pressão de memória nos últimos 1, 5, e 15 minutos |
 
+**SAÍDA DA PRIMEIRA COLUNA DO COMANDO HTOP:** Main  PID  USER  PRI  NI  RES  SHR  S  CPU%  MEM%  TIME+  Command
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Main | Mostra a hierarquia do processo (pai/filho), útil quando está com modo de exibição em árvore (F5). |
+| 02 | PID | ID do processo. |
+| 03 | USER | Usuário que está executando o processo. |
+| 04 | PRI | Prioridade do processo (quanto menor, mais prioridade). |
+| 05 | NI | Valor do "nice" (ajusta a prioridade, varia de -20 a +19). |
+| 06 | RES | Memória residente — RAM usada de fato pelo processo (sem swap). |
+| 07 | SHR | Memória compartilhada com outros processos. |
+| 08 | S | Estado do processo: R: Executando (Running), S: Dormindo (Sleeping), D: Espera não-interrompível (Disk Sleep), Z: Zumbi (Zombie), T: Parado (Stopped) |
+| 09 | CPU% | Porcentagem de uso da CPU por esse processo. |
+| 10 | MEM% | Porcentagem de uso da RAM por esse processo. |
+| 11 | TIME+ | Tempo total de CPU usado pelo processo desde que iniciou. |
+| 12 | Command | O comando ou programa que iniciou o processo (com parâmetros, se houver). |
 
+**SAÍDA DA SEGUNDA COLUNA DO COMANDO HTOP:** I/O   PID  USER  IO  DISK R/W  DISK READ  DISK WRITE  SWPD% IOD%  Command
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | I/O | Indica que você está no modo de visualização de entrada/saída (Input/Output). |
+| 02 | PID | ID do processo. |
+| 03 | USER | Usuário que está executando o processo. |
+| 04 | IO | Taxa total de I/O (input/output) combinando leitura e escrita em disco (em KB/s ou MB/s). |
+| 05 | DISK R/W | Leitura + escrita de disco somadas (geralmente em tempo real). |
+| 06 | DISK READ | Leitura de disco por esse processo. |
+| 07 | DISK WRITE | Escrita em disco feita por esse processo. |
+| 08 | SWPD% | Porcentagem de acesso à memória trocada (swap) pelo processo. |
+| 09 | IOD% Porcentagem do tempo que o processo está esperando por I/O (input/output). |
+| 10 | Command | O comando ou aplicativo que iniciou o processo. |
 
+```bash
+#analisando o desempenho do processador com o comando vmstat
+#opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
+sudo vmstat -a -t -w
+```
 
 Entendendo os valores de métricas do comando __`*vmstat*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO VMSTAT:** procs ---memory--- ---swap--- ---io--- ---system--- ---cpu--- ---timestamp---
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | procs | Agrupamento das colunas de Processos: r b |
@@ -245,9 +283,9 @@ Entendendo os valores de métricas do comando __`*vmstat*`__
 | 04 | io | Agrupamento das colunas de Hard Disk: bi bo |
 | 05 | system | Agrupamento das colunas de Sistema: in cs |
 | 06 | cpu | Agrupamento das colunas de Processador CPU: us sy id wa st |
+| 07 | timestamp | Agrupamento de fusionário, data e hora do sistema |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO VMSTAT:** procs ---memory--- ---swap--- ---io--- ---system--- ---cpu---
-
+**SAÍDA DA SEGUNDA LINHA COMANDO VMSTAT:** r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | r (run queue) | Número de processos prontos para execução, |
@@ -267,26 +305,25 @@ Entendendo os valores de métricas do comando __`*vmstat*`__
 | 15 | id (idle) | Percentual de tempo em que a CPU está ociosa, |
 | 16 | wa (wait) | Percentual de tempo que a CPU está ociosa, mas aguardando a finalização de operações de I/O (input/output), |
 | 17 | st (steal time) | Percentual de tempo "roubado" pela CPU em um ambiente virtualizado. |
-
-**SAÍDA DA SEGUNDA LINHA COMANDO VMSTAT:** r   b   swpd   free   inact   active   si   so   bi   bo   in   cs   us   sy   id   wa   st
+| 18 | gu (guest used) | Percentual de memória ocupada por páginas de dados de usuário que ainda estão mapeadas no espaço de endereçamento do processo |
 
 ```bash
-#analisando o desempenho do processador com o comando vmstat
-#opções do comando vmstat: -a (active), -t (timestamp), -w (wide)
-sudo vmstat -a -t -w
+#analisando o desempenho do processador com o comando mpstat
+#opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
+sudo mpstat -P ALL
 ```
 
 Entendendo os valores de métricas do comando __`*mpstat*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO MPSTAT:** Linux 6.8.0-57-generic (ctnvaamonde.pti.intra) 	10/05/2025 	_x86_64_	(2 CPU)
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
-| 01 | Linux 5.15.0-139-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
-| 02 | 08/05/2025 | Data atual do servidor |
+| 01 | Linux 6.8.0-57-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
+| 02 | 10/05/2025 | Data atual do servidor |
 | 03 | _x86_64_ | Arquitetura do Processador do servidor | 
 | 04 | (2 CPU) | Quantidade de Núcleos de Processador ativo no servidor |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO MPSTAT:** Linux 5.15.0-139-generic (ctnvaamonde.pti.intra)   08/05/2025   _x86_64_   (2 CPU)
-
+**SAÍDA DA SEGUNDA LINHA COMANDO MPSTAT:** 11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | 11:23:50 | Hora da análise do desempenho dos processadores, |
@@ -302,25 +339,23 @@ Entendendo os valores de métricas do comando __`*mpstat*`__
 | 11 | %gnice | Percentual de tempo gasto em processos de máquina virtual com  prioridade ajustada, |
 | 12 | %idle | Percentual de tempo que a CPU passa ociosa, sem executar nenhum processo ou esperando por operações de I/O. |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO MPSTAT:** 11:23:50   CPU   %usr   %nice   %sys   %iowait   %irq   %soft   %steal   %guest   %gnice   %idle
-
 ```bash
-#analisando o desempenho do processador com o comando mpstat
-#opção do comando mpstat: -P (cpu list), ALL (all information CPU list)
-sudo mpstat -P ALL
+#analisando o desempenho do processador com o comando iostat
+#opção do comando iostat: -h (human)
+sudo iostat -h
 ```
 
 Entendendo os valores de métricas do comando __`*iostat*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** Linux 6.8.0-57-generic (ctnvaamonde.pti.intra) 	10/05/2025 	_x86_64_	(2 CPU)
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
-| 01 | Linux 5.15.0-139-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
-| 02 | 08/05/2025 | Data atual do servidor |
+| 01 | Linux 6.8.0-57-generic (ctnvaamonde.pti.intra) | Versão do Kernel rodando no servidor |
+| 02 | 10/05/2025 | Data atual do servidor |
 | 03 | _x86_64_ | Arquitetura do Processador do servidor | 
 | 04 | (2 CPU) | Quantidade de Núcleos de Processador ativo no servidor |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** Linux 5.15.0-139-generic (ctnvaamonde.pti.intra)   08/05/2025   _x86_64_   (2 CPU)
-
+**SAÍDA DA SEGUNDA LINHA COMANDO IOSTAT:** avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | avg-cpu | visão geral da utilização da CPU; |
@@ -331,26 +366,18 @@ Entendendo os valores de métricas do comando __`*iostat*`__
 | 06 | %steal | Percentual de tempo que foi "roubado" da CPU por outras máquinas virtuais em um ambiente virtualizado, |
 | 07 | %idle | Percentual de tempo que a CPU passou completamente ociosa
 
-**SAÍDA DA SEGUNDA LINHA COMANDO IOSTAT:** avg-cpu:   %user   %nice %system   %iowait   %steal   %idle
-
+**SAÍDA DA TERCEIRA LINHA COMANDO IOSTAT:** Device tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
-| 01 | Device | Nome do dispositivo de armazenamento | 
-| 02 | tps (transactions per second) | Número de operações de I/O por segundo para o dispositivo, |
-| 03 | kB_read/s | Taxa de leitura em KB por segundo, |
-| 04 | kB_wrtn/s | Taxa de gravação em KB por segundo, |
-| 05 | kB_dscd/s | Taxa de descarte de dados em KB por segundo, |
-| 06 | kB_read | Quantidade total de dados lidos do dispositivo de armazenamento desde o início da medição, |
-| 07 | kB_wrtn | Quantidade total de dados gravados no dispositivo de armazenamento desde o início da medição, | 
-| 08 | kB_dscd | Quantidade total de dados descartados desde o início da medição, |
+| 01 | tps (transactions per second) | Número de operações de I/O por segundo para o dispositivo, |
+| 02 | kB_read/s | Taxa de leitura em KB por segundo, |
+| 03 | kB_wrtn/s | Taxa de gravação em KB por segundo, |
+| 04 | kB_dscd/s | Taxa de descarte de dados em KB por segundo, |
+| 05 | kB_read | Quantidade total de dados lidos do dispositivo de armazenamento desde o início da medição, |
+| 06 | kB_wrtn | Quantidade total de dados gravados no dispositivo de armazenamento desde o início da medição, | 
+| 07 | kB_dscd | Quantidade total de dados descartados desde o início da medição, |
+| 08 | Device | Nome do dispositivo de armazenamento | 
 
-**SAÍDA DA SEGUNDA LINHA COMANDO IOSTAT:** Device tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd
-
-```bash
-#analisando o desempenho do processador com o comando iostat
-#opção do comando iostat: -h (human)
-sudo iostat -h
-```
 ```bash
 #analisando o desempenho do processador com o comando nmon
 #personalizando o comando nmon:
@@ -374,8 +401,14 @@ sudo btop
 
 **OBSERVAÇÃO IMPORTANTE NÃO FOI MOSTRADO NO VÍDEO O COMANDO:** __`*atop*`__ SEGUE AS SUAS MÉTRICAS.
 
+```bash
+#analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
+sudo atop
+```
+
 Entendendo os valores de métricas do comando __`*atop*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO ATOP:** PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | sys 8h51m | Tempo total gasto pelo sistema em modo kernel (modo de sistema ou "system mode") nas últimas 8 horas e 51 minutos, |
@@ -388,8 +421,7 @@ Entendendo os valores de métricas do comando __`*atop*`__
 | 08 | clones 917e3 | Número de processos clonados (geralmente subprocessos ou threads) no sistema, desde que o monitoramento foi iniciado. O valor 917e3 representa 917.000 clones. |
 | 09 | exit 1 | Número de processos que saíram ou terminaram durante o período de monitoramento. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO ATOP:** PRC  | sys   8h51m | user   14h41m | #proc   317 | #trun   2 | #tslpi   1089 | #tslpu   1 | #zombie   0 | clones 917e3 | #exit   1
-
+**SAÍDA DA SEGUNDA LINHA COMANDO ATOP:** PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PID | Identificador do processo (Process ID), |
@@ -408,13 +440,8 @@ Entendendo os valores de métricas do comando __`*atop*`__
 | 14 | CMD | O nome do comando ou programa associado ao processo, |
 | 15 | 1/6 | O índice da página exibida (como 1/6).X |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO ATOP:** PID   SYSCPU   USRCPU   VGROW   RGROW   RUID   EUID   ST   EXC   THR   S   CPUNR   CPU   CMD   1/6
-
 ```bash
-#analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
-sudo atop
-
-#analisando o desempenho do processador com o comando glances (PARA SAIR PRESSIONE: q (quit)) - (NÃO FOI COMENTADO NO VÍDEO)
+#analisando o desempenho do processador com o comando glances (PARA SAIR PRESSIONE: q (quit))
 sudo glances
 ```
 
@@ -423,9 +450,15 @@ sudo glances
 #verificando as informações de memória do arquivo meminfo
 sudo cat /proc/meminfo
 ```
+```bash
+#analisando o desempenho da memória com o comando free
+#opções do comando free: -h (human), -m (megabyte), -t (total)
+sudo free -h -m -t
+```
 
 Entendendo os valores de métricas do comando __`*free*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO FREE:** total   used   free   shared   buff/cache   available
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | total | Esta coluna mostra a quantidade total de memória disponível no sistema, |
@@ -435,13 +468,7 @@ Entendendo os valores de métricas do comando __`*free*`__
 | 05 | buff/cache | Exibe a quantidade de memória que está sendo usada pelo sistema para buffers e cache, |
 | 06 | available | Quantidade de memória que está disponível para ser usada por novos processos, levando em consideração a memória que pode ser liberada de buffers e cache. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO FREE:** total   used   free   shared   buff/cache   available
-
 ```bash
-#analisando o desempenho da memória com o comando free
-#opções do comando free: -h (human), -m (megabyte), -t (total)
-sudo free -h -m -t
-
 #analisando o desempenho da memória com o comando vmstat
 sudo vmstat 
 
@@ -451,9 +478,15 @@ sudo top
 #analisando o desempenho da memória com o comando htop
 sudo htop
 ```
+```bash
+#analisando o desempenho da memória com o comando sar
+#opções do comando sar: -h (human), -r (Report memory utilization statistics), 1 (one second), 5 (five lines)
+sudo sar -h -r 1 5
+```
 
 Entendendo os valores de métricas do comando __`*sar*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO SAR:** Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Linux 5.15.0-119-generic | Esta é a versão do kernel Linux que o sistema está rodando. |
@@ -462,10 +495,7 @@ Entendendo os valores de métricas do comando __`*sar*`__
 | 04 | x86_64 | Isso indica a arquitetura da CPU, que é de 64 bits (x86_64), comum em CPUs modernas. |
 | 05 | (8 CPU) | Indica que o sistema tem 8 núcleos de CPU disponíveis (sejam físicos ou lógicos, como no caso de processadores com Hyper-Threading). |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO SAR:** Linux 5.15.0-119-generic   (ctnvaamonde)   25/09/2024   _x86_64_   (8 CPU)
-
-Entendendo os valores de métricas do comando __`*sar*`__
-
+**SAÍDA DA SEGUNDA LINHA COMANDO SAR:** 09:55:21   kbmemfree   kbavail   kbmemused   %memused   kbbuffers   kbcached   kbcommit   %commit   kbactive   kbinact   kbdirty
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | 09:55:21 | O horário em que a amostra foi coletada. |
@@ -481,24 +511,25 @@ Entendendo os valores de métricas do comando __`*sar*`__
 | 11 | kbinact | Quantidade de memória inativa que foi usada recentemente e está pronta para ser movida  para o swap ou liberada, se necessário (em kilobytes). |
 | 12 | kbdirty | Quantidade de memória que contém dados que foram modificados mas ainda não foram gravados em disco (em kilobytes). |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO FREE:** 09:55:21   kbmemfree   kbavail   kbmemused   %memused   kbbuffers   kbcached   kbcommit   %commit   kbactive   kbinact   kbdirty
-
 ```bash
-#analisando o desempenho da memória com o comando sar
-#opções do comando sar: -h (human), -r (Report memory utilization statistics), 1 (one second), 5 (five lines)
-sudo sar -h -r 1 5
-
 #analisando o desempenho da memória com o comando btop
 sudo btop
 
-#analisando o desempenho da memória com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+#analisando o desempenho da memória com o comando glances (PARA SAIR: q (quit))
 sudo glances
 ```
 
 ## 06_ Verificando o Desempenho do Disco HD (Hard-Disk) no Ubuntu Server
+```bash
+#verificando as informações de estatísticas de disco do arquivo diskstats
+#opção do comando grep: -i (ignore case sensitive)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo cat /proc/diskstats | grep -i sda
+```
 
 Entendendo os valores de métricas do arquivo __`*diskstats*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO DISKSTATS:** 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 519283 2837821
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | 8 | (major number) Número major que identifica o driver do dispositivo de bloco, |
@@ -522,17 +553,16 @@ Entendendo os valores de métricas do arquivo __`*diskstats*`__
 | 19 | 519283 | (flush requests) Número total de solicitações de flush, |
 | 20 | 2837821 | (flush time) Tempo total (em milissegundos) gasto com solicitações de flush. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO DISKSTATS:** 8 0 sda 366584 41475 22505582 693820 1594861 1615195 35142920 3921960 0 4599484 7453602 0 0 0 0 519283 2837821
-
 ```bash
-#verificando as informações de estáticas de disco do arquivo diskstats
+#verificando as informações de ponto de montagem do arquivo mounts
 #opção do comando grep: -i (ignore case sensitive)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-sudo cat /proc/diskstats | grep -i sda
+sudo cat /proc/mounts | grep -i /dev/mapper/
 ```
 
 Entendendo os valores de métricas do arquivo __`*mounts*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO MOUNTS:** /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | /dev/mapper/ubuntu--vg-ubuntu--lv | Este é o dispositivo de bloco onde o sistema de arquivos está armazenado, |
@@ -543,17 +573,15 @@ Entendendo os valores de métricas do arquivo __`*mounts*`__
 | 06 | 0 | O primeiro 0 refere-se ao campo de dump. Um valor de 0 significa que o comando dump (utilizado para fazer backups) não vai considerar esse sistema de arquivos para backup, |
 | 07 | 0 | O segundo 0 refere-se ao campo de fsck order. Um valor de 0 indica que o utilitário fsck (que verifica e repara sistemas de arquivos) não será executado automaticamente durante a inicialização para este sistema de arquivos. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO MOUNTS:** /dev/mapper/ubuntu--vg-ubuntu--lv   /   ext4   rw,relatime   0   0
-
 ```bash
-#verificando as informações de ponto de montagem do arquivo mounts
-#opção do comando grep: -i (ignore case sensitive)
-#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-sudo cat /proc/mounts | grep -i /dev/mapper/
+#verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
+#opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
+sudo fdisk -l /dev/sda
 ```
 
 Entendendo os valores de métricas do comando __`*fdisk*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO FDISK:** Device   Start   End   Sectors   Size   Type
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Device | Este campo mostra o nome do dispositivo de bloco ou partição, |
@@ -563,16 +591,15 @@ Entendendo os valores de métricas do comando __`*fdisk*`__
 | 05 | Size | Este campo exibe o tamanho total da partição em uma unidade de medida legível, |
 | 06 | Type | Este campo indica o tipo de partição ou o sistema de arquivos associado à partição. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO FDISK:** Device   Start   End   Sectors   Size   Type
-
 ```bash
-#verificando as informações do disco SDA (Serial-ATA-Disk-A) com o comando fdisk
-#opção do comando fdisk: -l (list), /dev/sda (hard disk SATA)
-sudo fdisk -l /dev/sda
+#verificando o uso do disco com o comando df
+#opção do comando df: -h (human)
+sudo df -h
 ```
 
 Entendendo os valores de métricas do comando __`*df*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO DF:** Filesystem   Size   Used   Avail   Use%   Mounted on
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Filesystem | Refere-se ao nome ou caminho do sistema de arquivos ou dispositivo de armazenamento, |
@@ -582,16 +609,15 @@ Entendendo os valores de métricas do comando __`*df*`__
 | 05 | Use% | Representa a porcentagem do espaço total que está atualmente em uso. É uma boa métrica para verificar o quanto de um sistema de arquivos está ocupado. |
 | 06 | Mounted on | Indica o ponto de montagem, ou seja, o diretório onde a partição ou o sistema de arquivos está acessível no sistema. Exemplo: /, /home, /mnt. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO DF:** Filesystem   Size   Used   Avail   Use%   Mounted on
-
 ```bash
-#verificando o uso do disco com o comando df
-#opção do comando df: -h (human)
-sudo df -h
+#analisando o desempenho do disco com o comando iostat
+#opção do comando iostat: -h (human)
+sudo iostat -h
 ```
 
 Entendendo os valores de métricas do comando __`*iostat*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | tps | (transactions per second) Número de operações de I/O por segundo para o dispositivo, 
@@ -603,16 +629,17 @@ Entendendo os valores de métricas do comando __`*iostat*`__
 | 07 | kB_dscd | Quantidade total de dados descartados desde o início da medição, 
 | 08 | Device | Nome do dispositivo de armazenamento.
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO IOSTAT:** tps   kB_read/s   kB_wrtn/s   kB_dscd/s   kB_read   kB_wrtn   kB_dscd   Device
-
 ```bash
-#analisando o desempenho do disco com o comando iostat
-#opção do comando iostat: -h (human)
-sudo iostat -h
+#analisando o desempenho do disco com o comando iotop
+#opção do comando iotop: -o (only)
+sudo iotop -o
+   a: (accumulate) totalizar por processo
+   q: quit
 ```
 
 Entendendo os valores de métricas do comando __`*iotop*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO IOTOP:** Total DISK READ: 0.00 B/s | Total DISK WRITE: 0.00 B/s | Current DISK READ:  0.00 B/s | Current DISK WRITE: 0.00B/s
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Total DISK READ | Leitura total de disco desde que o iotop começou a ser executado. |
@@ -620,8 +647,7 @@ Entendendo os valores de métricas do comando __`*iotop*`__
 | 03 | Current DISK READ | Leitura de disco atual, medida no instante em que o iotop foi atualizado pela última vez. |
 | 04 | Current DISK WRITE | Escrita de disco atual, medida no instante em que o iotop foi atualizado pela última vez. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO IOTOP:** Total DISK READ: 0.00 B/s | Total DISK WRITE: 0.00 B/s | Current DISK READ:  0.00 B/s | Current DISK WRITE: 0.00B/s
-
+**SAÍDA DA SEGUNDA LINHA COMANDO IOTOP:** TID   PRIO   USER   DISK READ   DISK WRITE   SWAPIN   IO>   COMMAND
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | TID | Thread ID (ou Task ID): Identifica cada processo ou thread com um ID único, |
@@ -633,18 +659,18 @@ Entendendo os valores de métricas do comando __`*iotop*`__
 | 07 | IO> | IO wait time — Percentual do tempo que o processo está gastando esperando por operações de entrada/saída (I/O) de disco para serem concluídas, |
 | 08 | COMMAND | O nome do comando/processo que está sendo monitorado. |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO IOTOP:** TID   PRIO   USER   DISK READ   DISK WRITE   SWAPIN   IO>   COMMAND
-
 ```bash
-#analisando o desempenho do disco com o comando iotop
-#opção do comando iotop: -o (only)
-sudo iotop -o
-   a: (accumulate) totalizar por processo
-   q: quit
+#analisando o desempenho do disco com o comando dstat (PARA SAIR PRESSIONE: Ctrl+C (quit))
+#opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
+#requests were issued to the device), --disk-tps (number of transfers per second that were
+#issued to the device)
+sudo dstat -d --disk-util --disk-tps
 ```
 
 Entendendo os valores de métricas do comando __`*dstat*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO DSTAT:** -dsk/total- -loop-nvme-sda- -dsk/total-<br>
+**SAÍDA DA SEGUNDA LINHA COMANDO DSTAT:** read  writ | util | #read #writ
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | -dsk/total- | Esta linha mostra as métricas de leitura e escrita de disco agregadas, | 
@@ -652,24 +678,20 @@ Entendendo os valores de métricas do comando __`*dstat*`__
 | 03 | util | Utilização de disco por dispositivo, em termos percentuais. |
 | 04 | read writ | Número de transações por segundo (TPS), ou seja, o número de operações de leitura (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a  quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para cada dispositivo de disco. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO DSTAT:** -dsk/total- -loop-nvme-sda- -dsk/total-<br>
-**SAÍDA DA SEGUNDA LINHA COMANDO DSTAT:** read  writ | util | #read #writ
-
 ```bash
-#analisando o desempenho do disco com o comando dstat (PARA SAIR PRESSIONE: Ctrl+C (quit))
-#opções do comando dstat: -d (disk), --disk-util (percentage of CPU time during which I/O 
-#requests were issued to the device), --disk-tps (number of transfers per second that were
-#issued to the device)
-sudo dstat -d --disk-util --disk-tps
-
-#analisando o desempenho do disco com o comando glances (PARA SAIR PRESSIONE: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+#analisando o desempenho do disco com o comando glances (PARA SAIR PRESSIONE: q (quit))
 sudo glances
 ```
 
 ## 07_ Verificando o Desempenho da Rede (Network) no Ubuntu Server
+```bash
+#verificando as informações de estatísticas de rede do arquivo net/dev
+sudo cat /proc/net/dev
+```
 
 Entendendo os valores de métricas do do arquivo __`*/proc/net/dev*`__
 
+**SAÍDA DA PRIMEIRA LINHA DO ARQUIVO DEV:** Interface | bytes   packets   errs   drop   fifo   frame   compressed   multicast
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Interfaces | Interfaces e Rede Física ou lógica do servidor, |
@@ -683,17 +705,20 @@ Entendendo os valores de métricas do do arquivo __`*/proc/net/dev*`__
 | 09 | compressed | O número de pacotes recebidos que estavam comprimidos, |
 | 10 | multicast | O número de pacotes multicast recebidos. |
 
-**SAÍDA DA PRIMEIRA LINHA DO ARQUIVO DEV:** Interface | bytes   packets   errs   drop   fifo   frame   compressed   multicast
-
 ```bash
-#verificando as informações de estáticas de rede do arquivo net/dev
-sudo cat /proc/net/dev
-
 #analisando o desempenho de rede com o comando mii-tool
 sudo mii-tool enp0s3
 
 #analisando o desempenho de rede com o comando ethtool
 sudo ethtool enp0s3
+```
+```bash
+#analisando o desempenho de rede com o comando nload
+#personalizando o comando nload:
+sudo nload
+  F2
+     Show multiple devices: [X] (Utilizar o TAB para marcar)
+  q (quit)
 ```
 
 Entendendo os valores de métricas do do arquivo __`*nload*`__
@@ -708,13 +733,6 @@ Entendendo os valores de métricas do do arquivo __`*nload*`__
 | 06 | Ttl (Total) | O total de dados transferidos (enviados e recebidos) desde o monitoramento. |
 
 ```bash
-#analisando o desempenho de rede com o comando nload
-#personalizando o comando nload:
-sudo nload
-  F2
-     Show multiple devices: [X] (Utilizar o TAB para marcar)
-  q (quit)
-
 #analisando o desempenho de rede com o comando iftop
 #personalizando o comando iftop:
 sudo iftop
@@ -732,7 +750,7 @@ sudo bmon
    i: habilitar informações adicionais da placa de rede
    q: sair (quit)
 
-#analisando o desempenho de rede com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+#analisando o desempenho de rede com o comando glances (PARA SAIR: q (quit))
 sudo glances
 ```
 
@@ -741,6 +759,8 @@ sudo glances
 #detectando os sensores de temperatura disponível no servidor
 sudo sensors-detect
 ```
+
+**OBSERVAÇÃO IMPORTANTE:** Antes de iniciar a utilizar o sensors é necessário fazer a configuração das opções de monitoramento de temperatura do sistema:
 
 01. Do you want to scan for them? This is totally safe. (YES/no): yes
 02. Do you want to scan for Super I/O sensors? (YES/no): yes
@@ -761,27 +781,25 @@ sudo sensors-detect
 #exibindo a temperatura da CPU e outros sensores no servidor
 sudo sensors
 
-#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
-sudo apt install smartmontools ipmitool nvme-cli
-
-#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
-sudo ipmitool sensor | grep -i "temp"
-
-#analisando a temperatura do disco com o comando smartctl
-#opção do comando smartctl: -A (attributes)
+#analisando a temperatura do hard disk com o comando smartctl
+#opção do comando smartctl: -A (attributes), /dev/sda (hard disk device)
 #opção do comando grep: -i (ignore-case)
 sudo smartctl -A /dev/sda  | grep -i temperature
-sudo nvme smart-log /dev/nvme0 | grep temperature
 
-#EM DESENVOLVIMEMTO/DOCUMENTAÇÃO
+#analisando a temperatura do hard disk NVMe com o comando nvme
+#opção do comando nvme: smart-log (Retrieve Smart Log)
+#opção do comando grep: -i (ignore-case)
+sudo nvme smart-log /dev/nvme0 | grep -i temperature
+
+#analisando a temperatura da placa de vídeo off-board NVIDIA
 sudo nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader
 
-#analisando a temperatura do servidor com o comando glances (PARA SAIR: q (quit)) - (NÃO COMENTADO NO VÍDEO)
+#analisando a temperatura do servidor com o comando glances (PARA SAIR: q (quit))
 #opção do comando glances: --enable-plugin
 sudo glances --enable-plugin sensors
 ```
 
-## 09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+## 09_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
 
 Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/manpages/xenial/man1/stress-ng.1.html<br>
 Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1<br>
