@@ -601,7 +601,7 @@ Entendendo os valores de métricas do comando __`*iostat*`__
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
-| 01 | tps | (transactions per second)Número de operações de I/O por segundo para o dispositivo, 
+| 01 | tps | (transactions per second) Número de operações de I/O por segundo para o dispositivo, 
 | 02 | kB_read/s | Taxa de leitura em KB por segundo, 
 | 03 | kB_wrtn/s | Taxa de gravação em KB por segundo,
 | 04 | kB_dscd/s | Taxa de descarte de dados em KB por segundo, 
