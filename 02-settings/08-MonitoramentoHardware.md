@@ -67,7 +67,15 @@ sudo cat /etc/lsb-release
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
 
+```bash
+#verificando a versão do Kernel com o comando uname
+#opção do comando uname: -a (all)
+sudo uname -a
+```
+
 Entendendo os valores de saída das informações do Kernel com o comando: __`*uname*`__
+
+**SAÍDA DO COMANDO UNAME:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -80,13 +88,7 @@ Entendendo os valores de saída das informações do Kernel com o comando: __`*u
 | 07 | x86_64 x86_64 x86_64 | Isso representa a arquitetura da CPU e do sistema (O primeiro x86_64 indica a arquitetura do processador, O segundo x86_64 mostra que o sistema operacional, O terceiro x86_64 também se refere à arquitetura de hardware que o kernel está usando) |
 | 08 | GNU/Linux | Indica que você está usando o sistema operacional GNU/Linux
 
-**SAÍDA DO COMANDO UNAME:** Linux ctnvaamonde.pti.intra 5.15.0-119-generic #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-
 ```bash
-#verificando a versão do Kernel com o comando uname
-#opção do comando uname: -a (all)
-sudo uname -a
-
 #verificando a versão do Kernel com o comando hostnamectl
 sudo hostnamectl
 
@@ -94,7 +96,14 @@ sudo hostnamectl
 sudo cat /proc/version
 ```
 
+```bash
+#verificando o tempo de atividade do servidor com o comando uptime
+sudo uptime
+```
+
 Entendendo os valores de saída das métricas do comando: __`*uptime*`__
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO UPTIME:** 13:22:55 up 3 days, 23:53,  1 user,  load average: 1,92, 2,05, 2,06
 
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
@@ -103,23 +112,20 @@ Entendendo os valores de saída das métricas do comando: __`*uptime*`__
 | 03 | 1 user | Indica que há um usuário logado no sistema no momento |
 | 04 | load average: 1,92, 2,05, 2,06 | Refere-se à "carga média" do sistema nos últimos 1, 5 e 15 minutos, respectivamente. |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO UPTIME:** 13:22:55 up 3 days, 23:53,  1 user,  load average: 1,92, 2,05, 2,06
-
-```bash
-#verificando o tempo de atividade do servidor com o comando uptime
-#opção do coma ndo uptime: -s (system up since)
-sudo uptime -s
-sudo uptime
-```
-
 ## 04_ Verificando o Desempenho do Processador CPU (Central Processing Unit) no Ubuntu Server
 ```bash
 #verificando as informações do processador do arquivo cpuinfo
 sudo cat /proc/cpuinfo
 ```
 
+```bash
+#analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
+sudo top
+```
+
 Entendendo os valores de saída das métricas do comando: __`*top*`__
 
+**SAÍDA DA PRIMEIRA LINHA COMANDO TOP:** top - 16:43:02   up   4:11,   1 user,   load average: 1,18, 1,55, 1,25
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | top | Comando top em execução
@@ -128,8 +134,7 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 04 | 1 user | Quantidade de usuários logados e usando o sistema |
 | 05 | load average: 1,18, 1,55, 1,25 | A carga média nos últimos 1 minuto, 5 minutos e 15 minutos |
 
-**SAÍDA DA PRIMEIRA LINHA COMANDO TOP:** top - 16:43:02   up   4:11,   1 user,   load average: 1,18, 1,55, 1,25
-
+**SAÍDA DA SEGUNDA LINHA COMANDO TOP:** Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | Tasks: 168 total | O número total de processos no sistema |
@@ -138,8 +143,7 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 04 | 0 stopped | Número de processos que foram interrompidos (suspensos) |
 | 05 | 0 zombie | Número de processos zumbis. |
 
-**SAÍDA DA SEGUNDA LINHA COMANDO TOP:** Tasks: 168 total,   1 running,   167 sleeping,   0 stopped,   0 zombie
-
+**SAÍDA DA TERCEIRA LINHA COMANDO TOP:** %Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | %CPU(s): 18,9 us (user space) | Percentual de tempo que a CPU está gastando executando processos de usuários, |
@@ -151,8 +155,7 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 07 | 0,5 si (software interrupts) | Percentual de tempo gasto com interrupções de software, |
 | 08| 0,0 st (steal) | Percentual de tempo que a CPU virtual (em ambientes virtualizados) estava aguardando porque a CPU física estava sendo usada por outra máquina virtual. |
 
-**SAÍDA DA TERCEIRA LINHA COMANDO TOP:** %Cpu(s): 18,9 us,   4,3 sy,   1,2 ni,  74,7 id,   0,3 wa,   0,0 hi,   0,5 si,   0,0 st
-
+**SAÍDA DAS COLUNAS DO COMANDO TOP:** PID   USER   PR   NI   VIRT   RES   SHR S   %CPU   %MEM   TIME+ COMMAND
 | ID | VALORES | INFORMAÇÃO|
 |----|---------|-----------|
 | 01 | PID | Identificador do processo (Process ID), |
@@ -168,64 +171,6 @@ Entendendo os valores de saída das métricas do comando: __`*top*`__
 | 11 | TIME+ | Tempo total de CPU utilizado pelo processo desde que foi iniciado, |
 | 12 | COMMAND | Nome do comando ou do processo que está sendo executado. |
 
-**SAÍDA DAS COLUNAS DO COMANDO TOP:** PID   USER   PR   NI   VIRT   RES   SHR S   %CPU   %MEM   TIME+ COMMAND
-
-```bash
-#analisando o desempenho do processador com o comando top (PARA SAIR PRESSIONE: q (quit))
-sudo top
-```
-
-Entendendo os valores de métricas do comando: __`*htop*`__
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | 72 | O número de processos ativos no sistema, |
-| 02 | 500 thr | O número total de threads que estão em execução, |
-| 03 | 1 running | O número de processos ou threads que estão atualmente sendo executados pela CPU. |
-
-**SAÍDA DA PRIMEIRA LINHA COMANDO HTOP:** Tasks: 72, 500 thr; 1 running
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | Load average: 0.22 | A carga média nos últimos 1 minuto, |
-| 02 | 0.41 | A carga média nos últimos 5 minutos, |
-| 03 | 0.65 | A carga média nos últimos 15 minutos. |
-
-**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** Load average: 0.22 0.41 0.65
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | Disk IO: 5.2% | A porcentagem de utilização do disco no momento, indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, |
-| 02 | read: OK | Indica que a leitura do disco está funcionando dentro de parâmetros normais, |
-| 03 | write: 140K | A quantidade de dados sendo gravados no disco por segundo. |
-
-**SAÍDA DA TERCEIRA LINHA COMANDO HTOP:** Disk IO: 5.2% read: OK write: 140K
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | Network rx: 1KiB/s | A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte por segundo, |
-| 02 | tx: 4KiB/s | A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, |
-| 03 | (41/40 packets) | O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes e enviou 40 pacotes. |
-
-**SAÍDA DA QUARTA LINHA COMANDO HTOP:** Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | PSI (Pressure Stall Information) some CPU | Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre a CPU nos últimos 1, 5, e 15 minutos |
-
-**SAÍDA DA QUINTA LINHA COMANDO HTOP:** PSI some CPU: 10.6% 9.29% 9.25%
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | PSI (Pressure Stall Information) full I/O | Os valores 1.25%, 1.24%, 1.32% representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos |
-
-**SAÍDA DA SEXTA LINHA COMANDO HTOP:** PSI full IO: 1.25% 1.24% 1.32%
-
-| ID | VALORES | INFORMAÇÃO|
-|----|---------|-----------|
-| 01 | PSI (Pressure Stall Information) full memory | Os valores 0.00% indicam que não houve pressão de memória nos últimos 1, 5, e 15 minutos |
-
-**SAÍDA DA SÉTIMA LINHA COMANDO HTOP:** PSI full memory 0.00% 0.00% 0.00%
 
 ```bash
 #analisando o desempenho do processador com o comando htop
@@ -241,6 +186,54 @@ sudo htop
       PSI full memory <Enter>
   F10 (Quit)
 ```
+
+Entendendo os valores de métricas do comando: __`*htop*`__
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO HTOP:** Tasks: 72, 500 thr; 1 running
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | 72 | O número de processos ativos no sistema, |
+| 02 | 500 thr | O número total de threads que estão em execução, |
+| 03 | 1 running | O número de processos ou threads que estão atualmente sendo executados pela CPU. |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO HTOP:** Load average: 0.22 0.41 0.65
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Load average: 0.22 | A carga média nos últimos 1 minuto, |
+| 02 | 0.41 | A carga média nos últimos 5 minutos, |
+| 03 | 0.65 | A carga média nos últimos 15 minutos. |
+
+**SAÍDA DA TERCEIRA LINHA COMANDO HTOP:** Disk IO: 5.2% read: OK write: 140K
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Disk IO: 5.2% | A porcentagem de utilização do disco no momento, indicando quanta capacidade de leitura/gravação o disco está utilizando em relação ao seu potencial máximo, |
+| 02 | read: OK | Indica que a leitura do disco está funcionando dentro de parâmetros normais, |
+| 03 | write: 140K | A quantidade de dados sendo gravados no disco por segundo. |
+
+**SAÍDA DA QUARTA LINHA COMANDO HTOP:** Network rx: 1KiB/s tx: 4KiB/s (41/40 packets)
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Network rx: 1KiB/s | A taxa de recebimento de dados pela interface de rede, no caso 1 kilobyte por segundo, |
+| 02 | tx: 4KiB/s | A taxa de envio de dados pela interface de rede, no caso 4 kilobytes por segundo, |
+| 03 | (41/40 packets) | O número de pacotes recebidos/enviados pela rede. Aqui você recebeu 41 pacotes e enviou 40 pacotes. |
+
+**SAÍDA DA QUINTA LINHA COMANDO HTOP:** PSI some CPU: 10.6% 9.29% 9.25%
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) some CPU | Os valores 10.6%, 9.29%, 9.25% indicam a pressão sobre a CPU nos últimos 1, 5, e 15 minutos |
+
+**SAÍDA DA SEXTA LINHA COMANDO HTOP:** PSI full IO: 1.25% 1.24% 1.32%
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) full I/O | Os valores 1.25%, 1.24%, 1.32% representam a pressão sobre o sistema de I/O nos últimos 1, 5, e 15 minutos |
+
+**SAÍDA DA SÉTIMA LINHA COMANDO HTOP:** PSI full memory 0.00% 0.00% 0.00%
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | PSI (Pressure Stall Information) full memory | Os valores 0.00% indicam que não houve pressão de memória nos últimos 1, 5, e 15 minutos |
+
+
+
 
 Entendendo os valores de métricas do comando __`*vmstat*`__
 
