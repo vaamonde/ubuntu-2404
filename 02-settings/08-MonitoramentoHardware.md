@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 10/05/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 03/06/2025<br>
+#Versão: 0.11<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -399,7 +399,7 @@ sudo btop
    Tecla: q (quit) para sair
 ```
 
-**OBSERVAÇÃO IMPORTANTE NÃO FOI MOSTRADO NO VÍDEO O COMANDO:** __`*atop*`__ SEGUE AS SUAS MÉTRICAS.
+**OBSERVAÇÃO IMPORTANTE:** NÃO FOI MOSTRADO NO VÍDEO O COMANDO: __`*atop*`__ SEGUE AS SUAS MÉTRICAS.
 
 ```bash
 #analisando o desempenho do processador com o comando atop (PARA SAIR PRESSIONE: q (quit))
@@ -677,6 +677,29 @@ Entendendo os valores de métricas do comando __`*dstat*`__
 | 02 | loop, nvme, sda, etc. | Esses são os dispositivos de disco individuais monitorados pelo dstat. Dependendo do sistema, pode haver dispositivos como: loop: Dispositivos de loopback (normalmente usados para montar arquivos de imagem). nvme: Discos NVMe (de alta performance). sda: Um dos discos de bloco padrão (SATA ou SCSI). |
 | 03 | util | Utilização de disco por dispositivo, em termos percentuais. |
 | 04 | read writ | Número de transações por segundo (TPS), ou seja, o número de operações de leitura (#read) e escrita (#writ) feitas no dispositivo de disco por segundo. Esse valor reflete a  quantidade de I/O (entrada/saída) em termos de transações de leitura e escrita, medido para cada dispositivo de disco. |
+
+```bash
+#analisando o desempenho do disco com o comando hdparm (NÃO COMENTADO NO VÍDEO)
+#opções do comando hdparm: -t (Perform timings of device reads for benchmark and comparison
+#purposes), -T (Perform  timings of cache reads for benchmark and comparison purposes).
+sudo hdparm -tT /dev/sda
+```
+
+Entendendo os valores de métricas do comando __`*hdparm*`__
+
+**SAÍDA DA PRIMEIRA LINHA COMANDO HDPARM:** Timing cached reads:   34136 MB in  1.99 seconds = 17185.15 MB/sec<br>
+| ID | VALORES | INFORMAÇÃO |
+|----|---------|------------|
+| 01 | 34136 MB | Quantidade total de dados simulados como leitura. |
+| 02 | 1.99 seconds | Tempo total que o teste levou. |
+| 03 | 17185.15 MB/sec | Taxa de leitura simulada do cache. Um valor alto é normal e esperado, pois a memória RAM é muito mais rápida que qualquer disco físico (HD ou SSD). |
+
+**SAÍDA DA SEGUNDA LINHA COMANDO HDPARM:** Timing buffered disk reads: 3656 MB in  3.00 seconds = 1218.24 MB/sec
+| ID | VALORES | INFORMAÇÃO |
+|----|---------|------------|
+| 01 | 3656 MB | Volume de dados lidos diretamente do disco. |
+| 02 | 3.00 seconds | Tempo total que o teste levou. |
+| 03 | 1218.24 MB/sec | Taxa real de leitura sequencial do disco. Esse valor varia de acordo com o tipo de armazenamento. |
 
 ```bash
 #analisando o desempenho do disco com o comando glances (PARA SAIR PRESSIONE: q (quit))
