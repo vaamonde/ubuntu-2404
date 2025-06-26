@@ -55,15 +55,43 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 #verificando as informações da identificação do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
 sudo cat -n /etc/os-release
+```
 
+Entendendo a saída do arquivo: __`os-release`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Linha | Campo                | Valor                                                            | Descrição                        |
+| ----- | -------------------- | ---------------------------------------------------------------- | -------------------------------- |
+| 1     | `PRETTY_NAME`        | `"Ubuntu 24.04.2 LTS"`                                           | Nome completo e legível da distribuição.                         |
+| 2     | `NAME`               | `"Ubuntu"`                                                       | Nome genérico da distribuição.                                   |
+| 3     | `VERSION_ID`         | `"24.04"`                                                        | Versão principal da distribuição (sem revisões menores).         |
+| 4     | `VERSION`            | `"24.04.2 LTS (Noble Numbat)"`                                   | Versão completa com número de release e codinome.                |
+| 5     | `VERSION_CODENAME`   | `noble`                                                          | Codinome da versão em desenvolvimento.                           |
+| 6     | `ID`                 | `ubuntu`                                                         | Identificador do sistema operacional.                            |
+| 7     | `ID_LIKE`            | `debian`                                                         | Sistemas operacionais semelhantes (compatibilidade).             |
+| 8     | `HOME_URL`           | `https://www.ubuntu.com/`                                        | Página oficial do Ubuntu.                                        |
+| 9     | `SUPPORT_URL`        | `https://help.ubuntu.com/`                                       | Página de suporte oficial da distribuição.                       |
+| 10    | `BUG_REPORT_URL`     | `https://bugs.launchpad.net/ubuntu/`                             | URL para relatar bugs do sistema operacional.                    |
+| 11    | `PRIVACY_POLICY_URL` | `https://www.ubuntu.com/legal/terms-and-policies/privacy-policy` | Política de privacidade da Canonical/Ubuntu.                     |
+| 12    | `UBUNTU_CODENAME`    | `noble`                                                          | Codinome do release estável (mesmo valor de `VERSION_CODENAME`). |
+
+```bash
 #verificando as informações específicas do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
 sudo cat -n /etc/lsb-release
 ```
 
+Entendendo a saída do arquivo: __`lsb-release`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Linha | Campo                 | Valor                  | Descrição                                                                        |
+| ----- | --------------------- | ---------------------- | -------------------------------------------------------------------------------- |
+| 1     | `DISTRIB_ID`          | `Ubuntu`               | Identificador da distribuição conforme o padrão **LSB** (*Linux Standard Base*). |
+| 2     | `DISTRIB_RELEASE`     | `24.04`                | Versão principal da distribuição Ubuntu.                                         |
+| 3     | `DISTRIB_CODENAME`    | `noble`                | Codinome da versão (`noble` = Noble Numbat).                                     |
+| 4     | `DISTRIB_DESCRIPTION` | `"Ubuntu 24.04.2 LTS"` | Descrição completa da distribuição e número de release.                          |
+
 ## 02_ Atualizando o Sistema Operacional Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** recomendo fazer um upgrade completo no servidor antes de adicionar a Licença do Ubuntu Pro.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: recomendo fazer um upgrade completo no servidor antes de
 #adicionar a Licença do Ubuntu Pro.
 sudo apt update
 sudo apt upgrade
@@ -102,12 +130,16 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
     Personal Data Request: <Yes, log me in>
 
 02) Será mostrado no campo Free Personal Token o seu token;
-    Copiar o seu Token no campo: Token.
+    Copiar o seu Token no campo: Token. ou
+    Copiar o comando com o Token na linha: Command to attach a machine: 
+
+03) No lado esquerdo em: Free Personal Token é mostrado as colunas:
+    Machines (Licenças Disponíveis), Created (Data de Criação) e Expires (Data de Expiração)
 ```
 
 ## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja *>= a versão 27.13.x*
+**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja: __`>= a versão 27.13.x`__
 
 ```bash
 #instalando o Ubuntu Pro Client
@@ -123,7 +155,7 @@ sudo pro --version
 ```bash
 #adicionando o Token da licença do Ubuntu Pro
 #opção do comando pro: attach (Connect an Ubuntu Pro support contract to this machine)
-sudo pro attach [COLAR O SEU TOKEN]
+sudo pro attach COPIAR_E_COLAR_O_SEU_TOKEN
 ```
 
 ## 07_ Verificando os repositórios de origem das atualizações no Ubuntu Server
@@ -149,28 +181,24 @@ sudo pro fix CVE-2023-23518
 ```
 
 ## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA**, **ESM-APPS** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
+
+| ID | SERVIÇOS | DESCRIÇÃO |
+|----|----------|-----------|
+| 01 | cc-eal | Relacionado à conformidade com os Critérios Comuns EAL2 |
+| 02 | cis | Ferramentas para conformidade automatizada com o Center of Internet Security (CIS) e seus benchmarks |
+| 03 | esm-infra | Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos de atualizações de segurança para versões LTS |
+| 04 | esm-apps | ESM do Ubuntu, mas para aplicativos |
+| 05 | fips | Relacionado à conformidade com os Padrões Federais de Processamento de Informações (FIPS) |
+| 06 | fips-updates | Atualizações de segurança para fips |
+| 07 | livepatch | Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch) |
+| 08 | realtime-kernel | Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente não precisa dele) |
+| 09 | ros | Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional de Robô |
+| 10 | ros-updates | Atualizações de segurança para o sistema operacional do robô |
+| 11 | usg | Ferramentas para conformidade de segurança e auditoria do sistema. |.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
-#serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 
-#serviços veja a lista abaixo:
-
-01) cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
-02) cis.............: Ferramentas para conformidade automatizada com o Center of Internet 
-                      Security (CIS) e seus benchmarks;
-03) esm-infra.......: Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos
-                      de atualizações de segurança para versões LTS;
-04) esm-apps........: ESM do Ubuntu, mas para aplicativos.
-05) fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
-                      Informações (FIPS);
-06) fips-updates....: Atualizações de segurança para fips;
-07) livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch);
-08) realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente
-                      não precisa dele);
-09) ros.............: Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional 
-                      de Robô;
-10) ros-updates.....: Atualizações de segurança para o sistema operacional do robô;
-11) usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
-
 #habilitando o suporte ao ESM-APPS no Ubuntu Pro
 #opção do comando pro: enable (Activate  and  configure  this machine's access to an Ubuntu
 #Pro service)
@@ -182,9 +210,11 @@ sudo pro status
 ```
 
 ## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** após adicionar a licença do *Ubuntu Pro* é recomendado fazer um upgrade completo do sistema para testar o *Token* e as novas listas do **sources.list** do Ubuntu Pro.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: após adicionar a licença do Ubuntu Pro é recomendado fazer
-#um upgrade completo do sistema para testar o Token e as novas listas do sources.list
+#atualizando o sistema operacional com suporte ao Ubuntu Pro
 sudo apt clean
 sudo apt update
 sudo apt upgrade

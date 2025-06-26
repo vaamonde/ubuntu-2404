@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 01/03/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 26/06/2025<br>
+#Versão: 0.09<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
 #Testado e homologado no Portainer-CE (Community Edition) 2.x<br>
@@ -80,20 +80,22 @@ docker search portainer/portainer-ce:latest
 docker volume create portainer_data
 ```
 
-Informações que são mostradas na saída do comando: *docker volume*<br>
-
-| ID | DADOS      | INFORMAÇÃO                                                                   |
-|----|------------|------------------------------------------------------------------------------
-| 01 | DRIVER | local de armazenamento do volume; | 
-| 02 | VOLUME NAME | nome do volume criado. |
-
 ```bash
 #listando o volume criado do Portainer.io CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/ls/
 #opção do comando docker: volume (Manage volumes), ls (List all the volumes known to Docker)
 docker volume ls
+```
 
+Entendendo os valores de saída das informações do comando: __`*docker volume*`__
+
+| ID | DADOS      | INFORMAÇÃO |
+|----|------------|------------|
+| 01 | DRIVER | local de armazenamento do volume; | 
+| 02 | VOLUME NAME | nome do volume criado. |
+
+```bash
 #inspecionando o volume criado do Portainer.io CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/volume/inspect/
@@ -117,17 +119,6 @@ docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 ```
 
 ## 04_ Verificando o Status do Container do Portainer.io CE no Docker-CE
-
-Informações que são mostradas na saída do comando: *docker images*<br>
-
-| ID | DADOS      | INFORMAÇÃO                                                                   |
-|----|------------|------------------------------------------------------------------------------
-| 01 | REPOSITORY | nome da imagem do docker; |
-| 02 | TAG | versão da imagem do docker; |
-| 03 | IMAGE ID | identificação da imagem do docker; |
-| 04 | CREATED | quando a imagem foi criada; | 
-| 05 | SIZE | tamanho da imagem do docker. |
-
 ```bash
 #listando todas as imagens de containers no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/
@@ -135,10 +126,29 @@ Informações que são mostradas na saída do comando: *docker images*<br>
 docker images
 ```
 
-Informações que são mostradas na saída do comando: *docker container ls*<br>
+Entendendo os valores de saída das informações do comando: __`*docker images*`__
 
-| ID | DADOS      | INFORMAÇÃO                                                                   |
-|----|------------|------------------------------------------------------------------------------
+| ID | DADOS      | INFORMAÇÃO |
+|----|------------|------------|
+| 01 | REPOSITORY | nome da imagem do docker; |
+| 02 | TAG | versão da imagem do docker; |
+| 03 | IMAGE ID | identificação da imagem do docker; |
+| 04 | CREATED | quando a imagem foi criada; | 
+| 05 | SIZE | tamanho da imagem do docker. |
+
+```bash
+#listando todos os containers em execução no Docker-CE
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
+#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
+#opção do comando docker: container (Manage containers), ls (List containers), -a --all 
+#(Show all images (default hides intermediate images))
+docker container ls -a
+```
+
+Entendendo os valores de saída das informações do comando: __`*docker container ls*`__
+
+| ID | DADOS      | INFORMAÇÃO  |
+|----|------------|-------------|
 | 01 | CONTAINER ID | identificação única do container no docker; |
 | 02 | IMAGE | imagem utilizada na execução do container no docker; |
 | 03 | COMMAND | comando em execução da imagem do docker; |
@@ -148,13 +158,6 @@ Informações que são mostradas na saída do comando: *docker container ls*<br>
 | 07 | NAMES | nome do container no docker. |
 
 ```bash
-#listando todos os containers em execução no Docker-CE
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
-#Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls/
-#opção do comando docker: container (Manage containers), ls (List containers), -a --all 
-#(Show all images (default hides intermediate images))
-docker container ls -a
-
 #filtrando o container do Portainer.io CE no Docker-CE
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/image/ls//
@@ -222,9 +225,9 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
 
 #Informações que serão solicitadas na configuração via Web do Portainer.io
 Please create the initial administrator user.
-  Username: vaamonde
-  Password: Vaamonde@2024
-  Confirm password: Vaamonde@2024
+  Username: seu_usuário
+  Password: sua_senha
+  Confirm password: sua_senha
   (ON) Allow collection of anonymous statistics. You can find more information about this in our privacy policy.
 <Create User>
 

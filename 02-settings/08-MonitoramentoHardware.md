@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 03/06/2025<br>
-#Versão: 0.11<br>
+#Data de atualização: 26/06/2025<br>
+#Versão: 0.12<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
@@ -58,12 +58,42 @@ s-tui lm-sensors acpi i7z glances smartmontools nvme-cli
 
 ## 02_ Verificando a versão do Ubuntu Server
 ```bash
-#verificando a versão e codinome do Ubuntu Server 
-sudo cat /etc/os-release
-
-#verificando a versão do LSB (Linux Standard Base) do Ubuntu Server
-sudo cat /etc/lsb-release
+#verificando as informações da identificação do Sistema Operacional
+#opção do comando cat: -n (number all output lines)
+sudo cat -n /etc/os-release
 ```
+
+Entendendo os valores de saída das informações arquivo: __`os-release`__ (NÃO COMENTADO NO VÍDEO)
+
+| ID | Campo                | Valor                                                            | Descrição                        |
+| ---| -------------------- | ---------------------------------------------------------------- | -------------------------------- |
+| 01 | `PRETTY_NAME`        | `"Ubuntu 24.04.2 LTS"`                                           | Nome completo e legível da distribuição.                         |
+| 02 | `NAME`               | `"Ubuntu"`                                                       | Nome genérico da distribuição.                                   |
+| 03 | `VERSION_ID`         | `"24.04"`                                                        | Versão principal da distribuição (sem revisões menores).         |
+| 04 | `VERSION`            | `"24.04.2 LTS (Noble Numbat)"`                                   | Versão completa com número de release e codinome.                |
+| 05 | `VERSION_CODENAME`   | `noble`                                                          | Codinome da versão em desenvolvimento.                           |
+| 06 | `ID`                 | `ubuntu`                                                         | Identificador do sistema operacional.                            |
+| 07 | `ID_LIKE`            | `debian`                                                         | Sistemas operacionais semelhantes (compatibilidade).             |
+| 08 | `HOME_URL`           | `https://www.ubuntu.com/`                                        | Página oficial do Ubuntu.                                        |
+| 09 | `SUPPORT_URL`        | `https://help.ubuntu.com/`                                       | Página de suporte oficial da distribuição.                       |
+| 10 | `BUG_REPORT_URL`     | `https://bugs.launchpad.net/ubuntu/`                             | URL para relatar bugs do sistema operacional.                    |
+| 11 | `PRIVACY_POLICY_URL` | `https://www.ubuntu.com/legal/terms-and-policies/privacy-policy` | Política de privacidade da Canonical/Ubuntu.                     |
+| 12 | `UBUNTU_CODENAME`    | `noble`                                                          | Codinome do release estável (mesmo valor de `VERSION_CODENAME`). |
+
+```bash
+#verificando as informações específicas do Sistema Operacional
+#opção do comando cat: -n (number all output lines)
+sudo cat -n /etc/lsb-release
+```
+
+Entendendo os valores de saída das informações do arquivo: __`lsb-release`__ (NÃO COMENTADO NO VÍDEO)
+
+| ID | Campo                 | Valor                  | Descrição                                                                        |
+| ---| --------------------- | ---------------------- | -------------------------------------------------------------------------------- |
+| 01 | `DISTRIB_ID`          | `Ubuntu`               | Identificador da distribuição conforme o padrão **LSB** (*Linux Standard Base*). |
+| 02 | `DISTRIB_RELEASE`     | `24.04`                | Versão principal da distribuição Ubuntu.                                         |
+| 03 | `DISTRIB_CODENAME`    | `noble`                | Codinome da versão (`noble` = Noble Numbat).                                     |
+| 04 | `DISTRIB_DESCRIPTION` | `"Ubuntu 24.04.2 LTS"` | Descrição completa da distribuição e número de release.                          |
 
 ## 03_ Verificando a versão do Kernel e Uptime no Ubuntu Server
 ```bash
@@ -90,10 +120,49 @@ Entendendo os valores de saída das informações do Kernel com o comando: __`*u
 ```bash
 #verificando a versão do Kernel com o comando hostnamectl
 sudo hostnamectl
+```
 
+Entendendo os valores de saída das informações do Kernel com o comando: __`*hostnamectl*`__
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | Static hostname  | Nome estático do sistema (definido manualmente ou durante a instalação). |
+| 02 | Icon name        | Representação simbólica do tipo de dispositivo (ex: `computer-vm`, `laptop`). |
+| 03 | Chassis          | Tipo físico ou virtual do equipamento, como `desktop`, `laptop`, `vm`, etc. |
+| 04 | Machine ID       | Identificador único do sistema gerado na instalação (UUID persistente).   |
+| 05 | Boot ID          | Identificador único da sessão atual de boot (muda a cada reinicialização). |
+| 06 | Virtualization   | Tecnologia de virtualização detectada (como `oracle` no caso do VirtualBox). |
+| 07 | Operating System | Nome e versão do sistema operacional instalado.                            |
+| 08 | Kernel           | Versão do kernel Linux em execução.                                       |
+| 09 | Architecture     | Arquitetura do processador (como `x86-64`, `arm64`, etc.).                |
+| 10 | Hardware Vendor  | Fabricante do hardware detectado (real ou virtual).                       |
+| 11 | Hardware Model   | Modelo do hardware (real ou virtual, como `VirtualBox`).                  |
+| 12 | Firmware Version | Versão do firmware (BIOS ou UEFI). No caso de máquinas virtuais, indica a versão do ambiente virtual. |
+| 13 | Firmware Date    | Data de lançamento do firmware ou BIOS.                                   |
+| 14 | Firmware Age     | Idade estimada do firmware desde seu lançamento.                          |
+
+```bash
 #verificando a versão do Kernel do arquivo version
 sudo cat /proc/version
 ```
+
+Entendendo os valores de saída das informações do Kernel do arquivo: __`*/proc/version*`__
+
+**SAÍDA DA PRIMEIRA LINHA DO ARQUIVO VERSION:** Linux version 6.8.0-59-generic (buildd@lcy02-amd64-035) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #61-Ubuntu SMP PREEMPT_DYNAMIC Fri Apr 11 23:16:11 UTC 2025
+
+### Explicação da saída do comando `cat /proc/version`
+
+| ID | VALORES | INFORMAÇÃO|
+|----|---------|-----------|
+| 01 | **Linux version 6.8.0-59-generic** | Versão do kernel Linux em execução. |
+| 02 | **(buildd@lcy02-amd64-035)** | Nome do usuário e hostname do servidor que compilou o kernel (nó de build da Canonical). |
+| 03 | **(x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0**  | Compilador GCC (versão 13.3.0) usado na compilação do kernel.|
+| 04 | **GNU ld (GNU Binutils for Ubuntu) 2.42** | Versão do *linker* `ld` usado para gerar o binário final do kernel. |
+| 05 | **#61-Ubuntu** | Número da compilação do kernel pela Canonical (esse é o build 61 para essa versão). |
+| 06 | **SMP** | "Symmetric MultiProcessing" — suporte a múltiplos núcleos de CPU. |
+| 07 | **PREEMPT_DYNAMIC** | Suporte a preempção dinâmica — permite alternar modos de preempção em tempo de execução. |
+| 08 | **Fri Apr 11 23:16:11 UTC 2025** | Data e hora da compilação do kernel no formato UTC. |
+
 ```bash
 #verificando o tempo de atividade do servidor com o comando uptime
 sudo uptime

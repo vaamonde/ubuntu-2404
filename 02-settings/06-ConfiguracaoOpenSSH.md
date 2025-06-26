@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.05<br>
+#Data de atualização: 26/06/2025<br>
+#Versão: 0.06<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 **OBSERVAÇÃO IMPORTANTE:** O VÍDEO DAS CONFIGURAÇÕES DO OPENSSH SERVER DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
@@ -37,7 +37,15 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o protocolo SSH (Secure Shell), permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+**O QUE É E PARA QUE SERVER O OPENSSH:** O *OpenSSH (Open Secure Shell)* é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+
+**O QUE É E PARA QUE SERVER O OPENSSL:** O *OpenSSL* é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *Protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer)*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
+
+**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O *TCP Wrappers* é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *Restringir ou Permitir* conexões com base no endereço IPv4/IPv6 do cliente, hostname ou outras regras definidas pelo administrador.
+
+**O QUE É E PARA QUE SERVER O BLUE TEAM:** Blue Team é o time de *Defesa em Cibersegurança*. É o grupo responsável por: *proteger, monitorar e responder a ataques cibernéticos* dentro de uma organização. Eles trabalham de forma **Proativa e Reativa**, com foco total na segurança defensiva.
+
+**O QUE É E PARA QUE SERVER O RED TEAM:** Red Team é o time de *Ataque em Cibersegurança*. A missão deles é *simular ataques reais contra a infraestrutura da empresa* para encontrar **Falhas** e testar a eficácia das *defesas (Blue Team)*. Eles são os __`"hackers éticos ofensivos"`__ dentro da organização — tudo é feito com autorização e objetivo de melhorar a segurança.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
@@ -66,11 +74,21 @@ sudo apt install openssh-server openssh-client openssl
 ## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server
 ```bash
 #verificando o serviço do OpenSSH Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
 sudo systemctl status ssh
 sudo systemctl restart ssh
 sudo systemctl stop ssh
 sudo systemctl start ssh
 
+#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu ssh
+```
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando as versões do OpenSSH Server e Client
 #opção do comando sshd e ssh: -V (version)
 sudo sshd -V
@@ -115,6 +133,7 @@ INSERT
 #inserir as informações na linha: 17
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.deny
 ALL: ALL
 ```
 ```bash
@@ -134,7 +153,8 @@ INSERT
 #inserir as informações na linha: 10
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-sshd: SUA_REDE/SEU_CIDR
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow
+sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR
 ```
 ```bash
 #salvar e sair do arquivo
@@ -211,6 +231,8 @@ sudo journalctl -xeu ssh
 ## 07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
 ```bash
 #acessando o OpenSSH via Powershell
+```bash
+#acessando o OpenSSH via Powershell
 Windows
   Pesquisa do Windows
     Powershell
@@ -228,47 +250,66 @@ Category
     SSH: On
 <Open>
 
+#acessando o OpenSSH via Git Bash no Windows
+Windows
+  Git Bash
+    ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
+
 #acessando o OpenSSH via Terminal no Linux Mint
 Linux
   Terminal: Ctrl + Alt + T
     ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
 ```
 
-**OBSERVAÇÃO IMPORTANTE 01:** no comando: *w* ele mostra na primeira linha as informações de:<br>
-1. Data e Hora Atual do Sistema; 
-2. Período de Tempo Ativo, 
-3. Número de Usuários Logados;
-3. Médias de Cargas do Sistema (1, 5 e 15 minutos).
-
-**OBSERVAÇÃO IMPORTANTE 02:** no comando: *w* ele mostra as informações separadas por colunas:<br>
-1. USER (usuário logado);
-2. TTY (terminal do usuário);
-3. FROM (origem da conexão); 
-4. LOGIN@ (hora do login do usuário);
-5. IDLE (tempo ocioso do usuário);
-6. JCPU (tempo de CPU dos processos do TTY);
-7. PCPU (tempo de CPU do processo do último comando o usuário);
-8. WHAT (processo atual do usuário).
-
 ```bash
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
 sudo w
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** no comando: *who* ele mostra as informações separadas por colunas:<br>
-1. NAME (usuário logado);
-2. LINE (terminal do usuário);
-3. TIME (data e hora do login do usuário);
-4. IDLE (tempo ocioso do usuário); 
-5. PID (identificação do processo);
-6. COMMENT (origem da conexão do usuário);
-7. EXIT (saída do processo).
+**OBSERVAÇÃO IMPORTANTE 01:** no comando: __`w`__ ele mostra na primeira linha as informações de:<br>
+14:28:13   up 16 min,   1 user,   load average: 0,00, 0,00, 0,00<br>
+
+| Valores | Descrição |
+|---------|-----------|
+| 14:28:13 | Data e Hora Atual do Sistema; |
+| up 16 min | Período de Tempo Ativo; |
+| 1 user | Número de Usuários Logados; |
+| load average: 0,00, 0,00, 0,00 | Médias de Cargas do Sistema (1, 5 e 15 minutos). |
+
+**OBSERVAÇÃO IMPORTANTE 02:** no comando: __`w`__ ele mostra as informações separadas por colunas:<br>
+USER   TTY   FROM   LOGIN@   IDLE   JCPU   PCPU   WHAT<br>
+
+| Colunas | Descrição | 
+|---------|-----------|
+| USER | usuário logado; |
+| TTY | terminal do usuário |
+| FROM | origem da conexão; |
+| LOGIN@ | hora do login do usuário; |
+| IDLE | tempo ocioso do usuário; |
+| JCPU | tempo de CPU dos processos do TTY; |
+| PCPU | tempo de CPU do processo do último comando o usuário; |
+| WHAT | processo atual do usuário. |
 
 ```bash
 #verificando os usuários logados remotamente no Ubuntu Server
 #opção do comando who: -H (heading), -a (all)
 sudo who -Ha
+```
 
+**OBSERVAÇÃO IMPORTANTE:** no comando: __`who`__ ele mostra as informações separadas por colunas:<br>
+NAME   LINE   TIME   IDLE   PID COMMENT   EXIT<br>
+
+| Colunas | Descrição | 
+|---------|-----------|
+| NAME | usuário logado; |
+| LINE | terminal do usuário; |
+| TIME | data e hora do login do usuário; |
+| IDLE | tempo ocioso do usuário; |
+| PID | identificação do processo; |
+| COMMENT | origem da conexão do usuário; |
+| EXIT | saída do processo. |
+
+```bash
 #verificando os usuários logados no Ubuntu Server
 users
 ```

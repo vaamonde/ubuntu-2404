@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 10/08/2024<br>
-#Data de atualização: 06/04/2025<br>
+#Data de atualização: 26/06/2025<br>
 #Versão: 0.10<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS<br>
 #Testado e homologado no Docker-CE (Community Edition) 24.x<br>
@@ -110,7 +110,7 @@ docker-compose-plugin cgroup-lite
 #baixando o Docker Compose do Projeto do Github
 #opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.29.x 06/04/2025)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-linux-x86_64 \
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.37.3/docker-compose-linux-x86_64 \
 -o /usr/bin/docker-compose
 
 #alterando as permissões do Binário do Docker Compose	
@@ -152,11 +152,12 @@ sudo ifconfig docker0
 ```
 
 ## 10_ Adicionando o Usuário Local no Grupo Padrão do Docker-CE
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
 #adicionando o seu usuário no grupo do Docker
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G docker $USER
 
 #fazendo login em um novo grupo do Docker
