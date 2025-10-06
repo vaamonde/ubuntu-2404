@@ -7,14 +7,15 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 08/08/2024<br>
-#Data de atualização: 26/06/2025<br>
-#Versão: 0.07<br>
+#Data de atualização: 06/10/2025<br>
+#Versão: 0.08<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 **OBSERVAÇÃO IMPORTANTE:** O VÍDEO DAS CONFIGURAÇÕES DO HOSTNAME, FQDN, HOSTS E DA PLACA DE REDE DO UBUNTU SERVER ESTÁ NA *VERSÃO 22.04.x LTS*, O PROCEDIMENTO DE ATUALIZAR É O MESMO NA VERSÃO 24.04.x LTS, LEVANDO EM CONSIDERAÇÃO APENAS AS DEPENDÊNCIAS DE APLICATIVOS QUE TEM NESSA DOCUMENTAÇÃO, ESSE CURSO ESTÁ USANDO A INSTALAÇÃO **MINIMIZADA (MINIMIZED)** DO UBUNTU SERVER.
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.3: https://fridge.ubuntu.com/2025/08/08/ubuntu-24-04-3-lts-released/<br>
 Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -25,11 +26,14 @@ Conteúdo estudado nessa configuração:<br>
 #01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 #02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
 #03_ Instalando os principais software de rede no Ubuntu Server<br>
-#04_ Verificando informações do Hardware de Rede no Ubuntu Server<br>
+#04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
 #05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
-#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
+#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **O QUE É E PARA QUE SERVER O NETPLAN:** O *Netplan* é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição **YAML** das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
@@ -39,14 +43,22 @@ Conteúdo estudado nessa configuração:<br>
 
 **O QUE É E PARA QUE SERVER O HOSTS:** O arquivo *Hosts* faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores *DNS (Domain Name System)* e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
 
+**O QUE É E PARA QUE SERVER O DNSSEC:** O DNSSEC (Domain Name System Security Extensions) é uma extensão do protocolo DNS que adiciona camadas de segurança para garantir que as respostas às consultas DNS não sejam alteradas ou falsificadas no caminho entre o servidor e o cliente.
+
+**O QUE É E PARA QUE SERVER O DOT (DNS Over TLS):** O DoT é um protocolo que permite criptografar as consultas e respostas do DNS usando TLS (Transport Layer Security) — o mesmo protocolo usado no HTTPS. Ou seja: em vez de o DNS viajar pela rede em texto puro (como no DNS tradicional), ele viaja dentro de um túnel criptografado TLS.
+
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
 ## 01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server
 ```bash
-#instalando o editor de Texto Vim, Git e o Python3
+#atualizando as lista do Apt sources.list
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
+
+#instalando o editor de Texto Vim, Git e o Python3
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install vim git python3
 
 #editando o arquivo de configuração do Hostname
@@ -74,13 +86,15 @@ sudo vim /etc/hosts
 INSERT
 ```
 ```bash
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts
+
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
 127.0.0.1      localhost.seu.dominio    localhost
 127.0.1.1      ctnseunome.seu.domínio   ctnseunome
 ENDEREÇO_IPV4  ctnseunome.seu.domínio   ctnseunome
 
-#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
+#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6 (DEIXAR O PADRÃO)
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -91,12 +105,15 @@ ff02::2 ip6-allrouters
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
+
+#verificando as informações de hosts no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo getent hosts
 ```
 
 ## 03_ Instalando os principais software de rede no Ubuntu Server
 ```bash
 #atualizando as lista do sources.list e instalando os pacotes e ferramentas de rede
-sudo apt update
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install bridge-utils ifenslave net-tools lshw iputils-ping
 ```
 
@@ -193,7 +210,8 @@ Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
 
 ```bash
 #verificando as informações de cache dos Servidores DNS (resolução de nomes)
-sudo resolvectl
+#opção do comando resolvectl: status (Shows the global and per-link DNS settings currently in effect)
+sudo resolvectl status
 ```
 
 Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
@@ -208,7 +226,29 @@ Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 | **Current Scopes** | `DNS`                                                          | Indica que a interface está usando o escopo DNS |
 | **Protocols**      | `+DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported` | Protocolos ativados/desativados para essa interface. `+LLMNR` está ativo; `-mDNS` e `-DNSOverTLS` estão desativados |
 | **DNS Servers**    | `8.8.8.8, 8.8.4.4`                                             | Servidores DNS configurados para a interface |
-| **DNS Domain**     | `pti.intra`                                                    | Domínio de busca DNS configurado para a interface 
+| **DNS Domain**     | `pti.intra`                                                    | Domínio de busca DNS configurado para a interface |
+
+```bash
+#verificando as informações de Leases (Alugueis) do DHCP Client no Ubuntu Server
+#opção do comando cat: -n (number line), * (asterisco) todos os arquivos
+sudo cat -n /run/systemd/netif/leases/*
+```
+
+Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<br>
+| **Campo**        | **Valor (Exemplo)**                      | **Descrição**                                                                                           |
+| ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ADDRESS`        | `172.16.1.131`                           | Endereço IP atribuído pelo servidor DHCP para a interface de rede.                                      |
+| `NETMASK`        | `255.255.255.0`                          | Máscara de sub-rede associada ao endereço IP, define o tamanho da rede.                                 |
+| `ROUTER`         | `172.16.1.254`                           | Gateway padrão fornecido pelo servidor DHCP, usado para acessar redes externas.                         |
+| `SERVER_ADDRESS` | `172.16.1.254`                           | Endereço IP do servidor DHCP que atendeu a requisição.                                                  |
+| `NEXT_SERVER`    | `172.16.1.254`                           | Próximo servidor no processo DHCP (geralmente usado para boot PXE ou TFTP).                             |
+| `T1`             | `43200` (12h)                            | Tempo em segundos até o cliente iniciar a **renovação** do lease com o servidor DHCP.                   |
+| `T2`             | `75600` (21h)                            | Tempo em segundos até o cliente tentar **renovar com outro servidor DHCP** se o primeiro não responder. |
+| `LIFETIME`       | `86400` (24h)                            | Tempo total de validade do lease em segundos (expiração do IP).                                         |
+| `DNS`            | `172.16.1.254`                           | Servidor(es) DNS fornecido(s) pelo DHCP.                                                                |
+| `DOMAINNAME`     | `apto.intra`                             | Nome de domínio fornecido pelo servidor DHCP, usado para resolução DNS.                                 |
+| `HOSTNAME`       | `wsvaamonde`                             | Nome de host atribuído ao cliente (pode ser usado para identificação na rede).                          |
+| `CLIENTID`       | `ffe2343f3e00020000ab11a1d5bc10296b8939` | Identificador único do cliente DHCP (gerado a partir da interface ou hardware).                         |
 
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
@@ -242,35 +282,58 @@ network:
     # Configuração da Interface Física (Nome Lógico visto no comando: lshw -class network)
     enp0s3:
       #
-      # Desabilitando o suporte ao DHCP Client IPv4 na interface física
-      dhcp4: false
-      #
       # Desabilitando o suporte da configuração automática do IPv6 na interface física
       # OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
       # na sua rede o recurso do IPv6, caso contrário fazer a configuração adequada
+      # do Link Local do IPv6.
       link-local: []
+      #
+      # Desabilitando o suporte ao DHCP Client IPv4 na interface física
+      dhcp4: false
+      #
+      # Desabilitando o suporte ao DHCP Client IPv6 na interface física
+      dhcp6: false
       #
       # Configuração do Endereço IPv4 e Máscara de Rede (CIDR) para o seu cenário
       # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
       addresses: [SEU_ENDEREÇO_IPv4/CIDR]
+      #
+      # Configuração do Endereço IPv4/CIDR e IPv6/CIDR para o seu cenário utilizando
+      # endereço IPv6 Unicast Global
+      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv6 e IPv6 separados por Traço
+      #addresses:
+      #  - SEU_ENDEREÇO_IPv4/CIDR
+      #  - SEU_ENDEREÇO_IPv6/CIDR
       #
       # Configuração do Gateway Padrão (Rota Padrão) para o seu cenário
       # OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo utilizar 
       # as opções de Routes (Rotas) do Netplan para configurar o Gateway padrão
       # gateway4: SEU_ENDEREÇO_IPv4
       routes:
-        # Configuração da Rota Padrão (cuidado com o traço antes da opção: to)
+        # Configuração da Rota Padrão IPv4 (cuidado com o traço antes da opção: to)
         - to: default
           # Configuração do endereço IPv4 do Gateway para o seu cenário
-          via: SEU_ENDEREÇO_IPv4
+          via: SEU_ENDEREÇO_DE_GATEWAY_IPv4
+          #
+        # Configuração da Rota Padrão IPv6 (cuidado com o traço antes da opção: to)
+        #- to: default
+          # Configuração do endereço IPv6 do Gateway para o seu cenário
+          #via: SEU_ENDEREÇO_DE_GATEWAY_IPv6
           #
       # Configuração dos servidores de DNS Server Preferencial e Alternativo
       nameservers:
-        # Configuração dos servidores de DNS para o seu cenário
+        # Configuração dos servidores de DNS IPv4 para o seu cenário
         # OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
         # por vírgula, recomendo pelo menos dois DNS Servers serem configurados ou 
         # somente o endereço do Servidor de DNS Local da Rede.
-        addresses: [8.8.8.8, 8.8.4.4]
+        addresses: [ENDEREÇO_IPV4_PREFERENCIAL, ENDEREÇO_IPV4_ALTERNATIVO]
+        # Configuração dos Endereços IPv4 e IPv6 de DNS para o seu cenário com nível de
+        # segurança contra Malware e Adult Content CloudFlare utilizando o CloudFlare
+        #addresses:
+        #  - 1.1.1.3
+        #  - 1.0.0.3
+        #  - 2606:4700:4700::1113
+        #  - 2606:4700:4700::1003
         # Configuração da pesquisa de domínio para o seu cenário
         # OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
         search: [seu.domínio]
@@ -304,9 +367,49 @@ sudo netplan --debug apply
 #opções do comando netplan: --debug (enable debug messages), try (try to apply a new netplan config)
 sudo netplan --debug try
 ```
+
+## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo vim /etc/systemd/resolved.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#descomentar e alterar o valor da variável Domains na linha 24 para: Domains=~.
+Domains=~.
+ 
+#descomentar e alterar o valor da variável DNSSEC na linha 25 para: DNSSEC=yes
+DNSSEC=yes
+
+#descomentar e alterar o valor da variável DNSOverTLS na linha 26 para: DNSOverTLS=yes
+DNSOverTLS=yes
+
+#descomentar e alterar o valor da variável Cache na linha 29 para: Cache=yes
+Cache=yes
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
+
+## 09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#reiniciar o serviço do Resolved (NÃO COMENTADO NO VÍDEO)
+#opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
+sudo systemctl restart systemd-resolved
+
+#verificar o status do serviço do Resolved (NÃO COMENTADO NO VÍDEO)
+#opção do comando systemctl: status (Show terse runtime status information about one or more units)
+sudo systemctl status systemd-resolved
+```
+
+## 10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
 ```bash
 #verificando o endereço IPv4 da Interface de Rede
-sudo ifconfig
+#opção do comando ifconfig: -a (all interfaces)
+sudo ifconfig -a
 sudo ip address show
 
 #verificando as informações de Gateway padrão
@@ -317,6 +420,10 @@ sudo ip route
 #verificando as informações dos Servidores DNS e Pesquisa de Domínio
 #opção do comando resolvectl: status (Shows the global and per-link DNS settings currently in effect)
 sudo resolvectl status
+
+#verificando as informações de endereço IPv4, DNS e Gateway com o Netplan (NÃO COMENTADO NO VÍDEO)
+#opção do comando netplan: status (show network address configuration)
+sudo netplan status
 
 #testando a conexão com a Internet e Resolução de nomes de DNS
 #opção do comando ping: -c 5 (Stop after sending count ECHO_REQUEST packets)
@@ -331,7 +438,7 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+## 11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o __`Protocolo SSH`__ nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
@@ -349,5 +456,5 @@ The authenticity of host 'SEU_ENDEREÇO_IPV4_UBUNTU_SERVER' can't be established
 ECDSA key fingerprint is SHA256:5yoVsKHMrn3FP/LBW1fyPTtVlt3og9jmyXPPkki/BY0.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes <Enter>
 seu_usuário@SEU_ENDEREÇO_IPV4's password: sua_senha <Enter> (Por motivo de segurança a senha não aparece no Terminal)
+
 seu_usuário@ctnseunome:~$ (Acesso ao Terminal Remoto (Bash/Shell) via SSH)
-```

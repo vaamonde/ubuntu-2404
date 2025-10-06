@@ -7,12 +7,13 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/09/2024<br>
-#Data de atualização: 01/04/2025<br>
-#Versão: 0.03<br>
+#Data de atualização: 06/10/2025<br>
+#Versão: 0.04<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.3: https://fridge.ubuntu.com/2025/08/08/ubuntu-24-04-3-lts-released/<br>
 Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -67,10 +68,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=130Xdztvm0I
 **OBSERVAÇÃO IMPORTANTE:** COMO ESTAMOS UTILIZANDO A VERSÃO DO UBUNTU SERVER 24.04.X LTS NO MODO MINIMIZADO (MINIMAL) O UFW (E O IPTABLES) NÃO VEM INSTALADO POR PADRÃO.
 
 ```bash
-#atualizando as lista do Apt
+#atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o UFW no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install ufw
 ```
 
@@ -79,10 +82,12 @@ sudo apt install ufw
 **OBSERVAÇÃO IMPORTANTE:** COMO ESTAMOS UTILIZANDO A VERSÃO DO UBUNTU SERVER 24.04.X LTS NO MODO MINIMIZADO (MINIMAL) O RSYSLOG (SYSLOG/LOGS) NÃO VEM INSTALADO POR PADRÃO, NESSE CENÁRIO A COMUNIDADE RECOMENDA UTILIZADO O COMANDO: *journalctl* MAIS PARA ESSE CURSO EU RECOMENDO A SUA INSTALAÇÃO.
 
 ```bash
-#atualizando as lista do Apt
+#atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Rsyslog no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install rsyslog lnav
 
 #habilitando o serviço do Rsyslog no Ubuntu Server
@@ -91,6 +96,8 @@ sudo systemctl enable rsyslog
 sudo systemctl start rsyslog
 
 #verificando o serviço do Rsyslog no Ubuntu Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
 sudo systemctl status rsyslog
 sudo systemctl restart rsyslog
 sudo systemctl stop rsyslog

@@ -7,12 +7,13 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 13/09/2024<br>
-#Data de atualização: 26/06/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 06/10/2025<br>
+#Versão: 0.13<br>
 #Testado e homologado no GNU/Linux Ubuntu Server 24.04.x LTS
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.3: https://fridge.ubuntu.com/2025/08/08/ubuntu-24-04-3-lts-released/<br>
 Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -50,7 +51,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=fstVt6vOrYc
 
 ## 01_ Instalando os aplicativos de monitoramento no Ubuntu Server
 ```bash
+#atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
+sudo apt update
+
 #instalação dos aplicativos básicos de monitoramento de hardware
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install sysstat nmon btop htop iotop dstat atop nload iftop bmon ethtool stress-ng \
 s-tui lm-sensors acpi i7z glances smartmontools nvme-cli
