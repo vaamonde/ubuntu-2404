@@ -40,11 +40,12 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual sistema operacional que mais se destacada em serviços para Web Site Local
+Prompt-01: qual sistema operacional que mais se destacada em serviços para Container Local
            (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
 Prompt-02: qual distribuição GNU/Linux lidera o mercado de servidores locais (on-premises)
            e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
 Prompt-03: quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
+Prompt-04: quais as principais Big Techs no Brasil e no mundo utiliza Container? 
 ```
 
 **O QUE É E PARA QUE SERVER O ON-PREMISES:** O "on-premises" se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
@@ -138,7 +139,7 @@ Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
       Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
       #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
       #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
-      #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
+      #DE REDE SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
 <OK>
 ```
 

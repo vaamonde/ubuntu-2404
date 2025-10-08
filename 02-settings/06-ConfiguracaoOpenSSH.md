@@ -229,7 +229,7 @@ Servidor: ctnseunome - Admin: SEU NOME E SOBRENOME
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
-editando o arquivo de configuração do Prompt de Login do Ubuntu Server
+#editando o arquivo de configuração do Prompt de Login do Ubuntu Server
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/issue
 sudo vim /etc/issue
 
@@ -261,8 +261,6 @@ sudo journalctl -xeu ssh
 ```
 
 ## 07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
-```bash
-#acessando o OpenSSH via Powershell
 ```bash
 #acessando o OpenSSH via Powershell
 Windows

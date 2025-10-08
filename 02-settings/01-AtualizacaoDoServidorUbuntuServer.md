@@ -32,6 +32,9 @@ Conteúdo estudado nessa atualização:<br>
 #06_ Removendo pacotes desnecessários no Ubuntu Server<br>
 #07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
 #08_ Limpando o cache local do sources.list no Ubuntu Server<br>
+#09_ Verificando todas as versões de software atualizados no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#10_ Verificando os Logs de atualização de software no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#11_ Reiniciando o sistema operacional do Ubuntu Server para aplicar as mudanças<br>
 
 **O QUE É E PARA QUE SERVER O APT-GET OU APT:** O apt-get e o apt são ferramentas de linha de comando no sistema operacional Ubuntu (e outras distribuições baseadas em Debian) para gerenciar pacotes de software. Ambos são usados para instalar, atualizar, remover e consultar pacotes de software no sistema.
 

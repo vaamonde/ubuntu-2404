@@ -70,6 +70,7 @@ INSERT
 ```bash
 #alterar o nome de domínio FQDN na linha 1
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
+#mais informações veja a documentação oficial em: https://man7.org/linux/man-pages/man5/hostname.5.html
 ctnseunome.seu.domínio
 ```
 ```bash
@@ -165,7 +166,7 @@ Entendendo a saída do comando: __`lshw`__ (NÃO COMENTADO NO VÍDEO)<br>
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
-#opções do comando ip: address (Protocol (IP or IPv6) address on a device)
+#opções do comando ip: address show (Protocol (IPv4 or IPv6) address on a device)
 sudo ifconfig -a
 sudo ip address show
 ```
@@ -191,9 +192,9 @@ Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
 ```bash
 #verificando as configurações de Gateway (route)
 #opção do comando route: -n (number)
-#opções do comando ip: route (Routing table entry)
+#opções do comando ip: route show (Routing table entry IPv4 or IPv6)
 sudo route -n
-sudo ip route
+sudo ip route show
 ```
 
 Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
@@ -415,7 +416,7 @@ sudo ip address show
 #verificando as informações de Gateway padrão
 #opção do comando route: -n (numeric)
 sudo route -n
-sudo ip route
+sudo ip route show
 
 #verificando as informações dos Servidores DNS e Pesquisa de Domínio
 #opção do comando resolvectl: status (Shows the global and per-link DNS settings currently in effect)

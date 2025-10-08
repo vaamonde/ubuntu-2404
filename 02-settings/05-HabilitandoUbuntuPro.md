@@ -55,6 +55,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 ```bash
 #verificando as informações da identificação do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
+#mais informações acesse a documentação oficial em: https://man7.org/linux/man-pages/man5/os-release.5.html
 sudo cat -n /etc/os-release
 ```
 
@@ -77,6 +78,7 @@ Entendendo a saída do arquivo: __`os-release`__ (NÃO COMENTADO NO VÍDEO)<br>
 ```bash
 #verificando as informações específicas do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
+#mais informações acesse a documentação oficial em: https://linux.die.net/man/1/lsb_release
 sudo cat -n /etc/lsb-release
 ```
 
