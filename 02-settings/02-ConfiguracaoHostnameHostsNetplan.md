@@ -177,7 +177,7 @@ Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
 | `enp0s3`                                                | Nome lógico da interface Ethernet detectada |
 | `flags=4163<...>`                                       | Flags da interface (ex.: UP = ativa, RUNNING = link OK, MULTICAST = suporta multicast) |
 | `mtu 1500`                                              | Tamanho máximo do pacote (MTU - Maximum Transmission Unit) |
-| `inet 172.16.1.20`                                      | Endereço IPv4 atribuído à interface |
+| `inet 172.16.1.131`                                     | Endereço IPv4 atribuído à interface |
 | `netmask 255.255.255.0`                                 | Máscara de sub-rede |
 | `broadcast 172.16.1.255`                                | Endereço de broadcast IPv4 |
 | `ether 08:00:27:b5:3b:c0`                               | Endereço MAC da interface (Ethernet) |
@@ -301,7 +301,7 @@ network:
       #
       # Configuração do Endereço IPv4/CIDR e IPv6/CIDR para o seu cenário utilizando
       # endereço IPv6 Unicast Global
-      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv6 e IPv6 separados por Traço
+      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 e IPv6 separados por Traço
       #addresses:
       #  - SEU_ENDEREÇO_IPv4/CIDR
       #  - SEU_ENDEREÇO_IPv6/CIDR

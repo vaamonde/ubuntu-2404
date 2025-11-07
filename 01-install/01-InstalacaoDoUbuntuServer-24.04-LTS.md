@@ -72,7 +72,6 @@ Link de download do Ubuntu Server: https://releases.ubuntu.com/24.04/
 02) Arquitetura do Ubuntu Server: AMD64 (64-bit)<br>
 03) Tipo de instalação: DVD Image (ISO) Installer<br>
 
-
 ## 02_ Criação da Máquina Virtual no Oracle VirtualBOX
 
 01) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
@@ -187,7 +186,7 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 
 04) Choose type of install
     ( ) Ubuntu Server (DEFAULT - Selecionado por padrão)
-    (X) Ubuntu Server (minimized) (SELECIONAR PRESSIONANDO SPACE)
+    (X) Ubuntu Server (minimized) (SELECIONAR PRESSIONANDO SPACE - BARRA DE ESPAÇO)
     Additional options
       [ ] Search for third-party drivers
 <Done>
