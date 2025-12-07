@@ -264,8 +264,8 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 
 ```bash
 01) Tela de Login do Ubuntu Server
-    Ubuntu 24.04.3 LTS wsseunome tty1
+    Ubuntu 24.04.3 LTS ctnseunome tty1
       ctnseunome login: seu_usuário <Enter> (altere para o seu usuário)
       Password: sua_senha <Enter> (altere para a sua senha)
-    seu_usuário@wsseunome:~$ (primeiro acesso ao Terminal do Ubuntu Server)
+    seu_usuário@ctnseunome:~$ (primeiro acesso ao Terminal do Ubuntu Server)
 ```
