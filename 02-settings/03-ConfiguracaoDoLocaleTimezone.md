@@ -153,7 +153,7 @@ sudo timedatectl
 
 ```bash
 #editando o arquivo de configuração timesyncd.conf
-#mais informações veja a documentação oficial em: https://documentation.ubuntu.com/server/how-to/networking/timedatectl-and-timesyncd/
+#mais informações veja a documentação oficial em: https://man7.org/linux/man-pages/man5/timesyncd.conf.5.html
 sudo vim /etc/systemd/timesyncd.conf
 
 #entrando no modo de edição do editor de texto VIM

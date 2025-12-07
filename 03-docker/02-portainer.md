@@ -15,6 +15,7 @@
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.3: https://fridge.ubuntu.com/2025/08/08/ubuntu-24-04-3-lts-released/<br>
 Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -171,7 +172,7 @@ docker container ls -q -f name=portainer
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-22 do OpenSSH Server
+#verificando a porta padrão TCP-9000 do Portainer.io
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```

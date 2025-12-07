@@ -14,6 +14,7 @@
 
 Release Ubuntu Server 24.04: https://fridge.ubuntu.com/2024/04/25/ubuntu-24-04-lts-noble-numbat-released/
 
+Release Notes Ubuntu Server 24.04.3: https://fridge.ubuntu.com/2025/08/08/ubuntu-24-04-3-lts-released/<br>
 Release Notes Ubuntu Server 24.04.2: https://fridge.ubuntu.com/2025/02/20/ubuntu-24-04-2-lts-released/<br>
 Release Notes Ubuntu Server 24.04.x: https://canonical.com/blog/canonical-releases-ubuntu-24-04-noble-numbat<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -198,7 +199,7 @@ docker system info
 
 ## 12_ Iniciando um Container de Teste do Docker-CE
 ```bash
-#pesquisando o container de Hello World do Docker-CE
+#pesquisando o container de Hello World do Docker-CE no Docker-Hub
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 #opção do comando docker: search (Search the Docker Hub for images)
@@ -210,15 +211,15 @@ docker search hello-world
 docker run hello-world
 ```
 
-## 13_ Iniciando um Container de Teste do Ubuntu Bash no Docker-CE
+## 13_ Iniciando um Container de Teste do Ubuntu e iniciando o Bash no Docker-CE
 ```bash
-#pesquisando o container do Ubuntu do Docker-CE
+#pesquisando o container do Ubuntu do Docker-CE no Docker-Hub
 #link de consulta do Docker Hub: https://hub.docker.com/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/search/
 #opção do comando docker: search (Search the Docker Hub for images)
 docker search ubuntu
 
-#iniciando o container do Ubuntu Bash do Docker-CE
+#iniciando o container do Ubuntu do Docker-CE e iniciando o Bash
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/
 #Documentação do Docker-CE: https://docs.docker.com/reference/cli/docker/container/run/
 #opção do comando docker: container (Manage containers), run (Create and run a new container 
@@ -226,7 +227,7 @@ docker search ubuntu
 #a pseudo-TTY), ubuntu (imagem docker hub), bash (command bash/shell terminal)
 docker container run -it ubuntu bash
 
-#executar os comandos básicos de Linux dentro do container Ubuntu Bash
+#executar os comandos básicos de Linux dentro do Bash no container Ubuntu
 cat /etc/os-release                             #verificação do Sistema Operacional 
 apt update                                      #atualizando as listas do apt
 apt install net-tools iputils-ping traceroute   #instalando os software básicos
