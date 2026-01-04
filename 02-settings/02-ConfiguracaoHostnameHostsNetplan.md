@@ -459,3 +459,4 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes <Enter>
 seu_usuário@SEU_ENDEREÇO_IPV4's password: sua_senha <Enter> (Por motivo de segurança a senha não aparece no Terminal)
 
 seu_usuário@ctnseunome:~$ (Acesso ao Terminal Remoto (Bash/Shell) via SSH)
+```
