@@ -40,14 +40,17 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual sistema operacional que mais se destacada em serviços para Container Local
-           (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
-
+Prompt-01: qual sistema operacional que mais se destacada em serviços para Container 
+Local (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
+```
+```bash
 Prompt-02: qual distribuição GNU/Linux lidera o mercado de servidores locais (on-premises)
-           e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
-
+e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
+```
+```bash
 Prompt-03: quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
-
+```
+```bash
 Prompt-04: quais as principais Big Techs no Brasil e no mundo utiliza Container? 
 ```
 
