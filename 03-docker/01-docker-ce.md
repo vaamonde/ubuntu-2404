@@ -118,7 +118,7 @@ docker-compose-plugin cgroup-lite
 #baixando o Docker Compose do Projeto do Github
 #opção do comando curl: -S (show-error), -L (location), -o (output) (Build 2.40.x 06/10/2025)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.40.0/docker-compose-linux-x86_64 \
+sudo curl -SL https://github.com/docker/compose/releases/download/v5.0.2/docker-compose-linux-x86_64 \
 -o /usr/bin/docker-compose
 
 #alterando as permissões do Binário do Docker Compose	
