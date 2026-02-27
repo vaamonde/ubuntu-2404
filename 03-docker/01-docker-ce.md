@@ -184,7 +184,7 @@ exit
 
 ## 11_ Verificando as Informações Detalhadas do Serviço do Docker-CE
 
-**OBSERVAÇÃO IMPORTANTE:** DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
+> **OBSERVAÇÃO IMPORTANTE:** DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
 
 ```bash
 #verificando as informações detalhadas do Docker-CE

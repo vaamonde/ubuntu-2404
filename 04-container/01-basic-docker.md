@@ -173,7 +173,7 @@ Informações dos códigos do status Exited dos containers do Docker-CE<br>
 | 07 |  126  | O contêiner tentou executar um comando, mas o comando não pôde ser invocado; |
 | 08 |  127  | O comando ou programa que o contêiner tentou executar não foi encontrado.    |
 
-**OBSERVAÇÃO IMPORTANTE:** SE VOCÊ NÃO USAR A OPÇÃO: *--name* (QUE SERÁ VISTO EM BREVE NESSE CURSO), O DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: *modest_shaw, peaceful_tharp, etc*.
+> **OBSERVAÇÃO IMPORTANTE:** SE VOCÊ NÃO USAR A OPÇÃO: __`--name`__ (QUE SERÁ VISTO EM BREVE NESSE CURSO), O DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: __`modest_shaw, peaceful_tharp, etc.`__
 
 ```bash
 #verificando os status dos containers em execução no Docker-CE
@@ -342,7 +342,7 @@ docker container pause [CONTAINER ID ou NAME]
 docker container unpause [CONTAINER ID ou NAME]
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O CONTAINER, O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS DO PROBLEMA.
+> **OBSERVAÇÃO IMPORTANTE:** NO VÍDEO DO DOCKER-CE BÁSICO FOI REMOVIDO DA GRAVAÇÃO A OPÇÃO DO BLOQUEAR O CONTAINER, O MESMO TRAVOU E NÃO RESPONDEU OS COMANDOS E NEM OS STATUS, VERIFICANDO AS CAUSAS DO PROBLEMA.
 
 ```bash
 #bloqueando o container do Ubuntu no Docker-CE
