@@ -86,7 +86,7 @@ docker search ubuntu --filter stars=10 --filter is-official=true
 docker search ubuntu --filter stars=10 --filter is-official=true --no-trunc
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** O termo: *latest* geralmente se refere à **versão mais recente** de um software ou imagem de contêiner. É comum em sistemas de versionamento e ferramentas como o Docker. No Docker, por exemplo, ao baixar uma imagem, se você não especificar uma *tag*, a **tag latest** é usada por padrão. Isso significa que você estará puxando a versão mais atualizada da imagem.
+> **OBSERVAÇÃO IMPORTANTE:** O termo: *latest* geralmente se refere à **versão mais recente** de um software ou imagem de contêiner. É comum em sistemas de versionamento e ferramentas como o Docker. No Docker, por exemplo, ao baixar uma imagem, se você não especificar uma *tag*, a **tag latest** é usada por padrão. Isso significa que você estará puxando a versão mais atualizada da imagem.
 
 ```bash
 #pesquisando todas as informações de NAME e TAG da imagem de container do Ubuntu via APIv2 do Docker-HUB
@@ -118,13 +118,13 @@ docker container run ubuntu
 
 Informações que são mostradas na saída do comando: *docker image ls*<br>
 
-| ID | DADOS      | INFORMAÇÃO                         |
-|----|------------|------------------------------------|
-| 01 | REPOSITORY | nome da imagem do docker;          |
-| 02 | TAG        | versão da imagem do docker;        |
-| 03 | IMAGE ID   | identificação da imagem do docker; |
-| 04 | CREATED    | quando a imagem foi criada;        |
-| 05 | SIZE       | tamanho da imagem do docker.       |
+| DADOS      | INFORMAÇÃO                    |
+|------------|-------------------------------|
+| **REPOSITORY** | nome da imagem do docker; |
+| **TAG** | versão da imagem do docker; |
+| **IMAGE ID** | identificação da imagem do docker; |
+| **CREATED** | quando a imagem foi criada; |
+| **SIZE** | tamanho da imagem do docker. |
 
 ```bash
 #listando as imagens de container do Ubuntu localmente no Docker-CE
@@ -141,37 +141,37 @@ docker image ls
 
 Informações que são mostradas na saída do comando: *docker container ls*<br>
 
-| ID | DADOS        | INFORMAÇÃO                                                          |
-|----|--------------|---------------------------------------------------------------------|
-| 01 | CONTAINER ID | identificação única do container no docker;                         |
-| O2 | IMAGE        | imagem utilizada na execução do container no docker;                |
-| 03 | COMMAND      | comando em execução da imagem do docker;                            |
-| 04 | CREATED      | quando a imagem foi criada no docker;                               |
-| 05 | STATUS       | status atual da imagem no docker;                                   |
-| 06 | PORTS        | porta do container e do host utilizada para se comunicar no docker; |
-| 07 | NAMES        | nome do container no docker.                                        |
+| DADOS        | INFORMAÇÃO                                      |
+|--------------|-------------------------------------------------|
+| **CONTAINER ID** | identificação única do container no docker; |
+| **IMAGE** | imagem utilizada na execução do container no docker; |
+| **COMMAND** | comando em execução da imagem do docker; |
+| **CREATED** | quando a imagem foi criada no docker; |
+| **STATUS** | status atual da imagem no docker; |
+| **PORTS** | porta do container e do host utilizada para se comunicar no docker; |
+| **NAMES** | nome do container no docker. |
 
 Informações dos status padrão dos containers do Docker-CE<br>
 
-| ID | DADOS      | INFORMAÇÃO                                              |
-|----|------------|---------------------------------------------------------|
-| 01 | Up         | O contêiner está em execução e funcionando normalmente. |
-| 02 | Exited     | O contêiner foi encerrado.                              |
-| 03 | Restarting | O contêiner está em um ciclo de reinicialização.        |
-| 04 | Created    | O contêiner foi criado mais não foi executado ainda.    |
+| DADOS      | INFORMAÇÃO                                          |
+|------------|-----------------------------------------------------|
+| **Up** | O contêiner está em execução e funcionando normalmente. |
+| **Exited** | O contêiner foi encerrado. |
+| **Restarting** | O contêiner está em um ciclo de reinicialização. |
+| **Created** | O contêiner foi criado mais não foi executado ainda. |
 
 Informações dos códigos do status Exited dos containers do Docker-CE<br>
 
-| ID | DADOS | INFORMAÇÃO                                                                   |
-|----|-------|------------------------------------------------------------------------------|
-| 01 |    0  | O contêiner finalizou sua execução com sucesso (sem erros);                  |
-| 02 |    1  | O contêiner finalizou com um erro genérico ou uma exceção inesperada;        |
-| 03 |  137  | O contêiner foi encerrado devido a um comando SIGKILL (falta de memória);    |
-| 04 |  139  | O contêiner foi encerrado devido a um segmentation fault;                    |
-| 05 |  143  | O contêiner foi finalizado após receber um SIGTERM, comando: *docker stop*;  |
-| 06 |  125  | Ocorreu um erro ao tentar iniciar o contêiner, comando: *docker run*;        |
-| 07 |  126  | O contêiner tentou executar um comando, mas o comando não pôde ser invocado; |
-| 08 |  127  | O comando ou programa que o contêiner tentou executar não foi encontrado.    |
+| DADOS | INFORMAÇÃO                                                  |
+|-------|-------------------------------------------------------------|
+| **0** | O contêiner finalizou sua execução com sucesso (sem erros); |
+| **1** | O contêiner finalizou com um erro genérico ou uma exceção inesperada; |
+| **137** | O contêiner foi encerrado devido a um comando SIGKILL (falta de memória); |
+| **139** | O contêiner foi encerrado devido a um segmentation fault; |
+| **143** | O contêiner foi finalizado após receber um SIGTERM, comando: *docker stop*; |
+| **125** | Ocorreu um erro ao tentar iniciar o contêiner, comando: *docker run*; |
+| **126** | O contêiner tentou executar um comando, mas o comando não pôde ser invocado; |
+| **127** | O comando ou programa que o contêiner tentou executar não foi encontrado. |
 
 > **OBSERVAÇÃO IMPORTANTE:** SE VOCÊ NÃO USAR A OPÇÃO: __`--name`__ (QUE SERÁ VISTO EM BREVE NESSE CURSO), O DOCKER CRIA OS NOMES DOS CONTAINERS ALEATÓRIOS, COMO POR EXEMPLO: __`modest_shaw, peaceful_tharp, etc.`__
 
@@ -216,7 +216,7 @@ apt update
 exit
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** A CADA COMANDO: *docker container run* EXECUTADO NO TERMINAL, O DOCKER ENTENDE QUE SERÁ CRIADO MAIS UM CONTAINER (CONTAINER ID) COM A IMAGEM DO UBUNTU, PARA USAR O MESMO CONTAINER É NECESSÁRIO INDICAR O CONTAINER ID OU NAME NA EXECUÇÃO QUE SERÁ MOSTRADO NOS PRÓXIMOS COMANDOS.
+> **OBSERVAÇÃO IMPORTANTE:** A CADA COMANDO: __`docker container run`__ EXECUTADO NO TERMINAL, O DOCKER ENTENDE QUE SERÁ CRIADO MAIS UM CONTAINER (CONTAINER ID) COM A IMAGEM DO UBUNTU, PARA USAR O MESMO CONTAINER É NECESSÁRIO INDICAR O CONTAINER ID OU NAME NA EXECUÇÃO QUE SERÁ MOSTRADO NOS PRÓXIMOS COMANDOS.
 
 ```bash
 #verificando todos os status dos containers em execução no Docker-CE
@@ -357,16 +357,16 @@ docker container wait [CONTAINER ID ou NAME]
 
 Informações que são mostradas na saída do comando: *docker container stats*<br>
 
-| ID | DADOS           | INFORMAÇÃO                                                                          |
-|----|-----------------|-------------------------------------------------------------------------------------|
-| 01 | CONTAINER ID    | Identificação única do container em execução;                                       |
-| 02 | NAME            | Nome atribuído ao container;                                                        |
-| 03 | CPU             | Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema; |
-| 04 | MEM USAGE/LIMIT | Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o limite de memória disponível para ele (LIMIT); |
-| 05 | MEM %           | Percentual de uso da memória pelo container em relação ao limite de memória;        |
-| 06 | NET I/O         | Quantidade de dados trafegados pela rede (entrada e saída) do container;            |
-| 07 | BLOCK I/O       | Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD);  |
-| 08 | PIDS            | Número de processos (PIDs) em execução dentro do container.                         |
+| DADOS           | INFORMAÇÃO                                     |
+|-----------------|------------------------------------------------|
+| **CONTAINER ID** | Identificação única do container em execução; |
+| **NAME** | Nome atribuído ao container; |
+| **CPU** | Percentual de uso da CPU pelo container em relação ao tempo de execução do sistema; |
+| **MEM USAGE/LIMIT** | Quantidade de memória que o container está utilizando no momento (MEM USAGE) e o limite de memória disponível para ele (LIMIT); |
+| **MEM %** | Percentual de uso da memória pelo container em relação ao limite de memória; |
+| **NET I/O** | Quantidade de dados trafegados pela rede (entrada e saída) do container; |
+| **BLOCK I/O** | Quantidade de dados lidos e escritos pelo container em dispositivos de bloco (HD); |
+| **PIDS** | Número de processos (PIDs) em execução dentro do container. |
 
 ```bash
 #verificando as estatísticas do container do Ubuntu no Docker-CE
@@ -380,16 +380,16 @@ docker container stats [CONTAINER ID ou NAME]
 
 Informações que são mostradas na saída do comando: *docker top*<br>
 
-| ID | DADOS | INFORMAÇÃO                                                                             |
-|----|-------|----------------------------------------------------------------------------------------|
-| 01 | UID   | Identificador do usuário (User ID) que está executando o processo no container;        |
-| 02 | PID   | Identificador do processo (Process ID) dentro do container;                            |
-| 03 | PPID  | Identificador do processo pai (Parent Process ID) que iniciou o processo;              |
-| 04 | C     | Percentual de uso da CPU pelo processo;                                                |
-| 05 | STIME | Hora de início (Start Time) do processo;                                               |
-| 06 | TTY   | Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?; |
-| 07 | TIME  | Quantidade de tempo de CPU que o processo consumiu até o momento;                      |
-| 08 | CMD   | Comando ou caminho completo do executável que iniciou o processo.                      |
+| DADOS | INFORMAÇÃO                                                                        |
+|-------|-----------------------------------------------------------------------------------|
+| **UID** | Identificador do usuário (User ID) que está executando o processo no container; |
+| **PID** | Identificador do processo (Process ID) dentro do container; |
+| **PPID** | Identificador do processo pai (Parent Process ID) que iniciou o processo; |
+| **C** | Percentual de uso da CPU pelo processo; |
+| **STIME** | Hora de início (Start Time) do processo; |
+| **TTY** | Terminal de controle (se houver) associado ao processo. Se não houver, pode mostrar ?; |
+| **TIME** | Quantidade de tempo de CPU que o processo consumiu até o momento; |
+| **CMD** | Comando ou caminho completo do executável que iniciou o processo. |
 
 ```bash
 #verificando os processos rodando no container do Ubuntu no Docker-CE
@@ -466,7 +466,7 @@ docker container ls -a
 docker search debian
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** NA CRIAÇÃO DE CONTAINER SE VOCÊ NÃO PASSAR AS OPÇÕES: *-it* NO MOMENTO DE INICIAR O CONTAINER SERÁ APRESENTADO O ERRO DE: *Exited (0)*, NESSE EXEMPLO ESTÁ SENDO FEITO APENAS A CRIAÇÃO DO CONTAINER NÃO A SUA EXECUÇÃO.
+> **OBSERVAÇÃO IMPORTANTE:** NA CRIAÇÃO DE CONTAINER SE VOCÊ NÃO PASSAR AS OPÇÕES: *-it* NO MOMENTO DE INICIAR O CONTAINER SERÁ APRESENTADO O ERRO DE: *Exited (0)*, NESSE EXEMPLO ESTÁ SENDO FEITO APENAS A CRIAÇÃO DO CONTAINER NÃO A SUA EXECUÇÃO.
 
 ```bash
 #criando um novo container do Debian mais sem executar sem o modo Interativo
@@ -534,13 +534,13 @@ docker image ls
 
 Informações que são mostradas na saída do comando: *docker image history*<br>
 
-| ID | DADOS      | INFORMAÇÃO                                                                   |
-|----|------------|------------------------------------------------------------------------------|
-| 01 | IMAGE      | Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa de criação. Cada camada é uma modificação incremental. |
-| 02 | CREATED    | Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago").  |
-| 03 | CREATED BY | Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada da imagem (por exemplo, RUN apt-get update). |
-| 04 | SIZE       | Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados nesta etapa específica. |
-| 05 | COMMENT    | Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, a menos que tenha sido explicitamente preenchida durante o processo de build da imagem. |
+| DADOS      | INFORMAÇÃO                                                                   |
+|------------|------------------------------------------------------------------------------|
+| **IMAGE** | Identificador (ID) da camada da imagem ou o hash da imagem correspondente a cada etapa de criação. Cada camada é uma modificação incremental. |
+| **CREATED** | Tempo decorrido desde que a camada foi criada (por exemplo, "2 weeks ago"). |
+| **CREATED BY** | Comando ou instrução utilizada no Dockerfile ou linha de comando que gerou a camada da imagem (por exemplo, RUN apt-get update). |
+| **SIZE** | Tamanho da camada de imagem. Representa a quantidade de dados adicionados ou modificados nesta etapa específica. |
+| **COMMENT** | Comentários associados à criação da imagem. Normalmente, essa coluna pode estar em branco, a menos que tenha sido explicitamente preenchida durante o processo de build da imagem. |
 
 ```bash
 #verificando os históricos das imagens do Ubuntu e do Debian localmente no Docker-CE

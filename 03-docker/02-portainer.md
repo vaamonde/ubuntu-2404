@@ -169,7 +169,7 @@ docker container ls -q -f name=portainer
 
 ## 05_ Verificando a Porta de Conexão do Portainer.io no Docker-CE
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-9000 do Portainer.io
@@ -218,7 +218,7 @@ sudo ufw status verbose
 
 ## 10_ Acessando e configurando o Portainer.io via navegador
 
-**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** SE VOCÊ DEMORAR MUITO PARA ACESSAR PELA PRIMEIRA VEZ O PORTAINER O ERRO DE: *Failure: Unable to resolve server settings and status*, IRÁ APARECER NA TELA DO SEU NAVEGADOR, PARA RESOLVER ESSA FALHA VOCÊ PRECISAR REINICIAR O CONTAINER DO PORTAINER UTILIZANDO, POR EXEMPLO O COMANDO: *sudo systemctl stop portainer* E DEPOIS O COMANDO: *sudo systemctl start portainer*.
+> **OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** SE VOCÊ DEMORAR MUITO PARA ACESSAR PELA PRIMEIRA VEZ O PORTAINER O ERRO DE: *Failure: Unable to resolve server settings and status*, IRÁ APARECER NA TELA DO SEU NAVEGADOR, PARA RESOLVER ESSA FALHA VOCÊ PRECISAR REINICIAR O CONTAINER DO PORTAINER UTILIZANDO, POR EXEMPLO O COMANDO: __`sudo systemctl stop portainer`__ E DEPOIS O COMANDO: __`sudo systemctl start portainer`__.
 
 ```bash
 #utilizar os navegadores para testar o acesso ao Portainer.io 

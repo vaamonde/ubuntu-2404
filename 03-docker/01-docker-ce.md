@@ -112,7 +112,7 @@ docker-compose-plugin cgroup-lite
 
 ## 06_ Instalação do Docker Compose no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** a versão do Docker-Compose utilizando o Sources List do Docker-CE está desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo, antes sempre acesse o site: https://github.com/docker/compose/releases/ para verificar a versão atual do Docker Compose antes de baixar.
+> **OBSERVAÇÃO IMPORTANTE:** a versão do Docker-Compose utilizando o Sources List do Docker-CE está desatualizada em relação ao projeto do Github: https://github.com/docker/compose, é recomendado baixar o Binário do projeto e atualizar a versão no Ubuntu Server com o procedimento abaixo, antes sempre acesse o site: https://github.com/docker/compose/releases/ para verificar a versão atual do Docker Compose antes de baixar.
 
 ```bash
 #baixando o Docker Compose do Projeto do Github
@@ -161,7 +161,7 @@ sudo ifconfig docker0
 
 ## 10_ Adicionando o Usuário Local no Grupo Padrão do Docker-CE
 
-**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+> **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
 #adicionando o seu usuário no grupo do Docker
@@ -184,7 +184,7 @@ exit
 
 ## 11_ Verificando as Informações Detalhadas do Serviço do Docker-CE
 
-> **OBSERVAÇÃO IMPORTANTE:** DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É MAIS NECESSÁRIO ADICIONAR O COMANDO: sudo ANTES DO COMANDO: docker.
+> **OBSERVAÇÃO IMPORTANTE:** DEPOIS QUE VOCÊ ADICIONA O SEU USUÁRIO NO GRUPO DO DOCKER, NÃO É MAIS NECESSÁRIO ADICIONAR O COMANDO: __`sudo`__ ANTES DO COMANDO: __`docker`__.
 
 ```bash
 #verificando as informações detalhadas do Docker-CE
@@ -234,10 +234,11 @@ apt install net-tools iputils-ping traceroute   #instalando os software básicos
 ifconfig                                        #verificando as informações de placa de rede
 ping 8.8.8.8                                    #pingando o endereço de DNS do Google
 traceroute 8.8.8.8                              #traçando a rota do endereço de DNS do Google
+```
+> **OBSERVAÇÃO IMPORTANTE:** quando você utiliza o comando: __`exit`__ o Container em Docker e desligad (stopping), caso você queira sair do Container sem desligar pressione: __`Ctrl + P`__ ou __`Ctrl + Q`__ ou a tecla de atalho: __`Ctrl + D`__ que faz a função do comando: __`exit`__
 
-#OBSERVAÇÃO IMPORTANTE: quando você utiliza o comando: exit o Container em Docker e desligado
-#(stopping), caso você queira sair do Container sem desligar pressione: Ctrl + P ou Ctrl + Q
-#ou a tecla de atalho: Ctrl + D que faz a função do comando: exit.
+```bash
+#saindo da sessão do container do Ubuntu do Docker-CE
 exit
 ```
 
