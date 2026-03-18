@@ -1,3 +1,5 @@
+Linkedin Profile: Guilherme Franco - https://www.linkedin.com/in/guilherme-franco-062271206/
+
 # 🚀 DevOps MOTD Banner (Ubuntu)
 
 Dynamic login banner for Linux servers with real-time system insights.
