@@ -151,7 +151,7 @@ sudo apt update
 
 #instalando o Ubuntu Advantage Tools (Ubuntu Pro)
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install ubuntu-advantage-tools
+sudo apt install ubuntu-advantage-tools lsof
 
 #verificando a versão do cliente do Ubuntu Pro Client
 #opção do comado pro: --version ou version (Show version of the Ubuntu Pro package)

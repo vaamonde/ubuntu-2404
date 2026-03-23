@@ -75,7 +75,7 @@ sudo apt update
 
 #instalando o OpenSSH Server e Client
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install openssh-server openssh-client openssl 
+sudo apt install openssh-server openssh-client openssl lsof
 ```
 
 ## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server

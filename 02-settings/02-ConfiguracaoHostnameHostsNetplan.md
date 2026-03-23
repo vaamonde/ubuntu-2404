@@ -59,7 +59,7 @@ sudo apt update
 
 #instalando o editor de Texto Vim, Git e o Python3
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install vim git python3
+sudo apt install vim git python3 lsof
 
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
